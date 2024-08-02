@@ -27,8 +27,10 @@ group :jekyll_plugins do
   gem "webrick", "~> 1.8"
 end
 
-gem "webrick", "~> 1.7"
+# gem "webrick", "~> 1.7"
 
 gem "jekyll", "~> 3.9"
 
 gem 'eventmachine', '1.2.7', git: 'https://github.com/eventmachine/eventmachine.git', tag: 'v1.2.7'
+gem 'csv'
+gem 'faraday-retry'
