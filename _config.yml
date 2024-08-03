@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Postdoc at CCNY"
+title                    : "Bo Shang"
 title_separator          : "-"
 name                     : &name "Bo Shang"
 description              : &description "Post Doctoral Fellow at CCNY, software developer for inspection robots."
