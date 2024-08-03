@@ -12,7 +12,7 @@ title                    : "Bo Shang"
 title_separator          : "-"
 name                     : &name "Bo Shang"
 description              : &description "Post Doctoral Fellow at CCNY, software developer for inspection robots."
-url                      : https://cnpcshangbo.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://cnpcshangbo.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "cnpcshangbo/cnpcshangbo.github.io"
 
