@@ -10,21 +10,27 @@ redirect_from:
 
 # Bo Shang
 
-I am an Upcoming Research Scientist in the Department of Civil Engineering at CUNY City College, affiliated with the [AI & Mobility Research Lab](https://yiqiao-li.github.io/). My research focuses on the intersecting domains of robotics, control systems, and machine learning, with recent applications in highway traffic monitoring and automated bridge inspection. For more details, please see my [full CV](/cv/).
+I am an upcoming Research Scientist in Civil Engineering at CUNY City College, affiliated with the [AI & Mobility Research Lab](https://yiqiao-li.github.io/). My work bridges robotics, control systems, and machine learning, with applications in traffic monitoring and automated bridge inspection. [Full CV](/cv/)
 
-## Research Overview
+## Research Focus
 
-I specialize in the intersecting domains of robotics, control systems, and machine learning.
+My research advances agentic AI and robotics for transportation systems, emphasizing:
+- Human-Robot Close Proximity Interaction (HRCPI)
+- Crowd-Robot Flow Optimization
+- Traffic-inspired protocols for safe, socially-aware navigation
 
-My recent focus areas include:
-- Automated crack segmentation and measurement based on drone cameras
+Current topics include:
+- Autonomous robotic decision-making
+- Drone-based crack detection and measurement
 - Bridge Inspection Robot Deployment Systems (BIRDS)
-- Unmanned Aerial Systems for bridge inspection
+- UAS for infrastructure inspection
+- Sensing for vulnerable road user monitoring
+- Data analytics for structural health monitoring
 
-## Recent Publications
+## Selected Publications
 
-1. Bo Shang, Yiqiao Li, Arian Golrokh Amin, Camille Kamga and Jie Wei. Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey. The 22nd International Conference on Mobile Systems and Pervasive Computing (MobiSPC), August 4-6, 2025 (accepted).
-2. Bo Shang, Yiqiao Li, Jie Wei and Camille Kamga. How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users? The 22nd International Conference on Mobile Systems and Pervasive Computing (MobiSPC), August 4-6, 2025 (accepted).
-3. Jinglun Feng, Bo Shang, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, Jizhong Xiao. Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure. IEEE Transactions on Automation Science and Engineering, 2025.
+1. Bo Shang et al. Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey. MobiSPC 2025 (accepted).
+2. Bo Shang et al. How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users? MobiSPC 2025 (accepted).
+3. Jinglun Feng, Bo Shang et al. Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure. IEEE T-ASE, 2025.
 
-For a full list of publications, please see my [CV](/cv/).
+See my [CV](/cv/) for a complete list.
