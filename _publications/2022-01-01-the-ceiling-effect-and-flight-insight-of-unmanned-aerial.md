@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Jiao, P et al. (2022). &quot;The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simulations&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simulations&quot; by P Jiao, B Shang, L Li, G Chen in 2022.
 

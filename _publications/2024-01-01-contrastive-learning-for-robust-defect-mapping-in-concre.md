@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Hoxha, E et al. (2024). &quot;Contrastive Learning for Robust Defect Mapping in Concrete Slabs Using Impact Echo&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;Contrastive Learning for Robust Defect Mapping in Concrete Slabs Using Impact Echo&quot; by E Hoxha, J Feng, A Sengupta, D Kirakosian, Y He, B Shang, A Gjinofci in 2024.
 

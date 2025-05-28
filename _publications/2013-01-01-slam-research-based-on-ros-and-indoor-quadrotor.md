@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Shang, B (2013). &quot;SLAM Research Based on ROS and Indoor Quadrotor&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;SLAM Research Based on ROS and Indoor Quadrotor&quot; by B Shang in 2013.
 

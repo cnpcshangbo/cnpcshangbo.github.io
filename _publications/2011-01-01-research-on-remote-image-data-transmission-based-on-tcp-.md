@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Gao, C et al. (2011). &quot;Research on remote image/data transmission based on TCP/IP protocol&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;Research on remote image/data transmission based on TCP/IP protocol&quot; by C Gao, C Wu, Y Zhang, B Shang, T Meng in 2011.
 

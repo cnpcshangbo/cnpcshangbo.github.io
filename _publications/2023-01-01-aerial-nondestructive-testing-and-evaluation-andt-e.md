@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Chen, G et al. (2023). &quot;Aerial Nondestructive Testing and Evaluation (aNDT&amp;E)&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;Aerial Nondestructive Testing and Evaluation (aNDT&amp;E)&quot; by G Chen, J Li, H Zhang, Z Shi, B Shang in 2023.
 

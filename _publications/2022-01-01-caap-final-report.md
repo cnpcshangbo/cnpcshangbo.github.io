@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Ma, P et al. (2022). &quot;CAAP Final Report&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;CAAP Final Report&quot; by P Ma, TG Mondal, Y Zhuo, Z Shi, B Shang, L Li, G Chen in 2022.
 

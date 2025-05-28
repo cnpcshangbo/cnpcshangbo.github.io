@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Reven, A et al. (2020). &quot;[Slides] Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;[Slides] Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II&quot; by A Reven, P Jiao, B Shang, G Chen in 2020.
 

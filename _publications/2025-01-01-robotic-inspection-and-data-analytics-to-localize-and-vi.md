@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Feng, J et al. (2025). &quot;Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure&quot; by J Feng, B Shang, E Hoxha, C Hernández, Y He, W Wang, J Xiao in 2025.
 

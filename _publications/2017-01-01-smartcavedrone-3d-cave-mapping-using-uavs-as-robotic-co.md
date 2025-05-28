@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Zhang, G et al. (2017). &quot;SmartCaveDrone: 3D cave mapping using UAVs as robotic co-archaeologists&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;SmartCaveDrone: 3D cave mapping using UAVs as robotic co-archaeologists&quot; by G Zhang, B Shang, YQ Chen, H Moyes in 2017.
 

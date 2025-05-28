@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Shang, B et al. (2019). &quot;Fractional-order flight control of quadrotor UAS on vision-based precision hovering with larger sampling period&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;Fractional-order flight control of quadrotor UAS on vision-based precision hovering with larger sampling period&quot; by B Shang, J Liu, Y Zhang, C Wu, YQ Chen in 2019.
 

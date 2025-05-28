@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Shang, B et al. (2018). &quot;Fractional order flight control of quadrotor UAS: an os4 benchmark environment and a case study&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;Fractional order flight control of quadrotor UAS: an os4 benchmark environment and a case study&quot; by B Shang, Y Zhang, C Wu, YQ Chen in 2018.
 

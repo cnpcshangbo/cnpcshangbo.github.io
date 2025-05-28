@@ -9,7 +9,6 @@ paperurl: 'paper_url'
 citation: 'Shang, B et al. (2014). &quot;An algorithm of visual reconnaissance path planning for UAVs in complex spaces&quot;.'
 ---
 
-<a href='paper_url'>Download paper here</a>
 
 A publication titled &quot;An algorithm of visual reconnaissance path planning for UAVs in complex spaces&quot; by B Shang, C Wu, Y Hu, J Yang in 2014.
 
