@@ -10,16 +10,16 @@ redirect_from:
 
 # Bo Shang
 
-I am an upcoming Research Scientist in Civil Engineering at CUNY City College, affiliated with the [AI & Mobility Research Lab](https://yiqiao-li.github.io/). My work bridges robotics, control systems, and machine learning, with applications in traffic monitoring and automated bridge inspection. [Full CV](/cv/)
+I am a Research Scientist at the AI & Mobility Research Lab in the City College of New York (CCNY). My research focuses on AI-powered traffic monitoring, LiDAR-vision fusion for object detection, and data-driven transportation system analysis. I am particularly interested in developing multimodal sensing and deep learning frameworks for intelligent mobility and infrastructure safety. I have participated in various AI and robotics projects related to automated crack detection, bridge condition assessment, and LiDAR-based traffic data collection in collaboration with New York City agencies. [Full CV](/cv/)
 
 ## Research Focus
 
-My research advances agentic AI and robotics for transportation systems, emphasizing:
-- Human-Robot Close Proximity Interaction (HRCPI)
-- Crowd-Robot Flow Optimization
-- Traffic-inspired protocols for safe, socially-aware navigation
+My recent work explores 3D object detection and reasoning networks for complex urban scenes and data-driven approaches to support sustainable and intelligent transportation infrastructure.
 
-Current topics include:
+Key areas include:
+- AI-powered traffic monitoring
+- LiDAR-vision fusion for object detection
+- Multimodal sensing and deep learning frameworks
 - Autonomous robotic decision-making
 - Drone-based crack detection and measurement
 - Bridge Inspection Robot Deployment Systems (BIRDS)
@@ -31,6 +31,6 @@ Current topics include:
 
 1. Bo Shang et al. Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey. MobiSPC 2025 (accepted).
 2. Bo Shang et al. How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users? MobiSPC 2025 (accepted).
-3. Jinglun Feng, Bo Shang et al. Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure. IEEE T-ASE, 2025.
+3. Jinglun Feng, Bo Shang et al. Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure. IEEE Transactions on Automation Science and Engineering (T-ASE), 2025. *Selected for presentation at IEEE IROS 2025.*
 
 See my [CV](/cv/) for a complete list.
