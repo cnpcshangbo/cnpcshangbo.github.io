@@ -1,0 +1,55 @@
+name: Generate CV PDF
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - "_pages/cv.md"
+      - ".github/workflows/generate-cv-pdf.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install bundler and dependencies
+        run: |
+          gem install bundler
+          if [ -f Gemfile ]; then bundle install; fi
+
+      - name: Build Jekyll site
+        run: |
+          if [ -f Gemfile ]; then
+            bundle exec jekyll build --destination _site
+          else
+            jekyll build --destination __site
+          fi
+
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wkhtmltopdf
+
+      - name: Generate PDF from built CV page
+        run: |
+          mkdir -p assets
+          wkhtmltopdf --enable-local-file-access _site/cv/index.html assets/cv.pdf
+
+      - name: Commit and push assets/cv.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/cv.pdf || true
+          git commit -m "ci: regenerate CV PDF" || echo "No changes to commit"
+          git push origin HEAD:master
