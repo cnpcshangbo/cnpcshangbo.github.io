@@ -243,3 +243,15 @@
     }
   }
 }
+
+/* --- ensure archive item bodies (CV) show full content and are not clipped --- */
+.archive__item-body,
+.archive__item-excerpt,
+.list__item .archive__item-excerpt,
+.feature__item-teaser {
+  max-height: none !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+}
