@@ -10,7 +10,7 @@ redirect_from:
 
 # Bo Shang
 
-I am a Research Scientist at the AI & Mobility Research Lab in the City College of New York (CCNY). My research focuses on AI-powered traffic monitoring, LiDAR-vision fusion for object detection, and data-driven transportation system analysis. I am particularly interested in developing multimodal sensing and deep learning frameworks for intelligent mobility and infrastructure safety. I have participated in various AI and robotics projects related to automated crack detection, bridge condition assessment, and LiDAR-based traffic data collection in collaboration with New York City agencies. [Full CV](/assets/cv.pdf)
+I am a Postdoctoral Scholar at the AI & Mobility Research Lab in the City College of New York (CCNY). My research focuses on AI-powered traffic monitoring, LiDAR-vision fusion for object detection, and data-driven transportation system analysis. I am particularly interested in developing multimodal sensing and deep learning frameworks for intelligent mobility and infrastructure safety. I have participated in various AI and robotics projects related to automated crack detection, bridge condition assessment, and LiDAR-based traffic data collection in collaboration with New York City agencies. [Full CV](/assets/cv.pdf)
 
 ## Research Focus
 
