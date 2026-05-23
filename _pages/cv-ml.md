@@ -10,7 +10,9 @@ redirect_from:
 
 {% include base_path %}
 
-<p><a class="button" href="/assets/cv.pdf" download>Download Full PDF</a> &nbsp;|&nbsp; <a href="/resumes/">All resumes</a> &nbsp;|&nbsp; <a href="/cv/robotics/">Robotics SWE view</a></p>
+<p><a class="button" href="/assets/cv-ml.pdf" download>Download ML Engineer PDF</a> &nbsp;|&nbsp; <a href="/resumes/">All resumes</a> &nbsp;|&nbsp; <a href="/cv/robotics/">Robotics SWE view</a></p>
+
+<p><small>PDF is auto-generated from this page by CI on every content change.</small></p>
 
 > **TL;DR** — ML engineer with applied research depth in **computer vision, 3D point-cloud detection, and multimodal sensor fusion**. Trained and deployed CNN models on AWS for NYC infrastructure inspection and traffic monitoring; comfortable owning the full loop from raw multi-sensor data → labeled datasets → model → cloud / edge deployment.
 

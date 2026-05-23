@@ -1,0 +1,118 @@
+name: Check Pages
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 13 * * 1"
+  deployment_status:
+
+jobs:
+  build-check:
+    name: Build-time check
+    if: github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --destination _site
+
+      - name: Verify pages render and are not 404
+        run: |
+          set -u
+          fail=0
+          # path|expected-substring (must appear in the rendered HTML)
+          entries=(
+            "index.html|Bo Shang"
+            "resumes/index.html|Resumes"
+            "cv/index.html|CV"
+            "cv/robotics/index.html|Robotics Software Engineer"
+            "cv/ml/index.html|Machine Learning Engineer"
+            "publications/index.html|Publications"
+            "portfolio/index.html|Portfolio"
+          )
+          for entry in "${entries[@]}"; do
+            path="${entry%%|*}"
+            expected="${entry#*|}"
+            file="_site/${path}"
+            if [ ! -f "$file" ]; then
+              echo "::error file=$file::Built page missing"
+              fail=1
+              continue
+            fi
+            if grep -q "Sorry, but the page you were trying to view does not exist" "$file"; then
+              echo "::error file=$file::Page renders the 404 'Page Not Found' content"
+              fail=1
+              continue
+            fi
+            if ! grep -q "$expected" "$file"; then
+              echo "::error file=$file::Expected substring not found: $expected"
+              fail=1
+              continue
+            fi
+            echo "OK  $path  (contains: $expected)"
+          done
+          exit $fail
+
+  live-check:
+    name: Live URL check
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl live pages
+        run: |
+          set -u
+          base="https://cnpcshangbo.github.io"
+          paths=(
+            "/"
+            "/resumes/"
+            "/cv/"
+            "/cv/robotics/"
+            "/cv/ml/"
+            "/publications/"
+            "/portfolio/"
+          )
+          fail=0
+          for path in "${paths[@]}"; do
+            url="${base}${path}"
+            body=$(curl -sSL --retry 3 --retry-delay 5 --fail "$url") || {
+              echo "::error::HTTP fetch failed for $url"
+              fail=1
+              continue
+            }
+            if echo "$body" | grep -q "Sorry, but the page you were trying to view does not exist"; then
+              echo "::error::$url is showing the 404 'Page Not Found' page"
+              fail=1
+              continue
+            fi
+            echo "OK  $url"
+          done
+          exit $fail
+
+      - name: Curl downloadable PDFs
+        run: |
+          set -u
+          base="https://cnpcshangbo.github.io"
+          pdfs=(
+            "/assets/cv.pdf"
+            "/assets/cv-robotics.pdf"
+            "/assets/cv-ml.pdf"
+          )
+          fail=0
+          for path in "${pdfs[@]}"; do
+            url="${base}${path}"
+            status=$(curl -sSL -o /dev/null -w "%{http_code}" --retry 3 --retry-delay 5 "$url")
+            if [ "$status" != "200" ]; then
+              echo "::warning::PDF $url returned HTTP $status (may not be generated yet on first run)"
+            else
+              echo "OK  $url ($status)"
+            fi
+          done

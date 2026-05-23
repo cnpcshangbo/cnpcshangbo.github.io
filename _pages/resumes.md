@@ -11,19 +11,21 @@ I keep a single source of truth (this site) and several **role-targeted resume v
 
 ## Pick a view
 
-### 🤖 [Robotics Software Engineer](/cv/robotics/)
+### 🤖 [Robotics Software Engineer](/cv/robotics/) &nbsp;·&nbsp; [PDF](/assets/cv-robotics.pdf)
 **LiDAR + multi-camera systems, sensor synchronization & calibration, ROS, real-time pipelines.**
 Best for: robotics software roles, perception / data-systems roles, autonomy stacks, sensor platform teams, AV / mobility companies. Keywords: ROS 2, LiDAR, DepthAI, MCAP, Protobuf, multi-camera calibration, NVIDIA Jetson, sensor fusion, C++ / Python.
 
-### 🧠 [Machine Learning Engineer](/cv/ml/)
+### 🧠 [Machine Learning Engineer](/cv/ml/) &nbsp;·&nbsp; [PDF](/assets/cv-ml.pdf)
 **Applied CV / 3D detection / multimodal fusion, training + cloud and edge deployment.**
 Best for: ML engineer roles with a CV / perception flavor, applied research roles, infrastructure-AI startups. Keywords: PyTorch, AWS, CNN, 3D object detection, contrastive learning, computer vision, NVIDIA Jetson edge inference.
 
-### 📚 [Full Academic CV](/cv/)
+### 📚 [Full Academic CV](/cv/) &nbsp;·&nbsp; [PDF](/assets/cv.pdf)
 **Complete record** — every publication, patent, course taught, grant, and reviewer assignment. Best for academic search committees or grant reviewers.
 
-### 📄 [Download PDF](/assets/cv.pdf)
-The downloadable PDF version of the academic CV.
+### Direct PDF downloads
+- [Robotics SWE PDF](/assets/cv-robotics.pdf) — auto-generated from the live page
+- [ML Engineer PDF](/assets/cv-ml.pdf) — auto-generated from the live page
+- [Academic CV PDF](/assets/cv.pdf) — hand-curated
 
 ## Why multiple views?
 

@@ -1,0 +1,99 @@
+name: Generate Role CV PDFs
+
+# Renders the Robotics SWE and ML Engineer CV pages to PDF via headless
+# Chromium and commits them back to master. The full academic cv.pdf is
+# intentionally NOT regenerated here — it stays hand-curated.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "_pages/cv-robotics.md"
+      - "_pages/cv-ml.md"
+      - "_config.yml"
+      - "_sass/**"
+      - "_includes/**"
+      - "_layouts/**"
+      - "assets/css/**"
+      - ".github/workflows/generate-cv-pdfs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+
+      - name: Build site with local URLs
+        run: |
+          cat > _config_pdf.yml <<'EOF'
+          url: ""
+          baseurl: ""
+          EOF
+          bundle exec jekyll build --config _config.yml,_config_pdf.yml --destination _site_pdf
+
+      - name: Install Chromium
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+
+      - name: Serve built site
+        run: |
+          cd _site_pdf
+          nohup python3 -m http.server 4000 >/tmp/http.log 2>&1 &
+          echo $! > /tmp/http.pid
+          # Wait for server
+          for i in {1..20}; do
+            curl -fsS http://localhost:4000/ >/dev/null && break
+            sleep 0.5
+          done
+          curl -fsS http://localhost:4000/cv/robotics/ >/dev/null
+
+      - name: Render PDFs with headless Chromium
+        run: |
+          mkdir -p assets
+          for role in robotics ml; do
+            url="http://localhost:4000/cv/${role}/"
+            out="assets/cv-${role}.pdf"
+            echo "Rendering $url -> $out"
+            chromium-browser \
+              --headless=new \
+              --disable-gpu \
+              --no-sandbox \
+              --hide-scrollbars \
+              --virtual-time-budget=10000 \
+              --run-all-compositor-stages-before-draw \
+              --print-to-pdf-no-header \
+              --print-to-pdf="$out" \
+              "$url"
+            ls -lh "$out"
+          done
+
+      - name: Stop server
+        if: always()
+        run: |
+          if [ -f /tmp/http.pid ]; then
+            kill "$(cat /tmp/http.pid)" || true
+          fi
+
+      - name: Commit and push if PDFs changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/cv-robotics.pdf assets/cv-ml.pdf
+          if git diff --cached --quiet; then
+            echo "No PDF changes to commit."
+            exit 0
+          fi
+          git commit -m "ci: regenerate role-targeted CV PDFs [skip ci]"
+          git push origin HEAD:master
