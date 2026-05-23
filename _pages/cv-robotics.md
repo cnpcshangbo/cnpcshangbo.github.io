@@ -12,7 +12,7 @@ redirect_from:
 
 <p><a class="button" href="/assets/cv-robotics.pdf" download>Download Robotics SWE PDF</a> &nbsp;|&nbsp; <a href="/resumes/">All resumes</a> &nbsp;|&nbsp; <a href="/cv/ml/">ML Engineer view</a></p>
 
-<p><small>PDF is auto-generated from this page by CI on every content change.</small></p>
+<p><small>PDF is built from a polished LaTeX source at <a href="https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-robotics.tex"><code>cv-tex/cv-robotics.tex</code></a> (resume-style, distinct from this longer-form web page).</small></p>
 
 > **TL;DR** — Robotics software engineer with deep field experience in **multi-sensor data pipelines, LiDAR + camera synchronization, and real-time perception systems**. Shipped fixed-LiDAR + camera pipelines for highway traffic monitoring with NYC agencies, built drone and climbing-robot inspection stacks on ROS / NVIDIA Jetson, and own the end-to-end loop from sensor calibration through ingestion, recording, and downstream ML.
 

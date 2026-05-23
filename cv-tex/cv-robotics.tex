@@ -1,0 +1,164 @@
+%-------------------------
+% Bo Shang - Robotics Software Engineer Resume
+% Template adapted from Sourabh Bajaj (MIT License)
+% Source: https://github.com/sb2nov/resume
+%-------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeBullet}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Large Bo Shang} & \href{mailto:bshang@ccny.cuny.edu}{bshang@ccny.cuny.edu} \\
+  Robotics Software Engineer \textbar{} LiDAR + Camera Synchronization & +1-929-520-0488 \\
+  \href{https://cnpcshangbo.github.io/}{cnpcshangbo.github.io} \textbar{} \href{https://www.linkedin.com/in/bo-shang}{linkedin.com/in/bo-shang} \textbar{} \href{https://github.com/cnpcshangbo}{github.com/cnpcshangbo} & New York, NY \\
+\end{tabular*}
+
+\vspace{2pt}
+\small Robotics software engineer with field-deployment experience in \textbf{multi-sensor pipelines, LiDAR + camera synchronization, and real-time perception}. Ships end-to-end systems from sensor capture and calibration through model training and edge inference. Granted US patent on autonomous robotic platform (US 12,296,994, 2025).
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {City University of New York --- AI \& Mobility Research Lab}{New York, NY}
+      {Postdoctoral Scholar}{Jul 2025 -- Present}
+      \resumeItemListStart
+        \resumeBullet{Designed and deployed end-to-end \textbf{fixed-LiDAR + camera pipeline} for highway traffic monitoring at NYC DOT sites; owned temporal synchronization, extrinsic calibration, and ingestion to training-ready datasets}
+        \resumeBullet{Built \textbf{multi-frame point cloud reconstruction} that stitches successive LiDAR sweeps into per-vehicle models; tight LiDAR/camera time-sync as critical dependency}
+        \resumeBullet{Implemented \textbf{configuration-portable} CNN training/inference loop: models trained on one site's sensor configuration redeployed to sites with different beam counts and mounting geometries}
+        \resumeBullet{Co-authored two MobiSPC 2025 papers on VRU sensing and LiDAR beam-count requirements}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {City University of New York --- Robotics Lab}{New York, NY}
+      {Postdoctoral Researcher}{Dec 2022 -- Dec 2024}
+      \resumeItemListStart
+        \resumeBullet{Led software stack for \textbf{Bridge Inspection Robot Deployment System (BIRDS)}: drone + robotic-arm clamping platform with multi-camera UAS payload (visible/IR/hyperspectral)}
+        \resumeBullet{Engineered \textbf{vision-based girder detection} on NVIDIA Jetson; designed PID and fractional-order controllers for the clamping mechanism under wind and platform sway}
+        \resumeBullet{Built iOS app for human-in-the-loop control; integrated ROS + Arduino + embedded Linux stack across air and underwater inspection robots}
+        \resumeBullet{Equal-first-author IROS 2025 paper (IEEE T-ASE 2025) on robotic inspection and analytics for structural defects}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Missouri University of Science and Technology}{Rolla, MO}
+      {Postdoctoral Fellow}{Jan 2020 -- Nov 2022}
+      \resumeItemListStart
+        \resumeBullet{Developed early BIRDS prototypes: PID communication protocol bridging flying and clamping subsystems on Raspberry Pi; \textbf{OpenCV + C++} girder detection}
+        \resumeBullet{Built robot-assisted underwater acoustic imaging rig for bridge scour evaluation (ROS, Arduino, embedded Linux); led visual-odometry data-quality evaluation}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {University of California, Merced}{Merced, CA}
+      {Junior Specialist \& Lecturer}{Sep 2015 -- Sep 2017}
+      \resumeItemListStart
+        \resumeBullet{Co-led \textbf{SmartCaveDrone} (ICUAS'17): SLAM platform for GPS-denied cave exploration with dense RGB-D reconstruction; fused IMU with KinectFusion-style dense visual SLAM}
+        \resumeBullet{Drone visual servoing with fractional-order controllers on embedded Linux; lectured Mechatronics, Engineering Computing, and Unmanned Aerial Systems}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS / SKILLS-----------------
+\section{Selected Projects}
+  \resumeSubHeadingListStart
+    \resumeItem{Highway LiDAR + Camera Synchronization Pipeline (2024--present)}{End-to-end multi-sensor capture with timestamp alignment, LiDAR/camera extrinsic calibration, background subtraction, CNN-based 3D detection of vehicles and vulnerable road users, and multi-frame vehicle reconstruction. Deployed at NYC highway sites.}
+    \resumeItem{BIRDS Bridge Inspection Robot Deployment System (2020--present)}{Autonomous drone + climbing-robot platform with multi-camera UAS payload, Jetson-based vision, PID/fractional-order clamping control, and iOS supervisor app. US Patent 12,296,994 granted May 2025.}
+    \resumeItem{Drone Visual Servoing with Fractional-Order Control (2015--2019)}{Closed-loop computer vision on Raspberry Pi enabling stable control under larger-than-typical sampling periods; foundation for ICUAS and IEEE conference papers.}
+  \resumeSubHeadingListEnd
+
+\section{Programming \& Tools}
+  \resumeSubHeadingListStart
+    \item\small{\textbf{Languages}: Python (primary), C++, MATLAB, Fortran, Swift}
+    \item\small{\textbf{Robotics}: ROS / ROS 2, MCAP, Protobuf, NVIDIA Jetson (Nano/TX2/Xavier), DepthAI / OAK, Raspberry Pi, Arduino, embedded Linux}
+    \item\small{\textbf{Sensors \& Calibration}: LiDAR (multi-beam, solid-state), multi-camera rigs, IMU, depth/RGB-D, infrared, hyperspectral, underwater acoustic; intrinsic/extrinsic calibration, LiDAR--camera cross-calibration, temporal alignment (hardware triggers, PTP/NTP timestamp correction)}
+    \item\small{\textbf{Perception \& Control}: OpenCV, PyTorch, CUDA, CNN-based 3D/2D detection, sensor fusion, PID, fractional-order control, visual servoing}
+    \item\small{\textbf{Infrastructure}: AWS (S3, EC2), Docker, Git/GitHub Actions, Linux/Ubuntu}
+  \resumeSubHeadingListEnd
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {City College of New York (CUNY)}{New York, NY}
+      {Ph.D. in Civil Engineering (Transportation) --- Fellowship}{Aug 2025 -- Present}
+    \resumeSubheading
+      {Northeastern University \& University of California, Merced}{Shenyang, China / Merced, CA}
+      {Ph.D. in Pattern Recognition \& Intelligent Systems}{Aug 2013 -- Dec 2020}
+    \resumeSubheading
+      {Northeastern University}{Shenyang, China}
+      {M.Eng. in Pattern Recognition \& Intelligent Systems; B.Eng. in Automation}{Aug 2007 -- Dec 2013}
+  \resumeSubHeadingListEnd
+
+\section{Patents \& Awards}
+  \resumeSubHeadingListStart
+    \resumeBullet{\textbf{US 12,296,994} (granted May 2025) --- Unmanned vehicle having flight configuration and surface traverse configuration}
+    \resumeBullet{\textbf{CN 102427464 B} --- Data/image transmission device based on TCP/IP}
+    \resumeBullet{\textbf{FAA Part 107} Remote Pilot Certificate (Small Unmanned Aircraft Systems), 2016}
+    \resumeBullet{\textbf{Best System Control} \& \textbf{Best Mission Planning} Awards --- International Aerial Robotics Competition (AUVSI Foundation), 2014 \textit{[team lead]}}
+  \resumeSubHeadingListEnd
+
+\section{Selected Publications}
+  \resumeSubHeadingListStart
+    \resumeBullet{\textbf{Bo Shang} et al. \textit{Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey.} MobiSPC 2025.}
+    \resumeBullet{\textbf{Bo Shang} et al. \textit{How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users?} MobiSPC 2025.}
+    \resumeBullet{J. Feng, \textbf{B. Shang}, et al. \textit{Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure.} IEEE T-ASE 2025. \textit{[Selected for IROS 2025; equal first author]}}
+  \resumeSubHeadingListEnd
+
+\end{document}

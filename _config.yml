@@ -148,6 +148,7 @@ include:
   - _pages
   - files
 exclude:
+  - cv-tex
   - .conda
   - "*.sublime-project"
   - "*.sublime-workspace"

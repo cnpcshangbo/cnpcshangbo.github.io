@@ -23,8 +23,8 @@ Best for: ML engineer roles with a CV / perception flavor, applied research role
 **Complete record** — every publication, patent, course taught, grant, and reviewer assignment. Best for academic search committees or grant reviewers.
 
 ### Direct PDF downloads
-- [Robotics SWE PDF](/assets/cv-robotics.pdf) — auto-generated from the live page
-- [ML Engineer PDF](/assets/cv-ml.pdf) — auto-generated from the live page
+- [Robotics SWE PDF](/assets/cv-robotics.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-robotics.tex)
+- [ML Engineer PDF](/assets/cv-ml.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-ml.tex)
 - [Academic CV PDF](/assets/cv.pdf) — hand-curated
 
 ## Why multiple views?
