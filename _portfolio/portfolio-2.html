@@ -1,7 +1,26 @@
 ---
-title: "Portfolio item number 2"
-excerpt: "Short description of portfolio item number 2 <br/><img src='/images/500x300.png'>"
+title: "Bridge Inspection Robot Deployment System (BIRDS)"
+excerpt: "Drone + climbing-robot platform with multi-camera UAS payload, Jetson-based vision, PID/fractional-order clamping control, and an iOS control app. US patent 12,296,994.<br/>**Stack:** ROS · NVIDIA Jetson · Embedded Linux · OpenCV · iOS · Arduino"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+<h2>What it does</h2>
+<p>An autonomous bridge-inspection platform combining a drone with a robotic-arm clamping mechanism. The drone flies up, detects a girder, clamps, traverses the bridge for inspection, and releases — with humans supervising via an iOS app.</p>
+
+<h2>Engineering highlights</h2>
+<ul>
+  <li><strong>Multi-camera UAS payload</strong> — visible, infrared, and hyperspectral cameras with synchronized capture, time-tagging, and downstream signal processing.</li>
+  <li><strong>Vision-based girder detection</strong> running on NVIDIA Jetson at the edge.</li>
+  <li><strong>PID and fractional-order controllers</strong> for the clamping mechanism (open/close, force regulation under wind and platform sway).</li>
+  <li><strong>iOS control app</strong> for human-in-the-loop operation and live monitoring.</li>
+  <li>Companion <strong>underwater acoustic imaging robot</strong> for bridge scour evaluation (ROS + Arduino + embedded Linux).</li>
+</ul>
+
+<h2>Outcomes</h2>
+<ul>
+  <li>US Patent <strong>12,296,994</strong> — <em>Unmanned vehicle having flight configuration and surface traverse configuration</em>, granted May 2025.</li>
+  <li>Selected for IEEE IROS 2025 presentation (Feng, Shang, et al., IEEE T-ASE, 2025).</li>
+  <li>Field demos of autonomous flight + clamping + bridge traversal.</li>
+</ul>
+
+<p><a href="/portfolio/">← Back to portfolio</a> · <a href="/cv/robotics/">Robotics SWE CV</a> · <a href="/cv/ml/">ML CV</a></p>

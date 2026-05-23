@@ -10,27 +10,31 @@ redirect_from:
 
 # Bo Shang
 
-I am a Postdoctoral Scholar at the AI & Mobility Research Lab in the City College of New York (CCNY). My research focuses on AI-powered traffic monitoring, LiDAR-vision fusion for object detection, and data-driven transportation system analysis. I am particularly interested in developing multimodal sensing and deep learning frameworks for intelligent mobility and infrastructure safety. I have participated in various AI and robotics projects related to automated crack detection, bridge condition assessment, and LiDAR-based traffic data collection in collaboration with New York City agencies. [Full CV](/assets/cv.pdf)
+**Robotics software engineer & ML researcher** working at the intersection of multi-sensor perception, real-time data pipelines, and deep learning. I build and deploy LiDAR + camera systems for the real world — from city-scale highway monitoring to bridge inspection robots — with a focus on the unglamorous but critical layer underneath every perception model: **temporal and spatial sensor synchronization, calibration, and high-throughput data capture**.
 
-## Research Focus
+I am a Postdoctoral Scholar at the AI & Mobility Research Lab, CUNY City College of New York. My production work spans ROS-based robotics stacks, NVIDIA Jetson edge inference, CNN-based 3D object detection, and AWS-backed inspection workflows deployed with New York City agencies.
 
-My recent work explores 3D object detection and reasoning networks for complex urban scenes and data-driven approaches to support sustainable and intelligent transportation infrastructure.
+## Hire me as…
 
-Key areas include:
-- AI-powered traffic monitoring
-- LiDAR-vision fusion for object detection
-- Multimodal sensing and deep learning frameworks
-- Autonomous robotic decision-making
-- Drone-based crack detection and measurement
-- Bridge Inspection Robot Deployment Systems (BIRDS)
-- UAS for infrastructure inspection
-- Sensing for vulnerable road user monitoring
-- Data analytics for structural health monitoring
+Same engineer, two role-targeted resumes:
 
-## Selected Publications
+- 🤖 **[Robotics Software Engineer](/cv/robotics/)** — LiDAR + multi-camera pipelines, sensor synchronization & calibration, ROS, real-time data systems, DepthAI, MCAP/Protobuf.
+- 🧠 **[Machine Learning Engineer](/cv/ml/)** — 3D/2D CNN object detection, multimodal fusion, model training and cloud deployment (AWS), computer vision for safety-critical infrastructure.
+- 📚 **[Full Academic CV](/cv/)** — complete record of publications, patents, teaching, and grants.
 
-1. Bo Shang et al. Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey. MobiSPC 2025 (accepted).
-2. Bo Shang et al. How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users? MobiSPC 2025 (accepted).
-3. Jinglun Feng, Bo Shang et al. Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure. IEEE Transactions on Automation Science and Engineering (T-ASE), 2025. *Selected for presentation at IEEE IROS 2025.*
+Start at the **[Resumes hub](/resumes/)** to pick the right view.
 
-See my [CV](/assets/cv.pdf) for a complete list.
+## What I work on
+
+- **Multi-sensor pipelines for perception** — fixed highway LiDAR + camera capture, temporal/spatial alignment, calibration workflows, multi-frame reconstruction, end-to-end ingestion to training-ready datasets.
+- **Robotics deployments in the wild** — drone and climbing-robot platforms for bridge inspection, PID/visual-servoing controllers, autonomous clamping, ROS + Jetson + iOS control surfaces.
+- **Deep learning on point clouds and imagery** — CNN-based 3D detection, vulnerable-road-user sensing, contrastive learning for defect mapping, models deployed on AWS for scalable inspection.
+- **AI-first developer tooling** — using LLM agents (including this site, built with Claude Code) to keep documentation, resumes, and project pages aligned with what I'm actually shipping.
+
+## Selected publications
+
+1. Bo Shang et al. *Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey.* MobiSPC 2025.
+2. Bo Shang et al. *How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users?* MobiSPC 2025.
+3. Jinglun Feng, Bo Shang et al. *Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure.* IEEE T-ASE 2025. *Selected for IEEE IROS 2025.*
+
+See [Publications](/publications/) for the full list.
