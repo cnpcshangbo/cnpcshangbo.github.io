@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   generate:
@@ -87,13 +88,27 @@ jobs:
           fi
 
       - name: Commit and push if PDFs changed
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/cv-robotics.pdf assets/cv-ml.pdf
           if git diff --cached --quiet; then
             echo "No PDF changes to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "ci: regenerate role-targeted CV PDFs [skip ci]"
           git push origin HEAD:master
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger Pages rebuild
+        # The auto pages-build-deployment workflow that fires from a
+        # GITHUB_TOKEN-attributed push currently fails with "Bad credentials"
+        # at the deploy step. Trigger our own Pages build via API to make
+        # sure the freshly committed PDFs actually go live.
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api repos/${{ github.repository }}/pages/builds -X POST
