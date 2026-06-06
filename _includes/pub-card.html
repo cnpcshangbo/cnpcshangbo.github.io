@@ -1,0 +1,72 @@
+{%- comment -%}
+  pub-card.html — renders one publication card from a _data/publications.yml item.
+  Usage: {% include pub-card.html pub=item %}
+  Decorative artwork comes from _includes/pub-thumb.html; a real raster in
+  `pub.image` overrides it. The owner's name token is auto-bolded.
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+
+{%- comment -%} human labels {%- endcomment -%}
+{%- case pub.type -%}
+  {%- when "journal" -%}{%- assign typelabel = "Journal" -%}
+  {%- when "conference" -%}{%- assign typelabel = "Conference" -%}
+  {%- when "preprint" -%}{%- assign typelabel = "Preprint" -%}
+  {%- when "patent" -%}{%- assign typelabel = "Patent" -%}
+  {%- when "thesis" -%}{%- assign typelabel = "Thesis" -%}
+  {%- when "report" -%}{%- assign typelabel = "Report" -%}
+  {%- when "poster" -%}{%- assign typelabel = "Poster" -%}
+  {%- when "slides" -%}{%- assign typelabel = "Slides" -%}
+  {%- else -%}{%- assign typelabel = pub.type -%}
+{%- endcase -%}
+{%- case pub.topic -%}
+  {%- when "lidar" -%}{%- assign topiclabel = "Roadside LiDAR" -%}
+  {%- when "streetview" -%}{%- assign topiclabel = "Drive-by Sensing" -%}
+  {%- when "uav-inspection" -%}{%- assign topiclabel = "UAV Inspection" -%}
+  {%- when "ndt" -%}{%- assign topiclabel = "NDT · Concrete" -%}
+  {%- when "control" -%}{%- assign topiclabel = "Flight Control" -%}
+  {%- when "slam" -%}{%- assign topiclabel = "SLAM · Mapping" -%}
+  {%- when "comms" -%}{%- assign topiclabel = "Wireless Comms" -%}
+  {%- when "patent" -%}{%- assign topiclabel = "Patent" -%}
+  {%- else -%}{%- assign topiclabel = pub.topic -%}
+{%- endcase -%}
+
+{%- comment -%} bold the site owner across name variants {%- endcomment -%}
+{%- assign authors = pub.authors -%}
+{%- assign authors = authors | replace: "Bo Shang", "<strong class='pub-card__me'>Bo Shang</strong>" -%}
+{%- assign authors = authors | replace: "B Shang", "<strong class='pub-card__me'>B Shang</strong>" -%}
+{%- assign authors = authors | replace: "B SHANG", "<strong class='pub-card__me'>B SHANG</strong>" -%}
+{%- assign authors = authors | replace: "S Bo", "<strong class='pub-card__me'>S Bo</strong>" -%}
+{%- assign scholar = site.data.publications.scholar_url | default: site.author.googlescholar -%}
+
+<article class="pub-card{% if pub.featured %} pub-card--featured{% endif %}" data-topic="{{ pub.topic }}" data-year="{{ pub.year }}">
+  <div class="pub-card__media">
+    {%- if pub.image -%}
+      <img class="pub-card__img" src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}" loading="lazy">
+    {%- else -%}
+      {%- include pub-thumb.html topic=pub.topic -%}
+    {%- endif -%}
+    <span class="pub-card__badge pub-card__badge--{{ pub.type }}">{{ typelabel }}</span>
+    {%- if pub.citations and pub.citations > 0 -%}
+      <span class="pub-card__cites" title="Citations (Google Scholar)">&#9733; {{ pub.citations }}</span>
+    {%- endif -%}
+  </div>
+
+  <div class="pub-card__body">
+    <span class="pub-card__topic">{{ topiclabel }}</span>
+    <h3 class="pub-card__title">{{ pub.title }}</h3>
+    <p class="pub-card__authors">{{ authors }}</p>
+    <p class="pub-card__venue"><span class="pub-card__venue-name">{{ pub.venue }}</span> &middot; {{ pub.year }}</p>
+
+    <div class="pub-card__links">
+      {%- if pub.links.doi -%}<a class="pub-card__link" href="{{ pub.links.doi }}" target="_blank" rel="noopener">DOI</a>{%- endif -%}
+      {%- if pub.links.arxiv -%}<a class="pub-card__link" href="{{ pub.links.arxiv }}" target="_blank" rel="noopener">arXiv</a>{%- endif -%}
+      {%- if pub.links.ssrn -%}<a class="pub-card__link" href="{{ pub.links.ssrn }}" target="_blank" rel="noopener">SSRN</a>{%- endif -%}
+      {%- if pub.links.patent -%}<a class="pub-card__link" href="{{ pub.links.patent }}" target="_blank" rel="noopener">Patent</a>{%- endif -%}
+      {%- if pub.links.pdf -%}<a class="pub-card__link" href="{{ pub.links.pdf }}" target="_blank" rel="noopener">PDF</a>{%- endif -%}
+      {%- if pub.links.slides -%}<a class="pub-card__link" href="{{ pub.links.slides }}" target="_blank" rel="noopener">Slides</a>{%- endif -%}
+      {%- if pub.links.code -%}<a class="pub-card__link" href="{{ pub.links.code }}" target="_blank" rel="noopener">Code</a>{%- endif -%}
+      {%- if pub.links.url -%}<a class="pub-card__link" href="{{ pub.links.url }}" target="_blank" rel="noopener">Link</a>{%- endif -%}
+      {%- if scholar -%}<a class="pub-card__link pub-card__link--scholar" href="{{ scholar }}" target="_blank" rel="noopener">Scholar</a>{%- endif -%}
+    </div>
+  </div>
+</article>

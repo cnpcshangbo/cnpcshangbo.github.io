@@ -1,0 +1,331 @@
+# =============================================================================
+#  Publications — single source of truth for /publications/
+# =============================================================================
+#  This file drives the entire publications page. To keep the site in sync with
+#  Google Scholar, edit ONLY this file — the layout, cards, and topical artwork
+#  are generated automatically (see _includes/pub-card.html and
+#  _includes/pub-thumb.html). Nothing else needs to be touched.
+#
+#  Each entry under `items:` accepts:
+#    title      : full paper title (quote it; titles often contain colons)
+#    authors    : verbatim author string; any "B Shang" / "Bo Shang" / "S Bo"
+#                 token is auto-bolded as the site owner
+#    venue      : journal / conference / repository
+#    year       : integer (drives newest-first ordering)
+#    type       : journal | conference | preprint | patent | thesis | report | poster | slides
+#    topic      : lidar | streetview | uav-inspection | ndt | control | slam | comms | patent
+#                 -> selects the animated thumbnail in _includes/pub-thumb.html
+#    citations  : integer (0 if none yet)
+#    featured   : true to pin into the "Selected & recent" highlight row
+#    links      : optional map — any of { doi, arxiv, ssrn, patent, pdf, slides, code, url }
+#                 (a Google Scholar button is always added automatically)
+#
+#  A new paper = one new list entry. Re-ordering is automatic.
+# =============================================================================
+
+total_citations: 159           # Google Scholar, all-time
+last_synced: "2026-06-06"
+scholar_url: "https://scholar.google.com/citations?user=TVIPpDMAAAAJ&hl=en"
+
+items:
+  # ---------------------------------------------------------------- 2026 ----
+  - title: "Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence"
+    authors: "B Shang, Y Li"
+    venue: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops"
+    year: 2026
+    type: conference
+    topic: lidar
+    citations: 0
+    featured: true
+
+  - title: "Bridging the Modality Gap in Roadside LiDAR: A Training-Free Vision-Language Model Framework for Vehicle Classification"
+    authors: "Y Li, B Shang, J Wei"
+    venue: "arXiv preprint arXiv:2602.09425"
+    year: 2026
+    type: preprint
+    topic: lidar
+    citations: 0
+    featured: true
+    links:
+      arxiv: "https://arxiv.org/abs/2602.09425"
+
+  # ---------------------------------------------------------------- 2025 ----
+  - title: "Robotic inspection and data analytics to localize and visualize the structural defects of concrete infrastructure"
+    authors: "J Feng, B Shang, E Hoxha, C Hernández, Y He, W Wang, J Xiao"
+    venue: "IEEE Transactions on Automation Science and Engineering, vol. 22"
+    year: 2025
+    type: journal
+    topic: ndt
+    citations: 11
+    featured: true
+
+  - title: "AI-Enhanced Sensing for Vulnerable Road User Safety at Signalized Intersections: A Survey"
+    authors: "B Shang, Y Li, AG Amin, C Kamga, J Wei"
+    venue: "Procedia Computer Science, vol. 265"
+    year: 2025
+    type: conference
+    topic: lidar
+    citations: 3
+    featured: true
+
+  - title: "Investigating the LiDAR Beam Count Needed for Effective Vulnerable Road User Detection"
+    authors: "B Shang, Y Li, J Wei, C Kamga"
+    venue: "Procedia Computer Science, vol. 265"
+    year: 2025
+    type: conference
+    topic: lidar
+    citations: 1
+    featured: true
+
+  - title: "Exploring Drive-By Sensing and Deep Learning for Urban Truck Characterization Using Google Street View Imagery"
+    authors: "B Shang, Y Li, B Horbach, K Villon"
+    venue: "SSRN preprint 5312573"
+    year: 2025
+    type: preprint
+    topic: streetview
+    citations: 0
+    featured: true
+    links:
+      ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5312573"
+
+  - title: "Unmanned vehicle having flight configuration and surface traverse configuration"
+    authors: "G Chen, A Reven, B Shang, Z Shi, L Li, B Li"
+    venue: "US Patent 12,296,994"
+    year: 2025
+    type: patent
+    topic: patent
+    citations: 0
+    featured: true
+    links:
+      patent: "https://patents.google.com/patent/US12296994B2/en"
+
+  - title: "Code-specified early delamination detection and quantification in a RC bridge deck: passive vs. active infrared thermography"
+    authors: "H Zhang, Z Shi, L Li, P Jiao, B Shang, G Chen"
+    venue: "Journal of Civil Structural Health Monitoring, vol. 15(1)"
+    year: 2025
+    type: journal
+    topic: ndt
+    citations: 10
+
+  # ---------------------------------------------------------------- 2024 ----
+  - title: "Contrastive Learning for Robust Defect Mapping in Concrete Slabs Using Impact Echo"
+    authors: "E Hoxha, J Feng, A Sengupta, D Kirakosian, Y He, B Shang, A Gjinofci, et al."
+    venue: "SSRN preprint 4923149"
+    year: 2024
+    type: preprint
+    topic: ndt
+    citations: 8
+    links:
+      ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4923149"
+
+  # ---------------------------------------------------------------- 2023 ----
+  - title: "Hardware-in-the-loop and Digital Twin Enabled Autonomous Robotics-assisted Environment Inspection"
+    authors: "J Li, B Shang, I Jayawardana, G Chen"
+    venue: "IEEE Xplore Digital Library"
+    year: 2023
+    type: conference
+    topic: uav-inspection
+    citations: 5
+
+  - title: "Aerial Nondestructive Testing and Evaluation (aNDT&E)"
+    authors: "G Chen, J Li, H Zhang, Z Shi, B Shang"
+    venue: "Materials Evaluation"
+    year: 2023
+    type: journal
+    topic: ndt
+    citations: 3
+
+  # ---------------------------------------------------------------- 2022 ----
+  - title: "CAAP Final Report"
+    authors: "P Ma, TG Mondal, Y Zhuo, Z Shi, B Shang, L Li, G Chen"
+    venue: "FAA Center of Excellence — CAAP Program Report"
+    year: 2022
+    type: report
+    topic: ndt
+    citations: 4
+
+  - title: "The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simulations"
+    authors: "P Jiao, B Shang, L Li, G Chen"
+    venue: "13th International Workshop on Structural Health Monitoring"
+    year: 2022
+    type: conference
+    topic: uav-inspection
+    citations: 1
+
+  - title: "Mixed Reality Enabled Digital Twin for Robot-Assisted Bridge Element Inspection and Maintenance"
+    authors: "L Li, G Chen, S Bo"
+    venue: "8th World Conference on Structural Control and Monitoring (8WCSCM)"
+    year: 2022
+    type: conference
+    topic: uav-inspection
+    citations: 0
+
+  - title: "Evaluation of User-Friendliness of Several UASs for Bridge Inspection"
+    authors: "Z Shi, B Shang, H Zhang, L Li, G Chen"
+    venue: "8th World Conference on Structural Control and Monitoring (8WCSCM)"
+    year: 2022
+    type: conference
+    topic: uav-inspection
+    citations: 0
+
+  - title: "Delamination Detection of Concrete Bridge Slab Through UAV-Based Thermal Scanning"
+    authors: "H Zhang, P Jiao, L Li, Z Shi, B Shang, G Chen"
+    venue: "8th World Conference on Structural Control and Monitoring (8WCSCM)"
+    year: 2022
+    type: conference
+    topic: ndt
+    citations: 0
+
+  # ---------------------------------------------------------------- 2021 ----
+  - title: "Drone vision-based clamping strategy for bridge inspection"
+    authors: "B Shang, L Li, P Jiao, R Huerta, J Ressel, A Rawlings, B Scharfenberg, et al."
+    venue: "INSPIRE-UTC Poster"
+    year: 2021
+    type: poster
+    topic: uav-inspection
+    citations: 0
+
+  # ---------------------------------------------------------------- 2020 ----
+  - title: "Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II"
+    authors: "A Reven, P Jiao, B Shang, G Chen"
+    venue: "INSPIRE-UTC 2020 Annual Meeting (Slides)"
+    year: 2020
+    type: slides
+    topic: uav-inspection
+    citations: 1
+
+  - title: "Vision-Based Non-GPS UAV Guidance for Bridge Inspection"
+    authors: "B Shang, A Reven, P Jiao, B Li, G Chen"
+    venue: "INSPIRE-UTC 2020 Annual Meeting (Poster)"
+    year: 2020
+    type: poster
+    topic: uav-inspection
+    citations: 0
+
+  - title: "Clamping Design for Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II"
+    authors: "A Reven, P Jiao, B Shang, G Chen"
+    venue: "INSPIRE-UTC 2020 Annual Meeting (Poster)"
+    year: 2020
+    type: poster
+    topic: uav-inspection
+    citations: 0
+
+  # ---------------------------------------------------------------- 2019 ----
+  - title: "Fractional-order flight control of quadrotor UAS on vision-based precision hovering with larger sampling period"
+    authors: "B Shang, J Liu, Y Zhang, C Wu, YQ Chen"
+    venue: "Nonlinear Dynamics"
+    year: 2019
+    type: journal
+    topic: control
+    citations: 15
+
+  - title: "Neighborhood Optimization Method for Shaping Bode Plot With Larger Phase Margin"
+    authors: "B Shang, C Wu, YQ Chen"
+    venue: "ASME IDETC/CIE"
+    year: 2019
+    type: conference
+    topic: control
+    citations: 0
+
+  # ---------------------------------------------------------------- 2018 ----
+  - title: "Fractional order flight control of quadrotor UAS: a Simscape benchmark environment and a case study"
+    authors: "B Shang, C Wu, Y Zhang, YQ Chen"
+    venue: "IEEE CSAA Guidance, Navigation and Control Conference (CGNCC)"
+    year: 2018
+    type: conference
+    topic: control
+    citations: 5
+
+  - title: "Fractional order flight control of quadrotor UAS: an OS4 benchmark environment and a case study"
+    authors: "B Shang, Y Zhang, C Wu, YQ Chen"
+    venue: "15th International Conference on Control, Automation, Robotics and Vision (ICARCV)"
+    year: 2018
+    type: conference
+    topic: control
+    citations: 1
+
+  # ---------------------------------------------------------------- 2017 ----
+  - title: "SmartCaveDrone: 3D cave mapping using UAVs as robotic co-archaeologists"
+    authors: "G Zhang, B Shang, YQ Chen, H Moyes"
+    venue: "International Conference on Unmanned Aircraft Systems (ICUAS)"
+    year: 2017
+    type: conference
+    topic: slam
+    citations: 44
+
+  - title: "Analysis of maximum possible sampling period for a real-time vision-based control system"
+    authors: "B Shang, C Wu, Y Zhang, YQ Chen"
+    venue: "ASME IDETC/CIE"
+    year: 2017
+    type: conference
+    topic: control
+    citations: 4
+
+  # ---------------------------------------------------------------- 2016 ----
+  - title: "Fractional order robust visual servoing control of a quadrotor UAV with larger sampling period"
+    authors: "B Shang, J Liu, T Zhao, YQ Chen"
+    venue: "International Conference on Unmanned Aircraft Systems (ICUAS)"
+    year: 2016
+    type: conference
+    topic: control
+    citations: 23
+
+  # ---------------------------------------------------------------- 2014 ----
+  - title: "An algorithm of visual reconnaissance path planning for UAVs in complex spaces"
+    authors: "B Shang, C Wu, Y Hu, J Yang"
+    venue: "Journal of Computational Information Systems, vol. 8(1)"
+    year: 2014
+    type: journal
+    topic: slam
+    citations: 8
+
+  - title: "Northeastern University Autonomous Aerial Robotics Team"
+    authors: "Y Hu, J Yang, Y Cao, F Yang, B Shang"
+    venue: "International Aerial Robotics Competition (IARC) Symposium"
+    year: 2014
+    type: report
+    topic: slam
+    citations: 0
+
+  # ---------------------------------------------------------------- 2013 ----
+  - title: "SLAM Research Based on ROS and Indoor Quadrotor"
+    authors: "B Shang"
+    venue: "Northeastern University (M.S. Thesis)"
+    year: 2013
+    type: thesis
+    topic: slam
+    citations: 1
+
+  - title: "Northeastern University Autonomous Aerial Robotics Team"
+    authors: "Y Hu, J Yang, B Shang, S Liu"
+    venue: "International Aerial Robotics Competition (IARC) Symposium"
+    year: 2013
+    type: report
+    topic: slam
+    citations: 0
+
+  # ---------------------------------------------------------------- 2012 ----
+  - title: "A Data/Image Transmission Device Based on TCP/IP Protocol"
+    authors: "B Shang, C Wu, T Meng, C Gao, Y Zhang"
+    venue: "8th International Conference on Wireless Communications, Networking and Mobile Computing (WiCOM)"
+    year: 2012
+    type: conference
+    topic: comms
+    citations: 5
+
+  # ---------------------------------------------------------------- 2011 ----
+  - title: "Research on remote image/data transmission based on TCP/IP protocol"
+    authors: "C Gao, C Wu, Y Zhang, B Shang, T Meng"
+    venue: "Journal of Mechanical & Electrical Engineering, vol. 28(9)"
+    year: 2011
+    type: journal
+    topic: comms
+    citations: 4
+
+  - title: "Design of point to multi-point wireless communication system based on ZigBee"
+    authors: "T Meng, C Wu, B Shang, C Gao, Y Zhang"
+    venue: "7th International Conference on Wireless Communications, Networking and Mobile Computing (WiCOM)"
+    year: 2011
+    type: conference
+    topic: comms
+    citations: 2

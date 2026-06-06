@@ -1,0 +1,98 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{%- assign data = site.data.publications -%}
+{%- assign items = data.items | sort: "year" | reverse -%}
+{%- assign featured = data.items | where: "featured", true | sort: "year" | reverse -%}
+{%- assign topics = data.items | map: "topic" | uniq -%}
+{%- assign years = data.items | map: "year" | sort -%}
+{%- assign scholar = data.scholar_url | default: site.author.googlescholar -%}
+
+<div class="pubs">
+
+  <p class="pubs__intro">
+    Peer-reviewed and applied research spanning <strong>roadside LiDAR &amp; vulnerable-road-user sensing</strong>,
+    <strong>UAV bridge inspection</strong>, <strong>non-destructive evaluation of concrete</strong>, and
+    <strong>fractional-order flight control</strong> — the multi-sensor pipeline from field hardware to perception.
+    This page is generated from a single data file kept in sync with
+    <a href="{{ scholar }}" target="_blank" rel="noopener">Google&nbsp;Scholar</a>.
+  </p>
+
+  <div class="pubs__stats" role="list">
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ items | size }}</span><span class="pubs__stat-label">Publications</span></div>
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.total_citations }}</span><span class="pubs__stat-label">Citations</span></div>
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ years | first }}&ndash;{{ years | last }}</span><span class="pubs__stat-label">Active</span></div>
+    <a class="pubs__stat pubs__stat--link" href="{{ scholar }}" target="_blank" rel="noopener"><span class="pubs__stat-num">&#x2197;</span><span class="pubs__stat-label">Scholar profile</span></a>
+  </div>
+
+  <div class="pubs__filters" role="group" aria-label="Filter publications by topic">
+    <button type="button" class="pubs__chip is-active" data-filter="all">All <span class="pubs__chip-n">{{ items | size }}</span></button>
+    {%- for t in topics -%}
+      {%- case t -%}
+        {%- when "lidar" -%}{%- assign tl = "Roadside LiDAR" -%}
+        {%- when "streetview" -%}{%- assign tl = "Drive-by Sensing" -%}
+        {%- when "uav-inspection" -%}{%- assign tl = "UAV Inspection" -%}
+        {%- when "ndt" -%}{%- assign tl = "NDT · Concrete" -%}
+        {%- when "control" -%}{%- assign tl = "Flight Control" -%}
+        {%- when "slam" -%}{%- assign tl = "SLAM · Mapping" -%}
+        {%- when "comms" -%}{%- assign tl = "Wireless Comms" -%}
+        {%- when "patent" -%}{%- assign tl = "Patent" -%}
+        {%- else -%}{%- assign tl = t -%}
+      {%- endcase -%}
+      {%- assign n = data.items | where: "topic", t | size -%}
+      <button type="button" class="pubs__chip" data-filter="{{ t }}">{{ tl }} <span class="pubs__chip-n">{{ n }}</span></button>
+    {%- endfor -%}
+  </div>
+
+  {%- if featured.size > 0 -%}
+  <section class="pubs__section" data-featured>
+    <h2 class="pubs__heading"><span class="pubs__star">&#9733;</span> Selected &amp; recent</h2>
+    <div class="pub-grid pub-grid--featured">
+      {%- for item in featured -%}{%- include pub-card.html pub=item -%}{%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  <section class="pubs__section">
+    <h2 class="pubs__heading">All publications</h2>
+    <div class="pub-grid" data-pub-grid>
+      {%- for item in items -%}{%- include pub-card.html pub=item -%}{%- endfor -%}
+    </div>
+    <p class="pubs__empty" data-empty hidden>No publications in this topic.</p>
+  </section>
+
+  <p class="pubs__sync">Last synced with Google Scholar: {{ data.last_synced }}.</p>
+</div>
+
+<script>
+(function () {
+  var grid = document.querySelector('[data-pub-grid]');
+  var featured = document.querySelector('[data-featured]');
+  var empty = document.querySelector('[data-empty]');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.pubs__chip'));
+  if (!grid || !chips.length) return;
+
+  function apply(filter) {
+    var shown = 0;
+    grid.querySelectorAll('.pub-card').forEach(function (card) {
+      var match = filter === 'all' || card.getAttribute('data-topic') === filter;
+      card.hidden = !match;
+      if (match) shown++;
+    });
+    if (featured) featured.hidden = filter !== 'all';
+    if (empty) empty.hidden = shown !== 0;
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) { c.classList.remove('is-active'); });
+      chip.classList.add('is-active');
+      apply(chip.getAttribute('data-filter'));
+    });
+  });
+})();
+</script>

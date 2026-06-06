@@ -1,0 +1,238 @@
+{%- comment -%}
+  pub-thumb.html — topical animated SVG artwork for a publication card.
+  Usage: {% include pub-thumb.html topic="lidar" %}
+  Topics: lidar | streetview | uav-inspection | ndt | control | slam | comms | patent
+
+  NOTE: CSS inside inline SVG is GLOBAL to the page, so every keyframe name is
+  uniquely prefixed (ptLidar…, ptNdt…) and every rule is qualified by the SVG's
+  root class (.pt-lidar …). Each block freezes under prefers-reduced-motion.
+  All scenes share viewBox 0 0 320 200 (matches the .pub-card__media 8:5 box).
+{%- endcomment -%}
+{%- case include.topic -%}
+
+{%- when "lidar" -%}
+<svg class="pt pt-lidar" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-lidar{background:#0e1a2b}
+    .pt-lidar .bg{fill:#0e1a2b}.pt-lidar .ground{fill:#13243b}
+    .pt-lidar .ring{fill:none;stroke:#52adc8;stroke-opacity:.18}
+    .pt-lidar .dash{stroke:#3b6f8a;stroke-width:2;stroke-dasharray:10 12;stroke-opacity:.5}
+    .pt-lidar .pole{stroke:#7a8ba0;stroke-width:3}
+    .pt-lidar .puck{fill:#cdd9e5}
+    .pt-lidar .beam{fill:#52adc8;fill-opacity:.16;transform-box:view-box;transform-origin:160px 60px;animation:ptLidarSweep 3.4s ease-in-out infinite}
+    .pt-lidar .blip{fill:#7ee0ef;animation:ptLidarBlip 3.4s ease-in-out infinite}
+    .pt-lidar .blip.b2{fill:#8affc1;animation-delay:.5s}
+    .pt-lidar .blip.b3{animation-delay:1.1s}
+    .pt-lidar .blip.b4{fill:#8affc1;animation-delay:1.7s}
+    .pt-lidar .veh{fill:#52adc8;fill-opacity:.85}
+    @keyframes ptLidarSweep{0%,100%{transform:rotate(-34deg)}50%{transform:rotate(34deg)}}
+    @keyframes ptLidarBlip{0%,40%,100%{opacity:.15;r:2.5}60%{opacity:1;r:4}}
+    @media (prefers-reduced-motion:reduce){.pt-lidar *{animation:none!important}.pt-lidar .beam{transform:rotate(0)}}
+  </style>
+  <rect class="bg" width="320" height="200"/>
+  <rect class="ground" y="150" width="320" height="50"/>
+  <circle class="ring" cx="160" cy="60" r="55"/><circle class="ring" cx="160" cy="60" r="90"/><circle class="ring" cx="160" cy="60" r="125"/>
+  <polygon class="beam" points="160,60 96,150 224,150"/>
+  <line class="dash" x1="20" y1="174" x2="300" y2="174"/>
+  <line class="pole" x1="160" y1="62" x2="160" y2="150"/>
+  <rect class="puck" x="150" y="50" width="20" height="13" rx="3"/>
+  <rect class="veh" x="60" y="158" width="34" height="13" rx="3"/>
+  <rect class="veh" x="225" y="158" width="40" height="13" rx="3"/>
+  <circle class="blip b1" cx="96" cy="150" r="3"/><circle class="blip b2" cx="210" cy="150" r="3"/>
+  <circle class="blip b3" cx="135" cy="150" r="3"/><circle class="blip b4" cx="180" cy="150" r="3"/>
+</svg>
+
+{%- when "streetview" -%}
+<svg class="pt pt-sv" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-sv .bg{fill:#0e1a2b}.pt-sv .sky{fill:#16263d}.pt-sv .road{fill:#13243b}
+    .pt-sv .lane{stroke:#3b6f8a;stroke-width:3;stroke-dasharray:14 16;stroke-opacity:.6;animation:ptSvLane 1.1s linear infinite}
+    .pt-sv .truck{fill:#cdd9e5}.pt-sv .cab{fill:#9fb3c8}.pt-sv .wheel{fill:#0e1a2b;stroke:#7a8ba0;stroke-width:2}
+    .pt-sv .box{fill:none;stroke:#8affc1;stroke-width:2.5;animation:ptSvBox 2.6s ease-in-out infinite}
+    .pt-sv .tag{fill:#8affc1}.pt-sv .tagt{fill:#0e1a2b;font:600 11px system-ui,sans-serif}
+    .pt-sv .scan{stroke:#52adc8;stroke-width:2;stroke-opacity:.85;animation:ptSvScan 2.6s ease-in-out infinite}
+    @keyframes ptSvLane{to{stroke-dashoffset:-30}}
+    @keyframes ptSvBox{0%,100%{stroke-opacity:.35}55%{stroke-opacity:1}}
+    @keyframes ptSvScan{0%,100%{transform:translateX(-46px);opacity:0}50%{opacity:1}55%{transform:translateX(46px)}}
+    @media (prefers-reduced-motion:reduce){.pt-sv *{animation:none!important}}
+  </style>
+  <rect class="bg" width="320" height="200"/><rect class="sky" width="320" height="120"/>
+  <polygon class="road" points="0,200 320,200 230,120 90,120"/>
+  <line class="lane" x1="160" y1="200" x2="160" y2="122"/>
+  <g>
+    <rect class="truck" x="112" y="78" width="74" height="34" rx="3"/>
+    <rect class="cab" x="186" y="86" width="22" height="26" rx="3"/>
+    <circle class="wheel" cx="130" cy="114" r="8"/><circle class="wheel" cx="170" cy="114" r="8"/><circle class="wheel" cx="198" cy="114" r="7"/>
+  </g>
+  <rect class="box" x="104" y="70" width="112" height="52" rx="2"/>
+  <line class="scan" x1="160" y1="70" x2="160" y2="122"/>
+  <rect class="tag" x="104" y="56" width="62" height="15" rx="3"/>
+  <text class="tagt" x="109" y="67">truck 0.94</text>
+</svg>
+
+{%- when "uav-inspection" -%}
+<svg class="pt pt-uav" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-uav .bg{fill:#0e1a2b}.pt-uav .sky{fill:#16263d}
+    .pt-uav .pier{fill:#26384f}.pt-uav .deck{fill:#33485f}.pt-uav .girder{stroke:#1b2a3d;stroke-width:3}
+    .pt-uav .drone{animation:ptUavHover 3s ease-in-out infinite}
+    .pt-uav .body{fill:#cdd9e5}.pt-uav .arm{stroke:#9fb3c8;stroke-width:3}
+    .pt-uav .rotor{fill:#52adc8;fill-opacity:.5;transform-box:view-box;transform-origin:center;animation:ptUavSpin .25s linear infinite}
+    .pt-uav .r1{transform-origin:70px 70px}.pt-uav .r2{transform-origin:110px 70px}
+    .pt-uav .scan{fill:#8affc1;fill-opacity:.12;animation:ptUavScan 3s ease-in-out infinite}
+    .pt-uav .hit{fill:#8affc1;animation:ptUavHit 3s ease-in-out infinite}
+    @keyframes ptUavSpin{to{transform:rotate(360deg)}}
+    @keyframes ptUavHover{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+    @keyframes ptUavScan{0%,100%{opacity:.25}50%{opacity:.7}}
+    @keyframes ptUavHit{0%,100%{opacity:.2}50%{opacity:1}}
+    @media (prefers-reduced-motion:reduce){.pt-uav *{animation:none!important}}
+  </style>
+  <rect class="bg" width="320" height="200"/><rect class="sky" width="320" height="200"/>
+  <rect class="pier" x="210" y="40" width="26" height="160"/>
+  <rect class="deck" x="170" y="40" width="150" height="26"/>
+  <line class="girder" x1="176" y1="66" x2="314" y2="66"/><line class="girder" x1="223" y1="66" x2="223" y2="196"/>
+  <polygon class="scan" points="110,78 196,120 196,150 110,98"/>
+  <rect class="hit" x="200" y="116" width="14" height="10" rx="2"/>
+  <g class="drone">
+    <line class="arm" x1="62" y1="78" x2="118" y2="78"/>
+    <rect class="body" x="78" y="72" width="24" height="13" rx="3"/>
+    <ellipse class="rotor r1" cx="70" cy="70" rx="16" ry="4"/>
+    <ellipse class="rotor r2" cx="110" cy="70" rx="16" ry="4"/>
+  </g>
+</svg>
+
+{%- when "ndt" -%}
+<svg class="pt pt-ndt" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-ndt .bg{fill:#0e1a2b}.pt-ndt .slab{fill:#2b3a4f}.pt-ndt .slabtop{fill:#3a4d66}
+    .pt-ndt .void{fill:#ff7a59;opacity:.85;animation:ptNdtVoid 2.4s ease-in-out infinite}
+    .pt-ndt .wave{fill:none;stroke:#ffd166;stroke-width:2.5;opacity:0;animation:ptNdtWave 2.4s ease-out infinite}
+    .pt-ndt .w2{animation-delay:.8s}.pt-ndt .w3{animation-delay:1.6s}
+    .pt-ndt .probe{fill:#cdd9e5}.pt-ndt .sensor{fill:#52adc8}
+    @keyframes ptNdtWave{0%{opacity:.9;transform:scale(.2);transform-box:view-box;transform-origin:120px 92px}80%{opacity:0;transform:scale(1.6)}100%{opacity:0}}
+    @keyframes ptNdtVoid{0%,100%{opacity:.45}50%{opacity:.95}}
+    @media (prefers-reduced-motion:reduce){.pt-ndt *{animation:none!important;opacity:.7}}
+  </style>
+  <rect class="bg" width="320" height="200"/>
+  <rect class="slab" x="20" y="92" width="280" height="92"/>
+  <rect class="slabtop" x="20" y="92" width="280" height="10"/>
+  <ellipse class="void" cx="120" cy="150" rx="30" ry="13"/>
+  <g style="transform-box:view-box;transform-origin:120px 92px">
+    <circle class="wave w1" cx="120" cy="92" r="34"/>
+    <circle class="wave w2" cx="120" cy="92" r="34"/>
+    <circle class="wave w3" cx="120" cy="92" r="34"/>
+  </g>
+  <rect class="probe" x="110" y="74" width="20" height="20" rx="3"/>
+  <circle class="sensor" cx="120" cy="84" r="5"/>
+  <rect class="void" x="206" y="120" width="56" height="40" rx="4" style="opacity:.3"/>
+</svg>
+
+{%- when "control" -%}
+<svg class="pt pt-ctl" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-ctl .bg{fill:#0e1a2b}
+    .pt-ctl .wire{fill:none;stroke:#3b6f8a;stroke-width:2.5}
+    .pt-ctl .blk{fill:#16263d;stroke:#52adc8;stroke-width:2}
+    .pt-ctl .sum{fill:#16263d;stroke:#52adc8;stroke-width:2}
+    .pt-ctl .lbl{fill:#cdd9e5;font:600 13px system-ui,sans-serif}.pt-ctl .sub{fill:#7ee0ef;font:600 11px system-ui,sans-serif}
+    .pt-ctl .sig{fill:#8affc1;offset-path:path('M40 70 H92 M132 70 H190 M230 70 V130 H40 V70');animation:ptCtlSig 4s linear infinite}
+    @keyframes ptCtlSig{to{offset-distance:100%}}
+    @media (prefers-reduced-motion:reduce){.pt-ctl .sig{animation:none;offset-distance:18%}}
+  </style>
+  <rect class="bg" width="320" height="200"/>
+  <path class="wire" d="M40 70 H92"/><path class="wire" d="M132 70 H190"/><path class="wire" d="M230 70 V130 H40 V70"/>
+  <circle class="sum" cx="112" cy="70" r="13"/>
+  <text class="lbl" x="106" y="75">+</text>
+  <rect class="blk" x="150" y="52" width="80" height="36" rx="5"/>
+  <text class="lbl" x="163" y="69">C(s</text><text class="sub" x="190" y="64">α</text><text class="lbl" x="196" y="69">)</text>
+  <rect class="blk" x="150" y="112" width="80" height="36" rx="5"/>
+  <text class="lbl" x="171" y="135">UAV</text>
+  <path class="wire" d="M190 130 H150"/><path class="wire" d="M230 88 V112"/>
+  <text class="sub" x="20" y="60">r</text>
+  <circle class="sig" r="4.5"/>
+</svg>
+
+{%- when "slam" -%}
+<svg class="pt pt-slam" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-slam .bg{fill:#0e1a2b}
+    .pt-slam .pt{fill:#52adc8;opacity:0;animation:ptSlamPop 4s ease-in-out infinite}
+    .pt-slam .path{fill:none;stroke:#8affc1;stroke-width:2.5;stroke-dasharray:6 7;stroke-dashoffset:0;animation:ptSlamPath 4s linear infinite}
+    .pt-slam .drone{fill:#cdd9e5;offset-path:path('M30 150 C90 60 150 150 210 80 S300 70 300 70');animation:ptSlamFly 4s ease-in-out infinite}
+    .pt-slam .arm{stroke:#9fb3c8;stroke-width:2}
+    @keyframes ptSlamPath{to{stroke-dashoffset:-130}}
+    @keyframes ptSlamFly{to{offset-distance:100%}}
+    @keyframes ptSlamPop{0%{opacity:0;transform:scale(.4)}40%{opacity:1;transform:scale(1)}90%{opacity:.5}100%{opacity:0}}
+    @media (prefers-reduced-motion:reduce){.pt-slam *{animation:none!important;opacity:.85}}
+  </style>
+  <rect class="bg" width="320" height="200"/>
+  <path class="path" d="M30 150 C90 60 150 150 210 80 S300 70 300 70"/>
+  {%- assign xs = "44,70,96,120,150,176,150,200,232,210,260,250,284,120,96,232" | split: "," -%}
+  {%- assign ys = "150,120,150,96,130,150,170,110,90,150,84,120,70,160,120,130" | split: "," -%}
+  {%- for x in xs -%}
+  <circle class="pt" cx="{{ x }}" cy="{{ ys[forloop.index0] }}" r="3.4" style="transform-box:view-box;transform-origin:{{ x }}px {{ ys[forloop.index0] }}px;animation-delay:{{ forloop.index0 | times: 0.22 }}s"/>
+  {%- endfor -%}
+  <g class="drone"><line class="arm" x1="-9" y1="0" x2="9" y2="0"/><rect x="-6" y="-4" width="12" height="8" rx="2"/></g>
+</svg>
+
+{%- when "comms" -%}
+<svg class="pt pt-comm" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-comm .bg{fill:#0e1a2b}
+    .pt-comm .tower{stroke:#9fb3c8;stroke-width:3}.pt-comm .base{fill:#26384f}
+    .pt-comm .arc{fill:none;stroke:#52adc8;stroke-width:2.5;opacity:0;animation:ptCommArc 2.2s ease-out infinite}
+    .pt-comm .a2{animation-delay:.55s}.pt-comm .a3{animation-delay:1.1s}.pt-comm .a4{animation-delay:1.65s}
+    .pt-comm .link{stroke:#27405a;stroke-width:2.5}
+    .pt-comm .pkt{fill:#8affc1;offset-path:path('M70 132 H250');animation:ptCommPkt 1.8s linear infinite}
+    .pt-comm .p2{animation-delay:.9s}
+    @keyframes ptCommArc{0%{opacity:.9;transform:scale(.3);transform-box:view-box;transform-origin:70px 70px}80%{opacity:0;transform:scale(1.5)}100%{opacity:0}}
+    @keyframes ptCommPkt{0%{offset-distance:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+    @media (prefers-reduced-motion:reduce){.pt-comm *{animation:none!important;opacity:.8}}
+  </style>
+  <rect class="bg" width="320" height="200"/>
+  <g style="transform-box:view-box;transform-origin:70px 70px">
+    <circle class="arc a1" cx="70" cy="70" r="26"/><circle class="arc a2" cx="70" cy="70" r="26"/>
+    <circle class="arc a3" cx="70" cy="70" r="26"/><circle class="arc a4" cx="70" cy="70" r="26"/>
+  </g>
+  <line class="link" x1="70" y1="132" x2="250" y2="132"/>
+  <polygon class="base" points="58,132 82,132 78,170 62,170"/><line class="tower" x1="70" y1="70" x2="70" y2="132"/>
+  <polygon class="base" points="238,132 262,132 258,170 242,170"/><line class="tower" x1="250" y1="100" x2="250" y2="132"/>
+  <circle class="tower" cx="250" cy="96" r="6" fill="none"/>
+  <circle class="pkt p1" r="4"/><circle class="pkt p2" r="4"/>
+</svg>
+
+{%- when "patent" -%}
+<svg class="pt pt-pat" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>
+    .pt-pat .bg{fill:#0b2545}
+    .pt-pat .grid{stroke:#1d3f63;stroke-width:1}
+    .pt-pat .draw{fill:none;stroke:#7fd1e3;stroke-width:2.5;stroke-dasharray:520;stroke-dashoffset:520;animation:ptPatDraw 4.5s ease-in-out infinite}
+    .pt-pat .rotor{fill:none;stroke:#7fd1e3;stroke-width:2;stroke-dasharray:3 5;transform-box:view-box;animation:ptPatSpin 3s linear infinite}
+    .pt-pat .rL{transform-origin:96px 64px}.pt-pat .rR{transform-origin:224px 64px}
+    .pt-pat .wheel{fill:none;stroke:#9fd8e6;stroke-width:2.5}
+    .pt-pat .stamp{fill:#7fd1e3;font:700 12px ui-monospace,monospace;letter-spacing:1px;opacity:.8}
+    @keyframes ptPatDraw{0%{stroke-dashoffset:520}55%,100%{stroke-dashoffset:0}}
+    @keyframes ptPatSpin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion:reduce){.pt-pat *{animation:none!important;stroke-dashoffset:0}}
+  </style>
+  <rect class="bg" width="320" height="200"/>
+  <g class="grid">
+    <line x1="0" y1="40" x2="320" y2="40"/><line x1="0" y1="80" x2="320" y2="80"/><line x1="0" y1="120" x2="320" y2="120"/><line x1="0" y1="160" x2="320" y2="160"/>
+    <line x1="64" y1="0" x2="64" y2="200"/><line x1="128" y1="0" x2="128" y2="200"/><line x1="192" y1="0" x2="192" y2="200"/><line x1="256" y1="0" x2="256" y2="200"/>
+  </g>
+  <path class="draw" d="M116 96 H204 V120 H116 Z"/>
+  <line class="draw" x1="96" y1="64" x2="116" y2="96"/><line class="draw" x1="224" y1="64" x2="204" y2="96"/>
+  <ellipse class="rotor rL" cx="96" cy="64" rx="26" ry="6"/>
+  <ellipse class="rotor rR" cx="224" cy="64" rx="26" ry="6"/>
+  <circle class="wheel" cx="134" cy="134" r="12"/><circle class="wheel" cx="186" cy="134" r="12"/>
+  <text class="stamp" x="116" y="180">US 12,296,994</text>
+</svg>
+
+{%- else -%}
+<svg class="pt pt-default" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+  <style>.pt-default .bg{fill:#0e1a2b}.pt-default .d{fill:#52adc8;opacity:.7;animation:ptDef 2.4s ease-in-out infinite}.pt-default .d2{animation-delay:.8s}@keyframes ptDef{0%,100%{opacity:.25}50%{opacity:.9}}@media (prefers-reduced-motion:reduce){.pt-default *{animation:none!important}}</style>
+  <rect class="bg" width="320" height="200"/>
+  <circle class="d d1" cx="130" cy="100" r="10"/><circle class="d d2" cx="160" cy="100" r="10"/><circle class="d d1" cx="190" cy="100" r="10"/>
+</svg>
+
+{%- endcase -%}
