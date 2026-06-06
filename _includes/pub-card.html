@@ -56,6 +56,7 @@
     <h3 class="pub-card__title">{{ pub.title }}</h3>
     <p class="pub-card__authors">{{ authors }}</p>
     <p class="pub-card__venue"><span class="pub-card__venue-name">{{ pub.venue }}</span> &middot; {{ pub.year }}</p>
+    {%- if pub.note -%}<p class="pub-card__note">&#9733; {{ pub.note }}</p>{%- endif -%}
 
     <div class="pub-card__links">
       {%- if pub.links.doi -%}<a class="pub-card__link" href="{{ pub.links.doi }}" target="_blank" rel="noopener">DOI</a>{%- endif -%}

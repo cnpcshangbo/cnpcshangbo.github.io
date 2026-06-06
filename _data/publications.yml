@@ -16,7 +16,9 @@
 #    topic      : lidar | streetview | uav-inspection | ndt | control | slam | comms | patent
 #                 -> selects the animated thumbnail in _includes/pub-thumb.html
 #    citations  : integer (0 if none yet)
-#    featured   : true to pin into the "Selected & recent" highlight row
+#    note       : optional short highlight, e.g. "Selected for IEEE IROS 2025"
+#    featured   : true to pin into the "Selected & recent" highlight row on /publications/
+#    home       : true to surface in the "Selected publications" section on the homepage (/)
 #    links      : optional map — any of { doi, arxiv, ssrn, patent, pdf, slides, code, url }
 #                 (a Google Scholar button is always added automatically)
 #
@@ -37,6 +39,7 @@ items:
     topic: lidar
     citations: 0
     featured: true
+    home: true
 
   - title: "Bridging the Modality Gap in Roadside LiDAR: A Training-Free Vision-Language Model Framework for Vehicle Classification"
     authors: "Y Li, B Shang, J Wei"
@@ -58,6 +61,8 @@ items:
     topic: ndt
     citations: 11
     featured: true
+    home: true
+    note: "Selected for presentation at IEEE IROS 2025"
 
   - title: "AI-Enhanced Sensing for Vulnerable Road User Safety at Signalized Intersections: A Survey"
     authors: "B Shang, Y Li, AG Amin, C Kamga, J Wei"
@@ -67,6 +72,7 @@ items:
     topic: lidar
     citations: 3
     featured: true
+    home: true
 
   - title: "Investigating the LiDAR Beam Count Needed for Effective Vulnerable Road User Detection"
     authors: "B Shang, Y Li, J Wei, C Kamga"

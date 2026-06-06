@@ -33,8 +33,6 @@ Start at the **[Resumes hub](/resumes/)** to pick the right view.
 
 ## Selected publications
 
-1. Bo Shang et al. *Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey.* MobiSPC 2025.
-2. Bo Shang et al. *How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users?* MobiSPC 2025.
-3. Jinglun Feng, Bo Shang et al. *Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure.* IEEE T-ASE 2025. *Selected for IEEE IROS 2025.*
+Recent highlights in roadside-LiDAR sensing, vulnerable-road-user safety, and robotic infrastructure inspection — kept in sync with Google Scholar.
 
-See [Publications](/publications/) for the full list.
+{% include selected-pubs.html %}
