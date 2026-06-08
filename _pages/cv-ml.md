@@ -60,7 +60,6 @@ Python (primary), C++, MATLAB, Fortran.
 
 ## Education
 
-- **PhD, Civil Engineering (Transportation)** — CCNY, NY, USA · 2025–present
 - **PhD, Pattern Recognition and Intelligent Systems** — Northeastern University, China · 2013–2020
 - **Exchange PhD** — UC Merced · 2015–2017
 - **MEng, Pattern Recognition and Intelligent Systems** — Northeastern University, China · 2011–2013

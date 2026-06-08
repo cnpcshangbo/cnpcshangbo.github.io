@@ -67,7 +67,6 @@ Multi-camera + LiDAR extrinsic calibration workflows, time-sync diagnostics, hig
 
 ## Education
 
-- **PhD, Civil Engineering (Transportation)** — CCNY, NY, USA · 2025–present
 - **PhD, Pattern Recognition and Intelligent Systems** — Northeastern University, China · 2013–2020
 - **Exchange PhD** — UC Merced · 2015–2017 (Mechatronics Embedded Control Systems Lab)
 - **MEng, Pattern Recognition and Intelligent Systems** — Northeastern University, China · 2011–2013
