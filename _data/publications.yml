@@ -40,6 +40,9 @@ items:
     citations: 0
     featured: true
     home: true
+    note: "DriveX Workshop — Foundation Models for Autonomous Driving (archival track)"
+    links:
+      pdf: "https://drivex-workshop.github.io/cvpr2026/static/pdf/29_Roadside_LiDAR_for_Cooperat.pdf"
 
   - title: "Bridging the Modality Gap in Roadside LiDAR: A Training-Free Vision-Language Model Framework for Vehicle Classification"
     authors: "Y Li, B Shang, J Wei"
