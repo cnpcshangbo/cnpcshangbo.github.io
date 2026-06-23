@@ -38,7 +38,7 @@ jobs:
       - name: Build PDFs
         working-directory: cv-tex
         run: |
-          for role in robotics ml fde; do
+          for role in robotics ml fde applied-ai solutions-engineer; do
             echo "::group::Build cv-${role}.pdf"
             latexmk -pdf -interaction=nonstopmode -halt-on-error "cv-${role}.tex"
             echo "::endgroup::"
@@ -51,6 +51,8 @@ jobs:
           cp cv-tex/cv-robotics.pdf assets/cv-robotics.pdf
           cp cv-tex/cv-ml.pdf       assets/cv-ml.pdf
           cp cv-tex/cv-fde.pdf      assets/cv-fde.pdf
+          cp cv-tex/cv-applied-ai.pdf assets/cv-applied-ai.pdf
+          cp cv-tex/cv-solutions-engineer.pdf assets/cv-solutions-engineer.pdf
           ls -lh assets/cv-*.pdf
 
       - name: Commit and push if PDFs changed
@@ -58,7 +60,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/cv-robotics.pdf assets/cv-ml.pdf assets/cv-fde.pdf
+          git add assets/cv-robotics.pdf assets/cv-ml.pdf assets/cv-fde.pdf assets/cv-applied-ai.pdf assets/cv-solutions-engineer.pdf
           if git diff --cached --quiet; then
             echo "No PDF changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"
