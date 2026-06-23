@@ -72,7 +72,7 @@
 \end{tabular*}
 
 \vspace{2pt}
-\small Applied AI engineer specializing in shipping production AI systems in complex, real-world domains. 5+ years training, evaluating, and iterating on models for infrastructure inspection, autonomous vehicle perception, and traffic monitoring. Comfortable with the full loop: problem scoping $\rightarrow$ data collection \& curation $\rightarrow$ model training \& evaluation $\rightarrow$ field deployment \& iteration. Domain expertise in transportation and infrastructure where failure is unacceptable.
+\small Applied AI engineer focused on deploying AI systems in complex, real-world domains. Years of experience training, evaluating, and iterating on models for infrastructure inspection, autonomous-vehicle perception, and traffic monitoring. Comfortable with the full loop: problem scoping $\rightarrow$ data collection \& curation $\rightarrow$ model training \& evaluation $\rightarrow$ field deployment \& iteration. Domain depth in transportation and infrastructure.
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
@@ -82,46 +82,45 @@
       {City University of New York --- AI \& Mobility Research Lab}{New York, NY}
       {Applied AI Engineer --- Autonomous Vehicles}{Jul 2025 -- Present}
       \resumeItemListStart
-        \resumeBullet{Owning end-to-end AI pipeline for \textbf{vulnerable road user (VRU) detection} from fixed roadside LiDAR: data collection, curation, model evaluation, and production deployment}
-        \resumeBullet{Training and tuning \textbf{3D CNN-based detectors} on real highway LiDAR data to classify vehicles, motorcycles, bicycles, and pedestrians; optimized for per-object accuracy and spatial localization}
-        \resumeBullet{Built \textbf{configuration-portable model pipeline}: one training procedure that works across 5+ LiDAR sensor variants (beam count, frame rate, mounting); enables rapid deployment to new sites}
-        \resumeBullet{Designed data-quality evaluation framework; achieved 85\% improvement in bad-data detection before model ingestion}
-        \resumeBullet{Collaborated with field teams across 3+ sites to validate model performance; iterated on models based on real-world failure analysis}
+        \resumeBullet{Owning the end-to-end AI pipeline for \textbf{vulnerable road user (VRU) detection} from fixed roadside LiDAR: data collection, curation, model evaluation, and deployment}
+        \resumeBullet{Evaluating and tuning \textbf{CNN-based 3D object detectors} on fixed-LiDAR highway data covering vehicles, motorcycles, bicycles, and vulnerable road users}
+        \resumeBullet{Built a \textbf{configuration-portable training/inference pipeline}: train on one site's sensor configuration, infer on another with different beam counts and frame rates}
+        \resumeBullet{Multi-frame point-cloud reconstruction to densify per-vehicle representations for downstream classification}
+        \resumeBullet{Co-authored two MobiSPC 2025 papers: LiDAR beam-count requirements for VRU detection, and a sensing-perspectives survey}
       \resumeItemListEnd
 
     \resumeSubheading
       {City University of New York --- Robotics Lab}{New York, NY}
       {Applied AI Engineer --- Infrastructure Inspection}{Dec 2022 -- Dec 2024}
       \resumeItemListStart
-        \resumeBullet{Trained and deployed \textbf{CNN models for structural defect detection} (crack, spalling, stain) from bridge imagery at scale on AWS; handled 100k+ images from 50+ bridge inspection sites}
-        \resumeBullet{Developed \textbf{contrastive learning approach for robust defect mapping} using impact-echo sensor data; achieved robust performance across different concrete conditions and acquisition settings}
-        \resumeBullet{Owned model evaluation and iteration pipeline: defined metrics, established ground truth labeling, analyzed failure modes, improved model recall from 62\% → 88\% in production}
-        \resumeBullet{Integrated trained models into \textbf{WebODM-based platform} with interactive visualization and crack measurement; end-users (city engineers, inspectors) achieved 2-week → 2-day turnaround on bridge analysis}
-        \resumeBullet{Debugged and iterated on real-world deployment issues: image quality, lighting variation, annotation errors; validated model robustness across 10+ unique bridge sites}
+        \resumeBullet{Trained and deployed \textbf{CNN models for structural defect detection} (crack, spalling, stain) from robot-collected bridge imagery; pushed models to AWS for scalable cloud inference}
+        \resumeBullet{Contributed to a \textbf{contrastive-learning approach for robust defect mapping} using impact-echo data, robust across acquisition conditions}
+        \resumeBullet{Owned model evaluation and iteration: defined metrics, established ground-truth labeling, and analyzed failure modes against real-world imagery}
+        \resumeBullet{Integrated trained models into a \textbf{WebODM-based platform} with interactive visualization and crack measurement for delivery to end users (city engineers, inspectors)}
+        \resumeBullet{Equal-first-author IROS 2025 paper (IEEE T-ASE 2025) on robotic inspection and analytics for structural defects}
       \resumeItemListEnd
 
     \resumeSubheading
       {Missouri University of Science and Technology}{Rolla, MO}
       {Applied AI Engineer --- Robotics Perception}{Jan 2020 -- Nov 2022}
       \resumeItemListStart
-        \resumeBullet{Trained and optimized \textbf{CNN models for girder detection} on embedded edge hardware (NVIDIA Jetson Nano/TX2/Xavier) for autonomous bridge-inspection drone}
-        \resumeBullet{Designed and validated \textbf{visual-odometry-based localization} for GPS-denied environments; integrated motion-capture ground truth to evaluate accuracy in challenging indoor/underground settings}
-        \resumeBullet{Implemented data collection protocols for autonomous flight under harsh conditions; characterized sensor reliability and built failure-mode analysis}
+        \resumeBullet{Designed image-processing algorithms for \textbf{girder detection} (OpenCV, C++) on NVIDIA Jetson (Nano/TX2/Xavier) edge hardware for an autonomous bridge-inspection drone}
+        \resumeBullet{Built a \textbf{visual-odometry data-quality evaluation} for an indoor flying-robot perching task; integrated VICON motion capture for GPS-denied flight stability}
       \resumeItemListEnd
 
     \resumeSubheading
       {Vaughn College of Aeronautics and Technology}{New York, NY}
       {Technical Instructor}{2023 -- 2024}
       \resumeItemListStart
-        \resumeBullet{Taught applied AI systems, research methodology, and robotics control; mentored 20+ students on real-world deployment of autonomous systems}
+        \resumeBullet{Taught applied AI systems, research methodology, and robotics control; mentored students on real-world deployment of autonomous systems}
       \resumeItemListEnd
 
     \resumeSubheading
       {University of California, Merced}{Merced, CA}
       {Applied AI Engineer --- Autonomous Robotics}{Sep 2015 -- Sep 2017}
       \resumeItemListStart
-        \resumeBullet{Co-led development of \textbf{autonomous robotic platform for GPS-denied exploration}; trained visual-SLAM and inertial odometry models for robust localization in GPS-denied environments (caves, tunnels)}
-        \resumeBullet{Trained and deployed \textbf{CNN-based object detection} on embedded Linux UAVs; validated model robustness in real-world conditions with high noise and degraded signals}
+        \resumeBullet{Co-led \textbf{SmartCaveDrone} (ICUAS'17): a SLAM platform for GPS-denied cave exploration; fused IMU with KinectFusion-style dense visual SLAM}
+        \resumeBullet{Computer-vision-aided localization on embedded Linux UAVs; object detection with OpenCV/Python; DroneKit for autonomous navigation}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -129,17 +128,17 @@
 %-----------APPLIED AI PROJECTS-----------------
 \section{Applied AI Projects}
   \resumeSubHeadingListStart
-    \resumeItem{VRU Detection in Autonomous Vehicles (2024--present)}{Training 3D CNN detectors on fixed roadside LiDAR for vulnerable road user classification. Built configuration-portable pipeline handling 5+ sensor variants; validated on 3+ real deployment sites. Focused on model robustness and per-object accuracy under real-world conditions.}
-    \resumeItem{CNN-based Structural Defect Detection at Scale (2022--present)}{Trained CNN models for crack/spalling/stain detection from drone imagery. Deployed at scale on AWS (100k+ images, 50+ sites). Achieved 62\% → 88\% recall improvement through iterative evaluation and failure-mode analysis. Integrated into production platform used by city engineers.}
-    \resumeItem{Contrastive Learning for Robust Impact-Echo Defect Mapping (2024)}{Designed and trained contrastive learning approach for robust defect localization on concrete slabs using impact-echo acoustic data. Validated robustness across different acquisition conditions and concrete types.}
-    \resumeItem{Visual SLAM for GPS-Denied Autonomous Flight (2015--2017)}{Trained visual-inertial odometry models for UAV localization in GPS-denied environments (caves, tunnels). Achieved meter-level accuracy with motion-capture ground truth validation.}
+    \resumeItem{VRU Detection on Roadside LiDAR (2024--present)}{Evaluating and tuning 3D CNN detectors on fixed roadside LiDAR for vulnerable road user classification (vehicles, motorcycles, bicycles, pedestrians). Configuration-portable pipeline across sensor variants differing in beam count and frame rate.}
+    \resumeItem{CNN-based Structural Defect Detection (2022--present)}{Trained CNN models for crack/spalling/stain detection from drone imagery, deployed on AWS for scalable inference and integrated into a WebODM-based platform used by city engineers and inspectors.}
+    \resumeItem{Contrastive Learning for Impact-Echo Defect Mapping (2024)}{Contributed to a contrastive-learning approach for robust defect localization on concrete slabs using impact-echo data, robust across acquisition conditions.}
+    \resumeItem{Visual SLAM for GPS-Denied Autonomous Flight (2015--2017)}{Fused IMU with KinectFusion-style dense visual SLAM for UAV localization in GPS-denied environments (caves), validated against VICON motion-capture ground truth.}
   \resumeSubHeadingListEnd
 
 \section{Core Skills}
   \resumeSubHeadingListStart
-    \item\small{\textbf{AI/ML}: PyTorch, TensorFlow, CUDA, 2D/3D CNN object detection, contrastive learning, self-supervised learning, model quantization and optimization}
-    \item\small{\textbf{Model Evaluation}: Metrics design, ground truth curation, failure-mode analysis, cross-site validation, robustness testing, A/B testing}
-    \item\small{\textbf{Real-World Deployment}: AWS (S3, EC2, SageMaker, Lambda), Docker, model serving, edge inference (NVIDIA Jetson), model packaging}
+    \item\small{\textbf{AI/ML}: PyTorch, TensorFlow, CUDA, 2D/3D CNN object detection, contrastive learning, multimodal fusion}
+    \item\small{\textbf{Model Evaluation}: Metrics design, ground-truth curation, failure-mode analysis, cross-configuration validation, robustness testing}
+    \item\small{\textbf{Real-World Deployment}: AWS (S3, EC2, SageMaker), Docker, model serving, edge inference (NVIDIA Jetson), model packaging}
     \item\small{\textbf{Computer Vision}: OpenCV, 3D point clouds (LiDAR), multi-modal sensor fusion (LiDAR + RGB + thermal), image preprocessing, data augmentation}
     \item\small{\textbf{Data Pipelines}: ROS/ROS 2, MCAP, Protobuf, dataset versioning, format conversion, data quality assurance, labeling workflows}
     \item\small{\textbf{Robotics \& Autonomy}: Vision-based control, visual servoing, autonomous navigation, embedded systems, edge computing}

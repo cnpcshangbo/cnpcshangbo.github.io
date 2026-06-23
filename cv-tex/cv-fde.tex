@@ -72,7 +72,7 @@
 \end{tabular*}
 
 \vspace{2pt}
-\small Field-first data engineer with 5+ years hands-on experience deploying and scaling \textbf{real-world sensor data collection systems}. Expert in building robust, configuration-portable data pipelines from field sensors through cloud infrastructure. Proven ability to translate field constraints into scalable solutions: validated multi-modal data ingestion (LiDAR, RGB, thermal), quality assurance protocols, and production-grade infrastructure for autonomous systems and infrastructure monitoring.
+\small Field-first data engineer with years of hands-on experience deploying \textbf{real-world sensor data collection systems}. Build robust, configuration-portable data pipelines from field sensors through cloud infrastructure. Translate field constraints into working solutions: multi-modal data ingestion (LiDAR, RGB, thermal), quality-assurance workflows, and deployment infrastructure for autonomous systems and infrastructure monitoring.
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
@@ -82,21 +82,20 @@
       {City University of New York --- AI \& Mobility Research Lab}{New York, NY}
       {Field Data Engineer --- Autonomous Vehicles}{Jul 2025 -- Present}
       \resumeItemListStart
-        \resumeBullet{Operationalized \textbf{fixed roadside LiDAR data collection} across multiple sensor sites; built \textbf{configuration-portable inference pipeline} to handle heterogeneous sensor variants (beam count, frame rate, mounting height)}
-        \resumeBullet{Designed and validated data ingestion from production LiDAR sensors; implemented quality metrics for multi-frame point-cloud reconstruction and sensor reliability assessment}
-        \resumeBullet{Established data labeling and annotation protocols for vulnerable road user classification; coordinated with field teams to validate sensor coverage and performance at 3+ sites}
-        \resumeBullet{Built reproducible dataset versioning and format conversion infrastructure across 5+ sensor configuration variants}
+        \resumeBullet{Operationalized \textbf{fixed roadside LiDAR data collection}; built a \textbf{configuration-portable inference pipeline} that trains on one site's sensor setup and infers on another with different beam counts and frame rates}
+        \resumeBullet{Designed data ingestion from roadside LiDAR sensors; implemented multi-frame point-cloud reconstruction to densify per-vehicle representations for downstream classification}
+        \resumeBullet{Established data labeling and annotation workflows for vulnerable road user (VRU) classification; coordinated with field teams to validate sensor coverage and detection performance}
+        \resumeBullet{Built reproducible dataset versioning and format-conversion infrastructure across heterogeneous sensor configurations}
       \resumeItemListEnd
 
     \resumeSubheading
       {City University of New York --- Robotics Lab}{New York, NY}
       {Field Data Engineer --- Infrastructure Inspection}{Dec 2022 -- Dec 2024}
       \resumeItemListStart
-        \resumeBullet{Owned end-to-end data pipeline for \textbf{robotic bridge inspection}: field data collection (drone/robot imagery + multi-sensor metadata), ingestion, storage, processing, and delivery at scale}
-        \resumeBullet{Architected and deployed \textbf{WebODM-based data platform} integrating automated image preprocessing, 3D reconstruction, labeling workflows, and visualization; served 10+ field operations teams}
-        \resumeBullet{Implemented data quality assurance protocols: image deduplication, anomaly detection, missing-data flagging; reduced bad-data insertion by 85\%}
-        \resumeBullet{Designed robust data collection workflows in GPS-denied and high-interference environments; validated field-to-cloud data integrity across 50+ sites}
-        \resumeBullet{Pushed inference at scale to AWS (EC2, S3); optimized inference latency and cost for automated defect localization on 100k+ images}
+        \resumeBullet{Owned the end-to-end data pipeline for \textbf{robotic bridge inspection}: field data collection (drone/robot imagery + sensor metadata), ingestion, storage, processing, and delivery to end users}
+        \resumeBullet{Built a custom \textbf{WebODM-based data platform} integrating automated segmentation, 3D reconstruction, interactive visualization, and crack measurement for end-user delivery}
+        \resumeBullet{Trained CNNs for crack, spalling, and stain detection on robot-collected imagery; pushed models to \textbf{AWS} for scalable cloud inference}
+        \resumeBullet{Contributed to a contrastive-learning approach for robust defect mapping on concrete slabs using impact-echo data; equal-first-author IROS 2025 / IEEE T-ASE 2025 paper}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -112,7 +111,7 @@
       {Vaughn College of Aeronautics and Technology}{New York, NY}
       {Technical Instructor}{2023 -- 2024}
       \resumeItemListStart
-        \resumeBullet{Taught applied courses on AI systems, research methodology, and robotics control; mentored 20+ students on practical deployment of autonomous systems}
+        \resumeBullet{Taught applied courses on AI systems, research methodology, and robotics control; mentored students on practical deployment of autonomous systems}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -128,20 +127,20 @@
 %-----------DATA OPERATIONS & INFRASTRUCTURE-----------------
 \section{Key Data Operations Projects}
   \resumeSubHeadingListStart
-    \resumeItem{Heterogeneous Sensor Data Ingestion (2024--present)}{Built configuration-portable pipelines handling LiDAR variants: 16/32/64-beam, 10--20 Hz frame rates, 3+ mounting configs. Validated end-to-end data consistency across all variants; reduced data-preparation time by 60\%.}
-    \resumeItem{Bridge Inspection Data Platform (2022--present)}{Designed and operated cloud-based system for drone/robot imagery ingestion, preprocessing, 3D reconstruction, and interactive delivery. Handled 100k+ images; achieved 99.2\% uptime; reduced analyst turnaround from 2 weeks to 2 days.}
-    \resumeItem{Data Quality \& Validation Framework (2023--2024)}{Implemented automated quality checks for field data: image blur detection, sensor calibration validation, metadata consistency. Flagged 15--20\% problematic data before downstream processing.}
-    \resumeItem{Edge Inference at Scale (2020--present)}{Optimized neural network inference for NVIDIA Jetson platforms under strict power and latency constraints. Deployed on 50+ field robots; achieved 15--50x speedup via quantization and model optimization.}
+    \resumeItem{Heterogeneous Sensor Data Ingestion (2024--present)}{Built configuration-portable pipelines that handle LiDAR variants differing in beam count and frame rate, training on one sensor configuration and inferring on another. Validated end-to-end data consistency across configurations.}
+    \resumeItem{Bridge Inspection Data Platform (2022--present)}{Designed and operated a WebODM-based system for drone/robot imagery ingestion, preprocessing, 3D reconstruction, and interactive delivery to end users (city engineers, inspectors).}
+    \resumeItem{Defect Detection \& Cloud Deployment (2022--present)}{Trained CNNs for crack/spalling/stain detection from drone imagery and deployed them on AWS for scalable inference, integrated into the inspection platform.}
+    \resumeItem{Edge Vision on NVIDIA Jetson (2020--2022)}{Designed image-processing algorithms for girder detection (OpenCV, C++) on NVIDIA Jetson under power and latency constraints, as part of a bridge-inspection drone.}
   \resumeSubHeadingListEnd
 
 \section{Core Competencies}
   \resumeSubHeadingListStart
     \item\small{\textbf{Data Ops \& Pipelines}: End-to-end sensor data ingestion, ROS / ROS 2, MCAP, Protobuf, ETL, data versioning, format conversion, quality assurance, metadata management}
-    \item\small{\textbf{Cloud \& Infrastructure}: AWS (S3, EC2, Lambda, SageMaker), Docker, Kubernetes, CI/CD (GitHub Actions), observability and monitoring}
-    \item\small{\textbf{Edge Computing}: NVIDIA Jetson (Nano/TX2/Xavier), embedded Linux, real-time constraints, power-aware optimization, sensor driver development}
-    \item\small{\textbf{Field Engineering}: Multi-modal sensor integration (LiDAR, RGB, thermal, IMU), sensor calibration and validation, GPS-denied localization, robustness under real-world constraints}
-    \item\small{\textbf{Programming}: Python (primary), C++, MATLAB; familiar with Go, Rust for systems work}
-    \item\small{\textbf{Data Formats \& Validation}: JSON, CSV, HDF5, custom binary formats, schema validation, data format migrations}
+    \item\small{\textbf{Cloud \& Infrastructure}: AWS (S3, EC2, SageMaker), Docker, CI/CD (Git/GitHub Actions), Linux/Ubuntu, model packaging and serving}
+    \item\small{\textbf{Edge Computing}: NVIDIA Jetson (Nano/TX2/Xavier), embedded Linux, real-time and power/latency constraints}
+    \item\small{\textbf{Field Engineering}: Multi-modal sensor integration (LiDAR, RGB, thermal, IMU), sensor validation, GPS-denied localization, robustness under real-world constraints}
+    \item\small{\textbf{Programming}: Python (primary), C++, MATLAB, Fortran, Swift}
+    \item\small{\textbf{Data Formats}: JSON, CSV, format conversion across sensor configurations, dataset versioning}
   \resumeSubHeadingListEnd
 
 \section{Education}
