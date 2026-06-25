@@ -13,7 +13,6 @@ redirect_from:
 
 Education
 ======
-* PhD, Civil Engineering (Transportation), City College of New York (CCNY), New York, NY, United States (2025-now)
 * PhD, Pattern Recognition and Intelligent Systems, Northeastern University, China (2013-2020)
 * Exchange Ph.D. student, University of California at Merced, USA (2015-2017) 
 * M.E. Pattern Recognition and Intelligent Systems, Northeastern University, China (2011-2013, GPA: 3.53)
@@ -148,7 +147,6 @@ Volunteer Experiences
 
 Honors and Awards
 =====
-* 2025-2030: PhD Fellowship in Civil Engineering (Transportation) at CCNY
 * 2021: Teaching Certificate, ACUE
 * 2016: Remote Pilot Certificate for Small Unmanned Aircraft Systems, Federal Aviation Administration (FAA)
 * 2015–2017: Financial Support ($38.4k) for a two-year exchange program at University of California, Merced, from the Chinese Scholarship Council (CSC)
