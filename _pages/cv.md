@@ -64,7 +64,7 @@ Project Experiences
 * 2020-2022: Bridge Inspection Robot Deployment System
   * Developed an advanced drone system with robotic arms for automated bridge inspections
   * Key Contributions:
-    * Engineered a sophisticated PID (Proportional-Integral-Derivative) controller to precisely manage the opening and closing mechanisms of robotic arms, ensuring optimal performance and safety durin[...]
+    * Engineered a sophisticated PID (Proportional-Integral-Derivative) controller to precisely manage the opening and closing mechanisms of robotic arms, ensuring optimal performance and safety during inspections
     * Designed and implemented cutting-edge image processing algorithms for accurate girder detection, leveraging the computational power of NVIDIA Jetson platform
     * Created a comprehensive demonstration showcasing the system's capabilities, including autonomous flight, automatic clamping to bridge structures, and efficient traversal along inspection paths
     * Integrated hardware and software components to deliver a cohesive, fully-functional prototype, significantly enhancing bridge inspection efficiency and safety
@@ -89,38 +89,41 @@ Project Experiences
 
 Patents
 =====
-* Chengdong Wu, Bo Shang, Yunzhou Zhang, Chengxi Gao, Tingting Meng. Data/image transmission device based on TCP/IP (Transmission Control Protocol/Internet Protocol) (CN 102427464 B), [https://patents[...]
-* Yunzhou Zhang, Bo Shang, Chengdong Wu, Pengju Si, Internet-based interactive digital media terminal device (CN 102306237 A), [https://patents.google.com/patent/CN102306237A/en](https://patents.googl[...]
-* G Chen, A Reven, B Shang, Z Shi, L Li, etc. Unmanned vehicle having flight configuration and surface traverse configuration (U.S. Patent No. 12,296,994. 13 May 2025), [https://patents.google.com/pat...] 
+* Chengdong Wu, Bo Shang, Yunzhou Zhang, Chengxi Gao, Tingting Meng. Data/image transmission device based on TCP/IP (Transmission Control Protocol/Internet Protocol) (CN 102427464 B). [https://patents.google.com/patent/CN102427464A/en](https://patents.google.com/patent/CN102427464A/en)
+* Yunzhou Zhang, Bo Shang, Chengdong Wu, Pengju Si. Internet-based interactive digital media terminal device (CN 102306237 A). [https://patents.google.com/patent/CN102306237A/en](https://patents.google.com/patent/CN102306237A/en)
+* G Chen, A Reven, B Shang, Z Shi, L Li, etc. Unmanned vehicle having flight configuration and surface traverse configuration (U.S. Patent No. 12,296,994. 13 May 2025). [https://patents.google.com/patent/US12296994B2/en](https://patents.google.com/patent/US12296994B2/en)
 
 Publications
 =====
-1. Bo Shang, Yiqiao Li, Arian Golrokh Amin, Camille Kamga and Jie Wei. Sensing Perspectives on Vulnerable Road User Monitoring for Traffic Safety: A Survey. The 22nd International Conference on Mobile[...]
-2. Bo Shang, Yiqiao Li, Jie Wei and Camille Kamga. How Many Beams of LiDAR is Enough for Detecting Vulnerable Road Users? The 22nd International Conference on Mobile Systems and Pervasive Computing (M[...]
-3. Jinglun Feng, Bo Shang, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, Jizhong Xiao. Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrast[...]
-4. Ejup Hoxha, Jinglun Feng, Agnimitra Sengupta, David Kirakosian, Yang He, Bo Shang, Ardian Gjinofci, and Jizhong Xiao. Contrastive Learning for Robust Defect Mapping in Concrete Slabs using Impact E[...]
-5. Zhang, Haibin, Zhenhua Shi, Liujun Li, Pu Jiao, Bo Shang, and Genda Chen. "Code-specified early delamination detection and quantification in a RC bridge deck: passive vs. active infrared thermograp[...]
-6. L. Li, B. Shang, I. Jayawardana and G. Chen, "Hardware-in-the-loop and Digital Twin Enabled Autonomous Robotics-assisted Environment Inspection [C]," 2023 6th International Symposium on Autonomous [...]
-7. Genda Chen*, Liujun Li, Haibin Zhang, Zhenhua Shi, Bo Shang, Derek Edwards, Daniel McDonald, Rueil Manzambi, and Joseph Ressel. Robot-assisted, Remote Nondestructive Testing and Evaluation (rNDT&E)[...]
-8. Haibin Zhang, Pu Jiao, Liujun Li, Zhenhua Shi, Bo Shang, Genda Chen, Delamination detection of concrete bridge slab through UAV-based thermal scanning [C]. 8th World Conference on Structural Contro[...]
-9. Zhenhua Shi, Bo Shang, Haibin Zhang, Liujun Li, Genda Chen. Evaluation of User-friendliness of Several UASs in Bridge Inspection [C]. 8th World Conference on Structural Control and Monitoring (8WCS[...]
-10. Liujun Li, Genda Chen, Bo Shang. Mixed Reality Enabled Digital Twin for Robot-assisted Bridge element Inspection and maintenance [C]. 8th World Conference on Structural Control and Monitoring (8WC[...]
-11. Jiao, P., Shang, B, Li, L., and Chen, G. The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simu[...]
-12. Bo Shang, Liujun Li, Pu Jiao, Rafael Cardona Huerta, Joseph Ressel, Andrew Rawlings, Buddy Scharfenberg, and Genda Chen. Drone vision-based clamping strategy for bridge inspection [Poster]. INSPIR[...]
-13. B Shang, A Reven, P Jiao, B Li, G Chen. Vision-Based Non-GPS UAV Guidance for Bridge Inspection [Poster]. INSPIRE-UTC 2020 Annual Meeting, 2020.
-14. A Reven, P Jiao, B Shang, G Chen. Clamping Design for Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II [Poster]. INSPIRE-UTC 2020 Annual Meeting, 2020.
-15. A Reven, P Jiao, B Shang, G Chen. Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II [Slides]. INSPIRE-UTC 2020 Annual Meeting, 2020.
-16. Bo Shang, Jianxin Liu, Yunzhou Zhang, Chengdong Wu, YangQuan Chen. Fractional Order Flight Control of Quadrotor UAS on Vision-based Precision Hovering with Larger Sampling Period [J]. Nonlinear Dy[...]
-17. Bo Shang, Chengdong Wu, YangQuan Chen. Neighborhood optimization method for shaping Bode plot with larger phase margin [C]. Proceedings of the ASME 2019 International Design Engineering Technical [...] 
-18. Bo Shang, Yunzhou Zhang, Chengdong Wu, YangQuan Chen. Fractional Order Flight Control of Quadrotor UAS: an OS4 Benchmark Environment and a Case Study [C]. International Conference on Control, Auto[...]
-19. Bo Shang, Chengdong Wu, Yunzhou Zhang, YangQuan Chen. Fractional Order Flight Control of Quadrotor UAS: A Simscape Benchmark Environment and A Case Study [C]. 2018 IEEE Chinese Guidance, Navigatio[...]
-20. Bo Shang, et al. Analysis of Maximum Possible Sampling Period for a Real-Time Vision-Based Control System [C]. ASME 2017 International Design Engineering Technical Conferences and Computers and In[...]
-21. Zhang, G., Shang, B., Chen, Y., & Moyes, H. SmartCaveDrone: 3D cave mapping using UAVs as robotic co-archaeologists [C]. 2017 International Conference on Unmanned Aircraft Systems (ICUAS), 2017, p[...]
-22. B. Shang, J. Liu, T. Zhao and Y. Chen, Fractional order robust visual servoing control of a quadrotor UAV with larger sampling period [C], 2016 International Conference on Unmanned Aircraft System[...]
-23. Bo Shang, Chengdong Wu, Yuchao Hu, Jianyu Yang. An Algorithm of Visual Reconnaissance Path Planning for UAVs in Complex Spaces [J]. Journal of Computational Information Systems, 10(19), 2014.
-24. Bo SHANG, Chengdong WU, Tingting MENG, Chengxi GAO, Yunzhou ZHANG. A Data/Image Transmission Device Based on TCP/IP Protocol[C]. WiCOM2012 (International Conference on Wireless Communications, Net[...]
-25. Tingting Meng, Chengdong Wu, Bo Shang, Chengxi Gao, Yunzhou Zhang. Design of point to multi-point wireless communication system based on ZigBee[C]. WiCOM2011 (International Conference on Wireless [...] 
-26. GAO Chengxi, WU Chengdong, ZHANG Yunzhou, SHANG Bo, MENG Tingting. Research on remote image/data transmission based on TCP/IP protocol [J]. Mechanical & Electrical Engineering Magazine, 2011.
+1. Bo Shang, Yiqiao Li. Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, DriveX Workshop on Foundation Models for Autonomous Driving (archival track), 2026. [PDF](https://drivex-workshop.github.io/cvpr2026/static/pdf/29_Roadside_LiDAR_for_Cooperat.pdf)
+2. Yiqiao Li, Bo Shang, Jie Wei. Bridging the Modality Gap in Roadside LiDAR: A Training-Free Vision-Language Model Framework for Vehicle Classification. arXiv preprint [arXiv:2602.09425](https://arxiv.org/abs/2602.09425), 2026.
+3. B. Shang, Y. Li, B. Horbach, K. Villon. Exploring Drive-By Sensing and Deep Learning for Urban Truck Characterization Using Google Street View Imagery. SSRN preprint [5312573](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5312573), 2025.
+4. Bo Shang, Yiqiao Li, Arian Golrokh Amin, Camille Kamga and Jie Wei. AI-Enhanced Sensing for Vulnerable Road User Safety at Signalized Intersections: A Survey. Procedia Computer Science, vol. 265 (22nd International Conference on Mobile Systems and Pervasive Computing, MobiSPC), 2025.
+5. Bo Shang, Yiqiao Li, Jie Wei and Camille Kamga. Investigating the LiDAR Beam Count Needed for Effective Vulnerable Road User Detection. Procedia Computer Science, vol. 265 (22nd International Conference on Mobile Systems and Pervasive Computing, MobiSPC), 2025.
+6. Jinglun Feng, Bo Shang, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, Jizhong Xiao. Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure. IEEE Transactions on Automation Science and Engineering, 2025 (Presented at IROS 2025).
+7. Ejup Hoxha, Jinglun Feng, Agnimitra Sengupta, David Kirakosian, Yang He, Bo Shang, Ardian Gjinofci, and Jizhong Xiao. Contrastive Learning for Robust Defect Mapping in Concrete Slabs using Impact Echo. Construction and Building Materials, 2024.
+8. Zhang, Haibin, Zhenhua Shi, Liujun Li, Pu Jiao, Bo Shang, and Genda Chen. Code-specified early delamination detection and quantification in a RC bridge deck: passive vs. active infrared thermography. Journal of Civil Structural Health Monitoring, 2024: 1-18.
+9. L. Li, B. Shang, I. Jayawardana and G. Chen, Hardware-in-the-loop and Digital Twin Enabled Autonomous Robotics-assisted Environment Inspection, 2023 6th International Symposium on Autonomous Systems (ISAS), Nanjing, China, 2023, pp. 1-5, doi: 10.1109/ISAS59543.2023.10164352.
+10. Genda Chen, Liujun Li, Haibin Zhang, Zhenhua Shi, Bo Shang, Derek Edwards, Daniel McDonald, Rueil Manzambi, and Joseph Ressel. Robot-assisted, Remote Nondestructive Testing and Evaluation (rNDT&E). Material Design, 2023.
+11. Haibin Zhang, Pu Jiao, Liujun Li, Zhenhua Shi, Bo Shang, Genda Chen. Delamination detection of concrete bridge slab through UAV-based thermal scanning. 8th World Conference on Structural Control and Monitoring (8WCSCM), 2022.
+12. Zhenhua Shi, Bo Shang, Haibin Zhang, Liujun Li, Genda Chen. Evaluation of User-friendliness of Several UASs in Bridge Inspection. 8th World Conference on Structural Control and Monitoring (8WCSCM), 2022.
+13. Liujun Li, Genda Chen, Bo Shang. Mixed Reality Enabled Digital Twin for Robot-assisted Bridge element Inspection and maintenance. 8th World Conference on Structural Control and Monitoring (8WCSCM), 2022.
+14. Jiao, P., Shang, B., Li, L., and Chen, G. The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simulations. Proceedings of the 13th International Workshop on Structural Health Monitoring, August 31 - September 2, 2021, Stanford, CA, 2021.
+15. Bo Shang, Liujun Li, Pu Jiao, Rafael Cardona Huerta, Joseph Ressel, Andrew Rawlings, Buddy Scharfenberg, and Genda Chen. Drone vision-based clamping strategy for bridge inspection [Poster]. INSPIRE-UTC 2021 Annual Meeting, 2021.
+16. B Shang, A Reven, P Jiao, B Li, G Chen. Vision-Based Non-GPS UAV Guidance for Bridge Inspection [Poster]. INSPIRE-UTC 2020 Annual Meeting, 2020.
+17. A Reven, P Jiao, B Shang, G Chen. Clamping Design for Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II [Poster]. INSPIRE-UTC 2020 Annual Meeting, 2020.
+18. A Reven, P Jiao, B Shang, G Chen. Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II [Slides]. INSPIRE-UTC 2020 Annual Meeting, 2020.
+19. Bo Shang, Jianxin Liu, Yunzhou Zhang, Chengdong Wu, YangQuan Chen. Fractional Order Flight Control of Quadrotor UAS on Vision-based Precision Hovering with Larger Sampling Period. Nonlinear Dynamics, 2019.
+20. Bo Shang, Chengdong Wu, YangQuan Chen. Neighborhood optimization method for shaping Bode plot with larger phase margin. Proceedings of the ASME 2019 International Design Engineering Technical Conferences & Computers and Information in Engineering Conference (IDETC/CIE), 2019.
+21. Bo Shang, Yunzhou Zhang, Chengdong Wu, YangQuan Chen. Fractional Order Flight Control of Quadrotor UAS: an OS4 Benchmark Environment and a Case Study. International Conference on Control, Automation, Robotics and Vision (ICARCV), 2018.
+22. Bo Shang, Chengdong Wu, Yunzhou Zhang, YangQuan Chen. Fractional Order Flight Control of Quadrotor UAS: A Simscape Benchmark Environment and A Case Study. 2018 IEEE Chinese Guidance, Navigation and Control Conference (CGNCC), Xiamen, 2018, pp. 1-6.
+23. Bo Shang, et al. Analysis of Maximum Possible Sampling Period for a Real-Time Vision-Based Control System. ASME 2017 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference. American Society of Mechanical Engineers, 2017.
+24. Zhang, G., Shang, B., Chen, Y., & Moyes, H. SmartCaveDrone: 3D cave mapping using UAVs as robotic co-archaeologists. 2017 International Conference on Unmanned Aircraft Systems (ICUAS), 2017, pp. 1052-1057.
+25. B. Shang, J. Liu, T. Zhao and Y. Chen, Fractional order robust visual servoing control of a quadrotor UAV with larger sampling period, 2016 International Conference on Unmanned Aircraft Systems (ICUAS), Arlington, VA, 2016, pp. 1228-1234.
+26. Bo Shang, Chengdong Wu, Yuchao Hu, Jianyu Yang. An Algorithm of Visual Reconnaissance Path Planning for UAVs in Complex Spaces. Journal of Computational Information Systems, 10(19), 2014.
+27. Bo Shang, Chengdong Wu, Tingting Meng, Chengxi Gao, Yunzhou Zhang. A Data/Image Transmission Device Based on TCP/IP Protocol. WiCOM2012 (International Conference on Wireless Communications, Networking and Mobile Computing), 2012.
+28. Tingting Meng, Chengdong Wu, Bo Shang, Chengxi Gao, Yunzhou Zhang. Design of point to multi-point wireless communication system based on ZigBee. WiCOM2011 (International Conference on Wireless Communications, Networking and Mobile Computing), 2011.
+29. Gao Chengxi, Wu Chengdong, Zhang Yunzhou, Shang Bo, Meng Tingting. Research on remote image/data transmission based on TCP/IP protocol. Mechanical & Electrical Engineering Magazine, 2011.
 
 Reviewer Contributions
 =====
