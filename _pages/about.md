@@ -12,7 +12,7 @@ redirect_from:
 
 **Robotics software engineer & ML researcher** working at the intersection of multi-sensor perception, real-time data pipelines, and deep learning. I build and deploy LiDAR + camera systems for the real world — from city-scale highway monitoring to bridge inspection robots — with a focus on the unglamorous but critical layer underneath every perception model: **temporal and spatial sensor synchronization, calibration, and high-throughput data capture**.
 
-I am a Postdoctoral Scholar at the AI & Mobility Research Lab, CUNY City College of New York. My production work spans ROS-based robotics stacks, NVIDIA Jetson edge inference, CNN-based 3D object detection, and AWS-backed inspection workflows deployed with New York City agencies.
+I am a Postdoctoral Associate at the University of Maryland (since July 2026). My production work spans ROS-based robotics stacks, NVIDIA Jetson edge inference, CNN-based 3D object detection, and AWS-backed inspection workflows deployed with New York City agencies.
 
 ## Hire me as…
 

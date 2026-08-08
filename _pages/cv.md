@@ -20,7 +20,8 @@ Education
 
 Work Experiences
 ======
-* Jun 2025-now: Postdoctoral Scholar @ AI & Mobility Research Lab at CUNY City College of New York
+* Jul 2026-now: Postdoctoral Associate @ University of Maryland
+* Jun 2025-Jul 2026: Postdoctoral Scholar @ AI & Mobility Research Lab at CUNY City College of New York
 * Jan 2025-Jun 2025: Graduate Research Assistant @ Civil Engineering, CCNY
 * Dec 2022-Dec 2024: Post-Doc Researcher @ CCNY Robotics Lab
 * Jun 2024-Aug 2024: Instructor for Computer Engineering Summer Academy (AI module) @ Vaughn College

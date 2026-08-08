@@ -31,7 +31,7 @@ Best for: ML engineer roles with a CV / perception flavor, applied research role
 
 A single "do-everything" resume tends to under-sell every role it's targeting. The work I've shipped genuinely sits across robotics, perception engineering, and applied ML — so each role-targeted page leads with the experience most relevant to that hiring bar.
 
-If you want a custom framing for a specific role, [email me](mailto:bshang@ccny.cuny.edu).
+If you want a custom framing for a specific role, [email me](mailto:bshang@umd.edu).
 
 ---
 

@@ -67,7 +67,8 @@ Python (primary), C++, MATLAB, Fortran.
 
 ## Experience
 
-- **2025–now** — Postdoctoral Scholar, AI & Mobility Research Lab, CUNY City College
+- **Jul 2026–now** — Postdoctoral Associate, University of Maryland
+- **Jul 2025–Jul 2026** — Postdoctoral Scholar, AI & Mobility Research Lab, CUNY City College
 - **Dec 2022–Dec 2024** — Postdoctoral Researcher, CCNY Robotics Lab
 - **Jan 2020–Nov 2022** — Postdoctoral Fellow, Missouri University of Science and Technology
 - **Jun–Aug 2024** — Instructor, Computer Engineering Summer Academy (AI module), Vaughn College
