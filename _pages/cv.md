@@ -20,7 +20,7 @@ Education
 
 Work Experiences
 ======
-* Jul 2026-now: Postdoctoral Associate @ University of Maryland
+* Jul 2026-now: Postdoctoral Associate @ Civil and Environmental Engineering / Maryland Transportation Institute, University of Maryland, College Park (under Dr. Terry Yang); hardware/software development and testing for two sponsored transportation research projects
 * Jun 2025-Jul 2026: Postdoctoral Scholar @ AI & Mobility Research Lab at CUNY City College of New York
 * Jan 2025-Jun 2025: Graduate Research Assistant @ Civil Engineering, CCNY
 * Dec 2022-Dec 2024: Post-Doc Researcher @ CCNY Robotics Lab

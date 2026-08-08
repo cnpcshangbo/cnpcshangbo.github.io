@@ -12,7 +12,7 @@ redirect_from:
 
 **Robotics software engineer & ML researcher** working at the intersection of multi-sensor perception, real-time data pipelines, and deep learning. I build and deploy LiDAR + camera systems for the real world — from city-scale highway monitoring to bridge inspection robots — with a focus on the unglamorous but critical layer underneath every perception model: **temporal and spatial sensor synchronization, calibration, and high-throughput data capture**.
 
-I am a Postdoctoral Associate at the University of Maryland (since July 2026). My production work spans ROS-based robotics stacks, NVIDIA Jetson edge inference, CNN-based 3D object detection, and AWS-backed inspection workflows deployed with New York City agencies.
+Since July 2026, I have been a Postdoctoral Associate in Civil and Environmental Engineering and the Maryland Transportation Institute at the University of Maryland, College Park, working under Dr. Terry Yang. I support hardware and software development, integration, testing, troubleshooting, data collection, technical documentation, and deliverables for two sponsored transportation research projects. My broader work spans ROS-based robotics stacks, NVIDIA Jetson edge inference, CNN-based 3D object detection, and AWS-backed inspection workflows deployed with public agencies.
 
 ## Hire me as…
 

@@ -74,7 +74,7 @@ Multi-camera + LiDAR extrinsic calibration workflows, time-sync diagnostics, hig
 
 ## Experience
 
-- **Jul 2026–now** — Postdoctoral Associate, University of Maryland
+- **Jul 2026–now** — Postdoctoral Associate, Civil and Environmental Engineering / Maryland Transportation Institute, University of Maryland, College Park — hardware/software development and integration, system testing and troubleshooting, data collection, technical documentation, and deliverables for two sponsored transportation research projects under Dr. Terry Yang
 - **Jul 2025–Jul 2026** — Postdoctoral Scholar, AI & Mobility Research Lab, CUNY City College
 - **Dec 2022–Dec 2024** — Postdoctoral Researcher, CCNY Robotics Lab
 - **Jan 2020–Nov 2022** — Postdoctoral Fellow, Missouri University of Science and Technology
