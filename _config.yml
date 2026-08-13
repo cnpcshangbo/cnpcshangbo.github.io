@@ -24,9 +24,9 @@ author:
   avatar           : "boshang.jpg"
   name             : "Bo Shang"
   pronouns         : # example: "she/her"  
-  bio              : "Robotics SWE & ML researcher · LiDAR-camera sync · multi-sensor pipelines · Postdoc @ CCNY"
+  bio              : "Forward-deployed AI & robotics engineer · LiDAR-camera sync · multi-sensor pipelines · Postdoc @ UMD"
   location         : "New York"
-  employer         : "CUNY City College"
+  employer         : "University of Maryland"
   uri              : # URL
   email            : "bshang@umd.edu" 
 
