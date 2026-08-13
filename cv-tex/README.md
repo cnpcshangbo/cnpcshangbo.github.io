@@ -5,6 +5,7 @@ Source for the polished PDF resumes downloaded from
 
 - `cv-robotics.tex` — Robotics Software Engineer view. Built to `/assets/cv-robotics.pdf`.
 - `cv-ml.tex` — Machine Learning Engineer view. Built to `/assets/cv-ml.pdf`.
+- `cv-fde.tex` — Forward Deployed Engineer view. Built to `/assets/cv-fde.pdf`.
 
 These are written in resume style (concise, action-verb bullets) and are
 distinct from the longer-form narrative on the corresponding `/cv/robotics/`
@@ -16,6 +17,7 @@ remain hand-curated separately.
 ```
 latexmk -pdf cv-robotics.tex
 latexmk -pdf cv-ml.tex
+latexmk -pdf cv-fde.tex
 ```
 
 Requires a TeX Live distribution with `latex-recommended`, `latex-extra`, and

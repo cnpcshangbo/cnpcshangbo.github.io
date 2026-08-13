@@ -16,8 +16,9 @@ Since July 2026, I have been a Postdoctoral Associate in Civil and Environmental
 
 ## Hire me as…
 
-Same engineer, two role-targeted resumes:
+Same engineer, three role-targeted resumes:
 
+- 🚀 **[Forward Deployed Engineer PDF](/assets/cv-fde.pdf)** — real-world AI and robotics delivery, customer discovery, field troubleshooting, data pipelines, and 0-to-1 product deployment.
 - 🤖 **[Robotics Software Engineer](/cv/robotics/)** — LiDAR + multi-camera pipelines, sensor synchronization & calibration, ROS, real-time data systems, DepthAI, MCAP/Protobuf.
 - 🧠 **[Machine Learning Engineer](/cv/ml/)** — 3D/2D CNN object detection, multimodal fusion, model training and cloud deployment (AWS), computer vision for safety-critical infrastructure.
 - 📚 **[Full Academic CV](/cv/)** — complete record of publications, patents, teaching, and grants.

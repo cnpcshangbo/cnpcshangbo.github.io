@@ -1,10 +1,10 @@
 %-------------------------
-% Bo Shang - Field Data Engineer Resume
+% Bo Shang - Forward Deployed Engineer Resume
 % Template adapted from Sourabh Bajaj (MIT License)
 % Source: https://github.com/sb2nov/resume
 %-------------------------
 
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper,9pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -67,12 +67,12 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Bo Shang} & \href{mailto:bshang@umd.edu}{bshang@umd.edu} \\
-  Field Data Engineer \textbar{} Data Ops \& Infrastructure & +1-929-520-0488 \\
+  Forward Deployed Engineer \textbar{} Robotics Data \& Applied AI & +1-929-520-0488 \\
   \href{https://cnpcshangbo.github.io/}{cnpcshangbo.github.io} \textbar{} \href{https://www.linkedin.com/in/bo-shang}{linkedin.com/in/bo-shang} & New York, NY \\
 \end{tabular*}
 
 \vspace{2pt}
-\small Field-first data engineer with years of hands-on experience deploying \textbf{real-world sensor data collection systems}. Build robust, configuration-portable data pipelines from field sensors through cloud infrastructure. Translate field constraints into working solutions: multi-modal data ingestion (LiDAR, RGB, thermal), quality-assurance workflows, and deployment infrastructure for autonomous systems and infrastructure monitoring.
+\small Forward-deployed engineer who turns ambiguous field and stakeholder needs into working AI and robotics systems. Own the loop from requirements and data-collection specifications through Python pipelines, QA, cloud/edge deployment, and end-user delivery. Experienced with messy real-world sensor data, cross-configuration failures, and 0-to-1 products spanning robotics, infrastructure, and applied AI.
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
@@ -82,73 +82,49 @@
       {University of Maryland --- CEE / Maryland Transportation Institute}{College Park, MD}
       {Postdoctoral Associate}{Jul 2026 -- Present}
       \resumeItemListStart
-        \resumeBullet{Support hardware and software development and testing for two sponsored transportation research projects under Dr. Terry Yang}
-        \resumeBullet{Integrate hardware, implement software, conduct system testing and troubleshooting, support field data collection, and prepare technical documentation and project deliverables}
+        \resumeBullet{Own hardware/software integration, field-data support, testing, troubleshooting, and deliverables for two sponsored transportation projects; translate objectives and field constraints into executable test plans and acceptance evidence}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {ScholarMind AI / Merit Point Academy}{Remote}
+      {Independent AI Product Engineer}{2026 -- Present}
+      \resumeItemListStart
+        \resumeBullet{Designed and shipped \href{https://cnpcshangbo.github.io/portfolio/scholarmind-ai/}{\textbf{a live bilingual AI education and research platform}} spanning an LLM research assistant, 34-course library, recorded lessons, short-video publishing, robotics evidence pages, and a LeetCode knowledge-graph game with 34 nodes / 102 progression units}
+        \resumeBullet{Directed AI coding agents across requirements, architecture, implementation, testing, privacy/attribution guardrails, and production releases; integrated Claude and self-hosted Qwen/Ollama-backed workflows across multiple subdomains}
       \resumeItemListEnd
 
     \resumeSubheading
       {City University of New York --- AI \& Mobility Research Lab}{New York, NY}
-      {Field Data Engineer --- Autonomous Vehicles}{Jul 2025 -- Jul 2026}
+      {Field Data Engineer --- Roadside Perception}{Jul 2025 -- Jul 2026}
       \resumeItemListStart
-        \resumeBullet{Operationalized \textbf{fixed roadside LiDAR data collection}; built a \textbf{configuration-portable inference pipeline} that trains on one site's sensor setup and infers on another with different beam counts and frame rates}
-        \resumeBullet{Designed data ingestion from roadside LiDAR sensors; implemented multi-frame point-cloud reconstruction to densify per-vehicle representations for downstream classification}
-        \resumeBullet{Established data labeling and annotation workflows for vulnerable road user (VRU) classification; coordinated with field teams to validate sensor coverage and detection performance}
-        \resumeBullet{Built reproducible dataset versioning and format-conversion infrastructure across heterogeneous sensor configurations}
+        \resumeBullet{Deployed an end-to-end \textbf{fixed LiDAR + camera pipeline at NYC DOT highway sites}; owned collection, temporal/spatial alignment, ingestion, and training-ready delivery}
+        \resumeBullet{Converted field constraints into portable data/evaluation specifications; enabled models trained at one site to run across different beam counts, frame rates, and mounting geometries}
+        \resumeBullet{Built multi-frame reconstruction and vulnerable-road-user labeling/QA workflows; turned recurring coverage, synchronization, and detection failures into reusable configuration, versioning, and conversion infrastructure}
       \resumeItemListEnd
 
     \resumeSubheading
       {City University of New York --- Robotics Lab}{New York, NY}
-      {Field Data Engineer --- Infrastructure Inspection}{Dec 2022 -- Dec 2024}
+      {Field Data Engineer --- Robotic Inspection}{Dec 2022 -- Dec 2024}
       \resumeItemListStart
-        \resumeBullet{Owned the end-to-end data pipeline for \textbf{robotic bridge inspection}: field data collection (drone/robot imagery + sensor metadata), ingestion, storage, processing, and delivery to end users}
-        \resumeBullet{Built a custom \textbf{WebODM-based data platform} integrating automated segmentation, 3D reconstruction, interactive visualization, and crack measurement for end-user delivery}
-        \resumeBullet{Trained CNNs for crack, spalling, and stain detection on robot-collected imagery; pushed models to \textbf{AWS} for scalable cloud inference}
-        \resumeBullet{Contributed to a contrastive-learning approach for robust defect mapping on concrete slabs using impact-echo data; equal-first-author IROS 2025 / IEEE T-ASE 2025 paper}
+        \resumeBullet{Owned end-to-end delivery of a \textbf{robotic bridge-inspection workflow}: robot/drone imagery and metadata, ingestion, model inference, 3D reconstruction, QA, and engineering-user review}
+        \resumeBullet{Built a custom \textbf{WebODM platform} combining automated segmentation, interactive 3D visualization, defect localization, and crack measurement for city engineers and inspectors}
+        \resumeBullet{Trained CNNs for crack, spalling, and stain detection; deployed inference to \textbf{AWS}, iterated against real-image failures, and coordinated robotics, structural-engineering, data, and software contributors}
       \resumeItemListEnd
 
     \resumeSubheading
       {Missouri University of Science and Technology}{Rolla, MO}
-      {Embedded Data Systems Engineer}{Jan 2020 -- Nov 2022}
+      {Embedded Data Systems Engineer --- Robotics Deployment}{Jan 2020 -- Nov 2022}
       \resumeItemListStart
-        \resumeBullet{Deployed real-time vision processing on \textbf{NVIDIA Jetson edge hardware} (Nano, TX2, Xavier) for field robotics; optimized inference pipelines for power and latency constraints}
-        \resumeBullet{Built data quality evaluation framework for visual odometry systems; integrated motion-capture ground truth (VICON) for validation in GPS-denied environments}
-        \resumeBullet{Designed and tested data collection protocols for autonomous flight in harsh conditions; characterized sensor reliability and failure modes}
+        \resumeBullet{Deployed real-time perception on \textbf{NVIDIA Jetson} for an autonomous bridge-inspection drone; used VICON-grounded QA and field tests to isolate sensor, localization, control, power, latency, wind, and platform-motion failures}
       \resumeItemListEnd
 
-    \resumeSubheading
-      {Vaughn College of Aeronautics and Technology}{New York, NY}
-      {Technical Instructor}{2023 -- 2024}
-      \resumeItemListStart
-        \resumeBullet{Taught applied courses on AI systems, research methodology, and robotics control; mentored students on practical deployment of autonomous systems}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {University of California, Merced}{Merced, CA}
-      {Field Robotics Systems Engineer}{Sep 2015 -- Sep 2017}
-      \resumeItemListStart
-        \resumeBullet{Co-led development of \textbf{autonomous robotic platform for GPS-denied exploration}; integrated inertial + visual odometry, sensor fusion, and robust localization for cave deployment}
-        \resumeBullet{Built custom embedded data-collection software on Linux UAVs; validated sensor data in real-world environments with high noise and degraded signals}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-%-----------DATA OPERATIONS & INFRASTRUCTURE-----------------
-\section{Key Data Operations Projects}
-  \resumeSubHeadingListStart
-    \resumeItem{Heterogeneous Sensor Data Ingestion (2024--present)}{Built configuration-portable pipelines that handle LiDAR variants differing in beam count and frame rate, training on one sensor configuration and inferring on another. Validated end-to-end data consistency across configurations.}
-    \resumeItem{Bridge Inspection Data Platform (2022--present)}{Designed and operated a WebODM-based system for drone/robot imagery ingestion, preprocessing, 3D reconstruction, and interactive delivery to end users (city engineers, inspectors).}
-    \resumeItem{Defect Detection \& Cloud Deployment (2022--present)}{Trained CNNs for crack/spalling/stain detection from drone imagery and deployed them on AWS for scalable inference, integrated into the inspection platform.}
-    \resumeItem{Edge Vision on NVIDIA Jetson (2020--2022)}{Designed image-processing algorithms for girder detection (OpenCV, C++) on NVIDIA Jetson under power and latency constraints, as part of a bridge-inspection drone.}
   \resumeSubHeadingListEnd
 
 \section{Core Competencies}
   \resumeSubHeadingListStart
-    \item\small{\textbf{Data Ops \& Pipelines}: End-to-end sensor data ingestion, ROS / ROS 2, MCAP, Protobuf, ETL, data versioning, format conversion, quality assurance, metadata management}
-    \item\small{\textbf{Cloud \& Infrastructure}: AWS (S3, EC2, SageMaker), Docker, CI/CD (Git/GitHub Actions), Linux/Ubuntu, model packaging and serving}
-    \item\small{\textbf{Edge Computing}: NVIDIA Jetson (Nano/TX2/Xavier), embedded Linux, real-time and power/latency constraints}
-    \item\small{\textbf{Field Engineering}: Multi-modal sensor integration (LiDAR, RGB, thermal, IMU), sensor validation, GPS-denied localization, robustness under real-world constraints}
-    \item\small{\textbf{Programming}: Python (primary), C++, MATLAB, Fortran, Swift}
-    \item\small{\textbf{Data Formats}: JSON, CSV, format conversion across sensor configurations, dataset versioning}
+    \item\small{\textbf{Customer \& Delivery}: Discovery, requirements, data/annotation specifications, delivery sequencing, QA, stakeholder communication, troubleshooting, reusable playbooks}
+    \item\small{\textbf{Robotics Data}: LiDAR, RGB, thermal, IMU; ROS / ROS 2, MCAP, Protobuf; synchronization, calibration, metadata, labeling, dataset versioning, cross-configuration validation}
+    \item\small{\textbf{Engineering}: Python, C++, PyTorch, OpenCV, Linux; AWS (S3/EC2/SageMaker), Docker, CI/CD, NVIDIA Jetson, WebODM, model packaging and serving}
   \resumeSubHeadingListEnd
 
 \section{Education}
@@ -161,10 +137,10 @@
       {M.Eng. in Pattern Recognition \& Intelligent Systems; B.Eng. in Automation}{Aug 2007 -- Dec 2013}
   \resumeSubHeadingListEnd
 
-\section{Patents \& Recognition}
+\section{Selected Evidence}
   \resumeSubHeadingListStart
+    \resumeBullet{First/equal-first-author work in CVPR 2026 Workshops, IEEE T-ASE / IROS 2025, and MobiSPC 2025 on roadside LiDAR and robotic inspection}
     \resumeBullet{\textbf{US 12,296,994} (granted May 2025) --- Unmanned vehicle system design and deployment}
-    \resumeBullet{\textbf{Best System Control} \& \textbf{Best Mission Planning Awards} --- International Aerial Robotics Competition (AUVSI), 2014}
   \resumeSubHeadingListEnd
 
 \end{document}

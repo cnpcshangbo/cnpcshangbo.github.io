@@ -11,6 +11,10 @@ I keep a single source of truth (this site) and several **role-targeted resume v
 
 ## Pick a view
 
+### 🚀 [Forward Deployed Engineer PDF](/assets/cv-fde.pdf)
+**Real-world AI and robotics delivery, customer discovery, field troubleshooting, and 0-to-1 product deployment.**
+Best for: forward deployed engineering, robotics deployment, field solutions, customer engineering, and applied AI delivery roles. Evidence includes roadside LiDAR-camera deployment, robotic bridge inspection, and [ScholarMind AI](/portfolio/scholarmind-ai/).
+
 ### 🤖 [Robotics Software Engineer](/cv/robotics/) &nbsp;·&nbsp; [PDF](/assets/cv-robotics.pdf)
 **LiDAR + multi-camera systems, sensor synchronization & calibration, ROS, real-time pipelines.**
 Best for: robotics software roles, perception / data-systems roles, autonomy stacks, sensor platform teams, AV / mobility companies. Keywords: ROS 2, LiDAR, DepthAI, MCAP, Protobuf, multi-camera calibration, NVIDIA Jetson, sensor fusion, C++ / Python.
@@ -23,6 +27,7 @@ Best for: ML engineer roles with a CV / perception flavor, applied research role
 **Complete record** — every publication, patent, course taught, grant, and reviewer assignment. Best for academic search committees or grant reviewers.
 
 ### Direct PDF downloads
+- [Forward Deployed Engineer PDF](/assets/cv-fde.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-fde.tex)
 - [Robotics SWE PDF](/assets/cv-robotics.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-robotics.tex)
 - [ML Engineer PDF](/assets/cv-ml.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-ml.tex)
 - [Academic CV PDF](/assets/cv.pdf) — hand-curated
