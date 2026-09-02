@@ -28,9 +28,7 @@ The official benchmark asked each submission to provide an `attack.py` program t
 
 The public score rewarded severity and cell diversity. In simplified form, a newly credited high-severity event was worth far more than small prompt-quality differences:
 
-\[
-\text{raw score} = \sum \text{severity weight} + 2 \times \text{unique cells}
-\]
+`raw score = sum(severity weights) + 2 × unique cells`
 
 The competition also used different public and private guardrails. That detail eventually mattered more than almost everything I tuned.
 
@@ -118,11 +116,7 @@ An 18-point raw gain looked clean enough to investigate. But the same `40/720` v
 
 The candidate had not improved the algorithm. It had measured warm state, timing, or resource order.
 
-From then on, a convincing comparison required both orders:
-
-\[
-A \rightarrow B \quad \text{and} \quad B \rightarrow A
-\]
+From then on, a convincing comparison required both orders: `A → B` and `B → A`.
 
 When bytes or generated notebooks might have drifted, I also restored the control byte-for-byte before replaying it. This was slower than ordinary A/B testing, but it changed the question from “did the candidate get a larger number?” to “does the candidate retain the advantage when order is neutralized?”
 
@@ -222,4 +216,3 @@ Both observations are true.
 The lasting result is a better experimental method: read the objective from source, map reachability, preserve byte-identical controls, counterbalance run order, distinguish implementation correctness from scoring impact, and maintain diversity across failure mechanisms.
 
 That method is more reusable than the attack that scored 86.850—and considerably more valuable for evaluating real tool-using agents.
-
