@@ -10,6 +10,8 @@ tags:
   - reproducible experiments
 toc: true
 toc_sticky: true
+comments: true
+comments_discussion_url: "https://github.com/cnpcshangbo/cnpcshangbo.github.io/discussions/8"
 ---
 
 The most useful result from this competition was not my best leaderboard number. It was learning how quickly a security benchmark can become three different problems:

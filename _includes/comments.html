@@ -76,6 +76,19 @@
       {% endif %}
     </section>
   {% when "custom" %}
-    <section id="comments"></section>
+    {% if page.comments_discussion_url %}
+      <h4 class="page__comments-title">Comments and peer review</h4>
+      <section id="comments">
+        <p>
+          Comments are hosted publicly on GitHub Discussions so that feedback remains
+          attributable, reviewable, and easy to moderate. A GitHub account is required.
+        </p>
+        <p>
+          <a class="btn btn--primary" href="{{ page.comments_discussion_url }}" target="_blank" rel="noopener noreferrer">
+            Leave a comment on GitHub
+          </a>
+        </p>
+      </section>
+    {% endif %}
   {% endcase %}
 </div>

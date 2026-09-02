@@ -39,6 +39,7 @@ jobs:
             "publications/index.html|Publications"
             "portfolio/index.html|Portfolio"
             "research-notes/index.html|Research Notes"
+            "posts/2026/09/ai-agent-security-postmortem/index.html|Comments and peer review"
           )
           for entry in "${entries[@]}"; do
             path="${entry%%|*}"
