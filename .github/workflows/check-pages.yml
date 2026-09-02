@@ -38,6 +38,7 @@ jobs:
             "cv/ml/index.html|Machine Learning Engineer"
             "publications/index.html|Publications"
             "portfolio/index.html|Portfolio"
+            "research-notes/index.html|Research Notes"
           )
           for entry in "${entries[@]}"; do
             path="${entry%%|*}"
@@ -79,6 +80,7 @@ jobs:
             "/cv/ml/"
             "/publications/"
             "/portfolio/"
+            "/research-notes/"
           )
           fail=0
           for path in "${paths[@]}"; do
