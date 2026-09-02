@@ -32,6 +32,10 @@ Start at the **[Resumes hub](/resumes/)** to pick the right view.
 - **Deep learning on point clouds and imagery** — CNN-based 3D detection, vulnerable-road-user sensing, contrastive learning for defect mapping, models deployed on AWS for scalable inspection.
 - **AI-first developer tooling** — using LLM agents (including this site, built with Claude Code) to keep documentation, resumes, and project pages aligned with what I'm actually shipping.
 
+## Research notes
+
+- **[AI Agent Security After 29 Attempts](/posts/2026/09/ai-agent-security-postmortem/)** — a source-first postmortem on replay noise, public-leaderboard overfitting, counterbalanced experiments, and the private-guardrail reset.
+
 ## Selected publications
 
 Recent highlights in roadside-LiDAR sensing, vulnerable-road-user safety, and robotic infrastructure inspection — kept in sync with Google Scholar.
