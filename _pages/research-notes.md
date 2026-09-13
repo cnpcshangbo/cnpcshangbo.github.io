@@ -7,6 +7,14 @@ author_profile: true
 
 Long-form notes about experiments, failed hypotheses, evaluation design, and lessons that transfer beyond a single project.
 
+## Embodied AI and robotics
+
+### [When Should a Language Model Hand Over the Controls?](/posts/2026/09/minecraft-local-agent-control/)
+
+A Minecraft case study comparing screenshot-mediated control with an Astra-designed local worker: 39 new logs, an interrupted return, interface confounds, and lessons for robot control and evaluation.
+
+*Published September 13, 2026 · Research note with figures, evidence, and source code*
+
 ## AI agent security
 
 ### [AI Agent Security After 29 Attempts](/posts/2026/09/ai-agent-security-postmortem/)
