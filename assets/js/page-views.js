@@ -12,7 +12,7 @@
 
   // Never count local previews or send campaign/query parameters to the service.
   if (location.origin !== pageUrl.origin || location.pathname !== pageUrl.pathname) return;
-  if (navigator.globalPrivacyControl || navigator.doNotTrack === "1") return;
+  var readOnly = navigator.globalPrivacyControl || navigator.doNotTrack === "1";
 
   label.textContent = "Loading views\u2026";
   var controller = new AbortController();
@@ -21,7 +21,7 @@
   // No remote script, cookies, client-side identity storage, or secret API keys.
   // Do not retry POST: the service may have counted a request even if it timed out.
   fetch("https://busuanzi.9420.ltd/api", {
-    method: "POST",
+    method: readOnly ? "GET" : "POST",
     headers: { "x-bsz-referer": pageUrl.origin + pageUrl.pathname },
     credentials: "omit",
     referrerPolicy: "no-referrer",
