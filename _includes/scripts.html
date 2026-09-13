@@ -1,6 +1,6 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 {% if page.page_views %}
-<script defer src="{{ base_path }}/assets/js/page-views.js"></script>
+<script defer src="{{ base_path }}/assets/js/page-views.js?v={{ site.github.build_revision | default: '20260913-3' }}"></script>
 {% endif %}
 
 {% include analytics.html %}

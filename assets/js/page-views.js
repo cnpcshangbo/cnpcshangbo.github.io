@@ -12,16 +12,15 @@
 
   // Never count local previews or send campaign/query parameters to the service.
   if (location.origin !== pageUrl.origin || location.pathname !== pageUrl.pathname) return;
-  var readOnly = navigator.globalPrivacyControl || navigator.doNotTrack === "1";
+  if (navigator.globalPrivacyControl || navigator.doNotTrack === "1") return;
 
-  label.textContent = "Loading views\u2026";
   var controller = new AbortController();
   var timeout = setTimeout(function () { controller.abort(); }, 6000);
 
   // No remote script, cookies, client-side identity storage, or secret API keys.
   // Do not retry POST: the service may have counted a request even if it timed out.
   fetch("https://busuanzi.9420.ltd/api", {
-    method: readOnly ? "GET" : "POST",
+    method: "POST",
     headers: { "x-bsz-referer": pageUrl.origin + pageUrl.pathname },
     credentials: "omit",
     referrerPolicy: "no-referrer",
@@ -35,9 +34,11 @@
     if (!result.success || !Number.isSafeInteger(count) || count < 0) {
       throw new Error("Invalid view count");
     }
+    if (count === 0) return;
     label.textContent = count.toLocaleString("en-US") + (count === 1 ? " view" : " views");
+    counter.hidden = false;
   }).catch(function () {
-    label.textContent = "Views unavailable";
+    // Keep the counter and its separator hidden if tracking is unavailable.
   }).finally(function () {
     clearTimeout(timeout);
   });
