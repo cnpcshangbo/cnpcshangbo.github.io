@@ -40,6 +40,7 @@ jobs:
             "portfolio/index.html|Portfolio"
             "research-notes/index.html|Research Notes"
             "posts/2026/09/ai-agent-security-postmortem/index.html|Comments and peer review"
+            "posts/2026/09/minecraft-local-agent-control/index.html|39 additional logs"
           )
           for entry in "${entries[@]}"; do
             path="${entry%%|*}"
@@ -82,6 +83,7 @@ jobs:
             "/publications/"
             "/portfolio/"
             "/research-notes/"
+            "/posts/2026/09/minecraft-local-agent-control/"
           )
           fail=0
           for path in "${paths[@]}"; do

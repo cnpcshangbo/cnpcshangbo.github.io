@@ -1,0 +1,1087 @@
+{
+  "schemaVersion": 1,
+  "scope": "Offline artifact audit of one sequential Minecraft control/development case study; not a matched benchmark.",
+  "privacy": "Relative provenance paths only. Player names, entity IDs, run UUIDs, process IDs, local absolute paths and launch arguments are omitted.",
+  "game": {
+    "version": "26.3-rc-2",
+    "mode": "singleplayer survival",
+    "playerModeEvidence": "package source/README and prior verified session context; outcome snapshot contains version"
+  },
+  "outcome": {
+    "evidence": [
+      "outputs/wood-agent/runtime/mission.json",
+      "outputs/wood-agent/last-run.json",
+      "work/wood-agent/run11/runtime/status.json"
+    ],
+    "frozenSnapshotAt": "2026-09-13T19:02:06.788604Z",
+    "baselineInventoryLogs": 21,
+    "finalInventoryLogs": 60,
+    "netNewInventoryLogs": 39,
+    "reportedCollectedLogs": 39,
+    "targetLogs": 32,
+    "protectedHomeRadiusBlocks": 128,
+    "homeXZ": [
+      -698,
+      195
+    ],
+    "originalMissionStartXYZ": [
+      -692,
+      54,
+      201
+    ],
+    "finalPositionXYZ": [
+      -636.3621286410411,
+      63.08812104741131,
+      371.49951088474097
+    ],
+    "reportedHomeDistanceBlocks": 186.27130750601393,
+    "homeDistanceMeaning": "Horizontal distance from integer block coordinates to protected home center, as implemented by Controller.homeDistance; not traveled path length.",
+    "finalPhase": "STOPPED",
+    "stopReason": "Health changed; manual review needed",
+    "active": false,
+    "paused": true,
+    "finalHealthPoints": 16,
+    "finalFoodPoints": 17,
+    "returnCompleted": false,
+    "resumeSegmentTreesCut": 3,
+    "segmentTreeCounterMeaning": "Resets at each controller start/resume. Do not interpret as total mission tree count or sum unexamined snapshots.",
+    "recoveryTreesRemainingInSavedMission": 0,
+    "qualification": "Target inventory increase was exceeded while completing/recovering trunks. Return was interrupted; not an end-to-end delivery success."
+  },
+  "localLoop": {
+    "designEvidence": [
+      "outputs/wood-agent/src/woodagent/Controller.java",
+      "outputs/wood-agent/src/woodagent/BackgroundGameMode.java"
+    ],
+    "schedulerMode": "scheduleWithFixedDelay; enqueue client-thread callback only while no callback is pending",
+    "nominalSchedulerDelayMs": 50,
+    "nominalSchedulerFrequencyHz": 20,
+    "decisionGate": "At most once per distinct observed player tick while active; callbacks may miss ticks.",
+    "miningGate": "At most once per player tick; ordinary game-mode start/continue methods; validated target and short ownership lease.",
+    "nominalStatusPeriodMs": 500,
+    "measuredWorkerInvocationRateHz": null,
+    "measuredActionRateHz": null,
+    "distinction": "The 50 ms value is a requested scheduling delay, not measured end-to-end sensing/actuation latency or guaranteed 20 actions/s."
+  },
+  "diagnosticWindow": {
+    "evidence": [
+      "work/wood-agent/debug-read/status.jsonl",
+      "work/wood-agent/debug-read/DebugWorker.java"
+    ],
+    "nominalObserverPeriodMs": 250,
+    "requestedObserverLifetimeSeconds": 15,
+    "sampleCount": 60,
+    "intersampleIntervalCount": 59,
+    "firstAt": "2026-09-13T18:49:42.746792200Z",
+    "lastAt": "2026-09-13T18:49:57.514154400Z",
+    "observedSpanSeconds": 14.7673622,
+    "firstPlayerTick": 174855,
+    "lastPlayerTick": 175151,
+    "observedGameTicksAdvanced": 296,
+    "observedGameTickRateHz": 20.04420261324666,
+    "intersampleIntervalMs": {
+      "min": 232.2216,
+      "median": 235.81179999999998,
+      "p95": 268.16990000000004,
+      "max": 269.5402,
+      "mean": 250.29427457627122,
+      "percentileMethod": "Nearest rank over 59 intervals; timestamps parsed with nanosecond precision."
+    },
+    "gameTicksBetweenObservations": {
+      "4": 10,
+      "5": 38,
+      "6": 11
+    },
+    "phaseSampleCounts": {
+      "HARVEST": 23,
+      "LOOT": 15,
+      "NAVIGATE": 21,
+      "PLAN": 1
+    },
+    "mouseNotCapturedSamples": 60,
+    "unpausedSamples": 60,
+    "activeMiningSamples": 20,
+    "successfulTrunkCompletionObservation": {
+      "sourceLine": 19,
+      "at": "2026-09-13T18:49:47.260742Z",
+      "baseXYZ": [
+        -611,
+        63,
+        388
+      ],
+      "totalOriginalTrunkLogs": 6,
+      "logIndexAtWindowStart": 2,
+      "mouseCaptured": false,
+      "meaning": "Controller advances to LOOT with logIndex=6 and treesCut=1 after sampled vanilla mining progress. The window starts partway through this trunk, so it is not a timed six-log trial."
+    },
+    "obstructionObservation": {
+      "baseXYZ": [
+        -619,
+        63,
+        384
+      ],
+      "stoppedAtLogIndex": 1,
+      "causeInStatus": "Trunk obstructed",
+      "diagnosticCenterRayHitId": "minecraft:spruce_leaves",
+      "qualification": "Diagnostic ray targets log center; worker also tries alternate aim points. Center-ray obstruction alone does not establish failure of every actual aim."
+    },
+    "measuredQuantity": "Player/game clock advancement sampled at about 4 Hz. Not a trace of every worker callback, action, render frame or model response.",
+    "trace": [
+      {
+        "sourceLine": 1,
+        "tSeconds": 0,
+        "gameTicksSinceFirst": 0,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 2,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 2,
+        "tSeconds": 0.2654337,
+        "gameTicksSinceFirst": 6,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 2,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 3,
+        "tSeconds": 0.5012455,
+        "gameTicksSinceFirst": 10,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 2,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 4,
+        "tSeconds": 0.7682842,
+        "gameTicksSinceFirst": 16,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 3,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 5,
+        "tSeconds": 1.002688,
+        "gameTicksSinceFirst": 20,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 3,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 6,
+        "tSeconds": 1.2722282,
+        "gameTicksSinceFirst": 26,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 3,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 7,
+        "tSeconds": 1.5044753,
+        "gameTicksSinceFirst": 30,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 3,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 8,
+        "tSeconds": 1.7384504,
+        "gameTicksSinceFirst": 35,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 3,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 9,
+        "tSeconds": 2.0054183,
+        "gameTicksSinceFirst": 40,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 3,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 10,
+        "tSeconds": 2.2402603,
+        "gameTicksSinceFirst": 45,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 4,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 11,
+        "tSeconds": 2.5083121,
+        "gameTicksSinceFirst": 50,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 4,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 12,
+        "tSeconds": 2.7419446,
+        "gameTicksSinceFirst": 55,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 4,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 13,
+        "tSeconds": 3.0084563,
+        "gameTicksSinceFirst": 60,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 4,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 14,
+        "tSeconds": 3.2434377,
+        "gameTicksSinceFirst": 65,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 4,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 15,
+        "tSeconds": 3.5099303,
+        "gameTicksSinceFirst": 70,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 5,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 16,
+        "tSeconds": 3.7444768,
+        "gameTicksSinceFirst": 75,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 5,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 17,
+        "tSeconds": 4.0124909,
+        "gameTicksSinceFirst": 80,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 5,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 18,
+        "tSeconds": 4.2467824,
+        "gameTicksSinceFirst": 85,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 5,
+        "segmentTreesCut": 0
+      },
+      {
+        "sourceLine": 19,
+        "tSeconds": 4.5139498,
+        "gameTicksSinceFirst": 90,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 20,
+        "tSeconds": 4.7461714,
+        "gameTicksSinceFirst": 95,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 21,
+        "tSeconds": 5.0133248,
+        "gameTicksSinceFirst": 100,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 22,
+        "tSeconds": 5.2470305,
+        "gameTicksSinceFirst": 105,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 23,
+        "tSeconds": 5.5130902,
+        "gameTicksSinceFirst": 110,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 24,
+        "tSeconds": 5.7464596,
+        "gameTicksSinceFirst": 115,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 25,
+        "tSeconds": 6.0146295,
+        "gameTicksSinceFirst": 120,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 26,
+        "tSeconds": 6.2489085,
+        "gameTicksSinceFirst": 125,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 6,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 27,
+        "tSeconds": 6.5163719,
+        "gameTicksSinceFirst": 131,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 28,
+        "tSeconds": 6.7493788,
+        "gameTicksSinceFirst": 135,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 29,
+        "tSeconds": 7.0165226,
+        "gameTicksSinceFirst": 141,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 30,
+        "tSeconds": 7.2503232,
+        "gameTicksSinceFirst": 145,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 31,
+        "tSeconds": 7.5166799,
+        "gameTicksSinceFirst": 151,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 32,
+        "tSeconds": 7.750216,
+        "gameTicksSinceFirst": 155,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 33,
+        "tSeconds": 8.0187015,
+        "gameTicksSinceFirst": 161,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 34,
+        "tSeconds": 8.2525414,
+        "gameTicksSinceFirst": 165,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 35,
+        "tSeconds": 8.5183869,
+        "gameTicksSinceFirst": 171,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 36,
+        "tSeconds": 8.752874,
+        "gameTicksSinceFirst": 175,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 37,
+        "tSeconds": 9.0203132,
+        "gameTicksSinceFirst": 181,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 38,
+        "tSeconds": 9.2532477,
+        "gameTicksSinceFirst": 185,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 39,
+        "tSeconds": 9.4877318,
+        "gameTicksSinceFirst": 190,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 40,
+        "tSeconds": 9.7546244,
+        "gameTicksSinceFirst": 195,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 41,
+        "tSeconds": 9.9900764,
+        "gameTicksSinceFirst": 200,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 42,
+        "tSeconds": 10.2561647,
+        "gameTicksSinceFirst": 205,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 43,
+        "tSeconds": 10.4894855,
+        "gameTicksSinceFirst": 210,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 44,
+        "tSeconds": 10.7559354,
+        "gameTicksSinceFirst": 215,
+        "phase": "HARVEST",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": true,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 45,
+        "tSeconds": 10.9906292,
+        "gameTicksSinceFirst": 220,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 46,
+        "tSeconds": 11.2586695,
+        "gameTicksSinceFirst": 225,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 47,
+        "tSeconds": 11.4915403,
+        "gameTicksSinceFirst": 230,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 48,
+        "tSeconds": 11.7586838,
+        "gameTicksSinceFirst": 235,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 49,
+        "tSeconds": 11.9927727,
+        "gameTicksSinceFirst": 240,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 50,
+        "tSeconds": 12.2607898,
+        "gameTicksSinceFirst": 245,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 51,
+        "tSeconds": 12.4950452,
+        "gameTicksSinceFirst": 250,
+        "phase": "LOOT",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 52,
+        "tSeconds": 12.7614857,
+        "gameTicksSinceFirst": 255,
+        "phase": "PLAN",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 1,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 53,
+        "tSeconds": 12.996758,
+        "gameTicksSinceFirst": 260,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 54,
+        "tSeconds": 13.2642475,
+        "gameTicksSinceFirst": 265,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 55,
+        "tSeconds": 13.4969803,
+        "gameTicksSinceFirst": 270,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 56,
+        "tSeconds": 13.7640944,
+        "gameTicksSinceFirst": 275,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 57,
+        "tSeconds": 13.9988573,
+        "gameTicksSinceFirst": 280,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 58,
+        "tSeconds": 14.2661971,
+        "gameTicksSinceFirst": 286,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 59,
+        "tSeconds": 14.4998524,
+        "gameTicksSinceFirst": 290,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      },
+      {
+        "sourceLine": 60,
+        "tSeconds": 14.7673622,
+        "gameTicksSinceFirst": 296,
+        "phase": "NAVIGATE",
+        "mouseCaptured": false,
+        "paused": false,
+        "isDestroying": false,
+        "logIndex": 0,
+        "segmentTreesCut": 1
+      }
+    ]
+  },
+  "safetyIncident": {
+    "evidence": [
+      "work/wood-agent/debug-read/safety-snapshot.json",
+      "outputs/wood-agent/last-run.json"
+    ],
+    "observedAt": "2026-09-13T19:03:24.283972700Z",
+    "secondsAfterFrozenOutcomeSnapshot": 77.4953687,
+    "pausedAtObservation": true,
+    "healthPointsAtObservation": 16,
+    "damageType": "arrow",
+    "directEntityType": "Arrow",
+    "causingEntityType": "Skeleton",
+    "causingEntityDistanceBlocksAtObservation": 14.725899626905676,
+    "dayCycleTick": 15068,
+    "gameTimeTick": 194973,
+    "air": 300,
+    "inWater": false,
+    "inLava": false,
+    "onFire": false,
+    "currentFallDistance": 0,
+    "interpretation": "Last damage source identifies a skeleton arrow. Distance is a later paused-snapshot geometry calculation, not measured firing range or distance at impact.",
+    "incidentGuardEvidence": [
+      "work/wood-agent/run11/wood-agent.jar",
+      "work/research-note/run11-controller-bytecode.txt"
+    ],
+    "incidentGuard": "Any Monster inside the player bounding box inflated by 7 blocks; this is an axis-aligned box query, not an exact spherical distance test.",
+    "hardeningCaveat": "Packaged source adds visible ranged-attacker detection out to 24 blocks after the incident. Do not attribute the incident run to successful operation of that newer guard."
+  },
+  "timingLimitations": {
+    "evidence": [
+      "outputs/wood-agent/last-run.json",
+      "work/wood-agent/run11/runtime/status.json",
+      "outputs/wood-agent/runtime/status.json",
+      "outputs/wood-agent/src/woodagent/Controller.java"
+    ],
+    "firstStoppedSnapshot": {
+      "at": "2026-09-13T19:02:06.788604Z",
+      "reportedElapsedSeconds": 312
+    },
+    "laterStoppedSnapshot": {
+      "at": "2026-09-13T19:05:34.506084200Z",
+      "reportedElapsedSeconds": 520
+    },
+    "wallSecondsBetweenStoppedSnapshots": 207.7174802,
+    "reportedElapsedIncreaseWhileBothSnapshotsStoppedAndPausedSeconds": 208,
+    "samePositionInventoryHealthAndStoppedPausedState": true,
+    "latestIdleAttachment": {
+      "at": "2026-09-13T19:20:12.190415900Z",
+      "phase": "IDLE",
+      "inventoryLogs": 60,
+      "collectedLogs": 0,
+      "elapsedSeconds": 0
+    },
+    "warnings": [
+      "elapsedSeconds is wall time since current start/resume, continues while stopped/paused, and is not total mission duration or active task time.",
+      "Status JSON is overwritten rather than an append-only history; missing intermediate observations cannot be reconstructed from final snapshots.",
+      "Resume retains original inventory baseline but resets segment-local counters and timer.",
+      "Later idle attachment reports collectedLogs=0 despite inventory=60; it is a new controller state, not reversal of the prior 39-log outcome.",
+      "Do not compute logs/minute or a direct-vs-local speedup from these elapsedSeconds values."
+    ]
+  },
+  "directControl": {
+    "evidence": [
+      "work/virtual-input/adapter.cjs",
+      "work/virtual-input/adapter.test.cjs"
+    ],
+    "interface": "VIIPER virtual keyboard and mouse TCP adapter, Node.js standard library",
+    "requestedPulseLimitMs": 2500,
+    "defaultRequestedPulseMs": 100,
+    "relativeMouseDeltaAbsoluteLimit": 1000,
+    "releaseBehavior": "Timer-armed neutral release; single transmission of mouse delta per pulse; disconnect cleanup limited to task-owned devices.",
+    "localPersistedActionTelemetryFound": false,
+    "localPersistedGameplayMediaInAuditedDirectoriesFound": false,
+    "measuredActionCount": null,
+    "measuredObservationActionLatencyMs": null,
+    "measuredTaskCompletionTimeSeconds": null,
+    "measuredCobblestoneInventoryDelta": null,
+    "qualification": "Source limits describe adapter behavior. Mock transport tests establish no measured game throughput. Conversation/tool transcripts may provide additional evidence outside this audit."
+  },
+  "media": {
+    "auditedRoots": [
+      "work/virtual-input",
+      "work/wood-agent",
+      "outputs/wood-agent"
+    ],
+    "savedGameplayImagesOrVideosInAuditedRoots": [],
+    "userSuppliedInitialHoleScreenshot": {
+      "attachmentBasename": "codex-clipboard-f812e8d0-a6ef-47f2-97ed-f73bfde0591f.png",
+      "dimensionsPixels": [
+        1919,
+        1079
+      ],
+      "bytes": 459963,
+      "meaning": "User-provided starting-state screenshot before direct cobblestone request, not an outcome/timing record.",
+      "publicationPreparation": "Copy the actual attachment to a public-friendly filename if used; do not expose its local path or infer performance from it."
+    },
+    "figureOptions": [
+      "Architecture diagram labeled as schematic",
+      "Sampled game-tick progression from diagnosticWindow.trace",
+      "Inventory baseline/final bars with explicit net count and partial-return annotation",
+      "Observed safety-incident positions schematic labeled as later paused snapshot"
+    ]
+  },
+  "comparativeValidity": {
+    "matchedBenchmark": false,
+    "tasksDiffer": [
+      "Direct control: cobblestone acquisition in a hole",
+      "Local worker: wood collection outside a protected home radius and attempted return"
+    ],
+    "confounds": [
+      "Different task, terrain, inventory, tools and starting states",
+      "Many sequential development/debug revisions and resumes",
+      "State interface changed from pixels/input to typed in-process game state and vanilla game-mode APIs",
+      "No matched seeds, repeated trials, independently timed active work, token/cost log, or randomized assignment"
+    ],
+    "defensibleClaim": "Astra moved low-level control into a bounded deterministic local worker and retained high-level design/debug/supervision; the local case visibly progressed with mouse capture released and collected 39 net logs, but did not finish the return.",
+    "unsupportedClaims": [
+      "Numerical speedup over direct control",
+      "Guaranteed 20 worker actions/s",
+      "Measured model latency advantage",
+      "End-to-end autonomous success without intervention",
+      "Robotics hardware safety or generalization validated by this game trial"
+    ]
+  },
+  "savedDevelopmentSnapshots": {
+    "interpretation": "One overwritten final snapshot per available development run, not a continuous execution log or independently timed trials. Counters may span multiple revisions; no elapsed-time rate should be derived.",
+    "snapshots": [
+      {
+        "evidence": "work/wood-agent/run03/runtime/status.json",
+        "at": "2026-09-13T18:36:30.721072Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 21,
+        "collectedLogs": 0,
+        "segmentTreesCut": 0,
+        "reportedElapsedSeconds": 483,
+        "paused": true,
+        "health": 20,
+        "food": 20
+      },
+      {
+        "evidence": "work/wood-agent/run04/runtime/status.json",
+        "at": "2026-09-13T18:37:47.007518100Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 21,
+        "collectedLogs": 0,
+        "segmentTreesCut": 0,
+        "reportedElapsedSeconds": 74,
+        "paused": true,
+        "health": 20,
+        "food": 20
+      },
+      {
+        "evidence": "work/wood-agent/run05/runtime/status.json",
+        "at": "2026-09-13T18:38:34.744494700Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 21,
+        "collectedLogs": 0,
+        "segmentTreesCut": 0,
+        "reportedElapsedSeconds": 47,
+        "paused": true,
+        "health": 20,
+        "food": 20
+      },
+      {
+        "evidence": "work/wood-agent/run06/runtime/status.json",
+        "at": "2026-09-13T18:40:28.781715600Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 21,
+        "collectedLogs": 0,
+        "segmentTreesCut": 0,
+        "reportedElapsedSeconds": 113,
+        "paused": true,
+        "health": 20,
+        "food": 20
+      },
+      {
+        "evidence": "work/wood-agent/run07/runtime/status.json",
+        "at": "2026-09-13T18:46:32.737673Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 21,
+        "collectedLogs": 0,
+        "segmentTreesCut": 0,
+        "reportedElapsedSeconds": 363,
+        "paused": true,
+        "health": 20,
+        "food": 20
+      },
+      {
+        "evidence": "work/wood-agent/run08/runtime/status.json",
+        "at": "2026-09-13T18:49:23.754573900Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 21,
+        "collectedLogs": 0,
+        "segmentTreesCut": 0,
+        "reportedElapsedSeconds": 170,
+        "paused": true,
+        "health": 20,
+        "food": 18
+      },
+      {
+        "evidence": "work/wood-agent/run09/runtime/status.json",
+        "at": "2026-09-13T18:54:27.882061700Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 45,
+        "collectedLogs": 24,
+        "segmentTreesCut": 4,
+        "reportedElapsedSeconds": 303,
+        "paused": true,
+        "health": 20,
+        "food": 17
+      },
+      {
+        "evidence": "work/wood-agent/run10/runtime/status.json",
+        "at": "2026-09-13T18:56:53.972145300Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 48,
+        "collectedLogs": 27,
+        "segmentTreesCut": 1,
+        "reportedElapsedSeconds": 145,
+        "paused": true,
+        "health": 20,
+        "food": 17
+      },
+      {
+        "evidence": "work/wood-agent/run11/runtime/status.json",
+        "at": "2026-09-13T19:05:34.506084200Z",
+        "phase": "STOPPED",
+        "inventoryLogs": 60,
+        "collectedLogs": 39,
+        "segmentTreesCut": 3,
+        "reportedElapsedSeconds": 520,
+        "paused": true,
+        "health": 16,
+        "food": 17
+      }
+    ]
+  },
+  "artifactHashes": {
+    "mission": {
+      "path": "outputs/wood-agent/runtime/mission.json",
+      "sha256": "e48b2b9455f7fa0aa74898917b0f96d2c7a6718a8f7fe533b0f9e38d1a9280ee"
+    },
+    "frozenOutcome": {
+      "path": "outputs/wood-agent/last-run.json",
+      "sha256": "d4093118ea27608f1957e232c99ceac9abbc8a3f9e8eeaa600aa7fee2376f2b0"
+    },
+    "laterSameRun": {
+      "path": "work/wood-agent/run11/runtime/status.json",
+      "sha256": "8a4e4c2891b0585a2cc0b4220c292d63d633292f0215c91b09b3cb38cff873e3"
+    },
+    "laterIdle": {
+      "path": "outputs/wood-agent/runtime/status.json",
+      "sha256": "0e3854e44dad6622d1c93a6e2ab0365bf31b4e15d6e306204023bc1d28370af9"
+    },
+    "diagnostic": {
+      "path": "work/wood-agent/debug-read/status.jsonl",
+      "sha256": "b0512a195eec770def8661d5ca6556c41ae679f6355f088dd730d54571a90a8c"
+    },
+    "diagnosticSource": {
+      "path": "work/wood-agent/debug-read/DebugWorker.java",
+      "sha256": "14c147119ca1545850ec1b597ca3c7a4a5dae96c73fc674677b0081fe56744a6"
+    },
+    "safety": {
+      "path": "work/wood-agent/debug-read/safety-snapshot.json",
+      "sha256": "f8290a42bfe8a6ddf9049ace55057bd8aedd4ec0e1739a119afe19149025b885"
+    },
+    "controller": {
+      "path": "outputs/wood-agent/src/woodagent/Controller.java",
+      "sha256": "26f56fb883cd5164333b9f70d74f3a3fe24b3f4fede5f222d9ae60d08978557d"
+    },
+    "miningWrapper": {
+      "path": "outputs/wood-agent/src/woodagent/BackgroundGameMode.java",
+      "sha256": "d060e87d984b598e4f9693fad0579fb3f12f20ea0cb99f2bcdd5ace3310404e0"
+    },
+    "directAdapter": {
+      "path": "work/virtual-input/adapter.cjs",
+      "sha256": "dac29ea94125b5211d6f4ced68136d6984587ac7c23ebe6c64f944adc0d7cde0"
+    },
+    "directTests": {
+      "path": "work/virtual-input/adapter.test.cjs",
+      "sha256": "125cb9d05f39995444e6ddf2dde4ec2311bed50543de1deac1c33338aa1d7bb4"
+    },
+    "partialExport": {
+      "path": "work/wood-agent/partial-trees.json",
+      "sha256": "49baa6f4919528f4244dce191f76d53c724af30fc188f90085d79f14ba00cae2"
+    },
+    "incidentBuild": {
+      "path": "work/wood-agent/run11/wood-agent.jar",
+      "sha256": "9637364d05ac5cf264f3d216503efc5a5032364c594eb4e0d87605eedcc3678a"
+    },
+    "incidentBytecodeAudit": {
+      "path": "work/research-note/run11-controller-bytecode.txt",
+      "sha256": "b460f604adc9f4a3a3160e2c445538c0a7c8ccc42223d1e9175e24d31e439a89"
+    }
+  }
+}
