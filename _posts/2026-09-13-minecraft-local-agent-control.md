@@ -12,6 +12,8 @@ tags:
 toc: true
 toc_sticky: true
 comments: false
+page_views: true
+page_views_since: 2026-09-13
 ---
 
 **Research note · Engineering case study · September 13, 2026**
