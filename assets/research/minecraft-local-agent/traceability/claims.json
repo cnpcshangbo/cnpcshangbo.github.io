@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "scope": "Retrospective evidence map for one Minecraft engineering case study; not a full ARA compilation, validation seal or continuous execution trace.",
+  "pathBase": "artifact-root",
+  "sourceHashRegistry": "traceability/raw-source-audit.json",
+  "claims": [
+    {
+      "id": "C01",
+      "statement": "The saved mission baseline is 21 logs; the frozen stopped outcome holds 60, a net increase of 39 against a target of 32.",
+      "kind": "supported_observation",
+      "evidence": [
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/mission", "kind": "observed_snapshot", "sourceHashRefs": ["mission"]},
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/frozenOutcome", "kind": "observed_snapshot", "sourceHashRefs": ["frozenOutcome"]},
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/derived/netAdditionalLogs", "kind": "derived_measurement", "sourceHashRefs": ["mission", "frozenOutcome"]}
+      ],
+      "limitations": ["Inventory difference across an evolving supervised development episode, not an independently timed trial of one frozen controller.", "This establishes resource retention at the snapshot, not completed delivery home."]
+    },
+    {
+      "id": "C02",
+      "statement": "The mission configured a 128-block horizontal home exclusion radius; the published source checks protection when selecting and mining logs.",
+      "kind": "source_property",
+      "evidence": [
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/mission/radius", "kind": "observed_snapshot", "sourceHashRefs": ["mission"]},
+        {"path": "source/src/woodagent/Controller.java", "lineStart": 310, "kind": "source_inspection", "sourceHashRefs": ["controller"]},
+        {"path": "source/src/woodagent/Trees.java", "lineStart": 279, "kind": "source_inspection", "sourceHashRefs": []}
+      ],
+      "limitations": ["The rule is a horizontal in-game distance constraint, not a general building detector or safety guarantee.", "No complete per-block action history remains to independently audit every historical mined block. Published source is post-pilot; its full-file hashes are in source/SHA256SUMS.txt."]
+    },
+    {
+      "id": "C03",
+      "statement": "The wood pilot stopped and paused after health decreased from 20 to 16 before completing its return. A later paused diagnostic records a skeleton arrow as the damage source, with the skeleton about 14.73 blocks away at observation.",
+      "kind": "supported_observation",
+      "evidence": [
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/priorRun10/health", "kind": "observed_snapshot", "sourceHashRefs": ["priorRun10"]},
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/frozenOutcome", "kind": "observed_snapshot", "sourceHashRefs": ["frozenOutcome"]},
+        {"path": "traceability/evidence/safety.json", "pointer": "/lastDamageSource", "kind": "observed_snapshot", "sourceHashRefs": ["safety"]},
+        {"path": "traceability/evidence/safety.json", "pointer": "/derived", "kind": "derived_measurement", "sourceHashRefs": ["safety", "frozenOutcome"]}
+      ],
+      "limitations": ["The safety diagnostic occurred 77.4953687 seconds after the frozen stop snapshot.", "Distance at that later observation is not arrow-release distance, distance at impact, exact hit time or measured stopping latency."]
+    },
+    {
+      "id": "C04",
+      "statement": "The published worker requests a 50-ms fixed-delay schedule, with pending-callback and game-tick gates; a guaranteed or measured 20 actions per second is not established.",
+      "kind": "source_property",
+      "evidence": [
+        {"path": "source/src/woodagent/Controller.java", "lineStart": 82, "kind": "source_inspection", "sourceHashRefs": ["controller"]},
+        {"path": "source/src/woodagent/Controller.java", "lineStart": 95, "kind": "source_inspection", "sourceHashRefs": ["controller"]},
+        {"path": "source/src/woodagent/BackgroundGameMode.java", "lineStart": 100, "kind": "source_inspection", "sourceHashRefs": ["miningWrapper"]},
+        {"path": "metrics.json", "pointer": "/localLoop", "kind": "retrospective_audit", "sourceHashRefs": ["controller", "miningWrapper"]}
+      ],
+      "limitations": ["Scheduling delay is configuration, not measured sensing-to-actuation latency, callback frequency or action rate.", "Game-thread work and duplicate-tick gating may reduce actual execution frequency."]
+    },
+    {
+      "id": "C05",
+      "statement": "The diagnostic has 60 observations over 14.7673622 seconds and 296 advanced game ticks, approximately 20.04 game ticks per second. All samples are unpaused and mouse capture is released; sampled mining progresses to a completed trunk.",
+      "kind": "supported_observation",
+      "evidence": [
+        {"path": "traceability/evidence/diagnostic.json", "pointer": "/samples", "kind": "observed_snapshot", "sourceHashRefs": ["diagnostic"]},
+        {"path": "traceability/evidence/diagnostic.json", "pointer": "/derived", "kind": "derived_measurement", "sourceHashRefs": ["diagnostic"]},
+        {"path": "traceability/evidence/diagnostic.json", "pointer": "/samples/18", "kind": "observed_snapshot", "sourceHashRefs": ["diagnostic"]},
+        {"path": "metrics.json", "pointer": "/diagnosticWindow/nominalObserverPeriodMs", "kind": "retrospective_audit", "sourceHashRefs": ["diagnosticSource"]}
+      ],
+      "limitations": ["The approximately 250-ms observer measures game-clock progression, not every controller callback/action.", "The window begins partway through the trunk; it is not a timed six-log trial.", "Mouse capture was observed, but independent window-focus state was not recorded."]
+    },
+    {
+      "id": "C06",
+      "statement": "The route figure and video reconstruct 676 saved breadcrumb X/Z positions plus a separately marked later stop; their animation timing is illustrative.",
+      "kind": "reconstruction",
+      "evidence": [
+        {"path": "figure-inputs.json", "pointer": "/observations/routeBlockXZ", "kind": "observed_snapshot", "sourceHashRefs": ["mission"]},
+        {"path": "figure-inputs.json", "pointer": "/observations/finalStopXZ", "kind": "observed_snapshot", "sourceHashRefs": ["frozenOutcome"]},
+        {"path": "figure-inputs.json", "pointer": "/limitations", "kind": "retrospective_audit", "sourceHashRefs": []},
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/recovery", "kind": "observed_snapshot", "sourceHashRefs": ["mission", "partialExport"]}
+      ],
+      "limitations": ["Breadcrumbs have no timestamps, omit height in the figure and do not record the return leg; this is not a terrain map or measured travel-speed video.", "The four recovery bases are intermediate recovery records, not a complete inventory of harvested trees."]
+    },
+    {
+      "id": "C07",
+      "statement": "The published source is post-pilot, including a 24-block visible-ranged-attacker check and return-path hardening. Those later changes were not demonstrated by another complete field trial.",
+      "kind": "source_property",
+      "evidence": [
+        {"path": "source/src/woodagent/Controller.java", "lineStart": 102, "kind": "source_inspection", "sourceHashRefs": ["controller"]},
+        {"path": "metrics.json", "pointer": "/safetyIncident/incidentGuard", "kind": "retrospective_audit", "sourceHashRefs": ["incidentBuild", "incidentBytecodeAudit"]},
+        {"path": "source/README.md", "lineStart": 3, "kind": "retrospective_audit", "sourceHashRefs": []}
+      ],
+      "limitations": ["The original incident JAR and offline bytecode audit are retained privately and identified by hash, not bundled as public game binaries.", "A source build and synthetic navigation checks do not establish live safety, timing or successful field return."]
+    },
+    {
+      "id": "C08",
+      "statement": "The artifacts do not establish numerical direct-versus-local task speedup, inference savings or complete autonomous success. Cadence/payback plots are explicit scenarios, and the tasks and interfaces differ.",
+      "kind": "evidence_boundary",
+      "evidence": [
+        {"path": "metrics.json", "pointer": "/comparativeValidity", "kind": "retrospective_audit", "sourceHashRefs": []},
+        {"path": "metrics.json", "pointer": "/directControl", "kind": "retrospective_audit", "sourceHashRefs": ["directAdapter", "directTests"]},
+        {"path": "traceability/evidence/wood-outcome.json", "pointer": "/derived", "kind": "derived_measurement", "sourceHashRefs": ["mission", "frozenOutcome", "laterSameRun", "priorRun10"]},
+        {"path": "figure-inputs.json", "pointer": "/scenarios", "kind": "illustrative_scenario", "sourceHashRefs": []}
+      ],
+      "limitations": ["The direct-control cobblestone count and assistant model identity are session-context statements; the published gameplay artifacts do not independently establish them.", "No matched repeated trials, complete action history, pause-aware end-to-end timing or model token/cost ledger was preserved.", "Installing traceability tooling afterwards cannot recover missing history or turn this case study into a causal benchmark or validated robotics result."]
+    }
+  ]
+}

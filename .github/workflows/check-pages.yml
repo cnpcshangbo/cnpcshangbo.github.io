@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify research evidence integrity and bindings
+        run: python3 tools/verify_research_artifacts.py
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1"
@@ -39,6 +42,7 @@ jobs:
             "publications/index.html|Publications"
             "portfolio/index.html|Portfolio"
             "research-notes/index.html|Research Notes"
+            "research-notes/minecraft-traceability/index.html|Claim-to-evidence ledger"
             "posts/2026/09/ai-agent-security-postmortem/index.html|Comments and peer review"
             "posts/2026/09/minecraft-local-agent-control/index.html|39 additional logs"
           )

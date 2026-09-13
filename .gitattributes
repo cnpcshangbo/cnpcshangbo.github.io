@@ -1,0 +1,5 @@
+# Keep evidence-bound text byte-identical on Windows and Linux.
+AGENTS.md text eol=lf
+_posts/2026-09-13-minecraft-local-agent-control.md text eol=lf
+_pages/minecraft-traceability.md text eol=lf
+tools/verify_research_artifacts.py text eol=lf
