@@ -126,11 +126,11 @@ There are at least four different efficiencies: feedback opportunity, remote inf
 
 ### Feedback opportunity: a transparent sensitivity calculation
 
-Suppose an external model-mediated cycle takes \(L\) seconds from one observation/action decision to the next. Its nominal cycle frequency is \(1/L\). Comparing that with the worker's configured 20 Hz gives:
+Suppose an external model-mediated cycle takes $$L$$ seconds from one observation/action decision to the next. Its nominal cycle frequency is $$1/L$$. Comparing that with the worker's configured 20 Hz gives:
 
-\[
+$$
 R_{\mathrm{cadence}} = \frac{20}{1/L}=20L.
-\]
+$$
 
 | Assumed external cycle time | External cycles/s | Configured local cycles/s | Nominal cadence ratio |
 |---:|---:|---:|---:|
@@ -150,9 +150,9 @@ R_{\mathrm{cadence}} = \frac{20}{1/L}=20L.
 
 The practical advantage is that Astra need not reconsider every repeated motion. It can spend model calls on setting objectives, diagnosing an exception, or revising a skill, while deterministic software handles routine feedback. A useful future accounting, with all terms converted to a common cost unit, is:
 
-\[
+$$
 C_{\mathrm{hybrid}} = C_{\mathrm{development}} + C_{\mathrm{supervision}} + C_{\mathrm{local\ execution}}.
-\]
+$$
 
 The direct workflow has its own setup and per-task inference costs. This session did not preserve a complete accounting of model calls, tokens, cost, or power for either condition. Claiming a percentage reduction would therefore be unsupported. There were no LLM calls in the local worker's execution code, but there were substantial model-assisted engineering and diagnosis efforts outside it.
 
@@ -160,7 +160,7 @@ The direct workflow has its own setup and per-task inference costs. This session
 
 A prototype that takes longer to build than a single manual or direct-control task can still be valuable when reused. Conversely, a fast executor that repeatedly fails can be inefficient overall.
 
-If additional setup costs \(B\) minutes, and a **future measured** expected saving is \(\Delta T>0\) minutes per comparable assigned mission, parity occurs at \(n=B/\Delta T\) repetitions. This assumes comparable reliability and counts failures, timeouts, and rescue effort in the expected per-mission saving. For illustration only, 60 minutes of setup and five minutes saved per mission gives parity after 12 missions. Neither number is an estimate from this episode. Maintenance and hardware use would also belong in a full cost model.
+If additional setup costs $$B$$ minutes, and a **future measured** expected saving is $$\Delta T>0$$ minutes per comparable assigned mission, parity occurs at $$n=B/\Delta T$$ repetitions. This assumes comparable reliability and counts failures, timeouts, and rescue effort in the expected per-mission saving. For illustration only, 60 minutes of setup and five minutes saved per mission gives parity after 12 missions. Neither number is an estimate from this episode. Maintenance and hardware use would also belong in a full cost model.
 
 <figure>
   <a href="/assets/research/minecraft-local-agent/illustrative-amortization.svg"><img src="/assets/research/minecraft-local-agent/illustrative-amortization.svg" alt="Illustrative number of repetitions needed to amortize assumed setup costs at different assumed per-mission time savings." loading="lazy"></a>
@@ -206,11 +206,11 @@ The experiment does not demonstrate sim-to-real transfer. It exposes interface a
 
 For a simplified robot stopping calculation, a design might start with:
 
-\[
+$$
 d_{\mathrm{reserve}} \geq vL + \frac{v^2}{2a} + m,
-\]
+$$
 
-where \(v\) is speed toward a stationary obstacle, \(L\) bounds total sensing/decision/actuation delay, \(a>0\) is a conservatively guaranteed deceleration, and \(m\) covers uncertainty. This is an illustrative one-dimensional constant-deceleration model, not a validated safety bound for a particular robot. A latency percentile or nominal peak braking value is not a deterministic bound. The model makes the relevant issue visible: timing, physical dynamics, and uncertainty determine a response envelope, not the mere presence of an “agent.”
+where $$v$$ is speed toward a stationary obstacle, $$L$$ bounds total sensing/decision/actuation delay, $$a>0$$ is a conservatively guaranteed deceleration, and $$m$$ covers uncertainty. This is an illustrative one-dimensional constant-deceleration model, not a validated safety bound for a particular robot. A latency percentile or nominal peak braking value is not a deterministic bound. The model makes the relevant issue visible: timing, physical dynamics, and uncertainty determine a response envelope, not the mere presence of an “agent.”
 
 **A paused game is not a stopped physical world.** Our recovery relied on pausing an integrated singleplayer simulation. A robot cannot freeze approaching people, falling objects, contact forces, or its own inertia. Emergency behavior, command expiry, collision/force limits, and communications-loss handling need an appropriate independent implementation. The required rates depend on the plant and task; 20 Hz in Minecraft is not a recommended robot servo rate.
 
