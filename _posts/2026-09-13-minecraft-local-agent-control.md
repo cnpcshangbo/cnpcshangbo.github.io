@@ -226,6 +226,7 @@ The strongest next step is a matched-interface, frozen-controller evaluation wit
 
 ### Evidence and artifacts
 
+- [Traceability record, claim-to-evidence ledger, and verification checks](/research-notes/minecraft-traceability/)
 - [Sanitized measurements and provenance](/assets/research/minecraft-local-agent/metrics.json)
 - [Source snapshot, navigation tests, and artifact guide](/assets/research/minecraft-local-agent/source/README.md)
 - [Download the source bundle](/assets/research/minecraft-local-agent/worker-source.zip)

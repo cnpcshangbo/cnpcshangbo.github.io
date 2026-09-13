@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "sourceHashRefs": [
+    "safety",
+    "frozenOutcome"
+  ],
+  "snapshot": {
+    "at": "2026-09-13T19:03:24.283972700Z",
+    "paused": true,
+    "health": 16.0,
+    "food": 17,
+    "air": 300,
+    "fallDistance": 0.0,
+    "onFire": false,
+    "inWater": false,
+    "inLava": false
+  },
+  "playerPosition": [
+    -636.3621286410411,
+    63.08812104741131,
+    371.49951088474097
+  ],
+  "lastDamageSource": {
+    "messageId": "arrow",
+    "directEntity": {
+      "class": "net.minecraft.world.entity.projectile.arrow.Arrow",
+      "position": [
+        -637.5859927314083,
+        63.17558484968423,
+        368.59402166859905
+      ]
+    },
+    "causingEntity": {
+      "class": "net.minecraft.world.entity.monster.skeleton.Skeleton",
+      "position": [
+        -643.99658203125,
+        63.0,
+        358.907470703125
+      ]
+    }
+  },
+  "derived": {
+    "causingEntityDistanceBlocksAtObservation": 14.725899626905676,
+    "secondsAfterFrozenOutcomeSnapshot": 77.4953687,
+    "playerPositionMatchesFrozenOutcome": true
+  },
+  "qualification": "A later paused-snapshot diagnosis of skeleton-arrow damage, not measured arrow-release distance, impact time or stop latency."
+}

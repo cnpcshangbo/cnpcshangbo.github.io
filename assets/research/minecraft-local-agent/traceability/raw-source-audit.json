@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "scope": "Retrospective local byte audit; not a contemporaneous experiment trace, independent attestation or ARA seal.",
+  "auditedAt": "2026-09-13T20:36:21Z",
+  "pathBase": "artifact-root",
+  "originalAuditSummary": {
+    "originalReferencesChecked": 14,
+    "matched": 13,
+    "superseded": 1,
+    "missing": 0
+  },
+  "sources": [
+    {
+      "sourceKey": "mission",
+      "description": "Saved mission baseline, protection settings and breadcrumbs",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/mission/sha256"
+      },
+      "expectedSha256": "e48b2b9455f7fa0aa74898917b0f96d2c7a6718a8f7fe533b0f9e38d1a9280ee",
+      "observedSha256": "e48b2b9455f7fa0aa74898917b0f96d2c7a6718a8f7fe533b0f9e38d1a9280ee",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "frozenOutcome",
+      "description": "Frozen pilot stop snapshot",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/frozenOutcome/sha256"
+      },
+      "expectedSha256": "d4093118ea27608f1957e232c99ceac9abbc8a3f9e8eeaa600aa7fee2376f2b0",
+      "observedSha256": "d4093118ea27608f1957e232c99ceac9abbc8a3f9e8eeaa600aa7fee2376f2b0",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "laterSameRun",
+      "description": "Later status for the same stopped pilot segment",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/laterSameRun/sha256"
+      },
+      "expectedSha256": "8a4e4c2891b0585a2cc0b4220c292d63d633292f0215c91b09b3cb38cff873e3",
+      "observedSha256": "8a4e4c2891b0585a2cc0b4220c292d63d633292f0215c91b09b3cb38cff873e3",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "laterIdle",
+      "description": "Historically audited idle attachment status, subsequently overwritten",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/laterIdle/sha256"
+      },
+      "expectedSha256": "0e3854e44dad6622d1c93a6e2ab0365bf31b4e15d6e306204023bc1d28370af9",
+      "observedSha256": "c7cd135fcd3247d2028f968a0498e1c148a90fe37fb10dad7a98b14d4cee8c6d",
+      "auditStatus": "superseded",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "diagnostic",
+      "description": "Sixty-observation read-only diagnostic JSONL",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/diagnostic/sha256"
+      },
+      "expectedSha256": "b0512a195eec770def8661d5ca6556c41ae679f6355f088dd730d54571a90a8c",
+      "observedSha256": "b0512a195eec770def8661d5ca6556c41ae679f6355f088dd730d54571a90a8c",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "diagnosticSource",
+      "description": "Diagnostic observer source",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/diagnosticSource/sha256"
+      },
+      "expectedSha256": "14c147119ca1545850ec1b597ca3c7a4a5dae96c73fc674677b0081fe56744a6",
+      "observedSha256": "14c147119ca1545850ec1b597ca3c7a4a5dae96c73fc674677b0081fe56744a6",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "safety",
+      "description": "Later paused safety diagnostic snapshot",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/safety/sha256"
+      },
+      "expectedSha256": "f8290a42bfe8a6ddf9049ace55057bd8aedd4ec0e1739a119afe19149025b885",
+      "observedSha256": "f8290a42bfe8a6ddf9049ace55057bd8aedd4ec0e1739a119afe19149025b885",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "controller",
+      "description": "Packaged post-pilot Controller source",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/controller/sha256"
+      },
+      "expectedSha256": "26f56fb883cd5164333b9f70d74f3a3fe24b3f4fede5f222d9ae60d08978557d",
+      "observedSha256": "26f56fb883cd5164333b9f70d74f3a3fe24b3f4fede5f222d9ae60d08978557d",
+      "auditStatus": "matched",
+      "rawPublished": true,
+      "publicByteIdenticalCopy": "source/src/woodagent/Controller.java"
+    },
+    {
+      "sourceKey": "miningWrapper",
+      "description": "Packaged post-pilot mining wrapper source",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/miningWrapper/sha256"
+      },
+      "expectedSha256": "d060e87d984b598e4f9693fad0579fb3f12f20ea0cb99f2bcdd5ace3310404e0",
+      "observedSha256": "d060e87d984b598e4f9693fad0579fb3f12f20ea0cb99f2bcdd5ace3310404e0",
+      "auditStatus": "matched",
+      "rawPublished": true,
+      "publicByteIdenticalCopy": "source/src/woodagent/BackgroundGameMode.java"
+    },
+    {
+      "sourceKey": "directAdapter",
+      "description": "Timed external-input adapter source",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/directAdapter/sha256"
+      },
+      "expectedSha256": "dac29ea94125b5211d6f4ced68136d6984587ac7c23ebe6c64f944adc0d7cde0",
+      "observedSha256": "dac29ea94125b5211d6f4ced68136d6984587ac7c23ebe6c64f944adc0d7cde0",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "directTests",
+      "description": "Mock transport tests of the adapter",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/directTests/sha256"
+      },
+      "expectedSha256": "125cb9d05f39995444e6ddf2dde4ec2311bed50543de1deac1c33338aa1d7bb4",
+      "observedSha256": "125cb9d05f39995444e6ddf2dde4ec2311bed50543de1deac1c33338aa1d7bb4",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "partialExport",
+      "description": "Intermediate partial-tree recovery export",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/partialExport/sha256"
+      },
+      "expectedSha256": "49baa6f4919528f4244dce191f76d53c724af30fc188f90085d79f14ba00cae2",
+      "observedSha256": "49baa6f4919528f4244dce191f76d53c724af30fc188f90085d79f14ba00cae2",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "incidentBuild",
+      "description": "Worker JAR for the incident segment",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/incidentBuild/sha256"
+      },
+      "expectedSha256": "9637364d05ac5cf264f3d216503efc5a5032364c594eb4e0d87605eedcc3678a",
+      "observedSha256": "9637364d05ac5cf264f3d216503efc5a5032364c594eb4e0d87605eedcc3678a",
+      "auditStatus": "matched",
+      "rawPublished": false
+    },
+    {
+      "sourceKey": "incidentBytecodeAudit",
+      "description": "Offline disassembly of the incident worker",
+      "expectedHashReference": {
+        "path": "metrics.json",
+        "pointer": "/artifactHashes/incidentBytecodeAudit/sha256"
+      },
+      "expectedSha256": "b460f604adc9f4a3a3160e2c445538c0a7c8ccc42223d1e9175e24d31e439a89",
+      "observedSha256": "b460f604adc9f4a3a3160e2c445538c0a7c8ccc42223d1e9175e24d31e439a89",
+      "auditStatus": "matched",
+      "rawPublished": false
+    }
+  ],
+  "additionalSources": [
+    {
+      "sourceKey": "priorRun10",
+      "description": "Saved run10 final snapshot used here to ground pre-incident health; additional to the original 14-source audit.",
+      "expectedSha256": "7409f137eec84b40aa920974c4eeede391c5d4f6556a5e3256fe1494274b3e59",
+      "observedSha256": "7409f137eec84b40aa920974c4eeede391c5d4f6556a5e3256fe1494274b3e59",
+      "auditStatus": "matched",
+      "rawPublished": false
+    }
+  ],
+  "supersededSnapshot": {
+    "sourceKey": "laterIdle",
+    "originalObservedAt": "2026-09-13T19:20:12.190415900Z",
+    "currentObservedAt": "2026-09-13T20:36:21.141840700Z",
+    "originalBytesAvailable": false,
+    "originalRecordedFieldsRetainedAt": {
+      "path": "metrics.json",
+      "pointer": "/timingLimitations/latestIdleAttachment"
+    },
+    "qualification": "The mutable status file was overwritten. The earlier content cannot be re-hashed or reconstructed from its digest; the frozen publication audit is retained and not silently replaced."
+  },
+  "extraction": {
+    "script": "traceability/extract-evidence.py",
+    "rawMap": "Private mapping from sourceKey to local original file; not bundled or copied into outputs.",
+    "rawHashGate": "Every one of the seven extracted inputs must match expectedSha256 before any export is written.",
+    "outputEncoding": "UTF-8 without BOM, LF, indented JSON with final newline.",
+    "rules": [
+      {
+        "output": "traceability/evidence/wood-outcome.json",
+        "sources": [
+          "mission",
+          "frozenOutcome",
+          "laterSameRun",
+          "priorRun10",
+          "partialExport"
+        ],
+        "rule": "Mission allowlist: baselineLogs,targetLogs,radius,homeX,homeZ,start. Status allowlist is STATUS_FIELDS in the script; commandId is excluded. Partial-tree allowlist: base,airPrefix,remainingLogs. Recovery queue is reduced to its length. Derived arithmetic compares inventory/health and stopped snapshots; the interpretation is explicitly separate."
+      },
+      {
+        "output": "traceability/evidence/diagnostic.json",
+        "sources": [
+          "diagnostic"
+        ],
+        "rule": "Preserve source row order and one-based line numbers, at,tick,phase,capture,paused,isDestroying; convert numeric-string logIndex and treesCut to JSON integers. Omit all other fields, including machine directory, player state and reflective debug details. Compute span from integer UTC nanoseconds, game tick difference and counts."
+      },
+      {
+        "output": "traceability/evidence/safety.json",
+        "sources": [
+          "safety",
+          "frozenOutcome"
+        ],
+        "rule": "Allowlist at,paused,health,food,air,fallDistance,onFire,inWater,inLava; player position; lastDamageSource messageId and entity class/position. Omit entity name/id and all other entity records. Calculate Euclidean distance and timestamp difference; mark later-observation interpretation."
+      }
+    ],
+    "omitted": "Local machine paths, command/session identifiers, player names, entity IDs, launch arguments, account state and unneeded reflective fields. In-game coordinates and UTC evidence times remain."
+  },
+  "assuranceBoundary": "Matching checksums establish byte identity against recorded references, not authenticity of the original experiment, complete coverage of its execution, causal conclusions or successful reproduction."
+}

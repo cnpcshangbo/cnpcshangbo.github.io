@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-09-13T20:33:24.322071+00:00",
+  "source_repository": "https://github.com/ARA-Labs/Agent-Native-Research-Artifact",
+  "source_commit": "e52a925e9d03b4ada3008653e72f99b04116fca2",
+  "scope": "Seven ARA core skills installed for Codex; provenance tooling, not a full ARA conversion, seal, or guarantee of research validity.",
+  "verification": "27 installed files were compared byte-for-byte with the pinned upstream Git blobs.",
+  "skills": [
+    {
+      "name": "research-manager",
+      "files": [
+        {
+          "source_path": "skills/research-manager/SKILL.md",
+          "size_bytes": 36877,
+          "sha256": "fc8fb52d57cbae4c754fd7bf9e6023dbf54fd4e796152d87786749e1f30d2c37",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-manager/references/event-taxonomy.md",
+          "size_bytes": 7374,
+          "sha256": "49a273dca8d05cbe27ad80f4e78907dea23d710db6ced635082204b5c040527b",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-manager/references/taste-comments.md",
+          "size_bytes": 5742,
+          "sha256": "b6382632024d61ad57aff83d22caaef6858a8d511ffe141bc76ce34c5f73ca93",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-manager/templates/reader-report.md",
+          "size_bytes": 1423,
+          "sha256": "dcbd8f19a2bec93c56f09d453339939ef2079f027f5ffb786d39e46d459995d4",
+          "matches_pinned_git_blob": true
+        }
+      ]
+    },
+    {
+      "name": "compiler",
+      "files": [
+        {
+          "source_path": "skills/compiler/SKILL.md",
+          "size_bytes": 25754,
+          "sha256": "b7555bb021d8dd3d8caa3b093bdccf3a44557580805dfe5b45a5d23c79c979fb",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/compiler/references/ara-schema.md",
+          "size_bytes": 27851,
+          "sha256": "bfd6725bbf05da932e2fe1d3be847fa48e53bf7bfd7bb4baa9f00101f8138b94",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/compiler/references/exploration-tree-spec.md",
+          "size_bytes": 4765,
+          "sha256": "c60540f54737b65fd254c0937da2a36a99a3adca67b8095ae6e05aa50f24cf17",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/compiler/references/figure-extraction-guide.md",
+          "size_bytes": 9352,
+          "sha256": "7e9529ab65afac1dbd00cd4dfdca835730485c78daf0568da37c22581d103723",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/compiler/references/validation-checklist.md",
+          "size_bytes": 14496,
+          "sha256": "733437b090697a4e73efb2766ea13c512ec71dbb868ed5745d5ab0cc12ca25f2",
+          "matches_pinned_git_blob": true
+        }
+      ]
+    },
+    {
+      "name": "rigor-reviewer",
+      "files": [
+        {
+          "source_path": "skills/rigor-reviewer/SKILL.md",
+          "size_bytes": 18956,
+          "sha256": "19324b1fadfdc612ec9a2cf43b8db2e86948fc61a745feef52d3e0edab5130c6",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/rigor-reviewer/references/review-dimensions.md",
+          "size_bytes": 8629,
+          "sha256": "faf4c6c61a6f91e019407724b34b338827e0ffab4b7524aef3b579a26668c625",
+          "matches_pinned_git_blob": true
+        }
+      ]
+    },
+    {
+      "name": "research-visualizer",
+      "files": [
+        {
+          "source_path": "skills/research-visualizer/SKILL.md",
+          "size_bytes": 18070,
+          "sha256": "8d6bc306d393efe77abf609c3da5a321d2c02e5a305a614943efdd9486bead0b",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-visualizer/references/ara-install.md",
+          "size_bytes": 2801,
+          "sha256": "adc7bf5d7519304162dfd86e1841712436f103c34eb719ed5e0a2aa9e92a92cb",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-visualizer/references/ara-serve-ux.md",
+          "size_bytes": 4360,
+          "sha256": "e1515595ec59bc2ee327542e537586e095c1f0d311257a26e747da106fe9f018",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-visualizer/references/binding.md",
+          "size_bytes": 13711,
+          "sha256": "0673970cd6b6d1e7319d9fe0a1b7afa70d0cac3339f9b904f1979e2f100d629c",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-visualizer/references/parsing.md",
+          "size_bytes": 16171,
+          "sha256": "f80465271ca2c8eefc97375fcdbac1c8a5418003d6f732aca39fe738cdda4634",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-visualizer/references/trajectory-template.html",
+          "size_bytes": 52324,
+          "sha256": "89d5476b5ba1f6bcfbb09ece6a284f38890c18dd092ba3092e3d52b6963137ca",
+          "matches_pinned_git_blob": true
+        }
+      ]
+    },
+    {
+      "name": "research-foresight",
+      "files": [
+        {
+          "source_path": "skills/research-foresight/SKILL.md",
+          "size_bytes": 2523,
+          "sha256": "393195faf08f9a2da8dfabda4e64129b8f166c263ac19433a55b8b16f187aeab",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-foresight/references/CONTRACT.md",
+          "size_bytes": 6822,
+          "sha256": "67bd4f925bd32374230ead9c56e0e3a4d1a1f348b0649a505ce6bee5642ef162",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-foresight/references/PREDICT.md",
+          "size_bytes": 18409,
+          "sha256": "e1e0c8fc462815ed0ddb2245823505094def316c297db9039491b6a7a8617058",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-foresight/references/RETRIEVE.md",
+          "size_bytes": 16074,
+          "sha256": "8329fb579992b22c8aad0369bcb263d4d8d4c4e01298797c42031f7662938d33",
+          "matches_pinned_git_blob": true
+        }
+      ]
+    },
+    {
+      "name": "context-drop",
+      "files": [
+        {
+          "source_path": "skills/context-drop/SKILL.md",
+          "size_bytes": 7298,
+          "sha256": "828e722ddda4435ab82700e0e79c3fdbf49b284683d4e0c90e0760e7c0e1a752",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/context-drop/scripts/drop.py",
+          "size_bytes": 9254,
+          "sha256": "570b55a513d5eb22a93e7e5707f8cd2ad29adaceed39c00277af7867923e433d",
+          "matches_pinned_git_blob": true
+        }
+      ]
+    },
+    {
+      "name": "research-fuzzer",
+      "files": [
+        {
+          "source_path": "skills/research-fuzzer/SKILL.md",
+          "size_bytes": 9834,
+          "sha256": "0e2af034392a5b4de3dbe2e62c02094ce37d9f37026baaf4ec8328ec7eb51b1f",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-fuzzer/references/example-notebook.jsonl",
+          "size_bytes": 1245,
+          "sha256": "dea5df45abd66e0c7b6776bd69cc61b55804827f17a07216c2b586033787bc01",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-fuzzer/scripts/log.py",
+          "size_bytes": 4207,
+          "sha256": "8d6d67cc5c16dc16ea59171b9a916ef527e9930f0b8c5ba43b22492dd0c2b788",
+          "matches_pinned_git_blob": true
+        },
+        {
+          "source_path": "skills/research-fuzzer/scripts/tally.py",
+          "size_bytes": 7557,
+          "sha256": "bf4d4b311e9dec01d97472eb60add2a6b9153e760861d04a5c0406bafad6dd1f",
+          "matches_pinned_git_blob": true
+        }
+      ]
+    }
+  ]
+}

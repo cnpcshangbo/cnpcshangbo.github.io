@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "sourceHashRefs": [
+    "mission",
+    "frozenOutcome",
+    "laterSameRun",
+    "priorRun10",
+    "partialExport"
+  ],
+  "mission": {
+    "baselineLogs": 21,
+    "targetLogs": 32,
+    "radius": 128.0,
+    "homeX": -698.0,
+    "homeZ": 195.0,
+    "start": {
+      "x": -692,
+      "y": 54,
+      "z": 201
+    }
+  },
+  "frozenOutcome": {
+    "updatedAt": "2026-09-13T19:02:06.788604Z",
+    "phase": "STOPPED",
+    "reason": "Health changed; manual review needed",
+    "active": false,
+    "version": "26.3-rc-2",
+    "position": [
+      -636.3621286410411,
+      63.08812104741131,
+      371.49951088474097
+    ],
+    "health": 16.0,
+    "food": 17,
+    "inventoryLogs": 60,
+    "collectedLogs": 39,
+    "homeDistance": 186.27130750601393,
+    "targetLogs": 32,
+    "protectedRadius": 128.0,
+    "treesCut": 3,
+    "remainingWaypoints": 0,
+    "elapsedSeconds": 312,
+    "paused": true
+  },
+  "laterSameRun": {
+    "updatedAt": "2026-09-13T19:05:34.506084200Z",
+    "phase": "STOPPED",
+    "reason": "Controller unloaded",
+    "active": false,
+    "version": "26.3-rc-2",
+    "position": [
+      -636.3621286410411,
+      63.08812104741131,
+      371.49951088474097
+    ],
+    "health": 16.0,
+    "food": 17,
+    "inventoryLogs": 60,
+    "collectedLogs": 39,
+    "homeDistance": 186.27130750601393,
+    "targetLogs": 32,
+    "protectedRadius": 128.0,
+    "treesCut": 3,
+    "remainingWaypoints": 0,
+    "elapsedSeconds": 520,
+    "paused": true
+  },
+  "priorRun10": {
+    "updatedAt": "2026-09-13T18:56:53.972145300Z",
+    "phase": "STOPPED",
+    "reason": "Controller unloaded",
+    "active": false,
+    "version": "26.3-rc-2",
+    "position": [
+      -641.6711661781661,
+      63.0,
+      364.5000950949557
+    ],
+    "health": 20.0,
+    "food": 17,
+    "inventoryLogs": 48,
+    "collectedLogs": 27,
+    "homeDistance": 178.03651310896873,
+    "targetLogs": 32,
+    "protectedRadius": 128.0,
+    "treesCut": 1,
+    "remainingWaypoints": 0,
+    "elapsedSeconds": 145,
+    "paused": true
+  },
+  "recovery": {
+    "partialTrees": [
+      {
+        "base": {
+          "x": -592,
+          "y": 64,
+          "z": 393
+        },
+        "airPrefix": 1,
+        "remainingLogs": 4
+      },
+      {
+        "base": {
+          "x": -619,
+          "y": 63,
+          "z": 384
+        },
+        "airPrefix": 1,
+        "remainingLogs": 4
+      },
+      {
+        "base": {
+          "x": -641,
+          "y": 63,
+          "z": 372
+        },
+        "airPrefix": 1,
+        "remainingLogs": 4
+      },
+      {
+        "base": {
+          "x": -642,
+          "y": 63,
+          "z": 364
+        },
+        "airPrefix": 2,
+        "remainingLogs": 4
+      }
+    ],
+    "remainingQueueLengthInSavedMission": 0,
+    "qualification": "Four intermediate partially cut trunks and a later empty recovery queue; not a continuous record of every harvested block."
+  },
+  "derived": {
+    "netAdditionalLogs": 39,
+    "inventoryDeltaAgreesWithReportedCollectedLogs": true,
+    "healthDecreaseFromPriorSnapshot": 4.0,
+    "wallSecondsBetweenStoppedSnapshots": 207.7174802,
+    "elapsedCounterIncreaseWhileStoppedSeconds": 208,
+    "sameStoppedPausedPositionInventoryHealth": true
+  },
+  "interpretation": {
+    "uninterruptedReturnCompleted": false,
+    "basis": "Frozen outcome stopped after health loss while paused, retaining 60 logs, about 186 blocks horizontally from home. No successful return record exists.",
+    "timingCaveat": "Elapsed counters include stopped/paused time and reset across resumes; do not derive mission duration or logs per minute."
+  }
+}
