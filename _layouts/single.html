@@ -30,7 +30,7 @@ layout: default
           {% if page.read_time or page.page_views %}
             <p class="page__meta">
               {% if page.read_time %}<i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}{% endif %}
-              {% if page.page_views %}{% if page.read_time %}<span aria-hidden="true"> &middot; </span>{% endif %}{% include page-views.html %}{% endif %}
+              {% if page.page_views %}{% include page-views.html %}{% endif %}
             </p>
           {% endif %}
         {% if page.modified %}
