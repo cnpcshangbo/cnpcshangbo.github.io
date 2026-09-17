@@ -3,3 +3,13 @@ AGENTS.md text eol=lf
 _posts/2026-09-13-minecraft-local-agent-control.md text eol=lf
 _pages/minecraft-traceability.md text eol=lf
 tools/verify_research_artifacts.py text eol=lf
+
+# Generated CV PDFs are binary artifacts even when their streams are ASCII.
+assets/cv*.pdf binary
+# Keep academic CV source fingerprints identical across checkouts.
+_data/cv.yml text eol=lf
+_data/publications.yml text eol=lf
+_pages/cv.md text eol=lf
+tools/build_academic_cv.py text eol=lf
+tools/requirements-academic-cv.txt text eol=lf
+tools/requirements-contact.txt text eol=lf

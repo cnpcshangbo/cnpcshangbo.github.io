@@ -30,7 +30,7 @@ Best for: ML engineer roles with a CV / perception flavor, applied research role
 - [Forward Deployed Engineer PDF](/assets/cv-fde.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-fde.tex)
 - [Robotics SWE PDF](/assets/cv-robotics.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-robotics.tex)
 - [ML Engineer PDF](/assets/cv-ml.pdf) — built from [LaTeX source](https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/cv-tex/cv-ml.tex)
-- [Academic CV PDF](/assets/cv.pdf) — hand-curated
+- [Academic CV PDF](/assets/cv.pdf) — complete academic record
 
 ## Why multiple views?
 

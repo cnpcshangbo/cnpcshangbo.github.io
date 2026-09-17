@@ -1,0 +1,210 @@
+# Canonical academic CV content. Publications live in publications.yml;
+# public contact fields live in _config.yml. Generate both outputs with
+# python tools/build_academic_cv.py (see cv-tex/README.md).
+updated: '2026-09-17'
+name: Bo Shang
+credentials: Ph.D.
+headline: Postdoctoral Associate, University of Maryland
+affiliation: Civil and Environmental Engineering / Maryland Transportation Institute
+location: New York, NY
+phone: '+1 (929) 520-0488'
+summary: >-
+  Robotics and AI researcher working across field robotics, multimodal perception,
+  intelligent transportation, and infrastructure inspection. Experience spans
+  sensor integration and data collection, embedded control, computer vision,
+  model evaluation, and cloud and edge deployment.
+sections:
+  - title: Research Interests
+    items:
+      - text: >-
+          Physical AI and field robotics; LiDAR-camera perception; vulnerable-road-user
+          sensing and transportation safety; robotic infrastructure inspection;
+          UAVs, visual servoing, and GPS-denied navigation; reproducible evaluation
+          across sensors, sites, and operating conditions.
+  - title: Academic and Research Appointments
+    items:
+      - title: University of Maryland
+        subtitle: Postdoctoral Associate, Civil and Environmental Engineering / Maryland Transportation Institute
+        date: Jul 2026 - Present
+        location: College Park, MD
+        bullets:
+          - Support hardware and software development, integration, and testing for two sponsored transportation research projects under Dr. Terry Yang.
+          - Conduct system troubleshooting, support field data collection, and prepare technical documentation and project deliverables.
+      - title: The City College of New York, CUNY
+        subtitle: Postdoctoral Scholar, AI & Mobility Research Lab
+        date: Jul 2025 - Jul 2026
+        location: New York, NY
+        bullets:
+          - Developed roadside LiDAR and camera workflows for traffic monitoring, multimodal perception, and transportation safety research.
+      - title: The City College of New York, CUNY
+        subtitle: Graduate Research Assistant, Civil Engineering
+        date: Jan 2025 - Jun 2025
+        location: New York, NY
+      - title: The City College of New York, CUNY
+        subtitle: Postdoctoral Researcher, Robotics Lab
+        date: Dec 2022 - Dec 2024
+        location: New York, NY
+        bullets:
+          - Developed robotic inspection software, structural-defect analysis, and engineering review workflows connecting sensors, robots, and cloud services.
+      - title: Vaughn College of Aeronautics and Technology
+        subtitle: Instructor, Computer Engineering Summer Academy (AI module)
+        date: Jun 2024 - Aug 2024
+        location: New York, NY
+      - title: Vaughn College of Aeronautics and Technology
+        subtitle: Adjunct Faculty
+        date: Jan 2024 - May 2024
+        location: New York, NY
+      - title: The City College of New York, CUNY
+        subtitle: Adjunct Assistant Professor
+        date: Aug 2023 - Dec 2023
+        location: New York, NY
+      - title: Missouri University of Science and Technology
+        subtitle: Postdoctoral Fellow
+        date: Jan 2020 - Nov 2022
+        location: Rolla, MO
+        bullets:
+          - Developed UAV guidance and robotic deployment components for bridge inspection and contributed to multimodal infrastructure sensing research.
+      - title: University of California, Merced
+        subtitle: Lecturer
+        date: Jan 2016 - Aug 2017
+        location: Merced, CA
+        bullets:
+          - Supported teaching in mechatronics, engineering computing, and unmanned aerial systems; developed initial laboratories for the UAS course.
+        links:
+          University profile: https://engineering.ucmerced.edu/content/bo-shang
+      - title: University of California, Merced
+        subtitle: Junior Specialist
+        date: Aug 2015 - Sep 2017
+        location: Merced, CA
+  - title: Education
+    items:
+      - title: Northeastern University, China
+        subtitle: Ph.D., Pattern Recognition and Intelligent Systems
+        date: 2013 - 2020
+      - title: University of California, Merced, USA
+        subtitle: Exchange doctoral research
+        date: 2015 - 2017
+      - title: Northeastern University, China
+        subtitle: M.Eng., Pattern Recognition and Intelligent Systems
+        date: 2011 - 2013
+      - title: Northeastern University, China
+        subtitle: B.Eng., Automation
+        date: 2007 - 2011
+  - title: Research and Engineering Projects
+    items:
+      - title: Roadside LiDAR and camera perception, CUNY
+        date: Nov 2024 - Jul 2026
+        bullets:
+          - Developed a workflow spanning sensor capture, temporal synchronization, spatial calibration, background subtraction, object segmentation, and road-user detection.
+          - Built multi-frame vehicle reconstruction, labeling and quality-assurance workflows, and model evaluation across sites with different beam counts, frame rates, and mounting geometries.
+          - Separated site-specific configuration from reusable processing and investigated cross-configuration generalization for traffic monitoring and vulnerable-road-user safety.
+      - title: Robotic inspection automation and structural-defect analytics, CCNY
+        date: Dec 2022 - Dec 2024
+        bullets:
+          - Developed CNN-based analysis of cracks, spalling, and stains, with AWS inference and a WebODM-based workflow for 3D reconstruction, localization, visualization, and measurement.
+          - Built an iOS application for controlling a climbing inspection robot and integrated human review into inspection-data workflows.
+      - title: Bridge Inspection Robot Deployment System (BIRDS), Missouri S&T
+        date: 2020 - 2022
+        bullets:
+          - Developed UAV and clamping-robot components for bridge inspection, including vision-based girder detection, embedded perception, and control of the deployment mechanism.
+          - Integrated NVIDIA Jetson, Raspberry Pi, ROS, embedded Linux, cameras, and robot communication; tested autonomous guidance, clamping, and traversal workflows.
+      - title: UAV visible, infrared, and hyperspectral sensing
+        date: 2020 - 2022
+        text: Developed Python and Ubuntu workflows for multimodal infrastructure inspection, sensing, and flight-path planning.
+      - title: Robot-assisted underwater acoustic imaging for bridge scour evaluation
+        date: 2020 - 2021
+        text: Contributed Python/C++, ROS, Arduino, embedded control, and computer-vision components to underwater inspection research.
+      - title: Vision-based UAV servoing and fractional-order control
+        date: 2015 - 2019
+        text: Developed and evaluated visual guidance and control methods using cameras, embedded Linux, Raspberry Pi, and fractional-order controllers.
+      - title: SmartCaveDrone and GPS-denied exploration
+        date: 2015 - 2017
+        text: Contributed RGB-D mapping, visual SLAM, and sense-and-avoid capabilities for UAV exploration and robotic archaeology.
+      - title: Early robotics projects
+        date: 2010 - 2014
+        bullets:
+          - '2013-2014: AR.Drone and ROS quadrotor object tracking.'
+          - '2012-2013: Indoor LiDAR-equipped quadrotor; 2012: camera-equipped quadrotor.'
+          - '2011: Camera-equipped fixed-wing UAV; 2010: infrared line-following smart car.'
+  - title: Independent Research Software and Educational Platforms
+    items:
+      - title: ScholarMind AI / Merit Point Academy
+        subtitle: Independent AI product development
+        date: 2026 - Present
+        bullets:
+          - Developed a bilingual AI education and research platform with a research assistant, course delivery, robotics evidence pages, and knowledge-graph learning tools.
+          - Directed AI-assisted software development through requirements, implementation, testing, privacy and attribution checks, and deployment.
+      - title: Reproducible AI evaluation
+        date: '2026'
+        text: Built evaluation workflows using versioned configurations, replay, failure analysis, and regression checks for research software and tool-using AI agents.
+  - title: Teaching and Mentoring
+    items:
+      - title: University of California, Merced
+        date: 2016 - 2017
+        text: Teaching support for ME 190 Mechatronics, ME 143 Unmanned Aircraft Systems, and ME 021 Engineering Computing (Fortran and MATLAB); initial laboratory development for the UAS course.
+      - title: The City College of New York, CUNY
+        date: '2023'
+        text: ENGR 204 Electric Circuits, as Adjunct Assistant Professor.
+      - title: Vaughn College of Aeronautics and Technology
+        date: '2024'
+        text: MCE 355 Robotics, Mechanics and Control; SBC 012 Principles of AI; SBC 014A Principles of Research-AI. Developed and taught a five-lecture, five-lab AI module for the Computer Engineering Summer Academy.
+      - title: Research mentoring and robotics outreach
+        text: Tutored high-school research assistants at CCNY (2023-2024), coached FIRST Robotics Competition participants (2022), and judged VEX Robotics Competition events for middle-school, high-school, and college students (2024).
+  - title: Journal Articles
+    publication_types: [journal]
+    prefix: J
+  - title: Conference and Workshop Papers
+    publication_types: [conference]
+    prefix: C
+  - title: Preprints
+    publication_types: [preprint]
+    prefix: P
+  - title: Technical Reports
+    publication_types: [report]
+    prefix: R
+  - title: Thesis
+    publication_types: [thesis]
+    prefix: T
+  - title: Posters and Presentations
+    publication_types: [poster, slides]
+  - title: Patents and Patent Applications
+    publication_types: [patent]
+    prefix: PT
+  - title: Professional Service
+    items:
+      - title: Journal reviewer
+        text: Nonlinear Dynamics; Journal of Intelligent & Robotic Systems; ISA Transactions; IEEE Transactions on Control Systems Technology; Intelligent Buildings International; International Journal of Advanced Robotic Systems; Control Engineering Practice; IET Control Theory and Applications; Mechatronics.
+      - title: Conference reviewer
+        text: International Conference on Unmanned Aircraft Systems (ICUAS); IEEE International Conference on Robotics and Automation (ICRA); IEEE International Conference on Multisensor Fusion and Integration for Intelligent Systems (MFI).
+      - title: Session Chair
+        date: '2016'
+        text: International Conference on Unmanned Aircraft Systems (ICUAS).
+      - title: Review record
+        links:
+          Web of Science profile: https://www.webofscience.com/wos/author/record/38030
+  - title: Honors, Support, and Credentials
+    items:
+      - title: Teaching Certificate, Association of College and University Educators (ACUE)
+        date: '2021'
+      - title: FAA Remote Pilot Certificate for Small Unmanned Aircraft Systems
+        date: '2016'
+      - title: China Scholarship Council (CSC) doctoral exchange support
+        date: 2015 - 2017
+        text: Two-year exchange program at the University of California, Merced; US$38,400 in financial support.
+      - title: International Aerial Robotics Competition
+        date: '2014'
+        text: Best System Control Award and Best Mission Planning Award, as team leader.
+      - title: International Mathematical Contest in Modeling
+        date: '2010'
+        text: Meritorious Prize, as programmer.
+      - title: National Smart Car Competition, Freescale, China
+        date: '2010'
+        text: First Prize, Northeastern Region.
+  - title: Technical Expertise
+    items:
+      - title: Robotics and sensing
+        text: ROS / ROS 2, NVIDIA Jetson, Raspberry Pi, Arduino, embedded Linux; LiDAR, RGB/RGB-D, thermal, IMU, and acoustic sensing; sensor bring-up, synchronization, calibration, and field troubleshooting.
+      - title: Software and machine learning
+        text: Python, C++, PyTorch, TensorFlow, OpenCV, Linux, Docker, Git/GitHub Actions, AWS; computer vision, 3D reconstruction, visual SLAM, model packaging, and data pipelines.
+      - title: Evaluation and research delivery
+        text: Dataset and configuration versioning, labeling and data quality assurance, cross-site evaluation, replay and failure analysis, human review, GIS and traffic analytics, and technical documentation.

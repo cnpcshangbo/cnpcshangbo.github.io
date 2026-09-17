@@ -1,10 +1,9 @@
 # =============================================================================
-#  Publications — single source of truth for /publications/
+#  Shared bibliography for /publications/ and the academic web/PDF CV
 # =============================================================================
-#  This file drives the entire publications page. To keep the site in sync with
-#  Google Scholar, edit ONLY this file — the layout, cards, and topical artwork
-#  are generated automatically (see _includes/pub-card.html and
-#  _includes/pub-thumb.html). Nothing else needs to be touched.
+#  Edit bibliography records here and run tools/build_academic_cv.py.
+#  The publications page reads this data directly; the academic page and PDF
+#  are generated from it. Citation counts carry a separately dated snapshot.
 #
 #  Each entry under `items:` accepts:
 #    title      : full paper title (quote it; titles often contain colons)
@@ -26,143 +25,159 @@
 # =============================================================================
 
 total_citations: 159           # Google Scholar, all-time
-last_synced: "2026-06-06"
+last_synced: "2026-06-06"     # Google Scholar citation-count snapshot
+last_verified: "2026-09-17"   # Bibliographic audit; independent of citation counts
 scholar_url: "https://scholar.google.com/citations?user=TVIPpDMAAAAJ&hl=en"
 
 items:
   # ---------------------------------------------------------------- 2026 ----
   - title: "Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence"
-    authors: "B Shang, Y Li"
-    venue: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops"
+    authors: "Bo Shang, Yiqiao Li"
+    venue: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, pp. 757–765"
     year: 2026
-    type: conference
-    topic: lidar
+    type: "conference"
+    topic: "lidar"
     citations: 0
     featured: true
     home: true
-    note: "DriveX Workshop — Foundation Models for Autonomous Driving (archival track)"
+    note: "DriveX Workshop on Foundation Models for Autonomous Driving; archival proceedings"
     links:
-      pdf: "https://drivex-workshop.github.io/cvpr2026/static/pdf/29_Roadside_LiDAR_for_Cooperat.pdf"
+      url: "https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.html"
+      pdf: "https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.pdf"
 
   - title: "Bridging the Modality Gap in Roadside LiDAR: A Training-Free Vision-Language Model Framework for Vehicle Classification"
-    authors: "Y Li, B Shang, J Wei"
+    authors: "Yiqiao Li, Bo Shang, Jie Wei"
     venue: "arXiv preprint arXiv:2602.09425"
     year: 2026
-    type: preprint
-    topic: lidar
+    type: "preprint"
+    topic: "lidar"
     citations: 0
     featured: true
     links:
       arxiv: "https://arxiv.org/abs/2602.09425"
+      doi: "https://doi.org/10.48550/arXiv.2602.09425"
 
   # ---------------------------------------------------------------- 2025 ----
-  - title: "Robotic inspection and data analytics to localize and visualize the structural defects of concrete infrastructure"
-    authors: "J Feng, B Shang, E Hoxha, C Hernández, Y He, W Wang, J Xiao"
-    venue: "IEEE Transactions on Automation Science and Engineering, vol. 22"
+  - title: "Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure"
+    authors: "Jinglun Feng, Bo Shang, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, Jizhong Xiao"
+    venue: "IEEE Transactions on Automation Science and Engineering, vol. 22, pp. 22324–22336"
     year: 2025
-    type: journal
-    topic: ndt
+    type: "journal"
+    topic: "ndt"
     citations: 11
     featured: true
     home: true
-    note: "Selected for presentation at IEEE IROS 2025"
+    note: "Journal paper selected for presentation at IEEE IROS 2025"
+    links:
+      doi: "https://doi.org/10.1109/TASE.2025.3535227"
+      url: "https://ras.papercept.net/conferences/conferences/IROS25/program/IROS25_ContentListWeb_3.html"
 
   - title: "AI-Enhanced Sensing for Vulnerable Road User Safety at Signalized Intersections: A Survey"
-    authors: "B Shang, Y Li, AG Amin, C Kamga, J Wei"
-    venue: "Procedia Computer Science, vol. 265"
+    authors: "Bo Shang, Yiqiao Li, Arian Golrokh Amin, Camille Kamga, Jie Wei"
+    venue: "Procedia Computer Science, vol. 265, pp. 350–357 (MobiSPC 2025)"
     year: 2025
-    type: conference
-    topic: lidar
+    type: "conference"
+    topic: "lidar"
     citations: 3
     featured: true
     home: true
+    links:
+      doi: "https://doi.org/10.1016/j.procs.2025.07.191"
 
   - title: "Investigating the LiDAR Beam Count Needed for Effective Vulnerable Road User Detection"
-    authors: "B Shang, Y Li, J Wei, C Kamga"
-    venue: "Procedia Computer Science, vol. 265"
+    authors: "Bo Shang, Yiqiao Li, Jie Wei, Camille Kamga"
+    venue: "Procedia Computer Science, vol. 265, pp. 358–365 (MobiSPC 2025)"
     year: 2025
-    type: conference
-    topic: lidar
+    type: "conference"
+    topic: "lidar"
     citations: 1
     featured: true
+    links:
+      doi: "https://doi.org/10.1016/j.procs.2025.07.192"
 
   - title: "Exploring Drive-By Sensing and Deep Learning for Urban Truck Characterization Using Google Street View Imagery"
-    authors: "B Shang, Y Li, B Horbach, K Villon"
+    authors: "Bo Shang, Yiqiao Li, Blanche Horbach, Kevin Villon"
     venue: "SSRN preprint 5312573"
     year: 2025
-    type: preprint
-    topic: streetview
+    type: "preprint"
+    topic: "streetview"
     citations: 0
     featured: true
     links:
       ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5312573"
+      doi: "https://doi.org/10.2139/ssrn.5312573"
 
   - title: "Unmanned vehicle having flight configuration and surface traverse configuration"
-    authors: "G Chen, A Reven, B Shang, Z Shi, L Li, B Li"
-    venue: "US Patent 12,296,994"
+    authors: "Genda Chen, Alec Reven, Bo Shang, Zhenhua Shi, Liujun Li, Boyang Li"
+    venue: "U.S. Patent 12,296,994 B2"
     year: 2025
-    type: patent
-    topic: patent
+    type: "patent"
+    topic: "patent"
     citations: 0
     featured: true
     links:
       patent: "https://patents.google.com/patent/US12296994B2/en"
+    note: "Granted May 13, 2025"
 
   - title: "Code-specified early delamination detection and quantification in a RC bridge deck: passive vs. active infrared thermography"
-    authors: "H Zhang, Z Shi, L Li, P Jiao, B Shang, G Chen"
-    venue: "Journal of Civil Structural Health Monitoring, vol. 15(1)"
+    authors: "Haibin Zhang, Zhenhua Shi, Liujun Li, Pu Jiao, Bo Shang, Genda Chen"
+    venue: "Journal of Civil Structural Health Monitoring, vol. 15(1), pp. 227–244"
     year: 2025
-    type: journal
-    topic: ndt
+    type: "journal"
+    topic: "ndt"
     citations: 10
+    note: "Issue year 2025; first published online August 6, 2024"
+    links:
+      doi: "https://doi.org/10.1007/s13349-024-00823-8"
 
-  # ---------------------------------------------------------------- 2024 ----
-  - title: "Contrastive Learning for Robust Defect Mapping in Concrete Slabs Using Impact Echo"
-    authors: "E Hoxha, J Feng, A Sengupta, D Kirakosian, Y He, B Shang, A Gjinofci, et al."
-    venue: "SSRN preprint 4923149"
-    year: 2024
-    type: preprint
-    topic: ndt
+  - title: "Contrastive learning for robust defect mapping in concrete slabs using impact echo"
+    authors: "Ejup Hoxha, Jinglun Feng, Agnimitra Sengupta, David Kirakosian, Yang He, Bo Shang, Ardian Gjinofci, Jizhong Xiao"
+    venue: "Construction and Building Materials, vol. 461, article 139829"
+    year: 2025
+    type: "journal"
+    topic: "ndt"
     citations: 8
     links:
+      doi: "https://doi.org/10.1016/j.conbuildmat.2024.139829"
       ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4923149"
 
   # ---------------------------------------------------------------- 2023 ----
   - title: "Hardware-in-the-loop and Digital Twin Enabled Autonomous Robotics-assisted Environment Inspection"
-    authors: "J Li, B Shang, I Jayawardana, G Chen"
-    venue: "IEEE Xplore Digital Library"
+    authors: "Johnny Li, Bo Shang, Iresh Jayawardana, Genda Chen"
+    venue: "2023 6th International Symposium on Autonomous Systems (ISAS), pp. 1–5"
     year: 2023
-    type: conference
-    topic: uav-inspection
+    type: "conference"
+    topic: "uav-inspection"
     citations: 5
+    links:
+      doi: "https://doi.org/10.1109/ISAS59543.2023.10164352"
+      pdf: "https://par.nsf.gov/servlets/purl/10483537"
 
   - title: "Aerial Nondestructive Testing and Evaluation (aNDT&E)"
-    authors: "G Chen, J Li, H Zhang, Z Shi, B Shang"
-    venue: "Materials Evaluation"
+    authors: "Genda Chen, Liujun Li, Haibin Zhang, Zhenhua Shi, Bo Shang"
+    venue: "Materials Evaluation, vol. 81(1), pp. 67–73"
     year: 2023
-    type: journal
-    topic: ndt
+    type: "journal"
+    topic: "ndt"
     citations: 3
+    links:
+      doi: "https://doi.org/10.32548/2023.me-04300"
+      pdf: "https://par.nsf.gov/servlets/purl/10483539"
 
   # ---------------------------------------------------------------- 2022 ----
   - title: "CAAP Final Report"
-    authors: "P Ma, TG Mondal, Y Zhuo, Z Shi, B Shang, L Li, G Chen"
-    venue: "FAA Center of Excellence — CAAP Program Report"
+    authors: "Pengfei Ma, Tarutal Ghosh Mondal, Ying Zhuo, Zhenhua Shi, Bo Shang, Liujun Li, Genda Chen"
+    venue: "Pipeline and Hazardous Materials Safety Administration (PHMSA), CAAP Final Report"
     year: 2022
-    type: report
-    topic: ndt
+    type: "report"
+    topic: "ndt"
     citations: 4
-
-  - title: "The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simulations"
-    authors: "P Jiao, B Shang, L Li, G Chen"
-    venue: "13th International Workshop on Structural Health Monitoring"
-    year: 2022
-    type: conference
-    topic: uav-inspection
-    citations: 1
+    note: "September 20, 2022; contract 693JK31950005CAAP; 109 pp."
+    links:
+      url: "https://trid.trb.org/View/2186657"
 
   - title: "Mixed Reality Enabled Digital Twin for Robot-Assisted Bridge Element Inspection and Maintenance"
-    authors: "L Li, G Chen, S Bo"
+    authors: "Liujun Li, Genda Chen, Bo Shang"
     venue: "8th World Conference on Structural Control and Monitoring (8WCSCM)"
     year: 2022
     type: conference
@@ -186,13 +201,27 @@ items:
     citations: 0
 
   # ---------------------------------------------------------------- 2021 ----
+  - title: "The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simulations"
+    authors: "Pu Jiao, Bo Shang, Liujun Li, Genda Chen"
+    venue: "Structural Health Monitoring 2021: Proceedings of the 13th International Workshop on Structural Health Monitoring, pp. 866–874"
+    year: 2021
+    type: "conference"
+    topic: "uav-inspection"
+    citations: 1
+    note: "Proceedings year 2021; workshop held March 15–17, 2022"
+    links:
+      doi: "https://doi.org/10.12783/shm2021/36338"
+      url: "https://scholarsmine.mst.edu/civarc_enveng_facwork/3538/"
+
   - title: "Drone vision-based clamping strategy for bridge inspection"
     authors: "B Shang, L Li, P Jiao, R Huerta, J Ressel, A Rawlings, B Scharfenberg, et al."
     venue: "INSPIRE-UTC Poster"
     year: 2021
-    type: poster
-    topic: uav-inspection
+    type: "poster"
+    topic: "uav-inspection"
     citations: 0
+    links:
+      url: "https://scholarsmine.mst.edu/inspire-meetings/2021_meeting/poster-session/8/"
 
   # ---------------------------------------------------------------- 2020 ----
   - title: "Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II"
@@ -282,10 +311,10 @@ items:
   # ---------------------------------------------------------------- 2014 ----
   - title: "An algorithm of visual reconnaissance path planning for UAVs in complex spaces"
     authors: "B Shang, C Wu, Y Hu, J Yang"
-    venue: "Journal of Computational Information Systems, vol. 8(1)"
+    venue: "Journal of Computational Information Systems"
     year: 2014
-    type: journal
-    topic: slam
+    type: "journal"
+    topic: "slam"
     citations: 8
 
   - title: "Northeastern University Autonomous Aerial Robotics Team"
@@ -338,3 +367,26 @@ items:
     type: conference
     topic: comms
     citations: 2
+
+  # ------------------------------------------------ Chinese patents --------
+  - title: "Data/image transmission device based on TCP/IP (Transmission Control Protocol/Internet Protocol)"
+    authors: "Chengdong Wu, Bo Shang, Yunzhou Zhang, Chengxi Gao, Tingting Meng"
+    venue: "Chinese Patent CN 102427464 B"
+    year: 2014
+    type: "patent"
+    topic: "patent"
+    citations: 0
+    note: "Granted April 30, 2014"
+    links:
+      patent: "https://patents.google.com/patent/CN102427464B/en"
+
+  - title: "Internet-based interactive digital media terminal device"
+    authors: "Yunzhou Zhang, Bo Shang, Chengdong Wu, Pengju Si"
+    venue: "Chinese Patent Application CN 102306237 A"
+    year: 2012
+    type: "patent"
+    topic: "patent"
+    citations: 0
+    note: "Patent application published January 4, 2012"
+    links:
+      patent: "https://patents.google.com/patent/CN102306237A/en"

@@ -1,88 +1,90 @@
-# CV PDFs and contact information
+# CV maintenance
 
-The public email has one source of truth: `_config.yml` → `author.email`.
-Jekyll pages use `site.author.email`. All five role resumes include
-`contact-info.tex` and use `\cvemail` for both the visible address and mailto
-link. Generate that include with `python tools/sync_contact_info.py`; do not
-edit it directly.
+The public academic CV has three shared inputs:
 
-## Updating contact information
+- `_data/cv.yml`: profile, appointments, education, projects, teaching, service,
+  honors, and technical expertise.
+- `_data/publications.yml`: bibliography shared with `/publications/`, including
+  publication types and direct source links. Keep preprints, conference papers,
+  journal articles, patents/applications, reports, and presentations distinct.
+- `_config.yml` `author.email` and profile links: canonical public contact.
 
-1. Change `author.email` in `_config.yml`.
-2. Install the checker dependencies and generate the shared LaTeX field:
+## Academic CV: one update, two outputs
 
-   ```sh
-   python -m pip install -r tools/requirements-contact.txt
-   python tools/sync_contact_info.py
-   ```
+```sh
+python -m pip install -r tools/requirements-academic-cv.txt
+python tools/build_academic_cv.py
+python tools/build_academic_cv.py --check
+python tools/check_contact_info.py
+```
 
-3. Rebuild all role resumes from the `cv-tex` directory (requires TeX Live
-   with latex-extra and fonts-recommended, plus latexmk):
+The builder writes `_pages/cv.md` and `assets/cv.pdf`. Both have the same
+review date, content, and bibliography. Edit the data rather than either
+output; commit inputs and generated outputs together. Update `cv.yml`'s
+`updated` field when reviewing substantive CV changes.
 
-   ```sh
-   cd cv-tex
-   for role in robotics ml fde applied-ai solutions-engineer; do
-     latexmk -pdf -interaction=nonstopmode -halt-on-error "cv-$role.tex"
-     cp "cv-$role.pdf" "../assets/cv-$role.pdf"
-   done
-   cd ..
-   ```
+The check regenerates expected content and checks the committed web page,
+PDF content, PDF links, and source fingerprint. A forgotten or manually
+replaced PDF fails publication. Render the PDF and review all pages after
+substantive changes; automated consistency checks cannot judge typography
+or verify the truth of a newly entered career claim.
 
-4. Update `assets/cv.pdf`, the separately maintained full academic CV.
-   The original editable source for this PDF is not stored here. Updating
-   the web page or role LaTeX sources does **not** update this file. Check
-   both its visible email and clickable email link, then review rendering.
-   Preserve historical affiliations and research content unless those
-   changes are also being intentionally reviewed.
-5. Validate the committed files and rendered website:
+The bibliography drives the Publications page too. Its citation counts retain
+an explicit dated Google Scholar snapshot; bibliographic review is tracked
+separately and does not imply refreshed citation counts.
 
-   ```sh
-   python tools/check_contact_info.py
-   bundle exec jekyll build --destination _site
-   python tools/check_contact_info.py --site-dir _site
-   ```
+## Role resumes and email changes
 
-6. Commit the config, generated include, and updated PDFs together. After
-   Pages finishes deploying, verify the actual public downloads:
+Role resumes remain concise, tailored LaTeX documents under `cv-tex/`.
+Every role includes generated `contact-info.tex` and uses `\cvemail` for
+visible text and mailto. After changing `_config.yml` `author.email`:
 
-   ```sh
-   python tools/check_contact_info.py --live-base-url https://cnpcshangbo.github.io
-   ```
+```sh
+python tools/sync_contact_info.py
+python tools/build_academic_cv.py
+cd cv-tex
+for role in robotics ml fde applied-ai solutions-engineer; do
+  latexmk -pdf -interaction=nonstopmode -halt-on-error "cv-$role.tex"
+  cp "cv-$role.pdf" "../assets/cv-$role.pdf"
+done
+cd ..
+python tools/check_contact_info.py
+```
 
-The checker reads actual PDF text and annotation links; it is not an HTTP
-availability check. It discovers `assets/cv*.pdf` and additional linked CV
-downloads, so new variants are included. Missing files, missing contact
-fields, and conflicting addresses fail the check.
+Role builds require TeX Live with latex-extra/fonts-recommended and latexmk.
+The academic PDF uses ReportLab and does not require LaTeX.
 
-## Automation
+## Build and deployment checks
 
-`generate-cv-pdfs.yml` regenerates the shared contact include and all five
-role PDFs when the config, LaTeX, or contact tooling changes. It validates
-**all** CVs, including the academic PDF, before committing generated files.
-An old academic CV must be corrected before that workflow can succeed.
-
-`check-pages.yml` checks source assets and the built site on updates and
-pull requests, then checks live pages and downloads after deployment and
-every Monday. A failed check requires correction; it is not an automatic
-repair of an uploaded academic PDF.
+`generate-cv-pdfs.yml` rebuilds the academic CV and all five role PDFs when
+CV data, bibliography, contact config, sources, or build tooling change.
+It validates the outputs, commits them together, and explicitly dispatches
+`deploy-pages.yml` for bot-generated commits.
 
 `deploy-pages.yml` is the only Pages publication path (repository Pages
-source: GitHub Actions). It requires source/PDF checks and checks of the
-exact generated website artifact before deployment, then validates public
-URLs after deployment. A contact mismatch stops publication, leaving the
-previous successful site live. Do not switch Pages back to branch-based
-publishing, which bypasses these checks.
+source: GitHub Actions). It checks source/output consistency, builds Jekyll,
+and validates the exact artifact before deployment. A mismatch leaves the
+previous successful site online. It then checks public contact details.
+`check-pages.yml` also runs on updates/PRs and checks public URLs every Monday.
 
-The concise role PDFs are separate from the longer-form web CV pages:
+```sh
+bundle exec jekyll build --destination _site
+python tools/check_contact_info.py --site-dir _site
+python tools/check_contact_info.py --live-base-url https://cnpcshangbo.github.io
+```
+
+The contact checker validates every `assets/cv*.pdf` and additional linked
+CV downloads, including actual PDF text and clickable mailto targets.
+Do not switch Pages to branch-based publishing, which bypasses these gates.
 
 | Source | Download |
 | --- | --- |
+| `_data/cv.yml` + `_data/publications.yml` | `/assets/cv.pdf` |
 | `cv-robotics.tex` | `/assets/cv-robotics.pdf` |
 | `cv-ml.tex` | `/assets/cv-ml.pdf` |
 | `cv-fde.tex` | `/assets/cv-fde.pdf` |
 | `cv-applied-ai.tex` | `/assets/cv-applied-ai.pdf` |
 | `cv-solutions-engineer.tex` | `/assets/cv-solutions-engineer.pdf` |
-| Separately maintained academic CV | `/assets/cv.pdf` |
 
 Role template adapted from
 [Sourabh Bajaj's resume template](https://github.com/sb2nov/resume) (MIT).

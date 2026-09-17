@@ -47,7 +47,7 @@
     {%- endif -%}
     <span class="pub-card__badge pub-card__badge--{{ pub.type }}">{{ typelabel }}</span>
     {%- if pub.citations and pub.citations > 0 -%}
-      <span class="pub-card__cites" title="Citations (Google Scholar)">&#9733; {{ pub.citations }}</span>
+      <span class="pub-card__cites" title="Citations (Google Scholar snapshot: {{ site.data.publications.last_synced }})">&#9733; {{ pub.citations }}</span>
     {%- endif -%}
   </div>
 

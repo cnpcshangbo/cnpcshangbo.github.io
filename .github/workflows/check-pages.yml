@@ -21,12 +21,14 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install contact validation dependencies
-        run: python -m pip install -r tools/requirements-contact.txt
+      - name: Install CV validation dependencies
+        run: python -m pip install -r tools/requirements-academic-cv.txt
 
       - name: Verify CV sources and published PDF contact details
         run: |
+          python -m unittest discover -s tools -p 'test_*cv*.py'
           python -m unittest discover -s tools -p 'test_contact_info.py'
+          python tools/build_academic_cv.py --check
           python tools/check_contact_info.py
 
       - name: Verify research evidence integrity and bindings
@@ -95,8 +97,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install contact validation dependencies
-        run: python -m pip install -r tools/requirements-contact.txt
+      - name: Install CV validation dependencies
+        run: python -m pip install -r tools/requirements-academic-cv.txt
 
       - name: Curl live pages
         run: |

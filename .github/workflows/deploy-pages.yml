@@ -24,8 +24,10 @@ jobs:
           python-version: "3.12"
       - name: Validate contact information before building
         run: |
-          python -m pip install -r tools/requirements-contact.txt
+          python -m pip install -r tools/requirements-academic-cv.txt
+          python -m unittest discover -s tools -p 'test_*cv*.py'
           python -m unittest discover -s tools -p 'test_contact_info.py'
+          python tools/build_academic_cv.py --check
           python tools/check_contact_info.py
           python tools/verify_research_artifacts.py
       - uses: ruby/setup-ruby@v1
@@ -58,5 +60,5 @@ jobs:
           python-version: "3.12"
       - name: Verify public contact details after deployment
         run: |
-          python -m pip install -r tools/requirements-contact.txt
+          python -m pip install -r tools/requirements-academic-cv.txt
           python tools/check_contact_info.py --live-base-url https://cnpcshangbo.github.io

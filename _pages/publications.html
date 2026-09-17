@@ -18,13 +18,13 @@ author_profile: true
     Peer-reviewed and applied research spanning <strong>roadside LiDAR &amp; vulnerable-road-user sensing</strong>,
     <strong>UAV bridge inspection</strong>, <strong>non-destructive evaluation of concrete</strong>, and
     <strong>fractional-order flight control</strong> — the multi-sensor pipeline from field hardware to perception.
-    This page is generated from a single data file kept in sync with
-    <a href="{{ scholar }}" target="_blank" rel="noopener">Google&nbsp;Scholar</a>.
+    The bibliography is shared with my <a href="/cv/">academic CV</a>.
+    See also my <a href="{{ scholar }}" target="_blank" rel="noopener">Google&nbsp;Scholar profile</a>.
   </p>
 
   <div class="pubs__stats" role="list">
     <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ items | size }}</span><span class="pubs__stat-label">Publications</span></div>
-    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.total_citations }}</span><span class="pubs__stat-label">Citations</span></div>
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.total_citations }}</span><span class="pubs__stat-label">Citations · {{ data.last_synced }} snapshot</span></div>
     <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ years | first }}&ndash;{{ years | last }}</span><span class="pubs__stat-label">Active</span></div>
     <a class="pubs__stat pubs__stat--link" href="{{ scholar }}" target="_blank" rel="noopener"><span class="pubs__stat-num">&#x2197;</span><span class="pubs__stat-label">Scholar profile</span></a>
   </div>
@@ -65,7 +65,7 @@ author_profile: true
     <p class="pubs__empty" data-empty hidden>No publications in this topic.</p>
   </section>
 
-  <p class="pubs__sync">Last synced with Google Scholar: {{ data.last_synced }}.</p>
+  <p class="pubs__sync">Bibliographic review: {{ data.last_verified }}. Citation counts are a Google Scholar snapshot from {{ data.last_synced }}.</p>
 </div>
 
 <script>
