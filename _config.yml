@@ -28,6 +28,7 @@ author:
   location         : "New York"
   employer         : "University of Maryland"
   uri              : # URL
+  # Canonical public contact; see cv-tex/README.md before changing.
   email            : "bshang@umd.edu" 
 
   # Academic websites
@@ -149,6 +150,8 @@ include:
   - files
 exclude:
   - cv-tex
+  - tools
+  - AGENTS.md
   - .conda
   - "*.sublime-project"
   - "*.sublime-workspace"

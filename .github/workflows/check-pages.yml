@@ -17,6 +17,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install contact validation dependencies
+        run: python -m pip install -r tools/requirements-contact.txt
+
+      - name: Verify CV sources and published PDF contact details
+        run: |
+          python -m unittest discover -s tools -p 'test_contact_info.py'
+          python tools/check_contact_info.py
+
       - name: Verify research evidence integrity and bindings
         run: python3 tools/verify_research_artifacts.py
 
@@ -27,6 +39,9 @@ jobs:
 
       - name: Build Jekyll site
         run: bundle exec jekyll build --destination _site
+
+      - name: Verify rendered contact links and downloadable PDFs
+        run: python tools/check_contact_info.py --site-dir _site
 
       - name: Verify pages render and are not 404
         run: |
@@ -74,6 +89,15 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success')
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install contact validation dependencies
+        run: python -m pip install -r tools/requirements-contact.txt
+
       - name: Curl live pages
         run: |
           set -u
@@ -106,22 +130,5 @@ jobs:
           done
           exit $fail
 
-      - name: Curl downloadable PDFs
-        run: |
-          set -u
-          base="https://cnpcshangbo.github.io"
-          pdfs=(
-            "/assets/cv.pdf"
-            "/assets/cv-robotics.pdf"
-            "/assets/cv-ml.pdf"
-          )
-          fail=0
-          for path in "${pdfs[@]}"; do
-            url="${base}${path}"
-            status=$(curl -sSL -o /dev/null -w "%{http_code}" --retry 3 --retry-delay 5 "$url")
-            if [ "$status" != "200" ]; then
-              echo "::warning::PDF $url returned HTTP $status (may not be generated yet on first run)"
-            else
-              echo "OK  $url ($status)"
-            fi
-          done
+      - name: Verify deployed contact links and all CV PDF contents
+        run: python tools/check_contact_info.py --live-base-url https://cnpcshangbo.github.io
