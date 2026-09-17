@@ -11,7 +11,7 @@ redirect_from:
      or _config.yml instead, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=7009bd45af8a6613" download>Download PDF</a></p>
+<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=8883bea64bde5c8c" download>Download PDF</a></p>
 <p><small>Last updated: 2026-09-17</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>

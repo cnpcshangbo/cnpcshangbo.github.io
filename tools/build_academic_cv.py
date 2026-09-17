@@ -376,6 +376,9 @@ def render_pdf(cv, fingerprint):
                     content_paragraphs.append(Paragraph(pdf_escape(bullet), style["bullet"], bulletText="\u2022"))
                 if item["links"]:
                     content_paragraphs.append(Paragraph(" &nbsp; | &nbsp; ".join(pdf_link(label, url) for label, url in item["links"].items()), style["links"]))
+                # Keep a short link row with the preceding entry text.
+                if item["links"] and len(content_paragraphs) > 1:
+                    content_paragraphs[-2].keepWithNext = True
                 for paragraph in heading_paragraphs[:-1]:
                     paragraph.keepWithNext = True
                 if heading_paragraphs and content_paragraphs:
