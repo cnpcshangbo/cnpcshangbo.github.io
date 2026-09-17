@@ -11,7 +11,7 @@ redirect_from:
      or _config.yml instead, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=8883bea64bde5c8c" download>Download PDF</a></p>
+<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=4bcb509dbe2527b2" download>Download PDF</a></p>
 <p><small>Last updated: 2026-09-17</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>
@@ -32,7 +32,7 @@ redirect_from:
   <li>Conduct system troubleshooting, support field data collection, and prepare technical documentation and project deliverables.</li>
 </ul>
 
-<p><strong>The City College of New York, CUNY</strong> &middot; Jul 2025 - Jul 2026<br>Postdoctoral Scholar, AI &amp; Mobility Research Lab &middot; New York, NY</p>
+<p><strong>The City College of New York, CUNY</strong> &middot; Jul 2025 - Jun 2026<br>Postdoctoral Scholar, AI &amp; Mobility Research Lab &middot; New York, NY</p>
 <ul>
   <li>Developed roadside LiDAR and camera workflows for traffic monitoring, multimodal perception, and transportation safety research.</li>
 </ul>
@@ -75,7 +75,7 @@ redirect_from:
 
 ## Research and Engineering Projects
 
-<p><strong>Roadside LiDAR and camera perception, CUNY</strong> &middot; Nov 2024 - Jul 2026</p>
+<p><strong>Roadside LiDAR and camera perception, CUNY</strong> &middot; Nov 2024 - Jun 2026</p>
 <ul>
   <li>Developed a workflow spanning sensor capture, temporal synchronization, spatial calibration, background subtraction, object segmentation, and road-user detection.</li>
   <li>Built multi-frame vehicle reconstruction, labeling and quality-assurance workflows, and model evaluation across sites with different beam counts, frame rates, and mounting geometries.</li>
