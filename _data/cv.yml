@@ -1,7 +1,7 @@
 # Canonical academic CV content. Publications live in publications.yml;
 # public contact fields live in _config.yml. Generate both outputs with
 # python tools/build_academic_cv.py (see cv-tex/README.md).
-updated: '2026-09-17'
+updated: '2026-10-01'
 name: Bo Shang
 credentials: Ph.D.
 headline: Postdoctoral Associate, University of Maryland
@@ -9,10 +9,10 @@ affiliation: Civil and Environmental Engineering / Maryland Transportation Insti
 location: New York, NY
 phone: '+1 (929) 520-0488'
 summary: >-
-  Robotics and AI researcher working across field robotics, multimodal perception,
-  intelligent transportation, and infrastructure inspection. Experience spans
-  sensor integration and data collection, embedded control, computer vision,
-  model evaluation, and cloud and edge deployment.
+  Robotics and AI researcher focused on reliable multimodal perception and field
+  robotics for transportation and infrastructure. Research connects sensor
+  integration and field data collection with computer vision, embedded control,
+  cross-site model evaluation, and human review of engineering evidence.
 sections:
   - title: Research Interests
     items:

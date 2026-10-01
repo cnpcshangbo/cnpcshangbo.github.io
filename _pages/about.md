@@ -10,27 +10,22 @@ redirect_from:
 
 # Bo Shang
 
-**Robotics software engineer & ML researcher** working at the intersection of multi-sensor perception, real-time data pipelines, and deep learning. I build and deploy LiDAR + camera systems for the real world — from city-scale highway monitoring to bridge inspection robots — with a focus on the unglamorous but critical layer underneath every perception model: **temporal and spatial sensor synchronization, calibration, and high-throughput data capture**.
+**Robotics & AI Researcher**
 
-Since July 2026, I have been a Postdoctoral Associate in Civil and Environmental Engineering and the Maryland Transportation Institute at the University of Maryland, College Park, working under Dr. Terry Yang. I support hardware and software development, integration, testing, troubleshooting, data collection, technical documentation, and deliverables for two sponsored transportation research projects. My broader work spans ROS-based robotics stacks, NVIDIA Jetson edge inference, CNN-based 3D object detection, and AWS-backed inspection workflows deployed with public agencies.
+My research focuses on **reliable multimodal perception and field robotics for transportation and infrastructure**. I study how sensor configuration, deployment conditions, and data quality affect perception, and connect these questions to roadside LiDAR-camera sensing and robotic infrastructure inspection.
 
-## Hire me as…
+Since July 2026, I have been a Postdoctoral Associate in Civil and Environmental Engineering and the Maryland Transportation Institute at the University of Maryland, College Park, working under Professor Xianfeng Yang. I support hardware and software development, integration, testing, troubleshooting, data collection, technical documentation, and deliverables for two sponsored transportation research projects. My broader work brings together learning-based perception, ROS-based robotics, edge inference, and inspection workflows developed with public agencies.
 
-Same engineer, three role-targeted resumes:
+## Resume & CV
 
-- 🚀 **[Forward Deployed Engineer PDF](/assets/cv-fde.pdf)** — real-world AI and robotics delivery, customer discovery, field troubleshooting, data pipelines, and 0-to-1 product deployment.
-- 🤖 **[Robotics Software Engineer](/cv/robotics/)** — LiDAR + multi-camera pipelines, sensor synchronization & calibration, ROS, real-time data systems, DepthAI, MCAP/Protobuf.
-- 🧠 **[Machine Learning Engineer](/cv/ml/)** — 3D/2D CNN object detection, multimodal fusion, model training and cloud deployment (AWS), computer vision for safety-critical infrastructure.
-- 📚 **[Full Academic CV](/cv/)** — complete record of publications, patents, teaching, and grants.
+- **[Research Scientist Resume](/cv/research/)** · [PDF](/assets/cv-research-scientist.pdf) — selected research contributions, projects, publications, and technical skills in robotics and multimodal perception.
+- **[Academic CV](/cv/)** · [PDF](/assets/cv.pdf) — the full record of appointments, publications, patents, teaching, and academic service.
 
-Start at the **[Resumes hub](/resumes/)** to pick the right view.
+## Research focus
 
-## What I work on
-
-- **Multi-sensor pipelines for perception** — fixed highway LiDAR + camera capture, temporal/spatial alignment, calibration workflows, multi-frame reconstruction, end-to-end ingestion to training-ready datasets.
-- **Robotics deployments in the wild** — drone and climbing-robot platforms for bridge inspection, PID/visual-servoing controllers, autonomous clamping, ROS + Jetson + iOS control surfaces.
-- **Deep learning on point clouds and imagery** — CNN-based 3D detection, vulnerable-road-user sensing, contrastive learning for defect mapping, models deployed on AWS for scalable inspection.
-- **AI-first developer tooling** — using LLM agents (including this site, built with Claude Code) to keep documentation, resumes, and project pages aligned with what I'm actually shipping.
+- **Multimodal perception for transportation safety** — roadside LiDAR and camera sensing, object detection, vulnerable road user monitoring, and evaluation across sensor configurations.
+- **Field robotics for infrastructure inspection** — drone and climbing-robot systems, vision-based control, and the integration of sensing, data collection, and robotic platforms.
+- **Learning from infrastructure sensor data** — defect detection and mapping, 3D reconstruction, and inspection workflows that connect perception results to engineering use.
 
 ## Research notes
 
@@ -38,6 +33,6 @@ Start at the **[Resumes hub](/resumes/)** to pick the right view.
 
 ## Selected publications
 
-Recent highlights in roadside-LiDAR sensing, vulnerable-road-user safety, and robotic infrastructure inspection — kept in sync with Google Scholar.
+Selected work in roadside-LiDAR sensing, vulnerable-road-user safety, and robotic infrastructure inspection.
 
 {% include selected-pubs.html %}

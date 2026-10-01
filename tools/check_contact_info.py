@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGES = {
     "/": "_pages/about.md",
     "/cv/": "_pages/cv.md",
+    "/cv/research/": "_pages/cv-research.md",
     "/resumes/": "_pages/resumes.md",
     "/cv/robotics/": "_pages/cv-robotics.md",
     "/cv/ml/": "_pages/cv-ml.md",
@@ -36,8 +37,14 @@ class Page(HTMLParser):
         self.links = []
         self.text = []
         self.hidden_depth = 0
+        self.redirect = None
 
     def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        if tag == "meta" and attributes.get("http-equiv", "").casefold() == "refresh":
+            match = re.fullmatch(r"\s*0\s*;\s*url\s*=\s*(.+?)\s*", attributes.get("content", ""), re.I)
+            if match:
+                self.redirect = match.group(1).strip("\"'")
         if tag in {"script", "style"}:
             self.hidden_depth += 1
         for name, value in attrs:
@@ -128,6 +135,38 @@ def fetch(url):
         return response.read()
 
 
+def read_contact_page(path, base_url, site_dir=None):
+    """Follow static Jekyll redirects, checking the final page's contact details.
+
+    urlopen follows HTTP redirects itself. Jekyll uses a zero-delay meta refresh
+    instead, so read that explicitly and reject off-site or cyclic destinations.
+    """
+    visited = set()
+    for _ in range(6):
+        target = urlsplit(urljoin(base_url, path))
+        if target.netloc != urlsplit(base_url).netloc or target.scheme not in {"http", "https"}:
+            raise ValueError(f"contact page redirects outside the website: {path}")
+        path = target.path
+        if path in visited:
+            raise ValueError(f"contact page redirect cycle at {path}")
+        visited.add(path)
+        label = urljoin(base_url, path)
+        if site_dir is None:
+            data = fetch(label)
+        else:
+            file = (site_dir / path.lstrip("/") / "index.html").resolve()
+            if not file.is_relative_to(site_dir.resolve()):
+                raise ValueError(f"contact page redirect escapes site directory: {path}")
+            label = str(file)
+            data = file.read_bytes()
+        page = Page()
+        page.feed(data.decode("utf-8"))
+        if page.redirect is None:
+            return label, page, urljoin(base_url, path)
+        path = urljoin(urljoin(base_url, path), page.redirect)
+    raise ValueError("contact page has too many redirects")
+
+
 def generated_contact(canonical):
     return "% Generated from _config.yml author.email; do not edit.\n" + f"\\newcommand{{\\cvemail}}{{{canonical}}}\n"
 
@@ -193,14 +232,12 @@ def main():
         for path in PAGES:
             label = urljoin(base_url, path) if args.live_base_url else str(args.site_dir / path.lstrip("/") / "index.html")
             try:
-                data = fetch(label) if args.live_base_url else Path(label).read_bytes()
-                page = Page()
-                page.feed(data.decode("utf-8"))
+                label, page, page_url = read_contact_page(path, base_url, args.site_dir)
                 page_errors = validate_contact(label, " ".join(page.text), page.links, canonical, require_visible=False)
                 if "Sorry, but the page you were trying to view does not exist" in " ".join(page.text):
                     page_errors.append(f"{label}: page renders the site's 404 content")
                 errors.extend(page_errors)
-                pdfs.update(linked_pdfs(page.links, urljoin(base_url, path), base_url))
+                pdfs.update(linked_pdfs(page.links, page_url, base_url))
                 if not page_errors:
                     print(f"OK {label}: current contact link")
             except Exception as exc:

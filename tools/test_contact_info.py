@@ -12,7 +12,7 @@ from pypdf import PdfWriter
 from pypdf.generic import ArrayObject, DictionaryObject, NameObject, NumberObject, DecodedStreamObject, TextStringObject
 
 import check_contact_info
-from check_contact_info import Page, linked_pdfs, validate_contact, validate_pdf
+from check_contact_info import Page, linked_pdfs, read_contact_page, validate_contact, validate_pdf
 
 
 CURRENT = "bshang@umd.edu"
@@ -68,6 +68,24 @@ class ContactCheckTests(unittest.TestCase):
             "https://cnpcshangbo.github.io/",
         )
         self.assertEqual(paths, {"/downloads/cv-new-role.pdf", "/assets/cv.pdf"})
+
+    def test_static_redirect_checks_final_contact_and_pdf(self):
+        pages = {
+            "https://example.org/cv/ml/": b'<meta http-equiv="refresh" content="0; url=/cv/research/">',
+            "https://example.org/cv/research/": f'<a href="mailto:{OLD}">Email</a><a href="/assets/cv-research-scientist.pdf">PDF</a>'.encode(),
+        }
+        with patch.object(check_contact_info, "fetch", side_effect=lambda url: pages[url]):
+            label, page, url = read_contact_page("/cv/ml/", "https://example.org/")
+        self.assertEqual(url, "https://example.org/cv/research/")
+        self.assertTrue(validate_contact(label, " ".join(page.text), page.links, CURRENT, require_visible=False))
+        self.assertEqual(linked_pdfs(page.links, url, "https://example.org/"), {"/assets/cv-research-scientist.pdf"})
+
+    def test_static_redirect_cannot_mask_cycle_or_offsite_target(self):
+        for target, message in (("/cv/ml/", "cycle"), ("https://other.org/cv/", "outside the website")):
+            with self.subTest(target=target):
+                with patch.object(check_contact_info, "fetch", return_value=f'<meta http-equiv="refresh" content="0; url={target}">'.encode()):
+                    with self.assertRaisesRegex(ValueError, message):
+                        read_contact_page("/cv/ml/", "https://example.org/")
 
     def test_missing_linked_pdf_is_a_failure(self):
         with TemporaryDirectory() as directory:

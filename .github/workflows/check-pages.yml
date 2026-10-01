@@ -27,7 +27,9 @@ jobs:
       - name: Verify CV sources and published PDF contact details
         run: |
           python -m unittest discover -s tools -p 'test_*cv*.py'
+          python -m unittest discover -s tools -p 'test_research_resume.py'
           python -m unittest discover -s tools -p 'test_contact_info.py'
+          python tools/build_research_resume.py --check
           python tools/build_academic_cv.py --check
           python tools/check_contact_info.py
 
@@ -52,10 +54,11 @@ jobs:
           # path|expected-substring (must appear in the rendered HTML)
           entries=(
             "index.html|Bo Shang"
-            "resumes/index.html|Resumes"
+            "resumes/index.html|Research Scientist Resume"
             "cv/index.html|CV"
-            "cv/robotics/index.html|Robotics Software Engineer"
-            "cv/ml/index.html|Machine Learning Engineer"
+            "cv/research/index.html|Research Scientist Resume"
+            "cv/robotics/index.html|/cv/research/"
+            "cv/ml/index.html|/cv/research/"
             "publications/index.html|Publications"
             "portfolio/index.html|Portfolio"
             "research-notes/index.html|Research Notes"
@@ -108,6 +111,7 @@ jobs:
             "/"
             "/resumes/"
             "/cv/"
+            "/cv/research/"
             "/cv/robotics/"
             "/cv/ml/"
             "/publications/"

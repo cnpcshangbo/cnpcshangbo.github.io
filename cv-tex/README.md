@@ -1,5 +1,36 @@
 # CV maintenance
 
+The site has two public documents: a two-page **Research Scientist Resume**
+(`/cv/research/`) and the complete **Academic CV** (`/cv/`).
+
+## Research Scientist resume
+
+Edit `_data/research_resume.yml` for the research summary, selected experience,
+research contributions, publication selections, and technical expertise. The
+builder resolves appointment titles, institutions, dates, and education from
+`_data/cv.yml`, publications from `_data/publications.yml`, and contact details
+from `_config.yml`. Selection references must match exactly one canonical entry;
+an absent or ambiguous reference fails rather than guessing.
+
+```sh
+python -m pip install -r tools/requirements-academic-cv.txt
+python tools/build_research_resume.py
+python tools/build_research_resume.py --check
+```
+
+This writes `_pages/cv-research.md` and `assets/cv-research-scientist.pdf`.
+The first page contains the profile, selected research experience, and education;
+the second starts with selected research, followed by publications and expertise.
+The builder rejects overflow beyond two pages instead of reducing the font.
+Review the rendered PDF after content edits. Commit shared data and both generated
+outputs together. The check compares readable text, page boundaries, hyperlinks,
+and a source fingerprint that includes the renderer and dependency pins.
+
+The old role download filenames (`cv-fde.pdf`, `cv-robotics.pdf`, `cv-ml.pdf`,
+`cv-applied-ai.pdf`, and `cv-solutions-engineer.pdf`) are compatibility aliases:
+the builder copies the same research resume bytes to all five and checks that
+they remain identical. They do not represent separate public resume versions.
+
 The public academic CV has three shared inputs:
 
 - `_data/cv.yml`: profile, appointments, education, projects, teaching, service,
@@ -33,31 +64,30 @@ The bibliography drives the Publications page too. Its citation counts retain
 an explicit dated Google Scholar snapshot; bibliographic review is tracked
 separately and does not imply refreshed citation counts.
 
-## Role resumes and email changes
+## Historical role sources and contact changes
 
-Role resumes remain concise, tailored LaTeX documents under `cv-tex/`.
-Every role includes generated `contact-info.tex` and uses `\cvemail` for
-visible text and mailto. After changing `_config.yml` `author.email`:
+The LaTeX files under `cv-tex/` are historical tailored sources retained for
+reference. They are excluded from the website and are no longer built by CI or
+authoritative for public downloads. The previous role PDFs and their sources
+were also archived locally before consolidation. Do not copy a historical role
+build over the public PDF aliases.
+
+After changing `_config.yml` `author.email`:
 
 ```sh
 python tools/sync_contact_info.py
+python tools/build_research_resume.py
 python tools/build_academic_cv.py
-cd cv-tex
-for role in robotics ml fde applied-ai solutions-engineer; do
-  latexmk -pdf -interaction=nonstopmode -halt-on-error "cv-$role.tex"
-  cp "cv-$role.pdf" "../assets/cv-$role.pdf"
-done
-cd ..
 python tools/check_contact_info.py
 ```
 
-Role builds require TeX Live with latex-extra/fonts-recommended and latexmk.
-The academic PDF uses ReportLab and does not require LaTeX.
+Both public PDFs use ReportLab and do not require LaTeX. The generated contact
+include is retained so historical sources still use the canonical email.
 
 ## Build and deployment checks
 
-`generate-cv-pdfs.yml` rebuilds the academic CV and all five role PDFs when
-CV data, bibliography, contact config, sources, or build tooling change.
+`generate-cv-pdfs.yml` rebuilds the research resume, its compatibility aliases,
+and the academic CV when CV data, bibliography, contact config, or build tooling change.
 It validates the outputs, commits them together, and explicitly dispatches
 `deploy-pages.yml` for bot-generated commits.
 
@@ -75,16 +105,15 @@ python tools/check_contact_info.py --live-base-url https://cnpcshangbo.github.io
 
 The contact checker validates every `assets/cv*.pdf` and additional linked
 CV downloads, including actual PDF text and clickable mailto targets.
+It checks `/cv/research/` and follows static redirects from the old resume pages
+to validate the destination's contact links.
 Do not switch Pages to branch-based publishing, which bypasses these gates.
 
 | Source | Download |
 | --- | --- |
+| `_data/research_resume.yml` + shared CV/bibliography/config | `/assets/cv-research-scientist.pdf` |
 | `_data/cv.yml` + `_data/publications.yml` | `/assets/cv.pdf` |
-| `cv-robotics.tex` | `/assets/cv-robotics.pdf` |
-| `cv-ml.tex` | `/assets/cv-ml.pdf` |
-| `cv-fde.tex` | `/assets/cv-fde.pdf` |
-| `cv-applied-ai.tex` | `/assets/cv-applied-ai.pdf` |
-| `cv-solutions-engineer.tex` | `/assets/cv-solutions-engineer.pdf` |
+| Exact copies of the research resume | All five historical `/assets/cv-<role>.pdf` URLs |
 
 Role template adapted from
 [Sourabh Bajaj's resume template](https://github.com/sb2nov/resume) (MIT).

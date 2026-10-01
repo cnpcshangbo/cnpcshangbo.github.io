@@ -11,14 +11,14 @@ redirect_from:
      or _config.yml instead, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=4bcb509dbe2527b2" download>Download PDF</a></p>
-<p><small>Last updated: 2026-09-17</small></p>
+<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=4a565948171095ad" download>Download PDF</a></p>
+<p><small>Last updated: 2026-10-01</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>
 <p><strong>Postdoctoral Associate, University of Maryland</strong><br>Civil and Environmental Engineering / Maryland Transportation Institute<br>New York, NY</p>
 <p><a href="mailto:bshang@umd.edu">bshang@umd.edu</a> &middot; <a href="tel:+19295200488">+1 (929) 520-0488</a> &middot; <a href="https://cnpcshangbo.github.io/">Website</a> &middot; <a href="https://scholar.google.com/citations?user=TVIPpDMAAAAJ&amp;hl=en">Google Scholar</a> &middot; <a href="https://orcid.org/0000-0002-5568-1566">ORCID</a></p>
 
-<p>Robotics and AI researcher working across field robotics, multimodal perception, intelligent transportation, and infrastructure inspection. Experience spans sensor integration and data collection, embedded control, computer vision, model evaluation, and cloud and edge deployment.</p>
+<p>Robotics and AI researcher focused on reliable multimodal perception and field robotics for transportation and infrastructure. Research connects sensor integration and field data collection with computer vision, embedded control, cross-site model evaluation, and human review of engineering evidence.</p>
 
 ## Research Interests
 
@@ -196,11 +196,13 @@ redirect_from:
 
 ## Technical Reports
 
-<p>[R1] Pengfei Ma, Tarutal Ghosh Mondal, Ying Zhuo, Zhenhua Shi, Bo Shang, Liujun Li, Genda Chen. <b>CAAP Final Report.</b> <i>Pipeline and Hazardous Materials Safety Administration (PHMSA), CAAP Final Report</i>, 2022. September 20, 2022; contract 693JK31950005CAAP; 109 pp. <a href="https://trid.trb.org/View/2186657">Record</a></p>
+<p>[R1] Yiqiao Li, Bo Shang, Weicong Feng, Jie Wei, Camille Kamga. <b>Investigation of Emerging Sensing and AI/ML Technologies to Enhance the Safety of Vulnerable Roadway Users at Signalized Intersection.</b> <i>U.S. Department of Transportation, University Transportation Centers Program, final technical report</i>, 2026. Published May 1, 2026; National Transportation Library record DOT 91974. <a href="https://rosap.ntl.bts.gov/view/dot/91974/dot_91974_DS1.pdf">PDF</a> <a href="https://rosap.ntl.bts.gov/view/dot/91974">Record</a></p>
 
-<p>[R2] Y Hu, J Yang, Y Cao, F Yang, B Shang. <b>Northeastern University Autonomous Aerial Robotics Team.</b> <i>International Aerial Robotics Competition (IARC) Symposium</i>, 2014.</p>
+<p>[R2] Pengfei Ma, Tarutal Ghosh Mondal, Ying Zhuo, Zhenhua Shi, Bo Shang, Liujun Li, Genda Chen. <b>CAAP Final Report.</b> <i>Pipeline and Hazardous Materials Safety Administration (PHMSA), CAAP Final Report</i>, 2022. September 20, 2022; contract 693JK31950005CAAP; 109 pp. <a href="https://trid.trb.org/View/2186657">Record</a></p>
 
-<p>[R3] Y Hu, J Yang, B Shang, S Liu. <b>Northeastern University Autonomous Aerial Robotics Team.</b> <i>International Aerial Robotics Competition (IARC) Symposium</i>, 2013.</p>
+<p>[R3] Y Hu, J Yang, Y Cao, F Yang, B Shang. <b>Northeastern University Autonomous Aerial Robotics Team.</b> <i>International Aerial Robotics Competition (IARC) Symposium</i>, 2014.</p>
+
+<p>[R4] Y Hu, J Yang, B Shang, S Liu. <b>Northeastern University Autonomous Aerial Robotics Team.</b> <i>International Aerial Robotics Competition (IARC) Symposium</i>, 2013.</p>
 
 ## Thesis
 

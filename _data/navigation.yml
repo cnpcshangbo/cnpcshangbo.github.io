@@ -3,7 +3,7 @@ main:
   - title: "About"
     url: /
 
-  - title: "Resumes"
+  - title: "Resume & CV"
     url: /resumes/
 
   - title: "Publications"
@@ -15,5 +15,5 @@ main:
   - title: "Research Notes"
     url: /research-notes/
 
-  - title: "CV"
+  - title: "Academic CV"
     url: /cv/

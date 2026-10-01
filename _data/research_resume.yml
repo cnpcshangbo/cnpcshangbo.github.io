@@ -1,0 +1,89 @@
+# Public industry resume. Appointment dates, institutions, education, contacts,
+# and publication details resolve from the canonical CV and bibliography.
+updated: '2026-10-01'
+headline: Research Scientist | Robotics & Multimodal Perception
+summary: >-
+  Robotics and AI researcher focused on reliable perception and field robotics
+  for transportation and infrastructure. Combines multimodal sensing, computer
+  vision, and experimental evaluation with working robotic systems. Research
+  spans roadside LiDAR, vulnerable-road-user safety, robotic inspection, and
+  vision-based UAV control.
+experience:
+  - appointment: Postdoctoral Associate, Civil and Environmental Engineering / Maryland Transportation Institute
+    bullets:
+      - >-
+          Develop and integrate hardware and software for two sponsored
+          transportation research projects under Professor Xianfeng Yang;
+          support system testing, field data collection, and technical deliverables.
+      - >-
+          Connect research requirements with working sensing systems through
+          troubleshooting, documentation, and review of data quality.
+  - appointment: Postdoctoral Scholar, AI & Mobility Research Lab
+    bullets:
+      - >-
+          Developed roadside LiDAR-camera research workflows covering capture,
+          synchronization, calibration, reconstruction, annotation, and road-user
+          detection for transportation safety.
+      - >-
+          Investigated cross-configuration generalization and evaluated models
+          across sites with different sensor beam counts, frame rates, and
+          mounting geometries; published first-author work on LiDAR sensing
+          and vulnerable-road-user detection.
+  - appointment: Postdoctoral Researcher, Robotics Lab
+    bullets:
+      - >-
+          Developed CNN-based structural-defect analysis and robotic inspection
+          workflows linking sensing, cloud inference, 3D reconstruction, and
+          engineering review.
+      - >-
+          Built an iOS interface for a climbing inspection robot and integrated
+          human review into inspection-data workflows; co-authored research in
+          IEEE Transactions on Automation Science and Engineering.
+  - appointment: Postdoctoral Fellow
+    bullets:
+      - >-
+          Developed UAV guidance and clamping-robot components for bridge
+          inspection, combining embedded perception, control, and system testing.
+      - >-
+          Integrated ROS, NVIDIA Jetson, Raspberry Pi, and inter-robot
+          communication; co-inventor on U.S. Patent 12,296,994 B2, granted in 2025.
+education:
+  - Ph.D., Pattern Recognition and Intelligent Systems
+  - Exchange doctoral research
+research:
+  - project: Roadside LiDAR and camera perception, CUNY
+    title: Reliable roadside perception
+    bullets:
+      - >-
+          Investigated how reduced LiDAR beam coverage affects vulnerable-road-user
+          detection, using comparative model evaluation to examine sensing limits.
+      - >-
+          Developed a roadside safety-auditing framework linking trajectories,
+          iterative human quality assurance, and near-miss analysis; a
+          heavy-vehicle/bicycle case distinguished lateral intrusion from
+          longitudinal collision risk.
+  - project: Vision-based UAV servoing and fractional-order control
+    title: Vision-based control for field robotics
+    bullets:
+      - >-
+          Developed and evaluated vision-based guidance and fractional-order
+          control methods for quadrotor UAVs, including precision hovering with
+          longer sampling periods; published first-author work in Nonlinear Dynamics.
+publications:
+  - 'Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence'
+  - Investigating the LiDAR Beam Count Needed for Effective Vulnerable Road User Detection
+  - Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure
+skills:
+  - title: Research and evaluation
+    text: >-
+      Cross-site evaluation, dataset and configuration versioning, annotation
+      quality assurance, model evaluation, failure analysis, and reproducible
+      research workflows.
+  - title: Robotics and sensing
+    text: >-
+      LiDAR, RGB/RGB-D cameras, sensor synchronization and calibration, ROS / ROS 2,
+      NVIDIA Jetson, embedded Linux, visual SLAM, and UAV perception and control.
+  - title: Software and machine learning
+    text: >-
+      Python, C++, PyTorch, TensorFlow, OpenCV, AWS, Docker, Git; computer vision,
+      3D reconstruction, data pipelines, and cloud and edge inference.
