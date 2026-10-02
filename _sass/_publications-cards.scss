@@ -154,6 +154,12 @@ $pub-media-bg: #0e1a2b !default;
     object-fit: cover;
   }
 
+  /* Reserve a top strip for the badges without covering paper-specific art. */
+  .pt .pt-paper-scene {
+    transform: translate(22.4px, 28px) scale(0.86);
+    transform-origin: 0 0;
+  }
+
   &__badge {
     position: absolute;
     top: 0.55rem;
