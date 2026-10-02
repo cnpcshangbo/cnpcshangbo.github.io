@@ -23,7 +23,7 @@
 {%- assign authors = pub.authors | replace: "Bo Shang", "<strong>Bo Shang</strong>" | replace: "B Shang", "<strong>B Shang</strong>" | replace: "B SHANG", "<strong>B SHANG</strong>" | replace: "S Bo", "<strong>S Bo</strong>" -%}
 {%- assign link = pub.links.doi | default: pub.links.arxiv | default: pub.links.ssrn | default: pub.links.patent | default: pub.links.url | default: scholar -%}
 <div class="selected-pub" data-topic="{{ pub.topic }}">
-<div class="selected-pub__thumb">{%- include pub-thumb.html topic=pub.topic -%}</div>
+<div class="selected-pub__thumb">{%- include pub-thumb.html topic=pub.topic illustration=pub.illustration -%}</div>
 <div class="selected-pub__text">
 <span class="selected-pub__topic">{{ topiclabel }}{%- if pub.citations and pub.citations > 0 %} &middot; {{ pub.citations }} citations{% endif -%}</span>
 <h3 class="selected-pub__title"><a href="{{ link }}" target="_blank" rel="noopener">{{ pub.title }}</a></h3>

@@ -43,7 +43,7 @@
     {%- if pub.image -%}
       <img class="pub-card__img" src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}" loading="lazy">
     {%- else -%}
-      {%- include pub-thumb.html topic=pub.topic -%}
+      {%- include pub-thumb.html topic=pub.topic illustration=pub.illustration -%}
     {%- endif -%}
     <span class="pub-card__badge pub-card__badge--{{ pub.type }}">{{ typelabel }}</span>
     {%- if pub.citations and pub.citations > 0 -%}

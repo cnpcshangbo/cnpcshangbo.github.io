@@ -1,0 +1,45 @@
+<svg class="pt pt-safety-audit" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <style>
+    .pt-safety-audit .car{animation:ptAuditCar 7s linear infinite}
+    .pt-safety-audit .cycle{animation:ptAuditCycle 7s linear infinite}
+    .pt-safety-audit .review{animation:ptAuditReview 7s ease-in-out infinite}
+    .pt-safety-audit .returns{animation:ptAuditReturns 7s ease-in-out infinite}
+    @keyframes ptAuditCar{0%{transform:translateX(0);opacity:0}10%{transform:translateX(0);opacity:1}70%,86%{transform:translateX(176px);opacity:1}100%{transform:translateX(176px);opacity:0}}
+    @keyframes ptAuditCycle{0%{transform:translateY(0);opacity:0}18%{transform:translateY(0);opacity:1}78%,86%{transform:translateY(-103px);opacity:1}100%{transform:translateY(-103px);opacity:0}}
+    @keyframes ptAuditReview{0%,22%,90%,100%{opacity:.25}40%,68%{opacity:1}}
+    @keyframes ptAuditReturns{0%,100%{opacity:.3}45%,65%{opacity:.85}}
+    @media (prefers-reduced-motion:reduce){.pt-safety-audit *{animation:none!important}.pt-safety-audit .car{transform:translateX(68px)}.pt-safety-audit .cycle{transform:translateY(-26px)}}
+  </style>
+  <rect width="320" height="200" fill="#0e1a2b"/>
+  <path d="M0 70H320V142H0ZM169 0H233V200H169Z" fill="#1a3046"/>
+  <path d="M0 69H168M234 69H320M0 143H168M234 143H320M168 0V68M234 0V68M168 144V200M234 144V200" fill="none" stroke="#3b5269" stroke-width="2"/>
+  <path d="M8 107H148M250 107H314M201 9V51M201 161V192" stroke="#658198" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M42 89H282" fill="none" stroke="#7ee0ef" stroke-width="3" stroke-dasharray="4 7" opacity=".65"/>
+  <path d="M216 178V28" fill="none" stroke="#8affc1" stroke-width="3" stroke-dasharray="4 7" opacity=".65"/>
+  <path d="m276 84 8 5-8 5M211 34l5-8 5 8" fill="none" stroke="#b4cbd7" stroke-width="2.5"/>
+  <g class="review" fill="none" stroke="#ffd166" stroke-width="2.5">
+    <circle cx="216" cy="89" r="23"/>
+    <path d="M192 57V51H204M240 57V51H228M192 121V127H204M240 121V127H228"/>
+  </g>
+  <path d="M48 37 179 71 240 110Z" fill="#52adc8" opacity=".07"/>
+  <g class="returns" fill="#7ee0ef">
+    <circle cx="91" cy="68" r="2.5"/><circle cx="136" cy="68" r="2.5"/><circle cx="180" cy="70" r="2.5"/>
+    <circle cx="187" cy="110" r="2.5"/><circle cx="228" cy="120" r="2.5"/>
+  </g>
+  <g transform="translate(48 34)">
+    <path d="M0 5V22" stroke="#8299ae" stroke-width="3"/>
+    <rect x="-9" y="-6" width="18" height="13" rx="4" fill="#dce8ef"/>
+    <path d="M14-6q12 6 0 12M20-12q22 12 0 24" fill="none" stroke="#52adc8" stroke-width="2.5"/>
+  </g>
+  <g class="car">
+    <rect x="32" y="77" width="42" height="24" rx="6" fill="#7ee0ef"/>
+    <path d="M59 80H65V98H59M37 80H41V98H37" fill="#224c64"/>
+    <path d="M42 75H51M42 103H51" stroke="#dce8ef" stroke-width="3" stroke-linecap="round"/>
+    <path d="M25 74V69H38M69 69H81V76M25 103V109H38M69 109H81V103" fill="none" stroke="#7ee0ef" stroke-width="1.8" opacity=".7"/>
+  </g>
+  <g class="cycle" stroke="#8affc1" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="216" cy="157" r="5"/><circle cx="216" cy="178" r="5"/>
+    <path d="M216 157 212 168 220 173 216 178M208 163H224M216 164V172"/>
+    <circle cx="216" cy="166" r="4" fill="#8affc1" stroke="#0e1a2b" stroke-width="1.5"/>
+  </g>
+</svg>

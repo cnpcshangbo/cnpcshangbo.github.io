@@ -13,7 +13,8 @@
 #    year       : integer (drives newest-first ordering)
 #    type       : journal | conference | preprint | patent | thesis | report | poster | slides
 #    topic      : lidar | streetview | uav-inspection | ndt | control | slam | comms | patent
-#                 -> selects the animated thumbnail in _includes/pub-thumb.html
+#                 -> label and default animated thumbnail in _includes/pub-thumb.html
+#    illustration: optional paper-specific thumbnail: safety-audit | vru-sensing | robotic-inspection
 #    citations  : integer (0 if none yet)
 #    note       : optional short highlight, e.g. "Selected for IEEE IROS 2025"
 #    featured   : true to pin into the "Selected & recent" highlight row on /publications/
@@ -49,6 +50,7 @@ items:
     year: 2026
     type: "conference"
     topic: "lidar"
+    illustration: "safety-audit"
     citations: 0
     featured: true
     home: true
@@ -76,6 +78,7 @@ items:
     year: 2025
     type: "journal"
     topic: "ndt"
+    illustration: "robotic-inspection"
     citations: 11
     featured: true
     home: true
@@ -90,6 +93,7 @@ items:
     year: 2025
     type: "conference"
     topic: "lidar"
+    illustration: "vru-sensing"
     citations: 3
     featured: true
     home: true

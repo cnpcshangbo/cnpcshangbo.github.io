@@ -1,14 +1,26 @@
 {%- comment -%}
   pub-thumb.html — topical animated SVG artwork for a publication card.
-  Usage: {% include pub-thumb.html topic="lidar" %}
+  Usage: {% include pub-thumb.html topic="lidar" illustration=pub.illustration %}
   Topics: lidar | streetview | uav-inspection | ndt | control | slam | comms | patent
+  Optional paper-specific illustrations: safety-audit | vru-sensing | robotic-inspection
+  These decorative scenes are conceptual illustrations, not experimental results.
 
   NOTE: CSS inside inline SVG is GLOBAL to the page, so every keyframe name is
   uniquely prefixed (ptLidar…, ptNdt…) and every rule is qualified by the SVG's
   root class (.pt-lidar …). Each block freezes under prefers-reduced-motion.
   All scenes share viewBox 0 0 320 200 (matches the .pub-card__media 8:5 box).
 {%- endcomment -%}
-{%- case include.topic -%}
+{%- assign illustration = include.illustration | default: include.topic -%}
+{%- case illustration -%}
+
+{%- when "safety-audit" -%}
+  {%- include pub-scenes/safety-audit.html -%}
+
+{%- when "vru-sensing" -%}
+  {%- include pub-scenes/vru-sensing.html -%}
+
+{%- when "robotic-inspection" -%}
+  {%- include pub-scenes/robotic-inspection.html -%}
 
 {%- when "lidar" -%}
 <svg class="pt pt-lidar" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
