@@ -1,5 +1,5 @@
 {%- assign publication = include.pub -%}
-{%- assign link_labels = "doi:DOI,arxiv:arXiv,ssrn:SSRN,patent:Patent,pdf:PDF,slides:Slides,code:Code,url:Record" | split: "," -%}
+{%- assign link_labels = "doi:DOI,arxiv:arXiv,ssrn:SSRN,patent:Patent,pdf:PDF,slides:Slides,code:Code,cnki:CNKI,baidu:Baidu Scholar,url:Record" | split: "," -%}
 <div class="pub-card__links">
   {%- for pair in link_labels -%}
     {%- assign parts = pair | split: ":" -%}

@@ -234,7 +234,7 @@ def publication_html(item, prefix, number, pdf=False):
              f'<i>{esc(item["venue"].rstrip("."))}</i>, {item["year"]}.']
     if item["note"]:
         parts.append(esc(item["note"].rstrip(".")) + ".")
-    parts.extend(linker({"doi": "DOI", "pdf": "PDF", "url": "Record", "arxiv": "arXiv", "ssrn": "SSRN"}.get(label, label.title()), url)
+    parts.extend(linker({"doi": "DOI", "pdf": "PDF", "url": "Record", "arxiv": "arXiv", "ssrn": "SSRN", "cnki": "CNKI", "baidu": "Baidu Scholar"}.get(label, label.title()), url)
                  for label, url in item["links"].items())
     return " ".join(parts)
 

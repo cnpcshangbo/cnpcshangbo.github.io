@@ -443,14 +443,20 @@ items:
     scholar_id: "OU6Ihb5iCvQC"
 
   # ---------------------------------------------------------------- 2013 ----
-  - title: "SLAM Research Based on ROS and Indoor Quadrotor"
-    authors: "B Shang"
-    venue: "Northeastern University (M.S. Thesis)"
+  - title: "SLAM Research Based on ROS and Indoor Four Rotor Aircraft"
+    title_original: "基于ROS的室内四旋翼飞行器SLAM研究"
+    title_language: "zh-Hans"
+    authors: "Bo Shang"
+    venue: "Northeastern University, China (Master's thesis)"
     year: 2013
     type: thesis
     topic: slam
     citations: 1
     scholar_id: "bFI3QPDXJZMC"
+    note: "In Chinese; 72 pp."
+    links:
+      cnki: "https://oversea.cnki.net/kcms2/article/abstract?v=80Lndi5bJl2-Rd_WF53VKxKgdYpcvENIai3N6J9yn5wy7TgmlVlRdskV5RnQfvmJuo_iMdmQmFOOLT4k4dTOf77OPyMMRyZdjLgtQiDni_WSUPK52kukXFJ8G7LMEpN1Gf_V-6w62rqNXgehw4T2KEfAdIJ6_CyPesj17mSgdYBy7TpxfTHtiiPx5Mj-i_p2&uniplatform=OVERSEA&language=EN"
+      baidu: "https://xueshu.baidu.com/usercenter/paper/show?paperid=bd4d710234f7673b035fa10d6b2bfc5e&site=xueshu_se"
 
   - title: "Northeastern University Autonomous Aerial Robotics Team"
     authors: "Y Hu, J Yang, B Shang, S Liu"
