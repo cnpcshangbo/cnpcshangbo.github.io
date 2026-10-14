@@ -11,7 +11,7 @@ redirect_from:
      or _config.yml instead, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=c1e598c7978aeb7a" download>Download PDF</a></p>
+<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=96d7b82a19256b28" download>Download PDF</a></p>
 <p><small>Last updated: 2026-10-14</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>
@@ -216,7 +216,7 @@ redirect_from:
 
 ## Theses
 
-<p>[T1] Bo Shang. <b>Fractional Order Proportional Derivative Visual Servoing Control for UAVs.</b> <i>Northeastern University, China (Ph.D. dissertation)</i>, 2020. In Chinese; 132 pp. <a href="https://doi.org/10.27007/d.cnki.gdbeu.2020.002987">DOI</a></p>
+<p>[T1] Bo Shang. <b>Fractional Order Proportional Derivative Visual Servoing Control for UAVs.</b> <i>Northeastern University, China (Ph.D. dissertation)</i>, 2020. In Chinese; 132 pp. <a href="https://xueshu.baidu.com/usercenter/paper/show?paperid=1h2p0av0ep5m02a0mc710pw0pp524472&amp;site=xueshu_se">Baidu Scholar</a> <a href="https://oversea.cnki.net/kcms2/article/abstract?v=80Lndi5bJl3oqZSwIpWEnKcIMS1Ra_2q_xeSv338zOTTkKUIN86yOPKA2MSW0MWwVgkcrvx1D1weZSOvnDV39vyk8T6vn05y52Eh5fav9vvAppwFbzIunXHd1QfoHWRDofjnlPi_etvL16YJQsqR2sXnLR4BQRJDR6M4tHLlXVA6JRRD7ab4OxUagP5ez5xB&amp;uniplatform=OVERSEA&amp;language=EN">CNKI</a> <a href="https://doi.org/10.27007/d.cnki.gdbeu.2020.002987">DOI</a></p>
 
 <p>[T2] Bo Shang. <b>SLAM Research Based on ROS and Indoor Four Rotor Aircraft.</b> <i>Northeastern University, China (Master&#x27;s thesis)</i>, 2013. In Chinese; 72 pp. <a href="https://xueshu.baidu.com/usercenter/paper/show?paperid=bd4d710234f7673b035fa10d6b2bfc5e&amp;site=xueshu_se">Baidu Scholar</a> <a href="https://oversea.cnki.net/kcms2/article/abstract?v=80Lndi5bJl2-Rd_WF53VKxKgdYpcvENIai3N6J9yn5wy7TgmlVlRdskV5RnQfvmJuo_iMdmQmFOOLT4k4dTOf77OPyMMRyZdjLgtQiDni_WSUPK52kukXFJ8G7LMEpN1Gf_V-6w62rqNXgehw4T2KEfAdIJ6_CyPesj17mSgdYBy7TpxfTHtiiPx5Mj-i_p2&amp;uniplatform=OVERSEA&amp;language=EN">CNKI</a></p>
 

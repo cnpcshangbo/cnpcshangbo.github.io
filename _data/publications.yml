@@ -328,6 +328,8 @@ items:
     note: "In Chinese; 132 pp."
     links:
       doi: "https://doi.org/10.27007/d.cnki.gdbeu.2020.002987"
+      cnki: "https://oversea.cnki.net/kcms2/article/abstract?v=80Lndi5bJl3oqZSwIpWEnKcIMS1Ra_2q_xeSv338zOTTkKUIN86yOPKA2MSW0MWwVgkcrvx1D1weZSOvnDV39vyk8T6vn05y52Eh5fav9vvAppwFbzIunXHd1QfoHWRDofjnlPi_etvL16YJQsqR2sXnLR4BQRJDR6M4tHLlXVA6JRRD7ab4OxUagP5ez5xB&uniplatform=OVERSEA&language=EN"
+      baidu: "https://xueshu.baidu.com/usercenter/paper/show?paperid=1h2p0av0ep5m02a0mc710pw0pp524472&site=xueshu_se"
 
   - title: "Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II"
     authors: "A Reven, P Jiao, B Shang, G Chen"

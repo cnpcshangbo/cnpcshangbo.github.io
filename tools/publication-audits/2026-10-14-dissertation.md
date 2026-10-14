@@ -19,3 +19,8 @@ Validation:
 - All 20 existing Python tests pass; both CV generators pass their freshness checks, along with contact and research-artifact integrity checks.
 - The production Jekyll build contains 42 outputs and two theses, with the original Chinese title marked `zh-Hans` and working record destinations. Browser checks confirm Chinese-title search and Thesis filtering.
 - Reduced publication and entry spacing by one point to keep the academic CV at six readable pages; visually reviewed the thesis section and final page. Regenerated the research-resume PDFs to refresh the shared-generator fingerprint; their extracted text is unchanged.
+
+## Follow-up: database links
+
+- Added explicit CNKI and Baidu Scholar links to the doctoral dissertation, using the same labels and rendering as the master's thesis. The CNKI destination is the overseas record verified earlier in this session; the Baidu destination is the record cited above. The DOI and Scholar record are retained.
+- Regenerated the academic CV webpage and PDF from the shared bibliography. This changes links only; the dissertation metadata, citation counts and total output count remain unchanged.
