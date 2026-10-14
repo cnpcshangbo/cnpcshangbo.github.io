@@ -10,6 +10,7 @@
   </div>
   <article class="pub-entry__body">
     <h3 class="pub-entry__title">{% if primary_link %}<a href="{{ primary_link | escape }}" target="_blank" rel="noopener">{{ pub.title | escape }}</a>{% else %}{{ pub.title | escape }}{% endif %}</h3>
+    {%- if pub.title_original -%}<p class="pub-entry__note"{% if pub.title_language %} lang="{{ pub.title_language | escape }}"{% endif %}>{{ pub.title_original | escape }}</p>{%- endif -%}
     <p class="pub-entry__authors">{{ authors }}</p>
     <p class="pub-entry__venue"><em>{{ pub.venue | escape }}</em> &middot; {{ pub.year }}</p>
     {%- if pub.note -%}<p class="pub-entry__note">{{ pub.note | escape }}</p>{%- endif -%}

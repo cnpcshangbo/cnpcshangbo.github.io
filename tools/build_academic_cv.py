@@ -328,7 +328,7 @@ def styles():
         "detail": ParagraphStyle("Detail", parent=body, textColor=GRAY, fontSize=10, leading=12.8, spaceAfter=3),
         "bullet": ParagraphStyle("Bullet", parent=body, leftIndent=10, firstLineIndent=0,
                                  bulletIndent=0, bulletFontName="Times-Roman", bulletFontSize=9, spaceAfter=3),
-        "publication": ParagraphStyle("Publication", parent=body, leftIndent=25, firstLineIndent=-25, leading=12.3, spaceAfter=4),
+        "publication": ParagraphStyle("Publication", parent=body, leftIndent=25, firstLineIndent=-25, leading=12.3, spaceAfter=3),
         "links": ParagraphStyle("Links", parent=body, fontSize=9.3, leading=12, spaceAfter=3),
     }
 
@@ -385,7 +385,7 @@ def render_pdf(cv, fingerprint):
                 if heading_paragraphs and content_paragraphs:
                     heading_paragraphs[-1].keepWithNext = True
                 story.extend(heading_paragraphs + content_paragraphs)
-                story.append(Spacer(1, 4))
+                story.append(Spacer(1, 3))
 
     def page_decoration(canvas, doc):
         canvas.saveState()

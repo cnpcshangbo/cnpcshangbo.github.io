@@ -11,7 +11,7 @@ redirect_from:
      or _config.yml instead, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=e13fb6eb5567051e" download>Download PDF</a></p>
+<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=ff3ca95c3f73132e" download>Download PDF</a></p>
 <p><small>Last updated: 2026-10-14</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>
@@ -214,9 +214,11 @@ redirect_from:
 
 <p>[R4] Y Hu, J Yang, B Shang, S Liu. <b>Northeastern University Autonomous Aerial Robotics Team.</b> <i>International Aerial Robotics Competition (IARC) Symposium</i>, 2013.</p>
 
-## Thesis
+## Theses
 
-<p>[T1] B Shang. <b>SLAM Research Based on ROS and Indoor Quadrotor.</b> <i>Northeastern University (M.S. Thesis)</i>, 2013.</p>
+<p>[T1] Bo Shang. <b>Fractional Order Proportional Derivative Visual Servoing Control for UAVs.</b> <i>Northeastern University, China (Ph.D. dissertation)</i>, 2020. In Chinese; 132 pp. <a href="https://doi.org/10.27007/d.cnki.gdbeu.2020.002987">DOI</a></p>
+
+<p>[T2] B Shang. <b>SLAM Research Based on ROS and Indoor Quadrotor.</b> <i>Northeastern University (M.S. Thesis)</i>, 2013.</p>
 
 ## Posters and Presentations
 

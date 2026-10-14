@@ -9,7 +9,7 @@ author_profile: true
      _data/cv.yml, _data/publications.yml or _config.yml, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv-research-scientist.pdf?v=14fc48505b2fbec2" download>Download Research Scientist Resume (PDF)</a></p>
+<p><a class="button" href="{{ base_path }}/assets/cv-research-scientist.pdf?v=3651524915567eab" download>Download Research Scientist Resume (PDF)</a></p>
 <p><small>Last updated: 2026-10-01</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>

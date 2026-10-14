@@ -315,6 +315,20 @@ items:
       url: "https://scholarsmine.mst.edu/inspire-meetings/2021_meeting/poster-session/8/"
 
   # ---------------------------------------------------------------- 2020 ----
+  - title: "Fractional Order Proportional Derivative Visual Servoing Control for UAVs"
+    title_original: "基于分数阶的无人机比例微分视觉伺服控制"
+    title_language: "zh-Hans"
+    authors: "Bo Shang"
+    venue: "Northeastern University, China (Ph.D. dissertation)"
+    year: 2020
+    type: thesis
+    topic: control
+    citations: 0
+    scholar_id: "KUbvn5osdkgC"
+    note: "In Chinese; 132 pp."
+    links:
+      doi: "https://doi.org/10.27007/d.cnki.gdbeu.2020.002987"
+
   - title: "Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II"
     authors: "A Reven, P Jiao, B Shang, G Chen"
     venue: "INSPIRE-UTC 2020 Annual Meeting (Slides)"

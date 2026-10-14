@@ -165,7 +165,7 @@ sections:
   - title: Technical Reports
     publication_types: [report]
     prefix: R
-  - title: Thesis
+  - title: Theses
     publication_types: [thesis]
     prefix: T
   - title: Posters and Presentations
