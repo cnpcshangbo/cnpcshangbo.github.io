@@ -1,0 +1,19 @@
+{%- assign pub = include.pub -%}
+{%- assign type_label = site.data.publication_labels.types[pub.type] -%}
+{%- assign topic_label = site.data.publication_labels.topics[pub.topic] -%}
+{%- assign authors = pub.authors | escape | replace: "Bo Shang", "<strong>Bo Shang</strong>" | replace: "B Shang", "<strong>B Shang</strong>" | replace: "B SHANG", "<strong>B SHANG</strong>" | replace: "S Bo", "<strong>S Bo</strong>" -%}
+{%- assign primary_link = pub.links.doi | default: pub.links.url | default: pub.links.arxiv | default: pub.links.ssrn | default: pub.links.patent | default: pub.links.pdf -%}
+<li class="pub-entry" data-publication data-topic="{{ pub.topic }}" data-type="{{ pub.type }}">
+  <div class="pub-entry__aside">
+    <span class="pub-entry__badge pub-entry__badge--{{ pub.type }}">{{ pub.venue_short | default: type_label }}</span>
+    {%- if pub.venue_short -%}<span class="pub-entry__type">{{ type_label }}</span>{%- endif -%}
+  </div>
+  <article class="pub-entry__body">
+    <h3 class="pub-entry__title">{% if primary_link %}<a href="{{ primary_link | escape }}" target="_blank" rel="noopener">{{ pub.title | escape }}</a>{% else %}{{ pub.title | escape }}{% endif %}</h3>
+    <p class="pub-entry__authors">{{ authors }}</p>
+    <p class="pub-entry__venue"><em>{{ pub.venue | escape }}</em> &middot; {{ pub.year }}</p>
+    {%- if pub.note -%}<p class="pub-entry__note">{{ pub.note | escape }}</p>{%- endif -%}
+    <p class="pub-entry__meta">{{ topic_label }}{% if pub.citations and pub.citations > 0 %} &middot; <span title="Google Scholar snapshot: {{ site.data.publications.last_synced }}">{{ pub.citations }} {% if pub.citations == 1 %}citation{% else %}citations{% endif %}</span>{% endif %}</p>
+    {%- include pub-links.html pub=pub -%}
+  </article>
+</li>

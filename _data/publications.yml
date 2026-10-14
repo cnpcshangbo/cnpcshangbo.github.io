@@ -11,27 +11,49 @@
 #                 token is auto-bolded as the site owner
 #    venue      : journal / conference / repository
 #    year       : integer (drives newest-first ordering)
-#    type       : journal | conference | preprint | patent | thesis | report | poster | slides
+#    type       : journal | conference | meeting | preprint | patent | thesis | report | poster | slides
 #    topic      : lidar | streetview | uav-inspection | ndt | control | slam | comms | patent
 #                 -> label and default animated thumbnail in _includes/pub-thumb.html
 #    illustration: optional paper-specific thumbnail: safety-audit | vru-sensing | robotic-inspection
-#    citations  : integer (0 if none yet)
+#    citations  : integer from the dated Scholar snapshot; null if not indexed
+#    scholar_id : Google Scholar article ID for a direct record link
+#    venue_short: optional compact venue badge
 #    note       : optional short highlight, e.g. "Selected for IEEE IROS 2025"
-#    featured   : true to pin into the "Selected & recent" highlight row on /publications/
+#    featured   : optional visual emphasis when using the pub-card include
 #    home       : true to surface in the "Selected publications" section on the homepage (/)
 #    links      : optional map — any of { doi, arxiv, ssrn, patent, pdf, slides, code, url }
-#                 (a Google Scholar button is always added automatically)
+#                 (a direct Google Scholar button is added when scholar_id is set)
 #
-#  A new paper = one new list entry. Re-ordering is automatic.
+#  Add a new paper in its year section, newest first. The bibliography groups
+#  by year; the homepage preserves the order of entries marked home: true.
 # =============================================================================
 
-total_citations: 159           # Google Scholar, all-time
-last_synced: "2026-06-06"     # Google Scholar citation-count snapshot
-last_verified: "2026-09-23"   # Bibliographic audit; independent of citation counts
+total_citations: 185           # Google Scholar, all-time
+last_synced: "2026-10-14"     # Google Scholar citation-count snapshot
+last_verified: "2026-10-14"   # Bibliographic audit; independent of citation counts
+h_index: 7
+i10_index: 6
 scholar_url: "https://scholar.google.com/citations?user=TVIPpDMAAAAJ&hl=en"
 
 items:
   # ---------------------------------------------------------------- 2026 ----
+  - title: "Drive-by Urban Freight Sensing: Large-Scale Fine-Grained Truck Classification Using Google Street View Imagery and Deep Learning"
+    authors: "Bo Shang, Yiqiao Li"
+    venue: "IEEE Open Journal of Intelligent Transportation Systems, vol. 7, pp. 2327–2347"
+    venue_short: "IEEE OJ-ITS"
+    year: 2026
+    type: "journal"
+    topic: "streetview"
+    citations: 0
+    scholar_id: "g3aElNc5_aQC"
+    featured: true
+    home: true
+    note: "Published September 4, 2026; open access"
+    links:
+      doi: "https://doi.org/10.1109/OJITS.2026.3730800"
+      url: "https://ieeexplore.ieee.org/document/11679128"
+      pdf: "https://ieeexplore.ieee.org/iel8/8784355/11300375/11679128.pdf"
+
   - title: "Investigation of Emerging Sensing and AI/ML Technologies to Enhance the Safety of Vulnerable Roadway Users at Signalized Intersection"
     authors: "Yiqiao Li, Bo Shang, Weicong Feng, Jie Wei, Camille Kamga"
     venue: "U.S. Department of Transportation, University Transportation Centers Program, final technical report"
@@ -39,6 +61,7 @@ items:
     type: "report"
     topic: "lidar"
     citations: 0
+    scholar_id: "hMsQuOkrut0C"
     note: "Published May 1, 2026; National Transportation Library record DOT 91974"
     links:
       url: "https://rosap.ntl.bts.gov/view/dot/91974"
@@ -51,11 +74,14 @@ items:
     type: "conference"
     topic: "lidar"
     illustration: "safety-audit"
-    citations: 0
+    citations: 1
+    scholar_id: "ILKRHgRFtOwC"
     featured: true
     home: true
     note: "DriveX Workshop on Foundation Models for Autonomous Driving; archival proceedings"
+    venue_short: "CVPRW"
     links:
+      arxiv: "https://arxiv.org/abs/2604.10419"
       url: "https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.html"
       pdf: "https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.pdf"
 
@@ -66,10 +92,44 @@ items:
     type: "preprint"
     topic: "lidar"
     citations: 0
-    featured: true
+    scholar_id: "L7CI7m0gUJcC"
     links:
       arxiv: "https://arxiv.org/abs/2602.09425"
       doi: "https://doi.org/10.48550/arXiv.2602.09425"
+
+  # TRB Annual Meeting contributions; not archival journal/proceedings papers.
+  - title: "Understanding Infrastructure-ADAS Interactions in Urban Crash Risk: A Multimodal AI Approach for Intersection Safety"
+    authors: "F Arnob, Bo Shang, Yiqiao Li, Abolfazl Karimpour"
+    venue: "TRB 105th Annual Meeting (Transportation Research Board)"
+    venue_short: "TRB"
+    year: 2026
+    type: "meeting"
+    topic: "traffic-safety"
+    citations: null
+    links:
+      url: "https://yiqiao-li.github.io/publications/#Arnob2026trb"
+
+  - title: "Scalable Urban Truck Characterization using Deep Learning and Street View Imagery: A Drive-by Sensing Approach"
+    authors: "Bo Shang, Yiqiao Li, Blanche Horbach, Kevin Villon"
+    venue: "TRB 105th Annual Meeting (Transportation Research Board)"
+    venue_short: "TRB"
+    year: 2026
+    type: "meeting"
+    topic: "streetview"
+    citations: null
+    links:
+      url: "https://yiqiao-li.github.io/publications/#Shang2026trb"
+
+  - title: "Few-Shot Learning for Truck Classification from LiDAR Sensor using Vision-language Models"
+    authors: "Yiqiao Li, Jie Wei, Bo Shang, Camille Kamga"
+    venue: "TRB 105th Annual Meeting (Transportation Research Board)"
+    venue_short: "TRB"
+    year: 2026
+    type: "meeting"
+    topic: "lidar"
+    citations: null
+    links:
+      url: "https://yiqiao-li.github.io/publications/#Li2026trb"
 
   # ---------------------------------------------------------------- 2025 ----
   - title: "Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure"
@@ -79,10 +139,12 @@ items:
     type: "journal"
     topic: "ndt"
     illustration: "robotic-inspection"
-    citations: 11
+    citations: 17
+    scholar_id: "BUYA1_V_uYcC"
     featured: true
     home: true
     note: "Journal paper selected for presentation at IEEE IROS 2025"
+    venue_short: "IEEE T-ASE"
     links:
       doi: "https://doi.org/10.1109/TASE.2025.3535227"
       url: "https://ras.papercept.net/conferences/conferences/IROS25/program/IROS25_ContentListWeb_3.html"
@@ -94,9 +156,11 @@ items:
     type: "conference"
     topic: "lidar"
     illustration: "vru-sensing"
-    citations: 3
+    citations: 5
+    scholar_id: "EYYDruWGBe4C"
     featured: true
     home: true
+    venue_short: "MobiSPC"
     links:
       doi: "https://doi.org/10.1016/j.procs.2025.07.191"
 
@@ -106,8 +170,9 @@ items:
     year: 2025
     type: "conference"
     topic: "lidar"
-    citations: 1
-    featured: true
+    citations: 2
+    scholar_id: "vbGhcppDl1QC"
+    venue_short: "MobiSPC"
     links:
       doi: "https://doi.org/10.1016/j.procs.2025.07.192"
 
@@ -117,8 +182,8 @@ items:
     year: 2025
     type: "preprint"
     topic: "streetview"
-    citations: 0
-    featured: true
+    citations: 1
+    scholar_id: "p__nRnzSRKYC"
     links:
       ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5312573"
       doi: "https://doi.org/10.2139/ssrn.5312573"
@@ -130,7 +195,7 @@ items:
     type: "patent"
     topic: "patent"
     citations: 0
-    featured: true
+    scholar_id: "ML0RJ9NH7IQC"
     links:
       patent: "https://patents.google.com/patent/US12296994B2/en"
     note: "Granted May 13, 2025"
@@ -141,7 +206,8 @@ items:
     year: 2025
     type: "journal"
     topic: "ndt"
-    citations: 10
+    citations: 12
+    scholar_id: "uWiczbcajpAC"
     note: "Issue year 2025; first published online August 6, 2024"
     links:
       doi: "https://doi.org/10.1007/s13349-024-00823-8"
@@ -152,7 +218,8 @@ items:
     year: 2025
     type: "journal"
     topic: "ndt"
-    citations: 8
+    citations: 13
+    scholar_id: "URolC5Kub84C"
     links:
       doi: "https://doi.org/10.1016/j.conbuildmat.2024.139829"
       ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4923149"
@@ -164,7 +231,8 @@ items:
     year: 2023
     type: "conference"
     topic: "uav-inspection"
-    citations: 5
+    citations: 7
+    scholar_id: "epqYDVWIO7EC"
     links:
       doi: "https://doi.org/10.1109/ISAS59543.2023.10164352"
       pdf: "https://par.nsf.gov/servlets/purl/10483537"
@@ -175,7 +243,8 @@ items:
     year: 2023
     type: "journal"
     topic: "ndt"
-    citations: 3
+    citations: 5
+    scholar_id: "t7zJ5fGR-2UC"
     links:
       doi: "https://doi.org/10.32548/2023.me-04300"
       pdf: "https://par.nsf.gov/servlets/purl/10483539"
@@ -187,7 +256,8 @@ items:
     year: 2022
     type: "report"
     topic: "ndt"
-    citations: 4
+    citations: 5
+    scholar_id: "zLWjf1WUPmwC"
     note: "September 20, 2022; contract 693JK31950005CAAP; 109 pp."
     links:
       url: "https://trid.trb.org/View/2186657"
@@ -199,6 +269,7 @@ items:
     type: conference
     topic: uav-inspection
     citations: 0
+    scholar_id: "z_wVstp3MssC"
 
   - title: "Evaluation of User-Friendliness of Several UASs for Bridge Inspection"
     authors: "Z Shi, B Shang, H Zhang, L Li, G Chen"
@@ -207,6 +278,7 @@ items:
     type: conference
     topic: uav-inspection
     citations: 0
+    scholar_id: "VLnqNzywnoUC"
 
   - title: "Delamination Detection of Concrete Bridge Slab Through UAV-Based Thermal Scanning"
     authors: "H Zhang, P Jiao, L Li, Z Shi, B Shang, G Chen"
@@ -215,6 +287,7 @@ items:
     type: conference
     topic: ndt
     citations: 0
+    scholar_id: "uJ-U7cs_P_0C"
 
   # ---------------------------------------------------------------- 2021 ----
   - title: "The ceiling effect and flight insight of unmanned aerial vehicles during proximity inspection of bridges via computational fluid dynamics modeling and simulations"
@@ -224,6 +297,7 @@ items:
     type: "conference"
     topic: "uav-inspection"
     citations: 1
+    scholar_id: "j8SEvjWlNXcC"
     note: "Proceedings year 2021; workshop held March 15–17, 2022"
     links:
       doi: "https://doi.org/10.12783/shm2021/36338"
@@ -236,6 +310,7 @@ items:
     type: "poster"
     topic: "uav-inspection"
     citations: 0
+    scholar_id: "evX43VCCuoAC"
     links:
       url: "https://scholarsmine.mst.edu/inspire-meetings/2021_meeting/poster-session/8/"
 
@@ -247,6 +322,7 @@ items:
     type: slides
     topic: uav-inspection
     citations: 1
+    scholar_id: "7T2F9Uy0os0C"
 
   - title: "Vision-Based Non-GPS UAV Guidance for Bridge Inspection"
     authors: "B Shang, A Reven, P Jiao, B Li, G Chen"
@@ -255,6 +331,7 @@ items:
     type: poster
     topic: uav-inspection
     citations: 0
+    scholar_id: "ZfRJV9d4-WMC"
 
   - title: "Clamping Design for Bridge Inspection Robot Deployment Systems (BIRDS) Prototype II"
     authors: "A Reven, P Jiao, B Shang, G Chen"
@@ -263,6 +340,7 @@ items:
     type: poster
     topic: uav-inspection
     citations: 0
+    scholar_id: "tKAzc9rXhukC"
 
   # ---------------------------------------------------------------- 2019 ----
   - title: "Fractional-order flight control of quadrotor UAS on vision-based precision hovering with larger sampling period"
@@ -272,6 +350,7 @@ items:
     type: journal
     topic: control
     citations: 15
+    scholar_id: "t6usbXjVLHcC"
 
   - title: "Neighborhood Optimization Method for Shaping Bode Plot With Larger Phase Margin"
     authors: "B Shang, C Wu, YQ Chen"
@@ -280,6 +359,7 @@ items:
     type: conference
     topic: control
     citations: 0
+    scholar_id: "UHK10RUVsp4C"
 
   # ---------------------------------------------------------------- 2018 ----
   - title: "Fractional order flight control of quadrotor UAS: a Simscape benchmark environment and a case study"
@@ -289,6 +369,7 @@ items:
     type: conference
     topic: control
     citations: 5
+    scholar_id: "JQOojiI6XY0C"
 
   - title: "Fractional order flight control of quadrotor UAS: an OS4 benchmark environment and a case study"
     authors: "B Shang, Y Zhang, C Wu, YQ Chen"
@@ -297,6 +378,7 @@ items:
     type: conference
     topic: control
     citations: 1
+    scholar_id: "XiVPGOgt02cC"
 
   # ---------------------------------------------------------------- 2017 ----
   - title: "SmartCaveDrone: 3D cave mapping using UAVs as robotic co-archaeologists"
@@ -305,7 +387,8 @@ items:
     year: 2017
     type: conference
     topic: slam
-    citations: 44
+    citations: 46
+    scholar_id: "f2IySw72cVMC"
 
   - title: "Analysis of maximum possible sampling period for a real-time vision-based control system"
     authors: "B Shang, C Wu, Y Zhang, YQ Chen"
@@ -314,6 +397,7 @@ items:
     type: conference
     topic: control
     citations: 4
+    scholar_id: "O3NaXMp0MMsC"
 
   # ---------------------------------------------------------------- 2016 ----
   - title: "Fractional order robust visual servoing control of a quadrotor UAV with larger sampling period"
@@ -322,7 +406,8 @@ items:
     year: 2016
     type: conference
     topic: control
-    citations: 23
+    citations: 24
+    scholar_id: "L8Ckcad2t8MC"
 
   # ---------------------------------------------------------------- 2014 ----
   - title: "An algorithm of visual reconnaissance path planning for UAVs in complex spaces"
@@ -332,6 +417,7 @@ items:
     type: "journal"
     topic: "slam"
     citations: 8
+    scholar_id: "ZeXyd9-uunAC"
 
   - title: "Northeastern University Autonomous Aerial Robotics Team"
     authors: "Y Hu, J Yang, Y Cao, F Yang, B Shang"
@@ -340,6 +426,7 @@ items:
     type: report
     topic: slam
     citations: 0
+    scholar_id: "OU6Ihb5iCvQC"
 
   # ---------------------------------------------------------------- 2013 ----
   - title: "SLAM Research Based on ROS and Indoor Quadrotor"
@@ -349,6 +436,7 @@ items:
     type: thesis
     topic: slam
     citations: 1
+    scholar_id: "bFI3QPDXJZMC"
 
   - title: "Northeastern University Autonomous Aerial Robotics Team"
     authors: "Y Hu, J Yang, B Shang, S Liu"
@@ -357,6 +445,7 @@ items:
     type: report
     topic: slam
     citations: 0
+    scholar_id: "p2g8aNsByqUC"
 
   # ---------------------------------------------------------------- 2012 ----
   - title: "A Data/Image Transmission Device Based on TCP/IP Protocol"
@@ -366,6 +455,7 @@ items:
     type: conference
     topic: comms
     citations: 5
+    scholar_id: "9ZlFYXVOiuMC"
 
   # ---------------------------------------------------------------- 2011 ----
   - title: "Research on remote image/data transmission based on TCP/IP protocol"
@@ -375,6 +465,7 @@ items:
     type: journal
     topic: comms
     citations: 4
+    scholar_id: "pyW8ca7W8N0C"
 
   - title: "Design of point to multi-point wireless communication system based on ZigBee"
     authors: "T Meng, C Wu, B Shang, C Gao, Y Zhang"
@@ -383,6 +474,7 @@ items:
     type: conference
     topic: comms
     citations: 2
+    scholar_id: "QIV2ME_5wuYC"
 
   # ------------------------------------------------ Chinese patents --------
   - title: "Data/image transmission device based on TCP/IP (Transmission Control Protocol/Internet Protocol)"
@@ -391,7 +483,7 @@ items:
     year: 2014
     type: "patent"
     topic: "patent"
-    citations: 0
+    citations: null
     note: "Granted April 30, 2014"
     links:
       patent: "https://patents.google.com/patent/CN102427464B/en"
@@ -402,7 +494,7 @@ items:
     year: 2012
     type: "patent"
     topic: "patent"
-    citations: 0
+    citations: null
     note: "Patent application published January 4, 2012"
     links:
       patent: "https://patents.google.com/patent/CN102306237A/en"

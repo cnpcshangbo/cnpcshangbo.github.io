@@ -11,8 +11,8 @@ redirect_from:
      or _config.yml instead, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=4a565948171095ad" download>Download PDF</a></p>
-<p><small>Last updated: 2026-10-01</small></p>
+<p><a class="button" href="{{ base_path }}/assets/cv.pdf?v=e13fb6eb5567051e" download>Download PDF</a></p>
+<p><small>Last updated: 2026-10-14</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>
 <p><strong>Postdoctoral Associate, University of Maryland</strong><br>Civil and Environmental Engineering / Maryland Transportation Institute<br>New York, NY</p>
@@ -140,23 +140,25 @@ redirect_from:
 
 ## Journal Articles
 
-<p>[J1] Jinglun Feng, Bo Shang, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, Jizhong Xiao. <b>Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure.</b> <i>IEEE Transactions on Automation Science and Engineering, vol. 22, pp. 22324–22336</i>, 2025. Journal paper selected for presentation at IEEE IROS 2025. <a href="https://doi.org/10.1109/TASE.2025.3535227">DOI</a> <a href="https://ras.papercept.net/conferences/conferences/IROS25/program/IROS25_ContentListWeb_3.html">Record</a></p>
+<p>[J1] Bo Shang, Yiqiao Li. <b>Drive-by Urban Freight Sensing: Large-Scale Fine-Grained Truck Classification Using Google Street View Imagery and Deep Learning.</b> <i>IEEE Open Journal of Intelligent Transportation Systems, vol. 7, pp. 2327–2347</i>, 2026. Published September 4, 2026; open access. <a href="https://doi.org/10.1109/OJITS.2026.3730800">DOI</a> <a href="https://ieeexplore.ieee.org/iel8/8784355/11300375/11679128.pdf">PDF</a> <a href="https://ieeexplore.ieee.org/document/11679128">Record</a></p>
 
-<p>[J2] Haibin Zhang, Zhenhua Shi, Liujun Li, Pu Jiao, Bo Shang, Genda Chen. <b>Code-specified early delamination detection and quantification in a RC bridge deck: passive vs. active infrared thermography.</b> <i>Journal of Civil Structural Health Monitoring, vol. 15(1), pp. 227–244</i>, 2025. Issue year 2025; first published online August 6, 2024. <a href="https://doi.org/10.1007/s13349-024-00823-8">DOI</a></p>
+<p>[J2] Jinglun Feng, Bo Shang, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, Jizhong Xiao. <b>Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure.</b> <i>IEEE Transactions on Automation Science and Engineering, vol. 22, pp. 22324–22336</i>, 2025. Journal paper selected for presentation at IEEE IROS 2025. <a href="https://doi.org/10.1109/TASE.2025.3535227">DOI</a> <a href="https://ras.papercept.net/conferences/conferences/IROS25/program/IROS25_ContentListWeb_3.html">Record</a></p>
 
-<p>[J3] Ejup Hoxha, Jinglun Feng, Agnimitra Sengupta, David Kirakosian, Yang He, Bo Shang, Ardian Gjinofci, Jizhong Xiao. <b>Contrastive learning for robust defect mapping in concrete slabs using impact echo.</b> <i>Construction and Building Materials, vol. 461, article 139829</i>, 2025. <a href="https://doi.org/10.1016/j.conbuildmat.2024.139829">DOI</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4923149">SSRN</a></p>
+<p>[J3] Haibin Zhang, Zhenhua Shi, Liujun Li, Pu Jiao, Bo Shang, Genda Chen. <b>Code-specified early delamination detection and quantification in a RC bridge deck: passive vs. active infrared thermography.</b> <i>Journal of Civil Structural Health Monitoring, vol. 15(1), pp. 227–244</i>, 2025. Issue year 2025; first published online August 6, 2024. <a href="https://doi.org/10.1007/s13349-024-00823-8">DOI</a></p>
 
-<p>[J4] Genda Chen, Liujun Li, Haibin Zhang, Zhenhua Shi, Bo Shang. <b>Aerial Nondestructive Testing and Evaluation (aNDT&amp;E).</b> <i>Materials Evaluation, vol. 81(1), pp. 67–73</i>, 2023. <a href="https://doi.org/10.32548/2023.me-04300">DOI</a> <a href="https://par.nsf.gov/servlets/purl/10483539">PDF</a></p>
+<p>[J4] Ejup Hoxha, Jinglun Feng, Agnimitra Sengupta, David Kirakosian, Yang He, Bo Shang, Ardian Gjinofci, Jizhong Xiao. <b>Contrastive learning for robust defect mapping in concrete slabs using impact echo.</b> <i>Construction and Building Materials, vol. 461, article 139829</i>, 2025. <a href="https://doi.org/10.1016/j.conbuildmat.2024.139829">DOI</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4923149">SSRN</a></p>
 
-<p>[J5] B Shang, J Liu, Y Zhang, C Wu, YQ Chen. <b>Fractional-order flight control of quadrotor UAS on vision-based precision hovering with larger sampling period.</b> <i>Nonlinear Dynamics</i>, 2019.</p>
+<p>[J5] Genda Chen, Liujun Li, Haibin Zhang, Zhenhua Shi, Bo Shang. <b>Aerial Nondestructive Testing and Evaluation (aNDT&amp;E).</b> <i>Materials Evaluation, vol. 81(1), pp. 67–73</i>, 2023. <a href="https://doi.org/10.32548/2023.me-04300">DOI</a> <a href="https://par.nsf.gov/servlets/purl/10483539">PDF</a></p>
 
-<p>[J6] B Shang, C Wu, Y Hu, J Yang. <b>An algorithm of visual reconnaissance path planning for UAVs in complex spaces.</b> <i>Journal of Computational Information Systems</i>, 2014.</p>
+<p>[J6] B Shang, J Liu, Y Zhang, C Wu, YQ Chen. <b>Fractional-order flight control of quadrotor UAS on vision-based precision hovering with larger sampling period.</b> <i>Nonlinear Dynamics</i>, 2019.</p>
 
-<p>[J7] C Gao, C Wu, Y Zhang, B Shang, T Meng. <b>Research on remote image/data transmission based on TCP/IP protocol.</b> <i>Journal of Mechanical &amp; Electrical Engineering, vol. 28(9)</i>, 2011.</p>
+<p>[J7] B Shang, C Wu, Y Hu, J Yang. <b>An algorithm of visual reconnaissance path planning for UAVs in complex spaces.</b> <i>Journal of Computational Information Systems</i>, 2014.</p>
+
+<p>[J8] C Gao, C Wu, Y Zhang, B Shang, T Meng. <b>Research on remote image/data transmission based on TCP/IP protocol.</b> <i>Journal of Mechanical &amp; Electrical Engineering, vol. 28(9)</i>, 2011.</p>
 
 ## Conference and Workshop Papers
 
-<p>[C1] Bo Shang, Yiqiao Li. <b>Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence.</b> <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, pp. 757–765</i>, 2026. DriveX Workshop on Foundation Models for Autonomous Driving; archival proceedings. <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.pdf">PDF</a> <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.html">Record</a></p>
+<p>[C1] Bo Shang, Yiqiao Li. <b>Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence.</b> <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, pp. 757–765</i>, 2026. DriveX Workshop on Foundation Models for Autonomous Driving; archival proceedings. <a href="https://arxiv.org/abs/2604.10419">arXiv</a> <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.pdf">PDF</a> <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.html">Record</a></p>
 
 <p>[C2] Bo Shang, Yiqiao Li, Arian Golrokh Amin, Camille Kamga, Jie Wei. <b>AI-Enhanced Sensing for Vulnerable Road User Safety at Signalized Intersections: A Survey.</b> <i>Procedia Computer Science, vol. 265, pp. 350–357 (MobiSPC 2025)</i>, 2025. <a href="https://doi.org/10.1016/j.procs.2025.07.191">DOI</a></p>
 
@@ -187,6 +189,14 @@ redirect_from:
 <p>[C15] B Shang, C Wu, T Meng, C Gao, Y Zhang. <b>A Data/Image Transmission Device Based on TCP/IP Protocol.</b> <i>8th International Conference on Wireless Communications, Networking and Mobile Computing (WiCOM)</i>, 2012.</p>
 
 <p>[C16] T Meng, C Wu, B Shang, C Gao, Y Zhang. <b>Design of point to multi-point wireless communication system based on ZigBee.</b> <i>7th International Conference on Wireless Communications, Networking and Mobile Computing (WiCOM)</i>, 2011.</p>
+
+## Annual Meeting Contributions
+
+<p>[M1] F Arnob, Bo Shang, Yiqiao Li, Abolfazl Karimpour. <b>Understanding Infrastructure-ADAS Interactions in Urban Crash Risk: A Multimodal AI Approach for Intersection Safety.</b> <i>TRB 105th Annual Meeting (Transportation Research Board)</i>, 2026. <a href="https://yiqiao-li.github.io/publications/#Arnob2026trb">Record</a></p>
+
+<p>[M2] Bo Shang, Yiqiao Li, Blanche Horbach, Kevin Villon. <b>Scalable Urban Truck Characterization using Deep Learning and Street View Imagery: A Drive-by Sensing Approach.</b> <i>TRB 105th Annual Meeting (Transportation Research Board)</i>, 2026. <a href="https://yiqiao-li.github.io/publications/#Shang2026trb">Record</a></p>
+
+<p>[M3] Yiqiao Li, Jie Wei, Bo Shang, Camille Kamga. <b>Few-Shot Learning for Truck Classification from LiDAR Sensor using Vision-language Models.</b> <i>TRB 105th Annual Meeting (Transportation Research Board)</i>, 2026. <a href="https://yiqiao-li.github.io/publications/#Li2026trb">Record</a></p>
 
 ## Preprints
 

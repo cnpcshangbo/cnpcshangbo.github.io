@@ -1,0 +1,20 @@
+types:
+  journal: Journal article
+  conference: Conference paper
+  meeting: Meeting contribution
+  preprint: Preprint
+  report: Technical report
+  patent: Patent
+  thesis: Thesis
+  poster: Poster
+  slides: Presentation slides
+topics:
+  streetview: Drive-by sensing
+  lidar: Roadside LiDAR
+  traffic-safety: Traffic safety
+  uav-inspection: UAV inspection
+  ndt: NDT · Concrete
+  control: Flight control
+  slam: SLAM · Mapping
+  comms: Wireless communications
+  patent: Patents

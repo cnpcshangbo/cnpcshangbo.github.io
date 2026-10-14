@@ -9,7 +9,7 @@ author_profile: true
      _data/cv.yml, _data/publications.yml or _config.yml, then run the generator. -->
 {% include base_path %}
 
-<p><a class="button" href="{{ base_path }}/assets/cv-research-scientist.pdf?v=8626b3e5f51a17ff" download>Download Research Scientist Resume (PDF)</a></p>
+<p><a class="button" href="{{ base_path }}/assets/cv-research-scientist.pdf?v=14fc48505b2fbec2" download>Download Research Scientist Resume (PDF)</a></p>
 <p><small>Last updated: 2026-10-01</small></p>
 
 <h2>Bo Shang, Ph.D.</h2>
@@ -64,9 +64,9 @@ author_profile: true
 
 ## Selected Publications
 
-<p><b>Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence.</b> Bo Shang, Yiqiao Li. <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, pp. 757–765</i>, 2026. [Conference paper] <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.pdf">PDF</a> <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.html">Record</a></p>
+<p><b>Roadside LiDAR for Cooperative Safety Auditing at Urban Intersections: Toward Auditable V2X Infrastructure Intelligence.</b> Bo Shang, Yiqiao Li. <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, pp. 757–765</i>, 2026. [Conference paper] <a href="https://arxiv.org/abs/2604.10419">arXiv</a> <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.pdf">PDF</a> <a href="https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Shang_Roadside_LiDAR_for_Cooperative_Safety_Auditing_at_Urban_Intersections_Toward_CVPRW_2026_paper.html">Record</a></p>
 
-<p><b>Investigating the LiDAR Beam Count Needed for Effective Vulnerable Road User Detection.</b> Bo Shang, Yiqiao Li, Jie Wei, Camille Kamga. <i>Procedia Computer Science, vol. 265, pp. 358–365 (MobiSPC 2025)</i>, 2025. [Conference paper] <a href="https://doi.org/10.1016/j.procs.2025.07.192">DOI</a></p>
+<p><b>Drive-by Urban Freight Sensing: Large-Scale Fine-Grained Truck Classification Using Google Street View Imagery and Deep Learning.</b> Bo Shang, Yiqiao Li. <i>IEEE Open Journal of Intelligent Transportation Systems, vol. 7, pp. 2327–2347</i>, 2026. [Journal article] <a href="https://doi.org/10.1109/OJITS.2026.3730800">DOI</a> <a href="https://ieeexplore.ieee.org/iel8/8784355/11300375/11679128.pdf">PDF</a> <a href="https://ieeexplore.ieee.org/document/11679128">Record</a></p>
 
 <p><b>Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure.</b> Jinglun Feng, Bo Shang, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, Jizhong Xiao. <i>IEEE Transactions on Automation Science and Engineering, vol. 22, pp. 22324–22336</i>, 2025. [Journal article] <a href="https://doi.org/10.1109/TASE.2025.3535227">DOI</a> <a href="https://ras.papercept.net/conferences/conferences/IROS25/program/IROS25_ContentListWeb_3.html">Record</a></p>
 

@@ -1,7 +1,7 @@
 # Canonical academic CV content. Publications live in publications.yml;
 # public contact fields live in _config.yml. Generate both outputs with
 # python tools/build_academic_cv.py (see cv-tex/README.md).
-updated: '2026-10-01'
+updated: '2026-10-14'
 name: Bo Shang
 credentials: Ph.D.
 headline: Postdoctoral Associate, University of Maryland
@@ -156,6 +156,9 @@ sections:
   - title: Conference and Workshop Papers
     publication_types: [conference]
     prefix: C
+  - title: Annual Meeting Contributions
+    publication_types: [meeting]
+    prefix: M
   - title: Preprints
     publication_types: [preprint]
     prefix: P

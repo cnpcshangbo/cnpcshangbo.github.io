@@ -1,10 +1,10 @@
 {%- comment -%}
   selected-pubs.html — compact "Selected publications" rows for the homepage (/).
-  Driven by items flagged `home: true` in _data/publications.yml (newest first).
+  Driven by items flagged `home: true` in _data/publications.yml (in bibliography order).
   To change what shows here, edit that data file — nothing to touch in markup.
   Self-contained block HTML so it renders verbatim inside the Markdown homepage.
 {%- endcomment -%}
-{%- assign sel = site.data.publications.items | where: "home", true | sort: "year" | reverse -%}
+{%- assign sel = site.data.publications.items | where: "home", true -%}
 {%- assign scholar = site.data.publications.scholar_url | default: site.author.googlescholar -%}
 {%- assign total = site.data.publications.items | size -%}
 <div class="selected-pubs">
@@ -21,16 +21,18 @@
 {%- else -%}{%- assign topiclabel = pub.topic -%}
 {%- endcase -%}
 {%- assign authors = pub.authors | replace: "Bo Shang", "<strong>Bo Shang</strong>" | replace: "B Shang", "<strong>B Shang</strong>" | replace: "B SHANG", "<strong>B SHANG</strong>" | replace: "S Bo", "<strong>S Bo</strong>" -%}
-{%- assign link = pub.links.doi | default: pub.links.arxiv | default: pub.links.ssrn | default: pub.links.patent | default: pub.links.url | default: scholar -%}
+{%- assign link = pub.links.doi | default: pub.links.url | default: pub.links.arxiv | default: pub.links.ssrn | default: pub.links.patent | default: scholar -%}
 <div class="selected-pub" data-topic="{{ pub.topic }}">
 <div class="selected-pub__thumb">{%- include pub-thumb.html topic=pub.topic illustration=pub.illustration -%}</div>
 <div class="selected-pub__text">
-<span class="selected-pub__topic">{{ topiclabel }}{%- if pub.citations and pub.citations > 0 %} &middot; {{ pub.citations }} citations{% endif -%}</span>
+<span class="selected-pub__topic">{{ topiclabel }}{%- if pub.citations and pub.citations > 0 %} &middot; {{ pub.citations }} {% if pub.citations == 1 %}citation{% else %}citations{% endif %}{% endif -%}</span>
 <h3 class="selected-pub__title"><a href="{{ link }}" target="_blank" rel="noopener">{{ pub.title }}</a></h3>
 <p class="selected-pub__meta">{{ authors }} &middot; <span class="selected-pub__venue">{{ pub.venue }}</span> &middot; {{ pub.year }}</p>
+{%- include pub-links.html pub=pub -%}
 {%- if pub.note -%}<p class="selected-pub__note">&#9733; {{ pub.note }}</p>{%- endif -%}
 </div>
 </div>
 {%- endfor -%}
-<p class="selected-pubs__more"><a href="/publications/">See all {{ total }} publications &rarr;</a></p>
+<p class="selected-pubs__snapshot">Citation counts: Google Scholar, {{ site.data.publications.last_synced }}.</p>
+<p class="selected-pubs__more"><a href="/publications/">Browse all {{ total }} research outputs &rarr;</a></p>
 </div>

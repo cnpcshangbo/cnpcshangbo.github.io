@@ -39,6 +39,7 @@ ENTRY_FIELDS = ("title", "subtitle", "date", "location", "text", "bullets", "lin
 TYPE_LABELS = {
     "journal": "Journal Articles",
     "conference": "Conference Papers",
+    "meeting": "Annual Meeting Contributions",
     "preprint": "Preprints",
     "patent": "Patents",
     "report": "Technical Reports",
@@ -48,7 +49,7 @@ TYPE_LABELS = {
 }
 TYPE_PREFIXES = {
     "journal": "J", "conference": "C", "preprint": "P", "patent": "PT",
-    "report": "R", "thesis": "T", "poster": "PO", "slides": "S",
+    "report": "R", "thesis": "T", "poster": "PO", "slides": "S", "meeting": "M",
 }
 NAVY = colors.HexColor("#17354B")
 TEAL = colors.HexColor("#146B74")
@@ -327,7 +328,7 @@ def styles():
         "detail": ParagraphStyle("Detail", parent=body, textColor=GRAY, fontSize=10, leading=12.8, spaceAfter=3),
         "bullet": ParagraphStyle("Bullet", parent=body, leftIndent=10, firstLineIndent=0,
                                  bulletIndent=0, bulletFontName="Times-Roman", bulletFontSize=9, spaceAfter=3),
-        "publication": ParagraphStyle("Publication", parent=body, leftIndent=25, firstLineIndent=-25, spaceAfter=6),
+        "publication": ParagraphStyle("Publication", parent=body, leftIndent=25, firstLineIndent=-25, leading=12.3, spaceAfter=4),
         "links": ParagraphStyle("Links", parent=body, fontSize=9.3, leading=12, spaceAfter=3),
     }
 
@@ -405,6 +406,9 @@ def render_pdf(cv, fingerprint):
             canvas.drawRightString(width - doc.rightMargin, height - 10.5 * mm, "Curriculum Vitae")
         canvas.restoreState()
 
+    # A final spacer can overflow onto a page containing only the footer.
+    while story and isinstance(story[-1], Spacer):
+        story.pop()
     document.build(story, onFirstPage=page_decoration, onLaterPages=page_decoration,
                    canvasmaker=partial(Canvas, invariant=1))
     return out.getvalue()

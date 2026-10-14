@@ -1,0 +1,14 @@
+{%- assign publication = include.pub -%}
+{%- assign link_labels = "doi:DOI,arxiv:arXiv,ssrn:SSRN,patent:Patent,pdf:PDF,slides:Slides,code:Code,url:Record" | split: "," -%}
+<div class="pub-card__links">
+  {%- for pair in link_labels -%}
+    {%- assign parts = pair | split: ":" -%}
+    {%- assign key = parts[0] -%}
+    {%- if publication.links[key] -%}
+    <a class="pub-card__link" href="{{ publication.links[key] | escape }}" target="_blank" rel="noopener">{{ parts[1] }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if publication.scholar_id -%}
+  <a class="pub-card__link" href="https://scholar.google.com/citations?view_op=view_citation&amp;user=TVIPpDMAAAAJ&amp;citation_for_view=TVIPpDMAAAAJ:{{ publication.scholar_id | escape }}" target="_blank" rel="noopener">Scholar</a>
+  {%- endif -%}
+</div>

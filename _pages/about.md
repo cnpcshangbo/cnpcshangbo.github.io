@@ -33,6 +33,6 @@ Since July 2026, I have been a Postdoctoral Associate in Civil and Environmental
 
 ## Selected publications
 
-Selected work in roadside-LiDAR sensing, vulnerable-road-user safety, and robotic infrastructure inspection.
+Selected work in urban freight sensing, roadside LiDAR, vulnerable-road-user safety, and robotic infrastructure inspection.
 
 {% include selected-pubs.html %}

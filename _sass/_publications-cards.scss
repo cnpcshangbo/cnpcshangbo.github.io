@@ -352,3 +352,74 @@ $pub-media-bg: #0e1a2b !default;
   .selected-pub { transition: none; }
   .selected-pub:hover { transform: none; }
 }
+
+/* Year-grouped bibliography: compact venue badges and readable citation rows. */
+.pubs {
+  [hidden] { display: none !important; }
+  &__resources { font-size: 0.88rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  &__stat-num { color: #146b74; }
+  &__scope { color: #52606d; font-size: 0.78rem; margin: 0.7rem 0 1.5rem; }
+  &__controls { padding: 1rem; background: #f6f8fa; border: 1px solid $pub-line; border-radius: 10px; }
+  &__search-row { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  &__search-field { flex: 1 1 260px; min-width: 0; }
+  &__type-field { flex: 0 1 220px; }
+  &__controls label { display: block; color: $pub-ink; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.3rem; }
+  &__controls input, &__controls select {
+    box-sizing: border-box; width: 100%; margin: 0; min-height: 42px;
+    font: inherit; font-size: 0.85rem; color: $pub-ink; background: #fff;
+    padding: 0.55rem 0.65rem; border: 1px solid #a7b4bf; border-radius: 5px;
+  }
+  &__filters { margin: 0.9rem 0 0.6rem; }
+  &__chip { min-height: 36px; line-height: 1.3; font-size: 0.75rem; }
+  &__chip.is-active { background: #146b74; border-color: #146b74; }
+  &__results { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.76rem; color: #52606d; }
+  &__results p { margin: 0; }
+  &__reset { background: transparent; border: 0; color: #146b74; padding: 0.3rem; text-decoration: underline; font: inherit; cursor: pointer; }
+  &__years { display: flex; flex-wrap: wrap; gap: 0.2rem 0.7rem; margin: 1.15rem 0 0; font-size: 0.85rem; }
+  &__years a { color: #146b74; padding: 0.3rem 0; }
+  &__year-heading {
+    display: flex; align-items: center; gap: 0.65rem; margin: 1.5rem 0 0;
+    padding-bottom: 0.55rem; border-bottom: 2px solid $pub-line;
+    font-size: 1.45rem; color: #17354b; scroll-margin-top: 5rem;
+    span { font-size: 0.76rem; font-weight: 400; color: $pub-muted; }
+  }
+  &__list { list-style: none; padding: 0; margin: 0; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #146b74; outline-offset: 3px; }
+}
+.pub-entry {
+  display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 1.1rem;
+  padding: 1.3rem 0; border-bottom: 1px solid $pub-line;
+  &__aside { padding-top: 0.1rem; }
+  &__badge {
+    display: block; padding: 0.45rem 0.35rem; border-radius: 5px;
+    background: #edf2f6; color: #34495e; text-align: center;
+    font-size: 0.7rem; line-height: 1.35; font-weight: 700;
+  }
+  &__badge--journal { color: #125d64; background: #e8f4f3; }
+  &__badge--conference { color: #3f4787; background: #eef0fc; }
+  &__badge--meeting { color: #23517b; background: #edf4fb; }
+  &__badge--preprint { color: #83500d; background: #fff3df; }
+  &__type { display: block; margin-top: 0.4rem; text-align: center; color: #52606d; font-size: 0.64rem; line-height: 1.35; }
+  &__body { min-width: 0; }
+  &__title { font-size: 1rem; line-height: 1.45; margin: 0 0 0.35rem; color: #17354b; }
+  &__title a { color: inherit; text-decoration: none; }
+  &__title a:hover { color: #146b74; text-decoration: underline; }
+  &__authors { font-size: 0.82rem; line-height: 1.55; margin: 0 0 0.25rem; color: #52606d; strong { color: $pub-ink; } }
+  &__venue { font-size: 0.8rem; line-height: 1.5; margin: 0 0 0.35rem; color: #384853; }
+  &__note { font-size: 0.76rem; line-height: 1.5; margin: 0.3rem 0; color: #146b74; }
+  &__meta { font-size: 0.71rem; color: #52606d; margin: 0.4rem 0; }
+  .pub-card__links { margin-top: 0.55rem; padding-top: 0; }
+  .pub-card__link { color: #235e6b; font-size: 0.7rem; padding: 0.28rem 0.5rem; }
+}
+.selected-pubs__snapshot { margin: 0.3rem 0; font-size: 0.72rem; color: #52606d; }
+.selected-pub .pub-card__links { margin-top: 0.55rem; padding-top: 0; }
+.selected-pub .pub-card__link { color: #235e6b; font-size: 0.68rem; padding: 0.25rem 0.45rem; }
+@media (max-width: 600px) {
+  .pub-entry { grid-template-columns: 1fr; gap: 0.6rem; }
+  .pub-entry__aside { display: flex; gap: 0.55rem; align-items: center; }
+  .pub-entry__badge { display: inline-block; padding: 0.3rem 0.55rem; }
+  .pub-entry__type { margin: 0; }
+  .pubs__type-field { flex: 1 1 100%; }
+  .pubs__controls { padding: 0.8rem; }
+  .pubs__stat { flex: 1 1 40%; min-width: 0; }
+}

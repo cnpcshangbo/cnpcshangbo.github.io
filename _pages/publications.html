@@ -6,93 +6,62 @@ author_profile: true
 ---
 
 {%- assign data = site.data.publications -%}
-{%- assign items = data.items | sort: "year" | reverse -%}
-{%- assign featured = data.items | where: "featured", true | sort: "year" | reverse -%}
-{%- assign topics = data.items | map: "topic" | uniq -%}
-{%- assign years = data.items | map: "year" | sort -%}
+{%- assign year_groups = data.items | group_by: "year" | sort: "name" | reverse -%}
 {%- assign scholar = data.scholar_url | default: site.author.googlescholar -%}
+{%- assign labels = site.data.publication_labels -%}
 
 <div class="pubs">
+  <p class="pubs__intro">Research in multimodal perception, urban freight sensing, field robotics, and infrastructure inspection. Browse by year, search a title or author, or filter by topic and publication type.</p>
+  <p class="pubs__resources"><a href="{{ scholar }}" target="_blank" rel="noopener">Google Scholar &nearr;</a> <span aria-hidden="true">&middot;</span> <a href="{{ '/cv/' | relative_url }}">Academic CV</a> <span aria-hidden="true">&middot;</span> <a href="{{ '/assets/cv.pdf' | relative_url }}">Download CV</a></p>
 
-  <p class="pubs__intro">
-    Peer-reviewed and applied research spanning <strong>roadside LiDAR &amp; vulnerable-road-user sensing</strong>,
-    <strong>UAV bridge inspection</strong>, <strong>non-destructive evaluation of concrete</strong>, and
-    <strong>fractional-order flight control</strong> — the multi-sensor pipeline from field hardware to perception.
-    The bibliography is shared with my <a href="/cv/">academic CV</a>.
-    See also my <a href="{{ scholar }}" target="_blank" rel="noopener">Google&nbsp;Scholar profile</a>.
-  </p>
+  <div class="pubs__stats" role="list" aria-label="Research output and Google Scholar metrics">
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.items | size }}</span><span class="pubs__stat-label">Research outputs</span></div>
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.total_citations }}</span><span class="pubs__stat-label">Scholar citations</span></div>
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.h_index }}</span><span class="pubs__stat-label">h-index</span></div>
+    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.i10_index }}</span><span class="pubs__stat-label">i10-index</span></div>
+  </div>
+  <p class="pubs__scope">Includes papers, preprints, meeting contributions, reports, patents, and presentations. Scholar metrics as of {{ data.last_synced }}.</p>
 
-  <div class="pubs__stats" role="list">
-    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ items | size }}</span><span class="pubs__stat-label">Publications</span></div>
-    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ data.total_citations }}</span><span class="pubs__stat-label">Citations · {{ data.last_synced }} snapshot</span></div>
-    <div class="pubs__stat" role="listitem"><span class="pubs__stat-num">{{ years | first }}&ndash;{{ years | last }}</span><span class="pubs__stat-label">Active</span></div>
-    <a class="pubs__stat pubs__stat--link" href="{{ scholar }}" target="_blank" rel="noopener"><span class="pubs__stat-num">&#x2197;</span><span class="pubs__stat-label">Scholar profile</span></a>
+  <div class="pubs__controls" data-pub-controls hidden>
+    <div class="pubs__search-row">
+      <div class="pubs__search-field">
+        <label for="publication-search">Search publications</label>
+        <input id="publication-search" type="search" placeholder="Title, author, venue, or keyword" autocomplete="off" aria-controls="publication-list">
+      </div>
+      <div class="pubs__type-field">
+        <label for="publication-type">Publication type</label>
+        <select id="publication-type" aria-controls="publication-list">
+          <option value="all">All types</option>
+          {%- for type in labels.types -%}
+          <option value="{{ type[0] }}">{{ type[1] }}</option>
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+    <div class="pubs__filters" role="group" aria-label="Filter by research topic">
+      <button type="button" class="pubs__chip is-active" data-filter="all" aria-pressed="true">All topics</button>
+      {%- for topic in labels.topics -%}
+      <button type="button" class="pubs__chip" data-filter="{{ topic[0] }}" aria-pressed="false">{{ topic[1] }}</button>
+      {%- endfor -%}
+    </div>
+    <div class="pubs__results"><p data-pub-count role="status" aria-live="polite" aria-atomic="true">Showing all {{ data.items | size }} research outputs</p><button type="button" class="pubs__reset" data-pub-reset hidden>Clear filters</button></div>
   </div>
 
-  <div class="pubs__filters" role="group" aria-label="Filter publications by topic">
-    <button type="button" class="pubs__chip is-active" data-filter="all">All <span class="pubs__chip-n">{{ items | size }}</span></button>
-    {%- for t in topics -%}
-      {%- case t -%}
-        {%- when "lidar" -%}{%- assign tl = "Roadside LiDAR" -%}
-        {%- when "streetview" -%}{%- assign tl = "Drive-by Sensing" -%}
-        {%- when "uav-inspection" -%}{%- assign tl = "UAV Inspection" -%}
-        {%- when "ndt" -%}{%- assign tl = "NDT · Concrete" -%}
-        {%- when "control" -%}{%- assign tl = "Flight Control" -%}
-        {%- when "slam" -%}{%- assign tl = "SLAM · Mapping" -%}
-        {%- when "comms" -%}{%- assign tl = "Wireless Comms" -%}
-        {%- when "patent" -%}{%- assign tl = "Patent" -%}
-        {%- else -%}{%- assign tl = t -%}
-      {%- endcase -%}
-      {%- assign n = data.items | where: "topic", t | size -%}
-      <button type="button" class="pubs__chip" data-filter="{{ t }}">{{ tl }} <span class="pubs__chip-n">{{ n }}</span></button>
+  <nav class="pubs__years" aria-label="Publication years">
+    {%- for group in year_groups -%}<a href="#year-{{ group.name }}" data-year-link="{{ group.name }}">{{ group.name }}</a>{%- endfor -%}
+  </nav>
+
+  <div id="publication-list">
+    {%- for group in year_groups -%}
+    <section class="pubs__year" data-year-section="{{ group.name }}" aria-labelledby="year-{{ group.name }}">
+      <h2 id="year-{{ group.name }}" class="pubs__year-heading">{{ group.name }} <span data-year-count>{{ group.items | size }}</span></h2>
+      <ol class="pubs__list">
+        {%- for item in group.items -%}{%- include pub-entry.html pub=item -%}{%- endfor -%}
+      </ol>
+    </section>
     {%- endfor -%}
   </div>
-
-  {%- if featured.size > 0 -%}
-  <section class="pubs__section" data-featured>
-    <h2 class="pubs__heading"><span class="pubs__star">&#9733;</span> Selected &amp; recent</h2>
-    <div class="pub-grid pub-grid--featured">
-      {%- for item in featured -%}{%- include pub-card.html pub=item -%}{%- endfor -%}
-    </div>
-  </section>
-  {%- endif -%}
-
-  <section class="pubs__section">
-    <h2 class="pubs__heading">All publications</h2>
-    <div class="pub-grid" data-pub-grid>
-      {%- for item in items -%}{%- include pub-card.html pub=item -%}{%- endfor -%}
-    </div>
-    <p class="pubs__empty" data-empty hidden>No publications in this topic.</p>
-  </section>
-
-  <p class="pubs__sync">Bibliographic review: {{ data.last_verified }}. Citation counts are a Google Scholar snapshot from {{ data.last_synced }}.</p>
+  <p class="pubs__empty" data-pub-empty hidden>No publications match your search. Try another keyword or clear the filters.</p>
+  <p class="pubs__sync">Bibliography updated {{ data.last_verified }}. Citation counts are a Google Scholar snapshot from {{ data.last_synced }}. Published versions are listed under their publication year; meeting contributions and preprints are labeled separately.</p>
 </div>
-
-<script>
-(function () {
-  var grid = document.querySelector('[data-pub-grid]');
-  var featured = document.querySelector('[data-featured]');
-  var empty = document.querySelector('[data-empty]');
-  var chips = Array.prototype.slice.call(document.querySelectorAll('.pubs__chip'));
-  if (!grid || !chips.length) return;
-
-  function apply(filter) {
-    var shown = 0;
-    grid.querySelectorAll('.pub-card').forEach(function (card) {
-      var match = filter === 'all' || card.getAttribute('data-topic') === filter;
-      card.hidden = !match;
-      if (match) shown++;
-    });
-    if (featured) featured.hidden = filter !== 'all';
-    if (empty) empty.hidden = shown !== 0;
-  }
-
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      chips.forEach(function (c) { c.classList.remove('is-active'); });
-      chip.classList.add('is-active');
-      apply(chip.getAttribute('data-filter'));
-    });
-  });
-})();
-</script>
+<script src="{{ '/assets/js/publications.js' | relative_url }}" defer></script>
