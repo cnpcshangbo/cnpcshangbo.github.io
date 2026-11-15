@@ -24,7 +24,7 @@ Since July 2026, I have been a Postdoctoral Associate in Civil and Environmental
 ## Research: intelligent infrastructure at three scales
 
 - **Macro — highway mobility (InfraLiDAR-Eval).** Continuous traffic monitoring with fixed roadside LiDAR: an end-to-end pipeline from raw ingestion to sparse-to-dense registration, evaluated on a 61.9-hour dataset, with a failure analysis showing where current models break under continuous roadside observation.
-- **Meso — urban intersections (PACO).** Cooperative observability: a 120° ADAS sees 0.39 of the intersection scene, a 360° AV 0.63, and roadside LiDAR (V2I) 1.00. Expanding the field of view alone cannot close the gap — the binding constraint is occlusion, not coverage — so infrastructure sensing is mathematically necessary.
+- **Meso — urban intersections (PACO).** Cooperative observability: a 120° ADAS sees 0.37 of the intersection scene, a 360° AV 0.61, and roadside LiDAR (V2I) 1.00. Expanding the field of view alone cannot close the gap — the binding constraint is occlusion, not coverage — so infrastructure sensing is mathematically necessary.
 - **Micro — structural health (embodied robotics).** UAVs and climbing robots that assess the physical integrity of structures where people cannot easily go: the BIRDS bridge-inspection flying robot and vision-based concrete defect detection, connecting perception results to engineering use.
 
 The three scales feed one model: fixed sensors contribute macro-level intelligence, embodied robots contribute micro-level agility, and the synthesis is a unified, multi-scale picture of the built environment.
