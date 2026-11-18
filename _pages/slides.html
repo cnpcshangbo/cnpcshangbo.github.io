@@ -1302,7 +1302,7 @@ title: "Research Presentation — Bo Shang"
       </section>
 
       <!-- SLIDE 18 -->
-      <section class="slide" data-section="16" data-title="InfraLiDAR-Eval: 61.9-Hour Pipeline & Failure Taxonomy" data-notes="Explain InfraLiDAR-Eval: across 61.9 hours (743 sessions), multi-frame registration produces crisp Class 9 and Class 11 truck reconstructions when clean, while our diagnostic taxonomy isolates residual ground planes that inflate width and adjacent-lane fragments that inflate length.">
+      <section class="slide" data-section="16" data-title="InfraLiDAR-Eval: 61.9-Hour Pipeline & Failure Taxonomy" data-notes="Explain InfraLiDAR-Eval: across 61.9 hours (743 sessions), our diagnostic taxonomy isolates residual ground planes that inflate width and adjacent-lane fragments that inflate length, while the NYSDOT I-95 multi-modal identification and QA dashboard pairs dense multi-frame 3D point clouds with aligned/robust geometry, speed estimation, and camera-assisted holdout review (92.1% random holdout vs. 82.4% camera-assisted holdout).">
         <div class="s-header">
           <div class="s-eyebrow-row"><span class="s-eyebrow">Part III · Macro-Scale · Continuous Evaluation</span><span class="s-counter">18 / 28</span></div>
           <h2 class="s-title">InfraLiDAR-Eval: 61.9-Hour Pipeline &amp; Roadside Failure Taxonomy</h2>
@@ -1317,9 +1317,9 @@ title: "Research Presentation — Bo Shang"
               <img src="/assets/slides/img/infralidar_crops.png" alt="Clean registered passenger and heavy truck point clouds vs sparse support and merged vehicle failure modes" style="background: transparent;">
               <div class="fig-caption">Failure Analysis: Residual Ground Planes, Sparse Support &amp; Merged Crops</div>
             </div>
-            <div class="fig-panel">
-              <img src="/assets/slides/img/lidar_truck_classes.png" alt="Multi-frame registered 3D point clouds of FHWA Class 9 and Class 11 trucks">
-              <div class="fig-caption">Multi-Frame Registered FHWA Class 9 &amp; 11 Trucks</div>
+            <div class="fig-panel dark-fig">
+              <img src="/assets/slides/img/infralidar_dashboard.png" alt="NYSDOT I-95 multi-modal traffic identification and human-in-the-loop QA dashboard showing dense registered truck 3D point cloud, geometry, speed, and FHWA class estimation" style="background: transparent;">
+              <div class="fig-caption">NYSDOT I-95 Identification &amp; QA Dashboard (92.1% Random vs. 82.4% Camera-Assisted Holdout)</div>
             </div>
           </div>
         </div>

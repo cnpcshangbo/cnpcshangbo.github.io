@@ -193,18 +193,21 @@ collection: portfolio
 
     <div class="sc-split sc-split--reverse sc-reveal">
       <div class="sc-split__text">
-        <p class="sc-split__kicker">FINE-GRAINED FREIGHT &amp; ZERO-INFRASTRUCTURE SCALING</p>
-        <h2 class="sc-split__title">From Dense 3D Truck Profiles to Citywide Curbside Freight Sensing</h2>
+        <p class="sc-split__kicker">MULTI-MODAL QA DASHBOARD &amp; CITYWIDE FREIGHT SCALING</p>
+        <h2 class="sc-split__title">From I-95 Multi-Sweep Truck Telemetry to Citywide Freight Sensing</h2>
         <div class="sc-split__body">
           <p>
-            Multi-sweep point-cloud registration unlocks fine-grained geometric classification of commercial vehicles (box trucks, articulated tractor-trailers, tankers) directly from roadside LiDAR — and pairs with citywide Street View imagery (<em>IEEE OJ-ITS</em> 2026) and VLM-guided traffic curation to map freight demand before permanent sensors are installed.
+            Our NYSDOT I-95 multi-modal identification &amp; QA dashboard fuses multi-sweep registered 3D vehicle point clouds with aligned/robust L/W/H geometry, frame-to-frame speed estimation, and human-in-the-loop verification — exposing the critical gap between random holdout accuracy (<strong>92.1%</strong>) and camera-assisted hard-case holdouts (<strong>82.4%</strong>).
+          </p>
+          <p>
+            At the urban network scale, fixed corridor LiDAR pairs with drive-by Street View truck body classification (Shang &amp; Li, <em>IEEE OJ-ITS</em> 2026) and training-free VLM point-cloud classification (Li, Shang &amp; Wei, 2026) to map freight demand without per-site 3D re-annotation.
           </p>
         </div>
       </div>
       <div class="sc-split__media">
         <figure class="sc-fig">
-          <img src="{{ base_path }}/assets/slides/img/lidar_truck_classes.png" alt="Multi-frame 3D point cloud reconstructions of commercial truck classes from roadside LiDAR" class="js-zoom-fig" loading="lazy" />
-          <figcaption>Multi-sweep 3D vehicle point-cloud reconstructions enabling geometry-based commercial freight classification.</figcaption>
+          <img src="{{ base_path }}/assets/slides/img/infralidar_dashboard.png" alt="NYSDOT I-95 multi-modal traffic identification dashboard showing dense registered 3D truck point cloud, geometry estimation, speed estimation, and body configuration review" class="js-zoom-fig" loading="lazy" />
+          <figcaption>NYSDOT I-95 multi-modal identification &amp; QA dashboard: 57-frame registered 3D truck point cloud, aligned vs. robust geometry, speed telemetry, and camera-assisted verification.</figcaption>
         </figure>
       </div>
     </div>
