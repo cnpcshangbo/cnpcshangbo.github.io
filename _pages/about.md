@@ -20,6 +20,7 @@ Since July 2026, I have been a Postdoctoral Associate in Civil and Environmental
 
 - **[Research Scientist Resume](/cv/research/)** · [PDF](/assets/cv-research-scientist.pdf) — selected research contributions, projects, publications, and technical skills in robotics and multimodal perception.
 - **[Academic CV](/cv/)** · [PDF](/assets/cv.pdf) — the full record of appointments, publications, patents, teaching, and academic service.
+- **[Research Presentation Slides](/slides/)** · [PDF](/assets/slides/Bo_Shang_Research_Slides.pdf) · [PPTX](/assets/slides/Bo_Shang_Research_Slides.pptx) — 28-slide seminar deck on resilient intelligent infrastructure across micro, meso, macro, and city scales.
 
 ## Research: intelligent infrastructure at three scales
 

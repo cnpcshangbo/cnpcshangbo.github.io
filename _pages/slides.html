@@ -1,0 +1,1741 @@
+---
+layout: null
+permalink: /slides/
+title: "Research Presentation — Bo Shang"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resilient Intelligent Infrastructure — Research Presentation | Bo Shang, Ph.D.</title>
+  <meta name="description" content="Research presentation slides by Bo Shang, Ph.D. (University of Maryland, M-TRAIL): Resilient Intelligent Infrastructure — Perception, Robots, and Auditable Decisions Across Scales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #0b1622;
+      --navy-900: #0f1e2e;
+      --navy-800: #17354b;
+      --navy-700: #1e3f5a;
+      --paper: #f8fafc;
+      --surface: #ffffff;
+      --teal: #146b74;
+      --teal-hover: #0f545c;
+      --teal-bright: #2dd4bf;
+      --teal-soft: #e6f4f1;
+      --amber-soft: #fef3c7;
+      --amber-border: #d97706;
+      --amber-ink: #92400e;
+      --ink: #0f1e2e;
+      --body: #334155;
+      --muted: #64748b;
+      --rule: #cbd5e1;
+      --light-text: #e2e8f0;
+      --light-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--navy-950);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Top Control Bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 16px;
+      background: var(--navy-900);
+      border-bottom: 1px solid rgba(203, 213, 225, 0.16);
+      color: var(--light-text);
+      flex-shrink: 0;
+      z-index: 30;
+    }
+
+    .topbar-left, .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      color: var(--light-text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border: 1px solid rgba(203, 213, 225, 0.24);
+      border-radius: 4px;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .back-link:hover {
+      background: var(--navy-800);
+      border-color: var(--teal-bright);
+      color: #ffffff;
+    }
+
+    .section-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 6px;
+    }
+
+    .sec-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--light-muted);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 9px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .sec-btn:hover { color: #ffffff; }
+    .sec-btn.active {
+      color: var(--teal-bright);
+      border-bottom-color: var(--teal-bright);
+      font-weight: 600;
+    }
+
+    .tool-btn, .dl-btn {
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .tool-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--light-text);
+      border: 1px solid rgba(203, 213, 225, 0.2);
+    }
+    .tool-btn:hover, .tool-btn.active {
+      background: var(--navy-800);
+      border-color: var(--teal-bright);
+      color: #ffffff;
+    }
+
+    .dl-btn {
+      background: var(--teal);
+      color: #ffffff;
+      border: 1px solid var(--teal);
+    }
+    .dl-btn:hover {
+      background: var(--teal-hover);
+    }
+    .dl-btn.secondary {
+      background: transparent;
+      border-color: var(--teal-bright);
+      color: var(--teal-bright);
+    }
+    .dl-btn.secondary:hover {
+      background: rgba(45, 212, 191, 0.12);
+    }
+
+    /* Stage Container */
+    .stage-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .deck-viewport {
+      width: min(1280px, 100%, calc((100vh - 132px) * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body.notes-open .deck-viewport {
+      width: min(1280px, 100%, calc((100vh - 252px) * 16 / 9));
+    }
+
+    /* Individual Slides */
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 2.6% 4.2% 2.2%;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-y: auto;
+    }
+    .slide.active {
+      display: flex;
+    }
+
+    .slide.dark {
+      background: var(--navy-900);
+      color: #ffffff;
+      border-left: 10px solid var(--teal-bright);
+      padding-left: calc(4.2% - 2px);
+    }
+
+    /* Slide Header */
+    .s-header {
+      flex-shrink: 0;
+      margin-bottom: 1.4%;
+    }
+    .s-eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .s-eyebrow {
+      font-size: clamp(10px, 0.95vw, 13px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--teal);
+    }
+    .slide.dark .s-eyebrow {
+      color: var(--teal-bright);
+    }
+    .s-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(10px, 0.9vw, 12px);
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .slide.dark .s-counter {
+      color: var(--light-muted);
+    }
+    .s-title {
+      font-size: clamp(18px, 2.05vw, 28px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+    .s-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 110px;
+      height: 3px;
+      background: var(--teal);
+    }
+
+    /* Slide Body Grids */
+    .s-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+      justify-content: center;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1.12fr;
+      gap: 16px;
+      flex: 1;
+      min-height: 0;
+    }
+    .grid-2.equal {
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid-2.narrow-left {
+      grid-template-columns: 0.65fr 1.35fr;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      flex: 1;
+      min-height: 0;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .col-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid var(--teal);
+      padding: 12px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card.soft {
+      background: var(--teal-soft);
+      border-color: #cce7e2;
+    }
+    .card.amber {
+      background: var(--amber-soft);
+      border-color: #fde68a;
+      border-top-color: var(--amber-border);
+    }
+    .card.dark-card {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 3px solid var(--teal-bright);
+      color: var(--light-text);
+    }
+    .card.grow { flex: 1; }
+
+    .card h3 {
+      font-size: clamp(13px, 1.18vw, 16px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .card.amber h3 { color: var(--amber-ink); }
+    .card.dark-card h3 { color: #ffffff; }
+
+    .card p, .card li {
+      font-size: clamp(11.5px, 0.98vw, 13.8px);
+      line-height: 1.42;
+      color: var(--body);
+    }
+    .card.dark-card p, .card.dark-card li {
+      color: var(--light-text);
+    }
+    .card ul, .card ol {
+      padding-left: 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .metric-big {
+      font-size: clamp(16px, 1.55vw, 22px);
+      font-weight: 700;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Figure Containers */
+    .fig-panel {
+      background: var(--surface);
+      border: 1px solid #e2e8f0;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 0;
+      flex: 1;
+    }
+    .fig-panel.dark-fig {
+      background: #141a21;
+      border-color: #2c3540;
+    }
+    .fig-panel img {
+      max-width: 100%;
+      max-height: calc(100% - 24px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      cursor: zoom-in;
+      margin: auto;
+    }
+    .fig-caption {
+      font-size: clamp(10px, 0.84vw, 11.8px);
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .fig-panel.dark-fig .fig-caption {
+      color: var(--light-text);
+    }
+
+    /* Divider & Title Slide Typography */
+    .hero-title {
+      font-size: clamp(22px, 2.8vw, 40px);
+      font-weight: 700;
+      line-height: 1.16;
+      color: #ffffff;
+      max-width: 92%;
+    }
+    .hero-sub {
+      font-size: clamp(13px, 1.32vw, 18.5px);
+      line-height: 1.42;
+      color: var(--light-text);
+      max-width: 88%;
+      margin-top: 10px;
+    }
+    .hero-rule {
+      width: 120px;
+      height: 3px;
+      background: var(--teal-bright);
+      margin: 16px 0;
+    }
+
+    /* Slide Footer */
+    .s-footer {
+      flex-shrink: 0;
+      border-top: 1px solid var(--rule);
+      padding-top: 6px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(9.5px, 0.78vw, 11px);
+      color: var(--muted);
+    }
+    .s-footer a, .slide a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .s-footer a:hover, .slide a:hover {
+      text-decoration: underline;
+    }
+    .slide.dark a {
+      color: var(--teal-bright);
+    }
+
+    /* Bottom Transport Bar */
+    .bottombar {
+      background: var(--navy-900);
+      border-top: 1px solid rgba(203, 213, 225, 0.16);
+      color: var(--light-text);
+      flex-shrink: 0;
+      z-index: 25;
+    }
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--teal-bright);
+      width: 3.57%;
+      transition: width 0.2s ease;
+    }
+    .transport-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 18px;
+      font-size: 12.5px;
+    }
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(203,213,225,0.22);
+      color: #ffffff;
+      padding: 4px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--navy-800);
+      border-color: var(--teal-bright);
+    }
+    .nav-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .slide-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: var(--light-text);
+      min-width: 72px;
+      text-align: center;
+    }
+    .kbd-hint {
+      color: var(--light-muted);
+      font-size: 11.5px;
+    }
+
+    /* Speaker Notes Drawer */
+    .notes-drawer {
+      display: none;
+      background: #122436;
+      border-top: 1px solid rgba(45, 212, 191, 0.3);
+      padding: 12px 24px;
+      color: var(--light-text);
+      height: 112px;
+      overflow-y: auto;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    body.notes-open .notes-drawer {
+      display: block;
+    }
+    .notes-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--teal-bright);
+      margin-bottom: 4px;
+    }
+
+    /* Overview Grid Modal */
+    .grid-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 22, 34, 0.94);
+      z-index: 60;
+      padding: 28px 36px;
+      overflow-y: auto;
+    }
+    .grid-modal.open { display: block; }
+    .grid-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .overview-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .ov-item {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 4px;
+      padding: 12px 14px;
+      cursor: pointer;
+      color: var(--light-text);
+      text-align: left;
+      transition: border-color 0.15s, transform 0.12s;
+    }
+    .ov-item:hover, .ov-item.current {
+      border-color: var(--teal-bright);
+      transform: translateY(-2px);
+    }
+    .ov-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--teal-bright);
+      margin-bottom: 4px;
+    }
+    .ov-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 15, 24, 0.92);
+      z-index: 80;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 94vw;
+      max-height: 90vh;
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    /* Responsive Mobile Fallback */
+    @media (max-width: 960px) {
+      .section-nav, .kbd-hint { display: none; }
+      body { overflow: auto; }
+      .stage-wrap { padding: 10px; align-items: flex-start; overflow: visible; }
+      .deck-viewport {
+        width: 100%;
+        aspect-ratio: auto;
+        min-height: calc(100vh - 130px);
+      }
+      .slide { padding: 18px; gap: 14px; }
+      .grid-2, .grid-2.equal, .grid-2.narrow-left, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body { background: #ffffff; overflow: visible; height: auto; }
+      .topbar, .bottombar, .notes-drawer, .grid-modal, .lightbox { display: none !important; }
+      .stage-wrap { padding: 0; display: block; }
+      .deck-viewport { width: 100%; box-shadow: none; aspect-ratio: auto; }
+      .slide {
+        display: flex !important;
+        page-break-after: always;
+        min-height: 95vh;
+        border: 1px solid #cbd5e1;
+        margin-bottom: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <a class="back-link" href="/">← CV &amp; Home</a>
+      <nav class="section-nav" aria-label="Presentation sections">
+        <button class="sec-btn active" data-goto="1">Vision</button>
+        <button class="sec-btn" data-goto="4">I · Micro</button>
+        <button class="sec-btn" data-goto="11">II · Meso</button>
+        <button class="sec-btn" data-goto="16">III · Macro</button>
+        <button class="sec-btn" data-goto="20">IV · City &amp; CERRA</button>
+        <button class="sec-btn" data-goto="24">V · Agenda &amp; Teaching</button>
+      </nav>
+    </div>
+    <div class="topbar-right">
+      <button class="tool-btn" id="btn-grid" title="Slide Overview (G)">Grid (G)</button>
+      <button class="tool-btn" id="btn-notes" title="Toggle Speaker Notes (N)">Notes (N)</button>
+      <button class="tool-btn" id="btn-fs" title="Toggle Fullscreen (F)">Fullscreen</button>
+      <a class="dl-btn" href="/assets/slides/Bo_Shang_Research_Slides.pdf" download>Download PDF</a>
+      <a class="dl-btn secondary" href="/assets/slides/Bo_Shang_Research_Slides.pptx" download>PPTX</a>
+    </div>
+  </header>
+
+  <main class="stage-wrap">
+    <div class="deck-viewport" id="deck">
+
+      <!-- SLIDE 1 -->
+      <section class="slide dark active" data-section="1" data-title="Title — Resilient Intelligent Infrastructure" data-notes="Welcome and introduction. Frame the central question of my work: how physical infrastructure—bridges, intersections, highways, and urban networks—can perceive itself and turn multimodal sensor observations into engineering decisions that public agencies can audit and trust.">
+        <div>
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">Research Seminar · November 2026</span>
+            <span class="s-counter">01 / 28</span>
+          </div>
+        </div>
+        <div style="margin: auto 0;">
+          <h1 class="hero-title">Resilient Intelligent Infrastructure:<br>Perception, Robots, and Auditable Decisions Across Scales</h1>
+          <p class="hero-sub">Connecting Physics-Grounded Field Robotics, Cooperative Roadside LiDAR, and Source-Traced Geospatial AI with Public Agencies</p>
+          <div class="hero-rule"></div>
+          <div class="card dark-card" style="max-width: 780px; padding: 16px 20px;">
+            <h3 style="font-size: clamp(16px, 1.5vw, 21px);">Bo Shang, Ph.D.</h3>
+            <p>Postdoctoral Associate · Department of Civil &amp; Environmental Engineering<br>
+            Maryland Transportation Institute (M-TRAIL), University of Maryland, College Park<br>
+            <a href="mailto:bshang@umd.edu">bshang@umd.edu</a> &nbsp;·&nbsp; <a href="https://cnpcshangbo.github.io/">cnpcshangbo.github.io</a></p>
+          </div>
+        </div>
+        <div></div>
+      </section>
+
+      <!-- SLIDE 2 -->
+      <section class="slide" data-section="1" data-title="Vision — How Can the Built Environment Perceive Itself?" data-notes="Walk through the three physical scales shown in the figure—Macro (highway corridors via InfraLiDAR-Eval), Meso (urban intersections via PACO), and Micro (bridge girders and concrete columns via BIRDS and robotic defect analytics)—and how they feed the city-scale decision layer on CERRA at UMD.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Vision &amp; Unifying Framework</span><span class="s-counter">02 / 28</span></div>
+          <h2 class="s-title">How Can the Built Environment Perceive Itself Across Scales?</h2>
+        </div>
+        <div class="s-body">
+          <div class="card" style="padding: 9px 14px;">
+            <p><strong>Core Question:</strong> At every spatial scale—from a steel bridge girder (~m) to an urban intersection (~100 m), a highway corridor (~km), and a city network—what can be observed, where do sensors fail, and what decisions become auditable?</p>
+          </div>
+          <div class="fig-panel">
+            <img src="/assets/slides/img/fig_three_scales.png" alt="Three scales of intelligent infrastructure: Macro InfraLiDAR-Eval, Meso PACO (0.37 / 0.61 / 1.00), and Micro Embodied Robotics">
+          </div>
+          <div class="card soft" style="padding: 8px 14px;">
+            <p><strong>City &amp; Network Synthesis (UMD M-TRAIL):</strong> Fixed sensors provide persistent macro/meso observability; embodied robots provide micro-scale physical access; CERRA + LLM-SUMO + feasibility-preserving optimization turn evidence into agency decisions.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Deployed and evaluated with U.S. DOT UTCs, PHMSA, NYSDOT / NYC DOT, and Maryland Transportation Institute</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 3 -->
+      <section class="slide" data-section="1" data-title="Research Trajectory & Seminar Outline" data-notes="Summarize how each appointment added one layer of capability without abandoning the physical foundation: control margin at UC Merced/NEU, aerial-contact mechanisms at Missouri S&T, 3D defect analytics and roadside LiDAR with NYC agencies at CCNY, and city-scale geospatial decision systems at Maryland.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Research Trajectory &amp; Seminar Outline</span><span class="s-counter">03 / 28</span></div>
+          <h2 class="s-title">From Physics-Grounded Flight Control to Multi-Scale Infrastructure AI</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-4">
+            <div class="card">
+              <h3>1. Ph.D. &amp; UC Merced</h3>
+              <p><strong>2013 – 2020</strong></p>
+              <ul>
+                <li>Fractional-order UAV visual servoing (<em>Nonlinear Dynamics</em> '19)</li>
+                <li>Sampling-period margin analysis (<em>ASME IDETC</em> '17)</li>
+                <li>SmartCaveDrone 3D cave mapping (<em>ICUAS</em> '17)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>2. Missouri S&amp;T Postdoc</h3>
+              <p><strong>2020 – 2022</strong></p>
+              <ul>
+                <li>BIRDS flying + clamping bridge inspection robot</li>
+                <li>U.S. Patent 12,296,994 B2 ('25)</li>
+                <li>ASCE 2025 Charles Pankow Award team</li>
+                <li>INSPIRE-024 &amp; PHMSA deliverables</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>3. CCNY / CUNY Postdoc</h3>
+              <p><strong>2022 – 2026</strong></p>
+              <ul>
+                <li>Concrete defect robot + 3D mesh (<em>IEEE T-ASE</em> '25 / <em>IROS</em> '25)</li>
+                <li>PACO &amp; safety auditing (<em>CVPRW</em> '26, <em>MobiSPC</em> '25)</li>
+                <li>Street View freight AI (<em>IEEE OJ-ITS</em> '26)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>4. UMD M-TRAIL Postdoc</h3>
+              <p><strong>Jul 2026 – Present</strong></p>
+              <ul>
+                <li>Build &amp; operate CERRA geospatial AI platform</li>
+                <li>Integrate LLM-SUMO digital twin (Oct '26)</li>
+                <li>PAR auditability standard &amp; IBM Heron VRP validation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card soft">
+            <h3>Seminar Roadmap</h3>
+            <p><strong>Part I: Micro-Scale (~m)</strong> — Fractional-Order UAV Control, BIRDS Flying-Clamping Robot, &amp; CCNY Concrete Defect Analytics<br>
+            <strong>Part II: Meso-Scale (~100 m)</strong> — PACO Cooperative Observability (0.37 / 0.61 / 1.00) &amp; CVPRW '26 Safety Auditing<br>
+            <strong>Part III &amp; IV: Macro (~km) &amp; City Scale</strong> — InfraLiDAR-Eval (61.9 h), IEEE OJ-ITS Freight, CERRA, LLM-SUMO &amp; Quantum VRP &nbsp;·&nbsp; <strong>Part V:</strong> 5-Year Agenda &amp; Teaching</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Education: Ph.D. &amp; M.Eng. Pattern Recognition &amp; Intelligent Systems, B.Eng. Automation (Northeastern Univ.); CSC Visiting Researcher at UC Merced</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 4 -->
+      <section class="slide dark" data-section="4" data-title="Part I — Micro-Scale (~ m)" data-notes="Transition into Part I (Micro-scale). Emphasize that reliable inspection starts with flight stability under visual latency and extends to distinct robotic platforms built at Missouri S&T (BIRDS) and CUNY (concrete defect analytics).">
+        <div class="s-eyebrow-row"><span class="s-eyebrow">Part I · Micro-Scale (~ m)</span><span class="s-counter">04 / 28</span></div>
+        <div>
+          <h2 class="hero-title">Physics-Grounded Control &amp; Embodied Inspection Robots</h2>
+          <p class="hero-sub">Operating under bridges, near concrete columns, and on steel girders where GPS is denied, sampling periods fluctuate, and inspectors need quantitative 3D evidence.</p>
+        </div>
+        <div class="grid-3" style="flex: 0 0 auto;">
+          <div class="card dark-card">
+            <div class="metric-big">0.933 s vs 0.546 s</div>
+            <p>Max stable vision sampling period: FOPD vs. IOPID (+71%)</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">U.S. Pat. 12,296,994</div>
+            <p>BIRDS flight + surface-traverse bridge robot (ASCE Pankow '25)</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">IEEE T-ASE / IROS '25</div>
+            <p>Concrete defect robot, AWS CNN &amp; 3D mesh localization</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 -->
+      <section class="slide" data-section="4" data-title="Fractional-Order Visual Servoing Control of Quadrotor UAS" data-notes="Explain the control root of my dissertation: a quadrotor hovering via downward vision has airframe physics and camera latency directly in the loop. Shaping a flat phase curve at crossover yields iso-damping robustness.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part I · Micro-Scale · Control Foundation</span><span class="s-counter">05 / 28</span></div>
+          <h2 class="s-title">Fractional-Order Visual Servoing Control of Quadrotor UAS</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+            <div class="col-stack">
+              <div class="card grow">
+                <h3>Why Visual Servoing Breaks Near Structures</h3>
+                <ul>
+                  <li>Under-bridge flight denies GPS and introduces aerodynamic turbulence &amp; wind gusts.</li>
+                  <li>Onboard vision processing creates larger, variable sampling periods that destabilize integer-order PID loops.</li>
+                  <li>Target loss from camera FOV causes immediate mission failure.</li>
+                </ul>
+              </div>
+              <div class="card soft grow">
+                <h3>Iso-Damping Fractional-Order Design (FOPD)</h3>
+                <ul>
+                  <li>Extends derivative/integral action to real orders (&lambda;, &mu;), enforcing zero phase slope at gain crossover: <code>d arg G(j&omega;)/d&omega; = 0</code>.</li>
+                  <li>Built reproducible Simscape &amp; OS4 benchmarks plus custom Pixhawk + embedded Linux + ground HSV tuning stack.</li>
+                  <li>Extended to RGB-D cave SLAM in <em>SmartCaveDrone</em> (ICUAS '17).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/uav_servoing_hw.png" alt="Quadrotor hardware architecture with Pixhawk, Odroid embedded Linux, downward camera, and ground station">
+              <div class="fig-caption">Experimental Quadrotor Visual Servoing Architecture (Pixhawk + Odroid Linux + Ground HSV Calibration)</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Shang et al., <a href="https://doi.org/10.1007/s11071-019-05009-w" target="_blank" rel="noopener">Nonlinear Dynamics (2019)</a>; ICUAS (2016); ICARCV (2018); Zhang, Shang et al., ICUAS (2017)</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 6 -->
+      <section class="slide" data-section="4" data-title="Sampling-Period Tolerance & Gain-Invariance" data-notes="Point to panel (a) at h = 0.58 s: the integer-order PID controller approaches instability with huge oscillations, whereas the fractional-order controller maintains stable settling because its maximum tolerable sampling period reaches 0.933 s.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part I · Micro-Scale · Experimental Validation</span><span class="s-counter">06 / 28</span></div>
+          <h2 class="s-title">Sampling-Period Tolerance &amp; Gain-Invariance Under Vision Latency</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+            <div class="col-stack">
+              <div class="card grow">
+                <h3>0.933 s vs. 0.546 s (+71%)</h3>
+                <p>Maximum stable sampling period achieved by FOPD vs. integer-order PID (ASME IDETC 2017), tolerating lower-rate onboard vision.</p>
+              </div>
+              <div class="card grow">
+                <h3>20% Flight Error Reduction</h3>
+                <p>Outdoor and indoor precision hovering experiments showed 20% lower tracking error and flatter ITAE growth across sampling periods.</p>
+              </div>
+              <div class="card amber grow">
+                <h3>Design Principle Carried Forward</h3>
+                <p>Sampling period, sensor geometry, and actuation margin are explicit design inputs—not noise to be averaged away downstream.</p>
+              </div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/fopd_step_response.png" alt="Step response comparison across sampling periods h = 0.058 s to 0.58 s for FOPD and IOPID">
+              <div class="fig-caption">Step Response Across Sampling Periods h = 0.058 s to 0.58 s: IOPID Oscillates at 0.58 s While FOPD Stays Damped</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Shang et al., <a href="https://doi.org/10.1007/s11071-019-05009-w" target="_blank" rel="noopener">Nonlinear Dynamics (2019)</a>; <a href="https://doi.org/10.1115/DETC2017-68216" target="_blank" rel="noopener">ASME IDETC/CIE (2017 &amp; 2019)</a></span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 7 -->
+      <section class="slide" data-section="4" data-title="BIRDS: Hybrid Flying & Surface-Traversing Bridge Inspection Robot" data-notes="Introduce BIRDS from my postdoctoral fellowship at Missouri S&T under the INSPIRE UTC. Clarify that BIRDS's archival record is U.S. Patent 12,296,994 B2 and federal final reports, and the project won the 2025 ASCE Charles Pankow Award for Innovation.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part I · Micro-Scale · Aerial-Contact Robotics (Missouri S&amp;T)</span><span class="s-counter">07 / 28</span></div>
+          <h2 class="s-title">BIRDS: Hybrid Flying &amp; Surface-Traversing Bridge Inspection Robot</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+            <div class="col-stack">
+              <div class="card grow">
+                <h3>Operational Motivation &amp; System Concept</h3>
+                <ul>
+                  <li>42% of U.S. bridges are 50+ years old; snooper trucks block lanes and free-flying UAVs drain batteries fighting under-deck wind.</li>
+                  <li>BIRDS flies into position, clamps onto an I-girder bottom flange, shuts down rotors, and wheels along the beam for close-range sensing.</li>
+                </ul>
+              </div>
+              <div class="card soft grow">
+                <h3>Patented Hardware &amp; National Recognition</h3>
+                <ul>
+                  <li>Co-inventor: <strong>U.S. Patent 12,296,994 B2</strong> (granted May 2025).</li>
+                  <li>Selected for the <strong>ASCE 2025 Charles Pankow Award for Innovation</strong> (Missouri S&amp;T, PI: Prof. Genda Chen).</li>
+                  <li>Documented in INSPIRE-024 Final Report (2024) &amp; PHMSA CAAP Pipeline Robotics Report (2022).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/birds_system_arch.png" alt="BIRDS dual flying and clamping-traversing subsystem architecture">
+              <div class="fig-caption">BIRDS Dual-Subsystem Architecture: Pixhawk + Onboard Depth Vision + TI Tiva-C Clamping &amp; Traversal Controller</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Chen, Reven, Shang et al., <a href="https://patents.google.com/patent/US12296994B2/en" target="_blank" rel="noopener">U.S. Patent 12,296,994 B2 (2025)</a>; <a href="https://scholarsmine.mst.edu/project_sn-2/1/" target="_blank" rel="noopener">INSPIRE-024 Final Report (2024)</a></span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 8 -->
+      <section class="slide" data-section="4" data-title="BIRDS Non-GPS Girder Detection & Clamping" data-notes="Show the experimental progression: depth-camera girder centerline and vertical distance estimation on the left, triggering fast 1.3-second clamping, followed by motorized traversal along the girder on the right.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part I · Micro-Scale · BIRDS Perception &amp; Perching</span><span class="s-counter">08 / 28</span></div>
+          <h2 class="s-title">Non-GPS Girder Detection, Asymmetric Clamping &amp; Flange Traversal</h2>
+        </div>
+        <div class="s-body">
+          <div class="card">
+            <h3>Edge Guidance &amp; Perching Mechanics (ROS · NVIDIA Jetson · Raspberry Pi)</h3>
+            <ul>
+              <li><strong>RGB-D Girder Perception:</strong> Segments steel I-girder flange edges, centerline, heading, and vertical clearance onboard without GPS; paired with CFD ceiling-effect analysis (IWSHM '21).</li>
+              <li><strong>Safety-Asymmetric Clamping:</strong> Closes in 1.3 s upon reaching contact clearance threshold to secure attachment under wind sway, with 8.5 s controlled release and wheeled flange traversal.</li>
+            </ul>
+          </div>
+          <div class="grid-2 equal">
+            <div class="fig-panel">
+              <img src="/assets/slides/img/birds_girder_detection.jpg" alt="Onboard RGB-D girder centerline and vertical distance detection">
+              <div class="fig-caption">Onboard RGB-D Girder Centerline &amp; Clearance Detection</div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/birds_traversing.jpg" alt="BIRDS clamped onto steel I-girder specimen and traversing">
+              <div class="fig-caption">Clamped Prototype Traversing Along I-Girder Specimen</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Jiao, Shang, Li &amp; Chen, <a href="https://doi.org/10.12783/shm2021/36324" target="_blank" rel="noopener">IWSHM (2021)</a>; Shang et al., INSPIRE-UTC (2020, 2021); 8WCSCM (2022)</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 9 -->
+      <section class="slide" data-section="4" data-title="CCNY Concrete Defect Analytics & 3D Localization" data-notes="Emphasize clearly that this concrete-infrastructure inspection robot at CUNY is a separate project from BIRDS. Here I developed CNN-based defect analytics on AWS, WebODM 3D registration, and the iOS robot control interface, published in IEEE T-ASE 2025 and presented at IROS 2025.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part I · Micro-Scale · Concrete Defect Analytics (CCNY)</span><span class="s-counter">09 / 28</span></div>
+          <h2 class="s-title">Robotic Inspection &amp; 3D Structural Defect Localization</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+            <div class="col-stack">
+              <div class="card grow">
+                <h3>Separate CUNY Climbing-Robot Workflow</h3>
+                <ul>
+                  <li>Developed at CCNY Robotics Lab (with J. Feng &amp; Prof. J. Xiao)—distinct robot and codebase from BIRDS.</li>
+                  <li>Built custom iOS operator app for climbing-robot control and live field inspection review.</li>
+                  <li>Streams imagery to AWS for pixel-level CNN segmentation of cracks, spalling, and stains.</li>
+                </ul>
+              </div>
+              <div class="card soft grow">
+                <h3>From 2D Masks to Metric 3D Geometry</h3>
+                <ul>
+                  <li>Registers segmented defects onto WebODM 3D point clouds and meshes.</li>
+                  <li>Skeletonizes crack topology to compute physical crack length and location in structural coordinates.</li>
+                  <li>Published in <strong>IEEE T-ASE (2025)</strong> &amp; presented at <strong>IEEE IROS 2025</strong>.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/tase_crack_pipeline.png" alt="InspectionNet pixel segmentation, 3D point cloud registration, and skeletonized crack length computation">
+              <div class="fig-caption">InspectionNet Pixel Detection &rarr; 3D Point-Cloud Registration &rarr; Skeletonized Metric Crack Length</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Feng, Shang et al., <a href="https://doi.org/10.1109/TASE.2025.3572199" target="_blank" rel="noopener">IEEE Trans. Autom. Sci. Eng., vol. 22 (2025)</a> · Presented at IEEE IROS 2025</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 10 -->
+      <section class="slide" data-section="4" data-title="Structure-Scale 3D Defect Mapping & Multimodal NDT" data-notes="Show how micro-scale perception connects to civil engineering decisions: surface crack topology on full 3D meshes alongside thermal infrared and acoustic impact-echo subsurface assessment.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part I · Micro-Scale · Engineering Evidence</span><span class="s-counter">10 / 28</span></div>
+          <h2 class="s-title">Structure-Scale 3D Defect Mapping &amp; Multimodal NDT Synthesis</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+            <div class="col-stack">
+              <div class="card grow">
+                <h3>Solving the "Thousand-Image" Bottleneck</h3>
+                <ul>
+                  <li>Raw drone and climbing-robot surveys generate thousands of overlapping close-up photos that inspectors cannot audit frame by frame.</li>
+                  <li>Projecting segmented cracks (red) onto a full 3D bridge-column mesh preserves structural context for cycle-over-cycle comparison.</li>
+                </ul>
+              </div>
+              <div class="card soft grow">
+                <h3>Complementary Multimodal NDT Record</h3>
+                <ul>
+                  <li><strong>Thermal IR:</strong> Code-specified passive vs. active thermography for RC deck delamination (<a href="https://doi.org/10.1007/s13349-024-00836-x" target="_blank" rel="noopener">JCSHM, 2025</a>).</li>
+                  <li><strong>Acoustic Impact-Echo:</strong> Contrastive learning for concrete slab defect mapping (<a href="https://doi.org/10.1016/j.conbuildmat.2025.140464" target="_blank" rel="noopener">CBM, 2025</a>).</li>
+                  <li><strong>Aerial NDT&amp;E synthesis</strong> (<a href="https://doi.org/10.32548/2023.me-04286" target="_blank" rel="noopener">Materials Evaluation, 2023</a>).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/tase_column_3d.jpg" alt="Full-scale 3D reconstructed concrete bridge column with localized red crack network">
+              <div class="fig-caption">Full-Scale 3D Bridge Column Mesh with Localized Crack Network Overlay</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Feng, Shang et al., IEEE T-ASE (2025); Zhang, ..., Shang &amp; Chen, JCSHM (2025); Hoxha, ..., Shang et al., CBM (2025)</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 11 -->
+      <section class="slide dark" data-section="11" data-title="Part II — Meso-Scale (~ 100 m)" data-notes="Move up one spatial scale to Meso (~100 m): signalized urban intersections in New York City, where trucks, queues, and crosswalks create severe occlusion hazards for pedestrians and cyclists.">
+        <div class="s-eyebrow-row"><span class="s-eyebrow">Part II · Meso-Scale (~ 100 m)</span><span class="s-counter">11 / 28</span></div>
+        <div>
+          <h2 class="hero-title">Cooperative Intersection Observability &amp; VRU Safety</h2>
+          <p class="hero-sub">Quantifying why vehicle-mounted sensors hit a hard geometric occlusion ceiling in urban intersections—and building auditable roadside LiDAR intelligence.</p>
+        </div>
+        <div class="grid-3" style="flex: 0 0 auto;">
+          <div class="card dark-card">
+            <div class="metric-big">0.37 &rarr; 0.61 &rarr; 1.00</div>
+            <p>PACO scene observability: 120&deg; ADAS vs. 360&deg; AV vs. Roadside V2I</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">40,793 Frames</div>
+            <p>68 min of real multi-class NYC trajectories at 10 Hz</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">n = 180 Near-Misses</div>
+            <p>Auditable zero-margin conflict mapping (CVPRW DriveX '26)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 12 -->
+      <section class="slide" data-section="11" data-title="NYC Urban Intersection Testbed & Portability" data-notes="Highlight the engineering reality of roadside perception: tens of milliseconds of LiDAR-camera clock drift ruin 3D projection, and public agencies deploy diverse beam counts and mounting heights across intersections.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part II · Meso-Scale · Field Sensing Infrastructure</span><span class="s-counter">12 / 28</span></div>
+          <h2 class="s-title">NYC Urban Intersection Testbed &amp; Cross-Configuration Portability</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+            <div class="col-stack">
+              <div class="card grow">
+                <h3>24/7 Multimodal Intersection Deployment</h3>
+                <ul>
+                  <li>Signalized NYC testbed (Convent Ave &amp; W 141st St) equipped with elevated 128-beam Ouster OS1-128 LiDAR, pan-tilt RGB camera, and edge GPU unit.</li>
+                  <li>Captures unoccluded oblique 3D trajectories of vehicles, cyclists, and pedestrians unaffected by nighttime glare or shadows.</li>
+                </ul>
+              </div>
+              <div class="card soft grow">
+                <h3>Sensor Synchronization &amp; Beam-Count Scaling</h3>
+                <ul>
+                  <li>Engineered clock-drift synchronization, 2D–3D extrinsic calibration, background subtraction, and site-portable config layers.</li>
+                  <li>Quantified how LiDAR beam count (128 &rarr; sparser units) governs VRU detection recall (<a href="https://doi.org/10.1016/j.procs.2025.07.177" target="_blank" rel="noopener">MobiSPC '25</a>; U.S. DOT Report DOT 91974).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/ccny_intersection_testbed.jpg" alt="Elevated Ouster OS1-128 LiDAR, ground-truth camera, and GPU edge box in New York City">
+              <div class="fig-caption">Elevated Ouster OS1-128 LiDAR, Ground-Truth Camera &amp; Edge GPU Box in NYC</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Shang et al., <a href="https://doi.org/10.1016/j.procs.2025.07.163" target="_blank" rel="noopener">MobiSPC (2025a, 2025b)</a>; Li, Shang et al., <a href="https://rosap.ntl.bts.gov/view/dot/91974" target="_blank" rel="noopener">U.S. DOT UTC Report DOT 91974 (May 2026)</a></span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 13 -->
+      <section class="slide" data-section="11" data-title="PACO: Parametric Assessment of Cooperative Observability" data-notes="Explain how PACO works: using 40,793 frames of real NYC traffic, we instantiate onboard sensors on every approaching vehicle, compute exact angular-wedge occlusion shadows cast by trucks and queues, and measure what cooperative V2I restores.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part II · Meso-Scale · Geometric Observability</span><span class="s-counter">13 / 28</span></div>
+          <h2 class="s-title">PACO: Parametric Assessment of Cooperative Observability</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+            <div class="col-stack">
+              <div class="card grow">
+                <h3>5-Stage Parametric Evaluation Pipeline</h3>
+                <ol>
+                  <li><strong>Ego Instantiation:</strong> Place virtual onboard sensors on real vehicle trajectories.</li>
+                  <li><strong>Sensor Coverage:</strong> Compute parametric horizontal FOV &amp; range sectors.</li>
+                  <li><strong>Occlusion Resolution:</strong> Ray-tracing-free angular-wedge shadow model.</li>
+                  <li><strong>Cooperative Augmentation:</strong> Fuse ego + elevated roadside V2I LOS.</li>
+                  <li><strong>Multi-Scope Metrics:</strong> Scene-wide vs. active conflict-partner recall.</li>
+                </ol>
+              </div>
+              <div class="card soft grow">
+                <h3>Empirical Trajectory Foundation</h3>
+                <ul>
+                  <li>Driven by 68 minutes (40,793 frames at 10 Hz) of dense multi-class NYC intersection trajectories.</li>
+                  <li>Evaluates exact line-of-sight geometry rather than synthetic empty-road assumptions.</li>
+                  <li>Accepted at TRB Annual Meeting; in preparation for <em>IEEE T-ITS</em>.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="fig-panel dark-fig">
+              <img src="/assets/slides/img/v2i_occlusion_shadow.png" alt="Angular-wedge occlusion model showing elevated roadside LiDAR resolving truck occlusion shadow" style="background: transparent;">
+              <div class="fig-caption">Angular-Wedge Shadow Model: Elevated Roadside LiDAR Sees Into Truck Occlusion Cone</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Shang &amp; Li, <a href="https://doi.org/10.2139/ssrn.6867604" target="_blank" rel="noopener">SSRN 6867604 (2026)</a> · Accepted at TRB Annual Meeting</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 14 -->
+      <section class="slide" data-section="11" data-title="PACO Finding — Occlusion Is the Binding Constraint" data-notes="Walk through the settled numbers carefully: 120-degree ADAS observes 0.37 of the scene (41% of conflict partners), 360-degree AV reaches 0.61 (97% of conflict partners), and elevated V2I achieves 1.00 (100%). Adding more onboard cameras/LiDARs cannot see through a box truck—infrastructure sensing is geometrically necessary.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part II · Meso-Scale · Key Quantitative Finding</span><span class="s-counter">14 / 28</span></div>
+          <h2 class="s-title">The Observability Gap: Occlusion—Not FOV—Is the Binding Constraint</h2>
+        </div>
+        <div class="s-body">
+          <div class="fig-panel">
+            <img src="/assets/slides/img/paco_observability_chart.png" alt="PACO observability bar chart: 0.37 ADAS, 0.61 AV, 1.00 Roadside V2I, and occluded objects rising from 1.7 to 3.3 per frame">
+          </div>
+          <div class="card soft" style="padding: 10px 15px;">
+            <p><strong>Mathematical Necessity of Infrastructure Sensing:</strong> Expanding vehicle FOV from 120&deg; ADAS (<strong>0.37</strong>) to 360&deg; AV (<strong>0.61</strong>) still leaves 39% of the intersection scene unobservable—and occluded objects double from <strong>1.7 to 3.3 per frame</strong>. Only elevated V2I LiDAR closes the gap to <strong>1.00</strong>.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Shang &amp; Li, <a href="https://doi.org/10.2139/ssrn.6867604" target="_blank" rel="noopener">PACO Framework (SSRN 6867604; TRB Annual Meeting)</a> · Calibrated vertical-LOS observability metrics</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 15 -->
+      <section class="slide" data-section="11" data-title="CVPRW DriveX 2026 — Auditable Safety Auditing" data-notes="Present our CVPR 2026 DriveX Workshop paper: instead of waiting years for crash statistics, elevated LiDAR acts as an independent ground-truth safety auditor, mapping 180 zero-margin near-misses and separating true longitudinal collision risk from lateral pass-by intrusion.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part II · Meso-Scale · CVPR Workshops (DriveX 2026)</span><span class="s-counter">15 / 28</span></div>
+          <h2 class="s-title">Auditable Cooperative Safety Auditing at Urban Intersections</h2>
+        </div>
+        <div class="s-body">
+          <div class="card">
+            <h3>From Raw Point Clouds to Auditable Near-Miss Evidence</h3>
+            <ul>
+              <li>Stabilizes fine-tuned CenterPoint 3D tracks with dynamics-aware Kalman smoothing and human-in-the-loop QA to audit cooperative V2X safety.</li>
+              <li>Isolates <strong>n = 180 zero-margin near-miss events</strong> at crosswalk/turn hotspots; distinguishes benign lateral proximity from sub-second longitudinal collision risk (TTC &approx; 1.08 s valley in heavy-truck vs. bicycle conflict).</li>
+            </ul>
+          </div>
+          <div class="grid-2 equal">
+            <div class="fig-panel">
+              <img src="/assets/slides/img/cvprw_heatmap.png" alt="Spatial heatmap of 180 selected zero-margin near-miss conflicts at urban intersection">
+              <div class="fig-caption">Near-Miss Spatial Heatmap (n = 180 Zero-Margin Conflicts)</div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/cvprw_trajectory.png" alt="Heavy-truck vs bicycle trajectory interaction and spatial bounding boxes">
+              <div class="fig-caption">Heavy-Truck vs. Bicycle Trajectory &amp; TTC Audit Case</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Shang &amp; Li, Proc. IEEE/CVF CVPR Workshops (DriveX), pp. 757–765 (2026) · <a href="https://arxiv.org/abs/2604.10419" target="_blank" rel="noopener">arXiv:2604.10419</a></span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 16 -->
+      <section class="slide dark" data-section="16" data-title="Part III — Macro-Scale (~ km)" data-notes="Move to Macro-scale (~km): continuous highway monitoring on I-95 with NYSDOT and city-wide urban freight characterization.">
+        <div class="s-eyebrow-row"><span class="s-eyebrow">Part III · Macro-Scale (~ km)</span><span class="s-counter">16 / 28</span></div>
+        <div>
+          <h2 class="hero-title">Continuous Highway Sensing &amp; Scalable Urban Freight</h2>
+          <p class="hero-sub">Why moving-vehicle benchmarks fail on stationary elevated highway sensors—and how domain-specific LiDAR and Street View pipelines scale across corridors.</p>
+        </div>
+        <div class="grid-3" style="flex: 0 0 auto;">
+          <div class="card dark-card">
+            <div class="metric-big">90.1% vs. 72.9%</div>
+            <p>I-95 crossing recovery: fixed-sensor pipeline vs. ego detector</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">61.9 Hours</div>
+            <p>InfraLiDAR-Eval continuous dataset across 743 raw sessions</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">IEEE OJ-ITS 2026</div>
+            <p>City-scale fine-grained truck sensing from Street View + VLMs</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 17 -->
+      <section class="slide" data-section="16" data-title="I-95 Field Deployment & Ego-Detector Domain Gap" data-notes="Left: our actual pole-mounted LiDAR, camera, PoE, edge processing unit, and cellular link on I-95 in the Bronx. Top right: pre-trained ego-centric detectors miss 27% of highway crossings (72.9% recall), whereas a geometry-based fixed-sensor pipeline recovers 90.1%.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part III · Macro-Scale · Highway Field Deployment</span><span class="s-counter">17 / 28</span></div>
+          <h2 class="s-title">Why Ego-Centric Driving Benchmarks Do Not Transfer to Fixed Highway LiDAR</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 narrow-left">
+            <div class="fig-panel">
+              <img src="/assets/slides/img/nysdot_i95_setup.jpg" alt="NYSDOT I-95 Bronx roadside LiDAR, camera, PoE injector, edge unit, and cellular link">
+              <div class="fig-caption">NYSDOT I-95 @ Jerome Ave (Bronx): Fixed LiDAR + Camera + Edge + Cellular</div>
+            </div>
+            <div class="col-stack">
+              <div class="fig-panel">
+                <img src="/assets/slides/img/i95_benchmark_chart.png" alt="Comparison chart: 90.1% geometry-based roadside counter vs 72.9% pre-trained ego-centric 3D detector">
+              </div>
+              <div class="card soft">
+                <h3>The Viewpoint Domain Gap (I-95 Permanent Count Station)</h3>
+                <ul>
+                  <li>Ego-centric benchmarks (Waymo, nuScenes) assume ground-level horizontal scans.</li>
+                  <li>Under elevated oblique highway viewing, a pre-trained ego detector recovered only <strong>72.9%</strong> of annotated crossings vs. <strong>90.1%</strong> for our geometry-based roadside pipeline.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>I-95 Westbound @ Jerome Ave (3 travel lanes) · Accepted at Transportation Research Board (TRB) Annual Meeting</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 18 -->
+      <section class="slide" data-section="16" data-title="InfraLiDAR-Eval: 61.9-Hour Pipeline & Failure Taxonomy" data-notes="Explain InfraLiDAR-Eval: across 61.9 hours (743 sessions), multi-frame registration produces crisp Class 9 and Class 11 truck reconstructions when clean, while our diagnostic taxonomy isolates residual ground planes that inflate width and adjacent-lane fragments that inflate length.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part III · Macro-Scale · Continuous Evaluation</span><span class="s-counter">18 / 28</span></div>
+          <h2 class="s-title">InfraLiDAR-Eval: 61.9-Hour Pipeline &amp; Roadside Failure Taxonomy</h2>
+        </div>
+        <div class="s-body">
+          <div class="card">
+            <h3>4-Stage End-to-End Architecture Across 61.9 Hours (743 Raw Roadside Sessions)</h3>
+            <p><strong>1. Raw Ingestion</strong> (lane ROIs &amp; crossing lines) &rarr; <strong>2. Filtering</strong> (strict 0.10 m ground clearance &amp; seeded DBSCAN) &rarr; <strong>3. Cross-Lane Arbitration</strong> (trajectory linking &amp; duplicate suppression) &rarr; <strong>4. Sparse-to-Dense FilterReg Multi-Frame Registration</strong>.</p>
+          </div>
+          <div class="grid-2 equal">
+            <div class="fig-panel dark-fig">
+              <img src="/assets/slides/img/infralidar_crops.png" alt="Clean registered passenger and heavy truck point clouds vs sparse support and merged vehicle failure modes" style="background: transparent;">
+              <div class="fig-caption">Failure Analysis: Residual Ground Planes, Sparse Support &amp; Merged Crops</div>
+            </div>
+            <div class="fig-panel">
+              <img src="/assets/slides/img/lidar_truck_classes.png" alt="Multi-frame registered 3D point clouds of FHWA Class 9 and Class 11 trucks">
+              <div class="fig-caption">Multi-Frame Registered FHWA Class 9 &amp; 11 Trucks</div>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>InfraLiDAR-Eval continuous highway evaluation pipeline · Persistent elevated sensing requires dedicated diagnostics</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 19 -->
+      <section class="slide" data-section="16" data-title="Drive-By Urban Freight Sensing & Training-Free VLMs" data-notes="Show how our September 2026 IEEE OJ-ITS journal paper complements fixed highway LiDAR with city-wide Street View freight sensing, while our 2026 VLM work eliminates costly per-site truck re-labeling.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part III · Macro-Scale · Scalable Freight Intelligence</span><span class="s-counter">19 / 28</span></div>
+          <h2 class="s-title">Drive-By Urban Freight Sensing &amp; Training-Free VLM Classification</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+            <div class="card">
+              <h3>Drive-By Urban Freight Sensing (IEEE OJ-ITS 2026)</h3>
+              <ul>
+                <li>Fixed sensors cover key corridors, but freight planners also need city-wide curb and arterial truck distributions without installing hardware on every block.</li>
+                <li>Developed a deep-learning pipeline for large-scale, fine-grained truck body classification from Google Street View imagery.</li>
+                <li>Turns opportunistic street-level imagery into scalable freight exposure maps across urban neighborhoods (open access, Sept 2026).</li>
+              </ul>
+            </div>
+            <div class="card soft">
+              <h3>Bridging the LiDAR Modality Gap with VLMs</h3>
+              <ul>
+                <li>Re-annotating 3D bounding boxes and FHWA truck classes for every new roadside LiDAR geometry is a major deployment bottleneck.</li>
+                <li>Co-developed training-free and few-shot Vision-Language Model (VLM) frameworks (<a href="https://arxiv.org/abs/2602.09425" target="_blank" rel="noopener">arXiv:2602.09425</a>; TRB 2026) that project 3D roadside point clouds into structured visual views.</li>
+                <li>Enables zero/few-shot vehicle &amp; truck classification across new sensor configurations.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Macro-Scale Synthesis</h3>
+            <p>Combines high-frequency 24/7 corridor depth on highways (InfraLiDAR-Eval) with city-wide spatial breadth (Street View freight sensing) and low-annotation cross-site transfer (VLM point-cloud classification).</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Shang &amp; Li, <a href="https://doi.org/10.1109/OJITS.2026.3706987" target="_blank" rel="noopener">IEEE Open J. Intell. Transp. Syst., vol. 7 (2026)</a>; Li, Shang &amp; Wei, <a href="https://arxiv.org/abs/2602.09425" target="_blank" rel="noopener">arXiv:2602.09425 (2026)</a></span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 20 -->
+      <section class="slide dark" data-section="20" data-title="Part IV — City & Network Scale (UMD M-TRAIL)" data-notes="Move to the City & Network scale at the University of Maryland's Maryland Transportation Institute (under Prof. Xianfeng Yang): how we turn multi-scale infrastructure data into auditable decision systems.">
+        <div class="s-eyebrow-row"><span class="s-eyebrow">Part IV · City &amp; Network Scale (UMD M-TRAIL)</span><span class="s-counter">20 / 28</span></div>
+        <div>
+          <h2 class="hero-title">CERRA Platform, Traffic Digital Twins &amp; Auditable Decisions</h2>
+          <p class="hero-sub">Closing the engineering bottleneck between spatial infrastructure data and agency action—where every AI-assisted study carries traceable sources and physical feasibility guarantees.</p>
+        </div>
+        <div class="grid-3" style="flex: 0 0 auto;">
+          <div class="card dark-card">
+            <div class="metric-big">cerra.cloud</div>
+            <p>Self-service geospatial AI platform built &amp; operated at UMD</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">LLM-SUMO (Oct '26)</div>
+            <p>Plain-language traffic simulation digital twin module</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">IBM Heron (Oct '26)</div>
+            <p>First hardware validation of feasibility-preserving VRP</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 21 -->
+      <section class="slide" data-section="20" data-title="CERRA: Geospatial AI Platform Architecture" data-notes="Be precise about positioning and attribution: CERRA is a university-lab geospatial AI platform built for public-agency workflows, removing the engineering bottleneck between data and reviewable evidence. Credit each collaborative module's authors explicitly while highlighting my role designing, building, and operating the platform and self-service publishing architecture.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part IV · City &amp; Network Scale · Geospatial AI Platform</span><span class="s-counter">21 / 28</span></div>
+          <h2 class="s-title">CERRA: Turning Complex Infrastructure Data into Reviewable Evidence</h2>
+        </div>
+        <div class="s-body">
+          <div class="fig-panel">
+            <img src="/assets/slides/img/cerra_architecture_fig.png" alt="CERRA 3-layer platform architecture: real-world evidence layer, domain modules, and self-service auditable AI interface">
+          </div>
+          <div class="card soft" style="padding: 9px 14px;">
+            <p><strong>Platform Contribution &amp; Collaborative Attribution:</strong> Designed, built, and operated <strong>CERRA</strong> (Civil, Environmental, Road &amp; Resource Analytics, <a href="https://cerra.cloud" target="_blank" rel="noopener">cerra.cloud</a>) including Deploy &amp; Sites self-service publishing—bringing collaborative M-TRAIL tools and datasets (LLM-SUMO by J. Kim; HIN method by Y. Gong / pilot by K. Chai; SHA portal &amp; litter model by L. Cheng's team) into unified operation.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Maryland Transportation and AI Lab (M-TRAIL), University of Maryland · <a href="https://cerra.cloud" target="_blank" rel="noopener">cerra.cloud</a> · Advisor: Prof. Xianfeng Yang</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 22 -->
+      <section class="slide" data-section="20" data-title="LLM-SUMO Traffic Digital Twin & PAR Auditability Standard" data-notes="Clarify the distinction: CERRA is the platform, while LLM-SUMO (authored by Jihoon Kim, ported and integrated via a protected bridge by me) is the traffic-simulation digital twin running inside it. Watching where LLM-generated scenarios succeed and fail directly motivated leading a PAR-style Recommended Practice standard for auditable AI studies.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part IV · City &amp; Network Scale · Simulation &amp; Governance</span><span class="s-counter">22 / 28</span></div>
+          <h2 class="s-title">LLM-SUMO Traffic Digital Twin &amp; Auditable AI Standards</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+            <div class="card">
+              <h3>LLM-SUMO Integration on CERRA (Live Oct 2026)</h3>
+              <ul>
+                <li>CERRA itself is the geospatial platform; inside it, <strong>LLM-SUMO</strong> serves as a working traffic-simulation digital twin.</li>
+                <li>Authored by Jihoon Kim; ported to Linux, connected via a protected execution bridge, packaged as a CERRA module, and operated by Bo Shang.</li>
+                <li>Converts natural-language prompts into calibrated SUMO network scenarios, executes runs, and summarizes traffic impacts for engineers.</li>
+              </ul>
+            </div>
+            <div class="card soft">
+              <h3>Auditable Decision Support &amp; PAR Standard</h3>
+              <ul>
+                <li>Joins empirical before/after corridor records (e.g., 25,024 directional XD speed segments &amp; HIN crash data) with SUMO counterfactuals.</li>
+                <li>Every copilot response must return four elements: <strong>Observed Data + Simulation Result + Explicit Assumptions + Sources</strong>.</li>
+                <li>Observing real failure modes motivated leading a PAR-style Recommended Practice effort on how agencies audit AI-generated traffic studies.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card amber">
+            <h3>Engineering Boundary</h3>
+            <p>AI-driven simulation explores counterfactuals—it does not replace the traffic engineer. A decision or study an operator cannot audit is a decision a public agency will not deploy.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>CERRA LLM-SUMO module (<a href="https://cerra.cloud/llm-sumo" target="_blank" rel="noopener">cerra.cloud/llm-sumo</a>, launched Oct 2026) · PAR-style Recommended Practice evaluation initiative</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 23 -->
+      <section class="slide" data-section="20" data-title="Feasibility-Preserving Routing on IBM Heron & Quantum-Safe V2X" data-notes="State the IBM Heron hardware validation result with complete scientific candor: completed first hardware validation in October 2026 alongside classical GA/SA baselines; at current scale there is no quantum speedup, and the real value is guaranteeing feasible solutions by construction.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part IV · City &amp; Network Scale · Constrained Optimization &amp; Security</span><span class="s-counter">23 / 28</span></div>
+          <h2 class="s-title">Feasibility-Preserving Routing on Quantum Hardware &amp; Quantum-Safe V2X</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+            <div class="card">
+              <h3>Feasibility-Preserving VRP on IBM Heron (Oct 2026)</h3>
+              <ul>
+                <li>Penalty-based QUBO encodings often return infeasible routes when solver noise increases.</li>
+                <li>Formulated vehicle-routing problems in feasibility-preserving encodings and benchmarked them across classical GA/SA solvers, quantum simulators, and an <strong>IBM Heron superconducting processor</strong>.</li>
+                <li><strong>Honest Empirical Finding:</strong> At tested hardware scale, quantum execution shows no advantage over classical baselines; the enduring contribution is the structural feasibility guarantee.</li>
+              </ul>
+            </div>
+            <div class="card soft">
+              <h3>Quantum-Safe V2X Signal Broadcast &amp; Agent Eval</h3>
+              <ul>
+                <li>Evaluates post-quantum cryptographic authentication overhead on roadside SPaT (Signal Phase &amp; Timing) broadcasts so cooperative safety stays trustworthy under strict V2I latency budgets.</li>
+                <li>Applies reproducible evaluation (versioned configs, counterbalanced replay, regression guardrails) to tool-using AI agents—documented in <a href="/posts/2026/09/ai-agent-security-postmortem/">open research notes</a>.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Generalizable Lesson Across Physical &amp; Algorithmic Systems</h3>
+            <p>Problem structure—occlusion geometry at intersections, feasibility encodings in routing, and source provenance in AI—rather than raw compute or sensor count is usually the binding constraint in field deployment.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Current UMD work: IBM Heron QAOA&times;VRP validation (Oct 2026); Quantum-safe SPaT; Reproducible AI agent eval (2026)</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 24 -->
+      <section class="slide dark" data-section="24" data-title="Part V — Next Five Years: Agenda, Teaching & Mentoring" data-notes="Transition to the forward-looking five-year research agenda (clearly marked as proposed future directions), followed by teaching and mentoring.">
+        <div class="s-eyebrow-row"><span class="s-eyebrow">Part V · Next Five Years</span><span class="s-counter">24 / 28</span></div>
+        <div>
+          <h2 class="hero-title">Research Agenda, Teaching &amp; Mentoring</h2>
+          <p class="hero-sub">Advancing deployment-grade field robots, open cooperative-perception benchmarks, and auditable autonomy while training the next generation of engineers.</p>
+        </div>
+        <div class="grid-3" style="flex: 0 0 auto;">
+          <div class="card dark-card">
+            <div class="metric-big">Thrust 1 · Micro</div>
+            <p>Deployment-grade inspection &amp; active-SLAM field robots</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">Thrust 2 · Meso/Macro</div>
+            <p>Network-scale PACO &amp; open InfraLiDAR-Eval suite</p>
+          </div>
+          <div class="card dark-card">
+            <div class="metric-big">Thrust 3 · City/Network</div>
+            <p>Auditable fleet &amp; infrastructure decision systems</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 25 -->
+      <section class="slide" data-section="24" data-title="Five-Year Research Agenda (Proposed)" data-notes="Present the three 5-year thrusts clearly as proposed future work: Thrust 1 extends inspection robotics (including active-SLAM work-zone quadrupeds and rural drone delivery proposals); Thrust 2 scales PACO to networks and opens InfraLiDAR-Eval; Thrust 3 builds auditable scheduling and decision standards on CERRA.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part V · Five-Year Research Agenda (Proposed)</span><span class="s-counter">25 / 28</span></div>
+          <h2 class="s-title">Three Connected Thrusts Across Scales &amp; Target Funding</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+            <div class="card">
+              <h3>Thrust 1 · Micro (Proposed)<br>Deployment-Grade Field Robots</h3>
+              <ul>
+                <li>Combine flight/surface mobility, contact sensing &amp; 3D defect analytics with inspector-in-the-loop reports.</li>
+                <li>Proposals in preparation: quadruped work-zone inspection via active SLAM (cone/barrier localization) &amp; rural medical drone delivery (with MDOT).</li>
+                <li><strong>Milestones:</strong> Multi-structure agency demos &amp; open defect shift benchmark (Yrs 1–3).</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Thrust 2 · Meso &amp; Macro (Proposed)<br>Cooperative Perception &amp; Eval</h3>
+              <ul>
+                <li>Extend PACO from single intersections to sensor networks optimizing multi-RSU placement.</li>
+                <li>Release InfraLiDAR-Eval as an open evaluation suite quantifying operating envelopes under beam loss, weather &amp; GPS denial.</li>
+                <li><strong>Milestones:</strong> Open evaluation suite (Yrs 1–2); municipal field pilot (Yrs 2–4).</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Thrust 3 · City &amp; Network (Proposed)<br>Decisions an Operator Can Audit</h3>
+              <ul>
+                <li>Unify feasibility-preserving fleet/inspection scheduling with calibrated digital twins on CERRA.</li>
+                <li>Establish PAR-style auditability metrics so human operators can inspect, override, and defend AI studies.</li>
+                <li><strong>Milestones:</strong> Autonomous inspection dispatch pilots (Yrs 1–3); transit/logistics routing studies (Yrs 2–5).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card soft">
+            <h3>Funding Roadmap &amp; Agency Translation</h3>
+            <p><strong>Targets:</strong> NSF (CPS, Foundational Research in Robotics, CAREER), U.S. DOT &amp; UTC program, FHWA, PHMSA, and DOE—building directly on co-authored U.S. DOT UTC (2026), INSPIRE-024 (2024), and PHMSA CAAP (2022) federal deliverables.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>All forward directions shown in proposal scope; builds on deployed NYSDOT, NYC DOT, INSPIRE UTC, and UMD M-TRAIL partnerships</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 26 -->
+      <section class="slide" data-section="24" data-title="Teaching & Curriculum" data-notes="Lead with engineering courses taught across Vaughn College (MCE 355 Robotics), CCNY (ENGR 204 Electric Circuits, 4.2/5.0), and UC Merced (Mechatronics and initial UAS lab development), backed by ACUE certification.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part V · Teaching &amp; Curriculum</span><span class="s-counter">26 / 28</span></div>
+          <h2 class="s-title">Classroom &amp; Laboratory Teaching Grounded in Real Robotic Systems</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+            <div class="card">
+              <h3>Multi-Institution Teaching Record</h3>
+              <ul>
+                <li><strong>Vaughn College (2024, Adjunct Faculty &amp; Summer Instructor):</strong><br>
+                MCE 355 (Robotics, Mechanics &amp; Control), SBC 012/014A (Principles of AI / Research-AI), and 5-lecture, 5-lab Summer AI Engineering module.</li>
+                <li><strong>CCNY / CUNY (2023, Adjunct Assistant Professor):</strong><br>
+                ENGR 204 Electric Circuits (mean student evaluation: <strong>4.2 / 5.0</strong>).</li>
+                <li><strong>UC Merced (2016–2017, Lecturer):</strong><br>
+                ME 190 Mechatronics, ME 143 UAS (initial lab development), ME 021 Engineering Computing.</li>
+              </ul>
+            </div>
+            <div class="card soft">
+              <h3>Pedagogy &amp; Proposed Course Offerings</h3>
+              <ul>
+                <li><strong>Pedagogy:</strong> Connect analytical models to hardware-in-the-loop failure modes; credentialed with <strong>ACUE Effective Teaching Certificate (2021)</strong> &amp; <strong>FAA Part 107</strong> Remote Pilot Certificate.</li>
+                <li><strong>Proposed Courses (Adaptable to Department Needs):</strong>
+                  <ol style="margin-top:4px;">
+                    <li>[UG Core] Mechatronics, Controls &amp; Embedded Systems</li>
+                    <li>[UG/Grad] Autonomous Field Robotics &amp; Vision-Based Control</li>
+                    <li>[Graduate] 3D Perception, Cooperative Sensing &amp; Auditable AI for Intelligent Infrastructure</li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Coursework-to-Field Pipeline</h3>
+            <p>Open-source benchmarks (Simscape/OS4 quadrotor suites, InfraLiDAR-Eval crops, SUMO scenarios) bring real sensor datasets directly into student lab assignments and capstone projects.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>ACUE Certificate in Effective College Instruction (2021) · FAA Part 107 sUAS Remote Pilot (2016) · Bilingual AI education builder</span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 27 -->
+      <section class="slide" data-section="24" data-title="Mentoring & Scholarly Summary" data-notes="Summarize student mentorship across public and Hispanic-Serving Institutions and recap the peer-reviewed journal, conference, patent, and federal deliverable record.">
+        <div class="s-header">
+          <div class="s-eyebrow-row"><span class="s-eyebrow">Part V · Mentoring &amp; Scholarly Record</span><span class="s-counter">27 / 28</span></div>
+          <h2 class="s-title">Inclusive Student Mentoring &amp; Verifiable Engineering Impact</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+            <div class="card">
+              <h3>Mentoring &amp; Broadening Participation</h3>
+              <ul>
+                <li><strong>Scoped, Publishable Student Sub-Projects:</strong> Sensor bring-up, calibration toolchains, field campaigns, control benchmarks, and reproducible evaluation harnesses.</li>
+                <li><strong>Proven Track Record in Diverse Classrooms &amp; Labs:</strong> Mentored undergraduate, master's, and high-school researchers at minority-serving and public institutions (Vaughn &gt;85% HSI, CCNY, Missouri S&amp;T).</li>
+                <li><strong>Robotics Outreach:</strong> Coached FIRST Robotics Competition teams (2022) and judged middle/high-school &amp; collegiate VEX Robotics tournaments (2024).</li>
+              </ul>
+            </div>
+            <div class="card soft">
+              <h3>Selected Scholarly &amp; Engineering Outputs</h3>
+              <ul>
+                <li><strong>8 Journal Articles:</strong> <em>IEEE OJ-ITS</em> ('26), <em>IEEE T-ASE</em> ('25, presented at IROS '25), <em>JCSHM</em> ('25), <em>CBM</em> ('25), <em>Materials Evaluation</em> ('23), <em>Nonlinear Dynamics</em> ('19).</li>
+                <li><strong>16 Conference Papers:</strong> <em>IEEE/CVF CVPRW</em> ('26), <em>MobiSPC</em> ('25 &times;2), <em>ICUAS</em> ('16, '17), <em>ICARCV</em> ('18), <em>ASME IDETC</em> ('17, '19).</li>
+                <li><strong>Federal Deliverables:</strong> U.S. DOT UTC DOT 91974 ('26), INSPIRE-024 ('24), PHMSA CAAP ('22).</li>
+                <li><strong>Patents &amp; Honors:</strong> U.S. Patent 12,296,994 B2 ('25), CN Patent 102427464 B; BIRDS selected for <strong>ASCE 2025 Charles Pankow Award</strong>; IARC Best Control &amp; Mission Planning Awards.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <span>Full bibliography: <a href="/publications/">cnpcshangbo.github.io/publications</a> · Academic CV: <a href="/cv/">cnpcshangbo.github.io/cv</a></span>
+          <span>Bo Shang, Ph.D. · UMD M-TRAIL · <a href="mailto:bshang@umd.edu">bshang@umd.edu</a></span>
+        </div>
+      </section>
+
+      <!-- SLIDE 28 -->
+      <section class="slide dark" data-section="24" data-title="Closing — Questions & Collaboration" data-notes="Thank the audience and committee, highlight the three concrete societal payoffs—structures inspected before they fail, streets watched for vulnerable road users, and autonomous decisions operators can audit—and invite questions.">
+        <div class="s-eyebrow-row"><span class="s-eyebrow">Summary &amp; Discussion</span><span class="s-counter">28 / 28</span></div>
+        <h2 class="hero-title" style="font-size: clamp(20px, 2.3vw, 32px);">Resilient Intelligent Infrastructure Across Scales</h2>
+        <div class="grid-3" style="flex: 0 0 auto;">
+          <div class="card dark-card">
+            <h3>Micro (~ m) · Structures</h3>
+            <p>Physics-grounded flight control &amp; dual-mode / climbing robots that inspect bridges and concrete before failure.</p>
+          </div>
+          <div class="card dark-card">
+            <h3>Meso &amp; Macro · Roads</h3>
+            <p>Elevated roadside LiDAR resolving the 0.61 onboard occlusion ceiling (PACO) &amp; 61.9-h continuous corridor analytics.</p>
+          </div>
+          <div class="card dark-card">
+            <h3>City &amp; Network · Decisions</h3>
+            <p>CERRA geospatial AI, LLM-SUMO simulation, and feasibility-preserving optimization that operators can audit.</p>
+          </div>
+        </div>
+        <div class="card dark-card" style="background: var(--navy-700); padding: 16px 20px;">
+          <h3 style="font-size: clamp(16px, 1.45vw, 20px);">Thank You · Questions &amp; Collaboration</h3>
+          <p><strong>Bo Shang, Ph.D.</strong> · Postdoctoral Associate, University of Maryland (CEE &amp; M-TRAIL)<br>
+          Email: <a href="mailto:bshang@umd.edu">bshang@umd.edu</a> &nbsp;·&nbsp;
+          Academic CV: <a href="/cv/">/cv/</a> &nbsp;·&nbsp;
+          Research Scientist Resume: <a href="/cv/research/">/cv/research/</a> &nbsp;·&nbsp;
+          Download: <a href="/assets/slides/Bo_Shang_Research_Slides.pdf" download>PDF</a> / <a href="/assets/slides/Bo_Shang_Research_Slides.pptx" download>PPTX</a></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <aside class="notes-drawer" id="notes-drawer" aria-live="polite">
+    <div class="notes-label">Speaker Notes</div>
+    <div id="notes-text"></div>
+  </aside>
+
+  <footer class="bottombar">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="transport-row">
+      <div class="nav-controls">
+        <button class="nav-btn" id="btn-prev" aria-label="Previous slide">&larr; Prev</button>
+        <span class="slide-indicator" id="slide-indicator">01 / 28</span>
+        <button class="nav-btn" id="btn-next" aria-label="Next slide">Next &rarr;</button>
+      </div>
+      <div class="kbd-hint">Keys: &larr; / &rarr; / Space &nbsp;·&nbsp; G Grid &nbsp;·&nbsp; N Notes &nbsp;·&nbsp; F Fullscreen &nbsp;·&nbsp; Click figure to zoom</div>
+    </div>
+  </footer>
+
+  <!-- Slide Grid Modal -->
+  <div class="grid-modal" id="grid-modal" role="dialog" aria-modal="true" aria-label="All 28 slides">
+    <div class="grid-modal-header">
+      <strong>All Slides (28)</strong>
+      <button class="nav-btn" id="btn-close-grid">Close (Esc)</button>
+    </div>
+    <div class="overview-cards" id="overview-cards"></div>
+  </div>
+
+  <!-- Image Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Zoomed figure">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const total = slides.length;
+      const indicator = document.getElementById('slide-indicator');
+      const progressFill = document.getElementById('progress-fill');
+      const notesText = document.getElementById('notes-text');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnNotes = document.getElementById('btn-notes');
+      const btnGrid = document.getElementById('btn-grid');
+      const btnCloseGrid = document.getElementById('btn-close-grid');
+      const btnFs = document.getElementById('btn-fs');
+      const gridModal = document.getElementById('grid-modal');
+      const ovContainer = document.getElementById('overview-cards');
+      const secBtns = Array.from(document.querySelectorAll('.sec-btn'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+
+      let current = 0;
+
+      // Build overview grid
+      slides.forEach((sl, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'ov-item';
+        const num = String(idx + 1).padStart(2, '0');
+        const title = sl.getAttribute('data-title') || ('Slide ' + num);
+        btn.innerHTML = '<div class="ov-num">Slide ' + num + ' / ' + total + '</div><div class="ov-title">' + title + '</div>';
+        btn.addEventListener('click', () => {
+          goTo(idx);
+          gridModal.classList.remove('open');
+        });
+        ovContainer.appendChild(btn);
+      });
+      const ovItems = Array.from(ovContainer.querySelectorAll('.ov-item'));
+
+      function goTo(idx, updateHash = true) {
+        current = Math.max(0, Math.min(total - 1, idx));
+        slides.forEach((sl, i) => sl.classList.toggle('active', i === current));
+        ovItems.forEach((it, i) => it.classList.toggle('current', i === current));
+        const numStr = String(current + 1).padStart(2, '0');
+        indicator.textContent = numStr + ' / ' + total;
+        progressFill.style.width = (((current + 1) / total) * 100).toFixed(2) + '%';
+        notesText.textContent = slides[current].getAttribute('data-notes') || '';
+        btnPrev.disabled = current === 0;
+        btnNext.disabled = current === total - 1;
+
+        const secId = slides[current].getAttribute('data-section');
+        secBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-goto') === secId));
+
+        if (updateHash) {
+          history.replaceState(null, '', '#slide-' + (current + 1));
+        }
+      }
+
+      function toggleNotes() {
+        document.body.classList.toggle('notes-open');
+        btnNotes.classList.toggle('active', document.body.classList.contains('notes-open'));
+      }
+
+      function toggleGrid() {
+        gridModal.classList.toggle('open');
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+
+      btnPrev.addEventListener('click', () => goTo(current - 1));
+      btnNext.addEventListener('click', () => goTo(current + 1));
+      btnNotes.addEventListener('click', toggleNotes);
+      btnGrid.addEventListener('click', toggleGrid);
+      btnCloseGrid.addEventListener('click', () => gridModal.classList.remove('open'));
+      btnFs.addEventListener('click', toggleFullscreen);
+
+      secBtns.forEach(b => {
+        b.addEventListener('click', () => {
+          const target = parseInt(b.getAttribute('data-goto'), 10) - 1;
+          goTo(target);
+        });
+      });
+
+      // Lightbox on images
+      document.querySelectorAll('.fig-panel img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('open');
+        });
+      });
+      lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+      document.addEventListener('keydown', e => {
+        if (e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+        if (e.key === 'Escape') {
+          gridModal.classList.remove('open');
+          lightbox.classList.remove('open');
+          return;
+        }
+        if (gridModal.classList.contains('open') || lightbox.classList.contains('open')) return;
+
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+          e.preventDefault();
+          goTo(current + 1);
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          goTo(current - 1);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          goTo(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          goTo(total - 1);
+        } else if (e.key === 'n' || e.key === 'N') {
+          toggleNotes();
+        } else if (e.key === 'g' || e.key === 'G') {
+          toggleGrid();
+        } else if (e.key === 'f' || e.key === 'F') {
+          toggleFullscreen();
+        }
+      });
+
+      // Touch swipe navigation
+      let touchStartX = null;
+      document.getElementById('deck').addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      document.getElementById('deck').addEventListener('touchend', e => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(dx) > 50) {
+          goTo(dx < 0 ? current + 1 : current - 1);
+        }
+        touchStartX = null;
+      }, { passive: true });
+
+      // Initial hash support
+      const m = window.location.hash.match(/^#slide-(\d+)$/);
+      const startIdx = m ? parseInt(m[1], 10) - 1 : 0;
+      goTo(startIdx, false);
+    })();
+  </script>
+</body>
+</html>
