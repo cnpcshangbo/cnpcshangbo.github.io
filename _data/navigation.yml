@@ -3,14 +3,17 @@ main:
   - title: "About"
     url: /
 
-  - title: "Resume & CV"
-    url: /resumes/
+  - title: "Portfolio"
+    url: /portfolio/
+
+  - title: "Slides"
+    url: /slides/
 
   - title: "Publications"
     url: /publications/
 
-  - title: "Portfolio"
-    url: /portfolio/
+  - title: "Resume & CV"
+    url: /resumes/
 
   - title: "Research Notes"
     url: /research-notes/

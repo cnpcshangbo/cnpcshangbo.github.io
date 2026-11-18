@@ -1,0 +1,268 @@
+---
+layout: showcase
+title: "PACO & Proactive Roadside 3D LiDAR Safety Auditor"
+short_title: "PACO & V2I Safety Auditor"
+scale_label: "Meso · Cooperative V2I LiDAR"
+tagline: "Physics-grounded intersection observability engine (0.37 ADAS → 1.00 V2I) and sub-meter PET/TTC near-miss auditor across 180 urban conflicts."
+order: 2
+permalink: /portfolio/paco-safety-auditing/
+excerpt: "Physics-grounded cooperative observability metric (PACO) and proactive roadside 3D LiDAR near-miss safety auditor for urban intersections."
+collection: portfolio
+---
+
+{% include base_path %}
+
+<section class="sc-hero">
+  <div class="sc-container sc-hero__grid">
+    <div>
+      <p class="sc-hero__eyebrow">MESO SCALE · CVPRW DRIVEX 2026 · TRB ANNUAL MEETING</p>
+      <h1 class="sc-hero__title">Seeing Through the <span class="sc-hero__accent">Occlusion Shadow</span> at Urban Intersections</h1>
+      <p class="sc-hero__subtitle">
+        Upgrading an ego vehicle from a 120° forward ADAS camera to a 360° roof-mounted AV LiDAR raises urban intersection observability from <strong>0.37 to only 0.61</strong>. Our <strong>PACO</strong> framework proves mathematically and empirically why elevated roadside 3D LiDAR (<strong>1.00</strong>) is essential to protect occluded pedestrians and cyclists.
+      </p>
+      <div class="sc-hero__badges">
+        <span class="sc-hero__badge sc-hero__badge--teal">PACO: 0.37 → 0.61 → 1.00</span>
+        <span class="sc-hero__badge sc-hero__badge--amber">n = 180 Audited VRU Near-Misses</span>
+        <span class="sc-hero__badge">CVPRW DriveX 2026</span>
+        <span class="sc-hero__badge">NYC Urban Intersection Testbed</span>
+      </div>
+      <div class="sc-hero__actions">
+        <a href="#paco-simulator-sec" class="home-btn home-btn--primary"><i class="fas fa-sliders" aria-hidden="true"></i> Try Live PACO Simulator</a>
+        <a href="#safety-auditor" class="home-btn home-btn--ghost"><i class="fas fa-chart-area" aria-hidden="true"></i> Explore 180-Conflict Heatmaps</a>
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6867604" target="_blank" rel="noopener" class="home-btn home-btn--ghost"><i class="fas fa-file-alt" aria-hidden="true"></i> Read PACO Preprint ↗</a>
+      </div>
+    </div>
+
+    <div class="sc-hero__visual">
+      <img src="{{ base_path }}/assets/slides/img/v2i_occlusion_shadow.png" alt="Geometric occlusion shadow cast by large urban vehicles versus elevated roadside LiDAR line of sight" class="js-zoom-fig" />
+      <div class="sc-hero__visual-cap">
+        <span>3D OCCLUSION GEOMETRY · EGO VS. ELEVATED V2I</span>
+        <span>CLICK IMAGE TO ENLARGE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sc-kpi-bar">
+  <div class="sc-container sc-kpi-grid">
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">0.37 → 0.61</span>
+      <span class="sc-kpi__label">Ego-Only Ceiling (ADAS → AV)</span>
+      <span class="sc-kpi__sub">39% of intersection risk remains hidden even with 360° roof LiDAR</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val sc-kpi__val--amber">1.00 V2I</span>
+      <span class="sc-kpi__label">Roadside LiDAR Observability</span>
+      <span class="sc-kpi__sub">Elevated mast looks over box trucks &amp; buses into crosswalks</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">41% → 100%</span>
+      <span class="sc-kpi__label">Conflict-Partner Visibility</span>
+      <span class="sc-kpi__sub">41% (120° ADAS), 97% (360° AV, degrades on turns), 100% (V2I)</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">n = 180</span>
+      <span class="sc-kpi__label">Proactive Near-Misses Audited</span>
+      <span class="sc-kpi__sub">Sub-meter PET &amp; TTC conflict trajectories without waiting for crashes</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTERACTIVE PACO SIMULATOR -->
+<section id="paco-simulator-sec" class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">INTERACTIVE OBSERVABILITY EXPLORER</p>
+      <h2 class="sc-h2">Compare 120° ADAS, 360° Roof AV, and Elevated Roadside V2I LiDAR</h2>
+      <p class="sc-lead">Toggle sensor architectures below to see how a single turning freight box truck casts a dynamic blind zone across active urban crosswalks — and how elevated roadside LiDAR resolves every occluded vulnerable road user.</p>
+    </div>
+
+    <div class="sc-console" id="paco-sim">
+      <div class="sc-console__top">
+        <div class="sc-console__tabs" role="tablist" aria-label="Sensor configuration selector">
+          <button type="button" class="sc-console__tab" data-paco-mode="adas" role="tab" aria-selected="false">120° Forward ADAS (0.37)</button>
+          <button type="button" class="sc-console__tab" data-paco-mode="av360" role="tab" aria-selected="false">360° Roof AV LiDAR (0.61)</button>
+          <button type="button" class="sc-console__tab is-active" data-paco-mode="v2i" role="tab" aria-selected="true">Roadside V2I LiDAR (1.00)</button>
+        </div>
+        <span style="font-family:JetBrains Mono,monospace;font-size:0.75rem;color:#fbbf24;" data-paco-out="status">All Conflict Partners Tracked in Metric 3D</span>
+      </div>
+
+      <div class="sc-console__body">
+        <div class="sc-console__canvas">
+          <svg viewBox="0 0 500 300" role="img" aria-label="Top-down urban intersection ray-casting simulation showing ego car, turning box truck, occlusion cone, roadside LiDAR mast, and pedestrians">
+            <rect width="500" height="300" rx="10" fill="#07111c"/>
+            <!-- Intersection Asphalt -->
+            <rect x="170" y="0" width="160" height="300" fill="#132235"/>
+            <rect x="0" y="85" width="500" height="130" fill="#132235"/>
+            <!-- Crosswalk Stripes -->
+            <g fill="rgba(226,232,240,0.22)">
+              <rect x="178" y="62" width="14" height="20"/><rect x="202" y="62" width="14" height="20"/><rect x="226" y="62" width="14" height="20"/><rect x="250" y="62" width="14" height="20"/><rect x="274" y="62" width="14" height="20"/><rect x="298" y="62" width="14" height="20"/>
+              <rect x="336" y="94" width="20" height="14"/><rect x="336" y="118" width="20" height="14"/><rect x="336" y="142" width="20" height="14"/><rect x="336" y="166" width="20" height="14"/><rect x="336" y="190" width="20" height="14"/>
+            </g>
+
+            <!-- Layer: 360 AV Radial Coverage -->
+            <g id="paco-layer-av">
+              <circle cx="285" cy="242" r="175" fill="rgba(56,189,248,0.08)" stroke="rgba(56,189,248,0.35)" stroke-width="1" stroke-dasharray="4 4"/>
+            </g>
+
+            <!-- Layer: 120 ADAS Forward Cone -->
+            <g id="paco-layer-adas" style="display:none;">
+              <polygon points="285,242 155,40 415,40" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2"/>
+            </g>
+
+            <!-- Dynamic Occlusion Shadow Polygon Behind Box Truck -->
+            <polygon id="paco-occlusion-poly" points="285,242 212,158 95,15 348,15 278,136" fill="#ef4444" fill-opacity="0.12"/>
+
+            <!-- Layer: Elevated Roadside V2I LiDAR Mast & Rays -->
+            <g id="paco-layer-v2i">
+              <line x1="148" y1="66" x2="242" y2="72" stroke="#2dd4bf" stroke-width="2" class="sc-anim-flow"/>
+              <line x1="148" y1="66" x2="346" y2="125" stroke="#2dd4bf" stroke-width="2" class="sc-anim-flow"/>
+              <line x1="148" y1="66" x2="285" y2="242" stroke="rgba(45,212,191,0.45)" stroke-width="1.4" stroke-dasharray="3 4"/>
+              <circle cx="148" cy="66" r="11" fill="#0d9488" stroke="#2dd4bf" stroke-width="2"/>
+              <text x="148" y="70" text-anchor="middle" fill="#fff" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700">V2I</text>
+              <text x="88" y="50" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">ROADSIDE 3D LIDAR</text>
+            </g>
+
+            <!-- Turning Box Truck (Occluder) -->
+            <g transform="translate(245,148) rotate(-26)">
+              <rect x="-36" y="-15" width="72" height="30" rx="4" fill="#f59e0b" stroke="#fde68a" stroke-width="1.5"/>
+              <text x="0" y="4" text-anchor="middle" fill="#07111c" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">BOX TRUCK</text>
+            </g>
+
+            <!-- Ego Vehicle -->
+            <g transform="translate(285,242)">
+              <rect x="-13" y="-22" width="26" height="44" rx="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+              <text x="0" y="4" text-anchor="middle" fill="#07111c" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700">EGO</text>
+            </g>
+
+            <!-- VRU 1: Crosswalk Pedestrian in Truck Shadow -->
+            <g id="paco-vru-1" class="paco-vru is-visible" transform="translate(242,72)">
+              <circle cx="0" cy="0" r="8.5" fill="#2dd4bf" stroke="#ffffff" stroke-width="2"/>
+              <text x="14" y="4" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">Pedestrian A</text>
+            </g>
+
+            <!-- VRU 2: Approaching Cyclist -->
+            <g id="paco-vru-2" class="paco-vru is-visible" transform="translate(346,125)">
+              <circle cx="0" cy="0" r="8.5" fill="#2dd4bf" stroke="#ffffff" stroke-width="2"/>
+              <text x="14" y="4" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">Cyclist B</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="sc-console__readout">
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">PACO Scene Observability</span>
+            <span class="sc-console__stat-val" data-paco-out="score">1.00</span>
+            <div class="sc-console__meter"><div class="sc-console__meter-fill" data-paco-out="bar" style="width:100%;"></div></div>
+          </div>
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">Conflict-Partner Visibility</span>
+            <span class="sc-console__stat-val" data-paco-out="partner">100%</span>
+          </div>
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">Occluded Objects (Urban Freight)</span>
+            <span class="sc-console__stat-val" style="font-size:1.05rem;color:#fbbf24;" data-paco-out="occluded">0.0 unmonitored</span>
+          </div>
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">Governing Physical Mechanism</span>
+            <span style="display:block;font-size:0.82rem;color:#e2e8f0;margin-top:0.25rem;line-height:1.45;" data-paco-out="constraint">Elevated mast overlooks truck roof — occlusion cone eliminated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMPIRICAL CHARTS & CVPRW SAFETY AUDITOR -->
+<section id="safety-auditor" class="sc-section">
+  <div class="sc-container">
+
+    <div class="sc-split sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">PHYSICS-GROUNDED METRIC · PACO</p>
+        <h2 class="sc-split__title">Why Expanding Ego Field-of-View Cannot Solve Occlusion</h2>
+        <div class="sc-split__body">
+          <p>
+            Standard autonomous-driving benchmarks weight every object equally regardless of collision risk or line-of-sight physics. <strong>PACO (Proactive Risk-Weighted Cooperative Observability)</strong> couples 3D ray-cast occlusion geometry with kinematic conflict risk on real NYC urban LiDAR data:
+          </p>
+          <ul>
+            <li><strong>120° ADAS (0.37) → 360° AV (0.61) → Roadside V2I (1.00):</strong> Even an ideal 360° vehicle sensor loses 39% of risk-weighted intersection observability behind buses, delivery vans, and turning queues.</li>
+            <li><strong>Freight Multiplies Blind Zones:</strong> Heavy urban freight nearly doubles occluded road users per frame from <strong>1.7 to 3.3</strong>.</li>
+            <li><strong>Placement Guidance:</strong> Turns qualitative V2I arguments into quantitative mast-placement criteria for municipal DOTs.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <div class="sc-fig-pair">
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/paco_observability_chart.png" alt="PACO intersection observability comparison across 120 ADAS, 360 AV, and Roadside LiDAR V2I" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Risk-weighted observability across 120° ADAS (0.37), 360° AV (0.61), and Roadside LiDAR V2I (1.00).</figcaption>
+          </figure>
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/ccny_intersection_testbed.jpg" alt="NYC urban intersection fixed roadside 3D LiDAR and camera testbed" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Fixed roadside 3D LiDAR + RGB testbed overlooking a high-volume New York City intersection.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-split sc-split--reverse sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">PROACTIVE SAFETY AUDITING · CVPRW DRIVEX 2026</p>
+        <h2 class="sc-split__title">Diagnosing 180 Near-Miss Conflicts Before a Crash Occurs</h2>
+        <div class="sc-split__body">
+          <p>
+            Traditional traffic safety waits years for fatal or injurious crashes to accumulate. Using continuous 3D LiDAR trajectories at a complex NYC intersection, our proactive safety auditor extracts sub-meter <strong>Post-Encroachment Time (PET)</strong> and <strong>Time-to-Collision (TTC)</strong> conflict pairs automatically:
+          </p>
+          <ul>
+            <li><strong>Spatial Conflict Heatmaps (n = 180):</strong> Pinpoints exact crosswalk conflict pockets where permissive turning vehicles encroach on pedestrians.</li>
+            <li><strong>Micro-Behavioral Kinematics:</strong> Captures vehicle deceleration failures, abrupt pedestrian hesitation, and occluded curb-entry conflicts invisible to monocular traffic cameras.</li>
+            <li><strong>Actionable Signal Countermeasures:</strong> Directly supports Leading Pedestrian Intervals (LPI), protected turn phases, and curb-daylighting redesigns.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <div class="sc-fig-pair">
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/cvprw_heatmap.png" alt="Spatial density heatmap of 180 pedestrian-vehicle near-miss conflicts captured by roadside 3D LiDAR" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Spatial conflict density heatmap across n = 180 audited pedestrian-vehicle near-miss events.</figcaption>
+          </figure>
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/cvprw_trajectory.png" alt="Metric 3D vehicle and pedestrian conflict trajectories during a high-risk intersection near-miss" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Sub-meter 3D conflict trajectories resolving instantaneous speed, clearance, and PET/TTC.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">PEER-REVIEWED PUBLICATIONS &amp; PREPRINTS</p>
+      <h2 class="sc-h2">Research Outputs</h2>
+    </div>
+    <div class="sc-evidence-grid">
+      <div class="sc-evidence-card">
+        <div class="sc-evidence-card__type">CVPR Workshop (DriveX) · 2026</div>
+        <h3 class="sc-evidence-card__title">Proactive Urban Intersection Safety Auditing Using Roadside 3D LiDAR</h3>
+        <p class="sc-evidence-card__meta">Metric 3D trajectory extraction, PET/TTC surrogate conflict screening (n = 180), and crosswalk hazard localization.</p>
+        <div class="sc-evidence-card__links">
+          <a href="{{ base_path }}/publications/">Bibliography Entry</a>
+          <a href="{{ base_path }}/slides/#slide-14">Slide 14</a>
+        </div>
+      </div>
+      <div class="sc-evidence-card sc-evidence-card--amber">
+        <div class="sc-evidence-card__type">TRB Annual Meeting &amp; SSRN Preprint · 6867604</div>
+        <h3 class="sc-evidence-card__title">PACO: Quantifying Cooperative Intersection Observability Across Ego and Roadside Sensors</h3>
+        <p class="sc-evidence-card__meta">Establishes the 0.37 (120° ADAS) → 0.61 (360° AV) → 1.00 (Roadside LiDAR V2I) observability law under urban occlusion.</p>
+        <div class="sc-evidence-card__links">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6867604" target="_blank" rel="noopener">SSRN 6867604 ↗</a>
+          <a href="{{ base_path }}/slides/#slide-13">Slide 13</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

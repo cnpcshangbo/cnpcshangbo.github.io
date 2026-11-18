@@ -1,0 +1,177 @@
+---
+layout: showcase
+title: "CERRA Geospatial AI Platform & LLM-SUMO Digital Twin"
+short_title: "CERRA & LLM-SUMO Platform"
+scale_label: "City · Geospatial AI & Simulation"
+tagline: "Agency-facing spatiotemporal analytics platform at UMD M-TRAIL integrating LLM-SUMO counterfactual simulation, explicit assumption logs, and IBM Heron VRP benchmarks."
+order: 5
+permalink: /portfolio/cerra-platform/
+excerpt: "AI-driven geospatial research platform built for public agencies at UMD M-TRAIL, featuring the LLM-SUMO traffic-simulation digital twin and auditable decision workflows."
+collection: portfolio
+---
+
+{% include base_path %}
+
+<section class="sc-hero">
+  <div class="sc-container sc-hero__grid">
+    <div>
+      <p class="sc-hero__eyebrow">CITY SCALE · UMD M-TRAIL &amp; MTI · LIVE AT CERRA.CLOUD</p>
+      <h1 class="sc-hero__title">CERRA: Auditable <span class="sc-hero__accent">Geospatial AI</span> &amp; Traffic Simulation for Public Agencies</h1>
+      <p class="sc-hero__subtitle">
+        Public transportation agencies cannot make signal-timing, work-zone, or freight-corridor decisions from opaque black-box LLM chat replies. Built and operated at the University of Maryland, <strong>CERRA</strong> pairs real corridor telemetry with a protected <strong>LLM-SUMO</strong> microscopic simulation bridge — returning observed metrics, simulated counterfactuals, explicit assumptions, and verifiable data sources side by side.
+      </p>
+      <div class="sc-hero__badges">
+        <span class="sc-hero__badge sc-hero__badge--teal">Live Research Platform: cerra.cloud</span>
+        <span class="sc-hero__badge sc-hero__badge--amber">LLM-SUMO Launched Oct 2026</span>
+        <span class="sc-hero__badge">PAR Recommended Practice</span>
+        <span class="sc-hero__badge">IBM Heron QPU Benchmark</span>
+      </div>
+      <div class="sc-hero__actions">
+        <a href="https://cerra.cloud" target="_blank" rel="noopener" class="home-btn home-btn--primary"><i class="fas fa-globe" aria-hidden="true"></i> Open cerra.cloud ↗</a>
+        <a href="https://cerra.cloud/llm-sumo" target="_blank" rel="noopener" class="home-btn home-btn--ghost"><i class="fas fa-traffic-light" aria-hidden="true"></i> Open LLM-SUMO Module ↗</a>
+        <a href="#auditable-stack" class="home-btn home-btn--ghost"><i class="fas fa-layer-group" aria-hidden="true"></i> Inspect 4-Part Audit Contract</a>
+      </div>
+    </div>
+
+    <div class="sc-hero__visual">
+      <img src="{{ base_path }}/assets/slides/img/cerra_architecture_fig.png" alt="CERRA geospatial AI platform and LLM-SUMO microscopic simulation architecture" class="js-zoom-fig" />
+      <div class="sc-hero__visual-cap">
+        <span>CERRA + LLM-SUMO SYSTEM ARCHITECTURE</span>
+        <span>CLICK IMAGE TO ENLARGE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sc-kpi-bar">
+  <div class="sc-container sc-kpi-grid">
+    <div class="sc-kpi">
+      <span class="sc-kpi__val sc-kpi__val--amber">4-Part</span>
+      <span class="sc-kpi__label">Auditable Copilot Contract</span>
+      <span class="sc-kpi__sub">Observed Data + SUMO Counterfactual + Explicit Assumptions + Sources</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">LLM-SUMO</span>
+      <span class="sc-kpi__label">Protected Execution Bridge</span>
+      <span class="sc-kpi__sub">Authored by Jihoon Kim; Linux-ported, bridged &amp; operated by Bo Shang</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">PAR Standard</span>
+      <span class="sc-kpi__label">Perceived Acceleration Rate</span>
+      <span class="sc-kpi__sub">Recommended Practice for heavy-vehicle &amp; corridor stability evaluation</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">IBM Heron</span>
+      <span class="sc-kpi__label">Feasibility-Preserving VRP</span>
+      <span class="sc-kpi__sub">100% constraint-valid QAOA routing encoding verified on real QPU hardware</span>
+    </div>
+  </div>
+</div>
+
+<!-- 4-PART AUDITABLE AI RESPONSE CONTRACT -->
+<section id="auditable-stack" class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">NO HALLUCINATED TRAFFIC ENGINEERING</p>
+      <h2 class="sc-h2">The Four-Part Auditable Decision Output</h2>
+      <p class="sc-lead">
+        CERRA is an AI-driven geospatial research platform built for public agencies at UMD M-TRAIL (under Prof. Xianfeng Yang). Rather than asking a language model to guess queue lengths, CERRA translates natural-language corridor questions into deterministic data queries and sandboxed SUMO simulation runs.
+      </p>
+    </div>
+
+    <div class="sc-console" style="margin-bottom:2.2rem;">
+      <svg viewBox="0 0 960 235" role="img" aria-label="CERRA 4-part auditable response architecture separating Observed Telemetry, SUMO Counterfactuals, Explicit Assumptions, and Provenance Links">
+        <rect width="960" height="235" rx="12" fill="#07111c"/>
+
+        <!-- Left Input -->
+        <rect x="22" y="54" width="206" height="126" rx="10" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.5"/>
+        <text x="38" y="80" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">AGENCY ENGINEER QUERY</text>
+        <text x="38" y="104" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="700">“What happens to I-95 /</text>
+        <text x="38" y="122" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="700">arterial queue spillback if</text>
+        <text x="38" y="140" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="700">Lane 3 closes 14:00–17:00?”</text>
+        <text x="38" y="164" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="9">cerra.cloud/llm-sumo</text>
+
+        <line x1="228" y1="117" x2="278" y2="117" stroke="#2dd4bf" stroke-width="2.4" class="sc-anim-flow"/>
+
+        <!-- Center Protected Bridge -->
+        <rect x="278" y="42" width="212" height="150" rx="10" fill="#102942" stroke="#fbbf24" stroke-width="1.6"/>
+        <text x="384" y="68" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">PROTECTED LINUX BRIDGE</text>
+        <text x="384" y="92" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13.5" font-weight="800">CERRA + LLM-SUMO</text>
+        <text x="384" y="114" text-anchor="middle" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">• Spatiotemporal SQL/GIS fetch</text>
+        <text x="384" y="132" text-anchor="middle" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">• Parameterized SUMO execution</text>
+        <text x="384" y="150" text-anchor="middle" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">• Schema &amp; bounds guardrail</text>
+        <text x="384" y="174" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="9">Zero unverified shell access</text>
+
+        <path d="M 490,82 L 548,48" fill="none" stroke="#2dd4bf" stroke-width="2" class="sc-anim-flow"/>
+        <path d="M 490,106 L 548,96" fill="none" stroke="#2dd4bf" stroke-width="2" class="sc-anim-flow"/>
+        <path d="M 490,130 L 548,144" fill="none" stroke="#2dd4bf" stroke-width="2" class="sc-anim-flow"/>
+        <path d="M 490,154 L 548,192" fill="none" stroke="#2dd4bf" stroke-width="2" class="sc-anim-flow"/>
+
+        <!-- 4 Output Cards -->
+        <rect x="548" y="22" width="388" height="42" rx="7" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.2"/>
+        <text x="564" y="47" fill="#ffffff" font-family="Inter, sans-serif" font-size="11.5"><tspan fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-weight="700">1. OBSERVED BASELINE:</tspan> Historical detector speeds, volumes &amp; incidents</text>
+
+        <rect x="548" y="72" width="388" height="42" rx="7" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.2"/>
+        <text x="564" y="97" fill="#ffffff" font-family="Inter, sans-serif" font-size="11.5"><tspan fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-weight="700">2. SUMO COUNTERFACTUAL:</tspan> Simulated delay, queue length &amp; PAR metrics</text>
+
+        <rect x="548" y="122" width="388" height="42" rx="7" fill="#0e2238" stroke="#fbbf24" stroke-width="1.2"/>
+        <text x="564" y="147" fill="#ffffff" font-family="Inter, sans-serif" font-size="11.5"><tspan fill="#fbbf24" font-family="JetBrains Mono, monospace" font-weight="700">3. EXPLICIT ASSUMPTIONS:</tspan> Demand scaling, car-following &amp; signal phase params</text>
+
+        <rect x="548" y="172" width="388" height="42" rx="7" fill="#0e2238" stroke="#38bdf8" stroke-width="1.2"/>
+        <text x="564" y="197" fill="#ffffff" font-family="Inter, sans-serif" font-size="11.5"><tspan fill="#38bdf8" font-family="JetBrains Mono, monospace" font-weight="700">4. VERIFIABLE PROVENANCE:</tspan> Sensor IDs, timestamps &amp; reproducible config</text>
+      </svg>
+    </div>
+
+    <div class="sc-pipeline">
+      <div class="sc-step">
+        <span class="sc-step__num">PLATFORM CORE</span>
+        <h3 class="sc-step__title">CERRA Geospatial Layer</h3>
+        <p class="sc-step__desc">Ingests multi-agency traffic, weather, incident, and infrastructure asset layers into an interactive web map built and operated by Bo Shang at UMD.</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">DIGITAL TWIN MODULE</span>
+        <h3 class="sc-step__title">LLM-SUMO Integration</h3>
+        <p class="sc-step__desc">Traffic-simulation digital twin authored by M-TRAIL colleague <strong>Jihoon Kim</strong>; ported to Linux, wired through a protected execution bridge, packaged, and operated in production inside CERRA by Bo Shang (Oct 2026).</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">STABILITY STANDARD</span>
+        <h3 class="sc-step__title">PAR Recommended Practice</h3>
+        <p class="sc-step__desc">Integrates Perceived Acceleration Rate (PAR) corridor stability diagnostics alongside travel-time and queue metrics for mixed heavy-truck traffic.</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">NEXT-GEN COMPUTE</span>
+        <h3 class="sc-step__title">Quantum-Safe &amp; QPU Eval</h3>
+        <p class="sc-step__desc">Evaluates post-quantum V2I signal broadcast latency overhead and feasibility-preserving Vehicle Routing Problem (VRP) encodings on IBM Heron hardware.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sc-section">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">LIVE DEPLOYMENTS &amp; RIGOROUS BENCHMARKING</p>
+      <h2 class="sc-h2">Deployed Modules &amp; Hardware Findings</h2>
+    </div>
+    <div class="sc-evidence-grid">
+      <div class="sc-evidence-card">
+        <div class="sc-evidence-card__type">Live Production Research Platform · UMD M-TRAIL</div>
+        <h3 class="sc-evidence-card__title">CERRA &amp; LLM-SUMO Web Deployment</h3>
+        <p class="sc-evidence-card__meta">Operated at the University of Maryland Department of Civil &amp; Environmental Engineering and Maryland Transportation Institute under Prof. Xianfeng Yang.</p>
+        <div class="sc-evidence-card__links">
+          <a href="https://cerra.cloud" target="_blank" rel="noopener">cerra.cloud ↗</a>
+          <a href="https://cerra.cloud/llm-sumo" target="_blank" rel="noopener">cerra.cloud/llm-sumo ↗</a>
+        </div>
+      </div>
+      <div class="sc-evidence-card sc-evidence-card--amber">
+        <div class="sc-evidence-card__type">Quantum Hardware Evaluation · October 2026</div>
+        <h3 class="sc-evidence-card__title">Feasibility-Preserving VRP Encoding on IBM Heron Superconducting QPU</h3>
+        <p class="sc-evidence-card__meta">Demonstrated structural route-feasibility guarantees on physical IBM Heron quantum hardware while rigorously benchmarking against classical Genetic Algorithm (GA) and Simulated Annealing (SA) baselines (confirming no quantum runtime speedup over classical heuristics at current NISQ problem scales).</p>
+        <div class="sc-evidence-card__links">
+          <a href="{{ base_path }}/slides/#slide-21">Slide 21 Findings</a>
+          <a href="{{ base_path }}/publications/">View Preprints</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

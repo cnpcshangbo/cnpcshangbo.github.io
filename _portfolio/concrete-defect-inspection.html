@@ -1,0 +1,202 @@
+---
+layout: showcase
+title: "Robotic Inspection and Data Analytics for Concrete Infrastructure Defects"
+short_title: "Concrete 3D Defect Analytics"
+scale_label: "Micro · Climbing Robot & 3D NDT"
+tagline: "Wall-climbing robot + iPad TestFlight app + AWS Lambda CNN + WebODM 3D mesh registration for millimeter-scale concrete crack localization (IEEE T-ASE 2025)."
+order: 4
+permalink: /portfolio/concrete-defect-inspection/
+excerpt: "Localizing and visualizing structural defects of concrete infrastructure from robotic inspection data. Feng, Shang, et al., IEEE T-ASE 2025 — selected for IEEE IROS 2025."
+collection: portfolio
+---
+
+{% include base_path %}
+
+<section class="sc-hero">
+  <div class="sc-container sc-hero__grid">
+    <div>
+      <p class="sc-hero__eyebrow">MICRO SCALE · IEEE T-ASE 2025 · SELECTED FOR IEEE IROS 2025</p>
+      <h1 class="sc-hero__title">Robotic Concrete Defect Localization on <span class="sc-hero__accent">3D Structural Meshes</span></h1>
+      <p class="sc-hero__subtitle">
+        Raw inspection video gives civil engineers thousands of disconnected 2D crack snapshots with no global coordinates or metric scale. Developed at the CCNY Robotics Lab, this end-to-end system connects a wall-climbing robot and iPad operator app to AWS serverless CNN segmentation and WebODM 3D point-cloud registration — localizing and measuring cracks directly on full-scale concrete columns and seawalls.
+      </p>
+      <div class="sc-hero__badges">
+        <span class="sc-hero__badge sc-hero__badge--amber">IEEE T-ASE 2025 (Vol. 22)</span>
+        <span class="sc-hero__badge sc-hero__badge--amber">Selected for IEEE IROS 2025</span>
+        <span class="sc-hero__badge sc-hero__badge--teal">AWS Lambda + WebODM 3D</span>
+        <span class="sc-hero__badge">CCNY Robotics Lab</span>
+      </div>
+      <div class="sc-hero__actions">
+        <a href="#cloud-pipeline" class="home-btn home-btn--primary"><i class="fas fa-cloud" aria-hidden="true"></i> Inspect Robot-to-Cloud Pipeline</a>
+        <a href="https://doi.org/10.1109/TASE.2025.3535227" target="_blank" rel="noopener" class="home-btn home-btn--ghost"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Read IEEE T-ASE Paper ↗</a>
+        <a href="{{ base_path }}/slides/#slide-9" class="home-btn home-btn--ghost"><i class="fas fa-tv" aria-hidden="true"></i> Slides 9–10</a>
+      </div>
+    </div>
+
+    <div class="sc-hero__visual">
+      <img src="{{ base_path }}/assets/slides/img/tase_column_3d.jpg" alt="3D reconstructed concrete bridge column with localized and skeletonized structural crack defects" class="js-zoom-fig" />
+      <div class="sc-hero__visual-cap">
+        <span>FULL-COLUMN 3D DEFECT RECONSTRUCTION</span>
+        <span>CLICK IMAGE TO ENLARGE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sc-kpi-bar">
+  <div class="sc-container sc-kpi-grid">
+    <div class="sc-kpi">
+      <span class="sc-kpi__val sc-kpi__val--amber">IEEE T-ASE</span>
+      <span class="sc-kpi__label">Journal + IROS 2025 Selection</span>
+      <span class="sc-kpi__sub">Feng, Shang, Hoxha, Hernández, He, Wang, &amp; Xiao (pp. 22324–22336)</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">2D → 3D</span>
+      <span class="sc-kpi__label">Metric Mesh Registration</span>
+      <span class="sc-kpi__sub">Eliminates duplicate crack counting across overlapping camera frames</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">Serverless</span>
+      <span class="sc-kpi__label">AWS Amplify &amp; Lambda</span>
+      <span class="sc-kpi__sub">Automated cloud CNN segmentation, mask overlay, and skeleton metrics</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">iPadOS App</span>
+      <span class="sc-kpi__label">Field Operator Interface</span>
+      <span class="sc-kpi__sub">TestFlight app capturing synchronized RGB, depth, gravity, and GIS pins</span>
+    </div>
+  </div>
+</div>
+
+<!-- ANIMATED 2D-TO-3D PROJECTION & CLOUD PIPELINE -->
+<section id="cloud-pipeline" class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">ROBOT-TO-CLOUD-TO-3D ARCHITECTURE</p>
+      <h2 class="sc-h2">From Wall-Climbing Capture to Metric 3D Crack Skeletons</h2>
+      <p class="sc-lead">
+        Note on project lineage: this concrete inspection system at the CCNY Robotics Lab (Prof. Jizhong Xiao's group) is a completely independent research line from the Missouri S&amp;T BIRDS steel-girder project (Prof. Genda Chen's group).
+      </p>
+    </div>
+
+    <div class="sc-console" style="margin-bottom:2.2rem;">
+      <svg viewBox="0 0 960 210" role="img" aria-label="Animated 4-stage pipeline from climbing robot RGB-D capture to AWS Lambda CNN segmentation, WebODM 3D SfM reconstruction, and metric skeleton measurement">
+        <rect width="960" height="210" rx="12" fill="#07111c"/>
+
+        <rect x="24" y="42" width="198" height="126" rx="10" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.4"/>
+        <text x="40" y="68" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">01 · CLIMBING ROBOT + iOS</text>
+        <text x="40" y="92" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">RGB + Depth + Gravity</text>
+        <text x="40" y="114" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">GWCR climber &amp; UAV video</text>
+        <text x="40" y="132" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">iPad TestFlight session sync</text>
+        <text x="40" y="150" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="9">Asset GIS geotagging</text>
+
+        <line x1="222" y1="105" x2="266" y2="105" stroke="#2dd4bf" stroke-width="2.4" class="sc-anim-flow"/>
+
+        <rect x="266" y="42" width="202" height="126" rx="10" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.4"/>
+        <text x="282" y="68" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">02 · AWS SERVERLESS CNN</text>
+        <text x="282" y="92" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">InspectionNet Inference</text>
+        <text x="282" y="114" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">API Gateway + S3 + 4 Lambdas</text>
+        <text x="282" y="132" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Pixel-level crack masks</text>
+        <text x="282" y="150" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="9">Auto mask overlay</text>
+
+        <line x1="468" y1="105" x2="512" y2="105" stroke="#2dd4bf" stroke-width="2.4" class="sc-anim-flow"/>
+
+        <rect x="512" y="42" width="202" height="126" rx="10" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.4"/>
+        <text x="528" y="68" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">03 · 3D SfM REGISTRATION</text>
+        <text x="528" y="92" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">WebODM Point Cloud</text>
+        <text x="528" y="114" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">Projects 2D masks onto 3D mesh</text>
+        <text x="528" y="132" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Global structural frame</text>
+        <text x="528" y="150" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="9">De-duplicates overlaps</text>
+
+        <line x1="714" y1="105" x2="758" y2="105" stroke="#fbbf24" stroke-width="2.4" class="sc-anim-flow"/>
+
+        <rect x="758" y="42" width="178" height="126" rx="10" fill="#102942" stroke="#fbbf24" stroke-width="1.6"/>
+        <text x="774" y="68" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">04 · METRIC NDT</text>
+        <text x="774" y="92" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800">3D Crack Skeleton</text>
+        <text x="774" y="114" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">Medial-axis topology</text>
+        <text x="774" y="132" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">True metric length &amp; width</text>
+        <text x="774" y="150" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="9">Inspector digital twin</text>
+      </svg>
+    </div>
+
+    <div class="sc-split sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">FIELD-TO-CLOUD ENGINEERING</p>
+        <h2 class="sc-split__title">iPad Operator App &amp; AWS Serverless Defect Engine</h2>
+        <div class="sc-split__body">
+          <p>
+            To make robotic defect analytics usable by field inspectors rather than only lab researchers, I built and deployed the cloud-connected mobile workflow:
+          </p>
+          <ul>
+            <li><strong>iOS/iPadOS Control &amp; MapView App:</strong> Operates the climbing robot via TestFlight, logs RGB + depth + gravity vectors per frame, and pins inspection sessions onto an interactive asset map.</li>
+            <li><strong>4-Stage AWS Lambda Pipeline:</strong> Automatically ingests raw session imagery into Amplify/S3, runs deep CNN crack segmentation, generates visual overlays, and computes dimension metrics.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <figure class="sc-fig">
+          <img src="{{ base_path }}/assets/portfolio/img/concrete_cloud_arch.png" alt="System architecture linking GWCR climbing robot, iPad MapView app, AWS API Gateway, Amplify S3 storage, and four AWS Lambda inference stages" class="js-zoom-fig" loading="lazy" />
+          <figcaption>Deployed field-to-cloud architecture: climbing robot + iPad session storage + AWS API Gateway, S3, and 4 Lambda stages.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="sc-split sc-split--reverse sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">3D LOCALIZATION &amp; MEDIAL-AXIS SKELETONIZATION</p>
+        <h2 class="sc-split__title">Turning Pixel Masks into Engineering-Grade Crack Topology</h2>
+        <div class="sc-split__body">
+          <p>
+            Binary segmentation masks alone cannot tell a structural engineer whether a hairline fracture grew by 4 cm since the last biennial cycle. Our analytics pipeline bridges pixels to structural mechanics:
+          </p>
+          <ul>
+            <li><strong>2D-to-3D Texture &amp; Point-Cloud Fusion:</strong> Registers segmented defect masks directly onto a WebODM 3D structure-from-motion model of the entire concrete pier or seawall.</li>
+            <li><strong>Morphological Skeletonization:</strong> Extracts 1-pixel medial-axis crack skeletons with homography/depth scale calibration to compute metric crack length and orientation.</li>
+            <li><strong>Subsurface NDT Companion Work:</strong> Complemented by automated acoustic impact-echo and rotary-percussive sounding analytics plus thermal IR delamination detection.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <div class="sc-fig-pair">
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/tase_crack_pipeline.png" alt="IEEE T-ASE 2025 robotic concrete crack segmentation and 3D localization workflow" class="js-zoom-fig" loading="lazy" />
+            <figcaption>End-to-end 2D segmentation to 3D structural mesh defect localization (<em>IEEE T-ASE</em> 2025).</figcaption>
+          </figure>
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/portfolio/img/concrete_skeleton_grid.png" alt="Progression from raw concrete image to segmentation mask, binary mask, and 1-pixel topological crack skeleton" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Raw concrete surface → CNN segmentation mask → binary mask → medial-axis skeleton for metric length extraction.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sc-section">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">PEER-REVIEWED JOURNAL &amp; FLAGSHIP CONFERENCE</p>
+      <h2 class="sc-h2">Primary Publication</h2>
+    </div>
+    <div class="sc-evidence-grid">
+      <div class="sc-evidence-card sc-evidence-card--amber">
+        <div class="sc-evidence-card__type">IEEE T-ASE 2025 · Selected for Presentation at IEEE IROS 2025</div>
+        <h3 class="sc-evidence-card__title">Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure</h3>
+        <p class="sc-evidence-card__meta">Jinglun Feng, <strong>Bo Shang</strong>, Ejup Hoxha, César Hernández, Yang He, Weihan Wang, and Jizhong Xiao · <em>IEEE Transactions on Automation Science and Engineering</em>, vol. 22, pp. 22324–22336, 2025.</p>
+        <div class="sc-evidence-card__links">
+          <a href="https://doi.org/10.1109/TASE.2025.3535227" target="_blank" rel="noopener">DOI: 10.1109/TASE.2025.3535227 ↗</a>
+          <a href="{{ base_path }}/publications/">All Concrete &amp; NDT Papers</a>
+        </div>
+      </div>
+      <div class="sc-evidence-card">
+        <div class="sc-evidence-card__type">Project Attribution Note</div>
+        <h3 class="sc-evidence-card__title">Distinct Institutional Lineage (CCNY vs. Missouri S&amp;T)</h3>
+        <p class="sc-evidence-card__meta">This concrete defect localization work was conducted with the CCNY Robotics Lab team (Feng, Shang, Hoxha, Hernández, He, Wang, Xiao) and is completely separate from the Missouri S&amp;T BIRDS steel-girder drone project.</p>
+        <div class="sc-evidence-card__links">
+          <a href="{{ base_path }}/portfolio/portfolio-2/">Compare with BIRDS →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

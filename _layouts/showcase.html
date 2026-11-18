@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+<div class="sc-subbar">
+  <div class="sc-container sc-subbar__inner">
+    <div class="sc-subbar__crumb">
+      {% if page.url == "/portfolio/" %}
+        <span class="sc-subbar__kicker">SYSTEMS &amp; PRODUCTS</span>
+        <span class="sc-subbar__sep">/</span>
+        <span class="sc-subbar__current">Engineering &amp; Field Robotics Showcase</span>
+      {% else %}
+        <a href="{{ base_path }}/portfolio/" class="sc-subbar__back">
+          <i class="fas fa-arrow-left" aria-hidden="true"></i> All Systems
+        </a>
+        <span class="sc-subbar__sep">/</span>
+        <span class="sc-subbar__current">{{ page.short_title | default: page.title }}</span>
+      {% endif %}
+    </div>
+    <div class="sc-subbar__actions">
+      <a href="{{ base_path }}/slides/" class="sc-subbar__link"><i class="fas fa-tv" aria-hidden="true"></i> 28-Slide Deck</a>
+      <a href="{{ base_path }}/resumes/" class="sc-subbar__link"><i class="fas fa-file-lines" aria-hidden="true"></i> Resume &amp; CV</a>
+      <a href="mailto:{{ site.author.email }}" class="sc-subbar__cta"><i class="fas fa-envelope" aria-hidden="true"></i> {{ site.author.email }}</a>
+    </div>
+  </div>
+</div>
+
+<main id="main" role="main" class="sc-main">
+  {{ content }}
+
+  {% if page.collection == 'portfolio' %}
+    <section class="sc-section sc-section--alt sc-more-systems" aria-labelledby="more-systems-heading">
+      <div class="sc-container">
+        <div class="sc-section__head">
+          <p class="sc-eyebrow">MULTI-SCALE PORTFOLIO</p>
+          <h2 id="more-systems-heading" class="sc-h2">Explore Other Deployed Systems</h2>
+        </div>
+        <div class="sc-mini-grid">
+          {% assign ordered_items = site.portfolio | sort: "order" %}
+          {% for item in ordered_items %}
+            {% if item.url != page.url %}
+              <a href="{{ base_path }}{{ item.url }}" class="sc-mini-card">
+                <span class="sc-mini-card__scale">{{ item.scale_label | default: "System Showcase" }}</span>
+                <h3 class="sc-mini-card__title">{{ item.short_title | default: item.title }}</h3>
+                <p class="sc-mini-card__tagline">{{ item.tagline | default: item.excerpt | strip_html | truncate: 115 }}</p>
+                <span class="sc-mini-card__go">View System Architecture <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+</main>

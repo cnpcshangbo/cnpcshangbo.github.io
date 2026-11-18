@@ -1,0 +1,242 @@
+---
+layout: showcase
+title: "Highway LiDAR + Camera Synchronization & InfraLiDAR-Eval"
+short_title: "Highway LiDAR Sync & InfraLiDAR-Eval"
+scale_label: "Macro · Continuous Corridor Sensing"
+tagline: "61.9-hour roadside 3D LiDAR + RGB synchronization, multi-sweep reconstruction, and NYSDOT I-95 corridor evaluation (90.1% vs. 72.9%)."
+order: 3
+permalink: /portfolio/portfolio-1/
+excerpt: "End-to-end multi-sensor capture, temporal/spatial alignment, and CNN-based 3D detection for fixed roadside LiDAR + camera at NYC highway sites."
+collection: portfolio
+---
+
+{% include base_path %}
+
+<section class="sc-hero">
+  <div class="sc-container sc-hero__grid">
+    <div>
+      <p class="sc-hero__eyebrow">MACRO SCALE · NYSDOT I-95 &amp; NYC DOT · 61.9 HOURS</p>
+      <h1 class="sc-hero__title">Continuous Highway <span class="sc-hero__accent">3D LiDAR + RGB</span> Synchronization &amp; Evaluation</h1>
+      <p class="sc-hero__subtitle">
+        Models trained on sunny 20-second ego-vehicle clips break down on multi-lane highways when clocks drift by tens of milliseconds or sparse far-range sweeps hit 6-lane traffic. We engineered an end-to-end synchronized capture, calibration, and sparse-to-dense 3D perception pipeline validated across <strong>61.9 hours (743 raw sessions)</strong> and live NYSDOT I-95 deployments.
+      </p>
+      <div class="sc-hero__badges">
+        <span class="sc-hero__badge sc-hero__badge--teal">61.9 Hours · 743 Raw Sessions</span>
+        <span class="sc-hero__badge sc-hero__badge--amber">90.1% vs. 72.9% on I-95</span>
+        <span class="sc-hero__badge">IEEE OJ-ITS 2026</span>
+        <span class="sc-hero__badge">MobiSPC 2025 (2 Papers)</span>
+      </div>
+      <div class="sc-hero__actions">
+        <a href="#sync-architecture" class="home-btn home-btn--primary"><i class="fas fa-diagram-project" aria-hidden="true"></i> 6-Stage Sync Architecture</a>
+        <a href="#i95-benchmark" class="home-btn home-btn--ghost"><i class="fas fa-road" aria-hidden="true"></i> I-95 Field Benchmark</a>
+        <a href="{{ base_path }}/slides/#slide-16" class="home-btn home-btn--ghost"><i class="fas fa-tv" aria-hidden="true"></i> Slides 16–18</a>
+      </div>
+    </div>
+
+    <div class="sc-hero__visual">
+      <img src="{{ base_path }}/assets/slides/img/nysdot_i95_setup.jpg" alt="NYSDOT Interstate 95 Bronx roadside LiDAR and RGB camera highway deployment" class="js-zoom-fig" />
+      <div class="sc-hero__visual-cap">
+        <span>NYSDOT I-95 CORRIDOR DEPLOYMENT · BRONX, NY</span>
+        <span>CLICK IMAGE TO ENLARGE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sc-kpi-bar">
+  <div class="sc-container sc-kpi-grid">
+    <div class="sc-kpi">
+      <span class="sc-kpi__val sc-kpi__val--amber">90.1%</span>
+      <span class="sc-kpi__label">Fixed-Sensor Crossing Recovery</span>
+      <span class="sc-kpi__sub">Outperforms ego-centric 3D detector baseline (72.9%) on I-95</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">61.9 Hours</span>
+      <span class="sc-kpi__label">InfraLiDAR-Eval Benchmark</span>
+      <span class="sc-kpi__sub">743 continuous raw recording sessions across urban &amp; highway sites</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">6 Stages</span>
+      <span class="sc-kpi__label">Synchronized 2D–3D Loop</span>
+      <span class="sc-kpi__sub">Clock drift correction → extrinsic fusion → multi-sweep stitching</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">Zero-Rewrite</span>
+      <span class="sc-kpi__label">Cross-Site Portability</span>
+      <span class="sc-kpi__sub">Adapts across beam counts, mast heights, and camera frame rates</span>
+    </div>
+  </div>
+</div>
+
+<!-- 6-STAGE PIPELINE + ANIMATED SYNC DIAGRAM -->
+<section id="sync-architecture" class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">WHY SYNCHRONIZATION IS THE HARD PART</p>
+      <h2 class="sc-h2">Sub-Frame Temporal &amp; Spatial Alignment at Highway Speeds</h2>
+      <p class="sc-lead">
+        At 65 mph (29 m/s), a 50 ms clock offset between a spinning 3D LiDAR and an RGB camera shifts projected bounding boxes by <strong>1.45 meters</strong> — smearing multi-frame point-cloud reconstruction and collapsing downstream VRU/freight classification.
+      </p>
+    </div>
+
+    <!-- Animated Temporal-Spatial Alignment SVG Banner -->
+    <div class="sc-console" style="margin-bottom:2rem;">
+      <svg viewBox="0 0 960 220" role="img" aria-label="Animated 6-stage roadside LiDAR and RGB camera synchronization and multi-frame 3D reconstruction pipeline">
+        <rect width="960" height="220" rx="12" fill="#07111c"/>
+        <!-- Stream 1: LiDAR -->
+        <rect x="24" y="28" width="168" height="68" rx="9" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.4"/>
+        <text x="40" y="52" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">3D LIDAR SWEEPS</text>
+        <text x="40" y="71" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">10–20 Hz packet stream</text>
+        <text x="40" y="86" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="9">PTP / host drift tracking</text>
+
+        <!-- Stream 2: RGB -->
+        <rect x="24" y="124" width="168" height="68" rx="9" fill="#0e2238" stroke="#38bdf8" stroke-width="1.4"/>
+        <text x="40" y="148" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">RGB CAMERA STREAM</text>
+        <text x="40" y="167" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">30 FPS high-res optics</text>
+        <text x="40" y="182" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="9">Intrinsics + lens undistort</text>
+
+        <!-- Flow lines -->
+        <path d="M 192,62 C 228,62 228,96 262,96" fill="none" stroke="#2dd4bf" stroke-width="2.2" class="sc-anim-flow"/>
+        <path d="M 192,158 C 228,158 228,124 262,124" fill="none" stroke="#38bdf8" stroke-width="2.2" class="sc-anim-flow"/>
+
+        <!-- Stage: Clock + Extrinsic Sync -->
+        <rect x="262" y="64" width="196" height="92" rx="10" fill="#102942" stroke="#fbbf24" stroke-width="1.6"/>
+        <text x="360" y="90" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">TEMPORAL + EXTRINSIC LOCK</text>
+        <text x="360" y="112" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="700">Clock Drift + 6-DoF T_cam←lidar</text>
+        <text x="360" y="133" text-anchor="middle" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">Eliminates 29 m/s highway projection lag</text>
+
+        <line x1="458" y1="110" x2="514" y2="110" stroke="#2dd4bf" stroke-width="2.4" class="sc-anim-flow"/>
+
+        <!-- Stage: Background Sub + 3D CNN -->
+        <rect x="514" y="64" width="196" height="92" rx="10" fill="#0e2238" stroke="#2dd4bf" stroke-width="1.4"/>
+        <text x="612" y="90" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">STATIC BG REMOVAL + 3D CNN</text>
+        <text x="612" y="112" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="700">Fixed-Perspective Prior</text>
+        <text x="612" y="133" text-anchor="middle" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10.5">Cars · Trucks · Bikes · Pedestrians</text>
+
+        <line x1="710" y1="110" x2="764" y2="110" stroke="#2dd4bf" stroke-width="2.4" class="sc-anim-flow"/>
+
+        <!-- Stage: Sparse-to-Dense Reconstruction -->
+        <rect x="764" y="54" width="172" height="112" rx="10" fill="#0f2c3f" stroke="#2dd4bf" stroke-width="1.6"/>
+        <text x="850" y="82" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">SPARSE → DENSE 3D</text>
+        <text x="850" y="104" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="800">Multi-Sweep Stitch</text>
+        <text x="850" y="124" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">90.1% I-95 Recovery</text>
+        <text x="850" y="144" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">FHWA Axle/Class Ready</text>
+      </svg>
+    </div>
+
+    <div class="sc-pipeline sc-pipeline--6">
+      <div class="sc-step">
+        <span class="sc-step__num">STAGE 01</span>
+        <h3 class="sc-step__title">Multi-Sensor Ingestion</h3>
+        <p class="sc-step__desc">Continuous capture of raw 3D LiDAR UDP sweeps and high-resolution RGB streams across 743 unattended field sessions.</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">STAGE 02</span>
+        <h3 class="sc-step__title">Temporal Drift Correction</h3>
+        <p class="sc-step__desc">Timestamp alignment and online clock-skew compensation between LiDAR hardware timestamps and camera exposure triggers.</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">STAGE 03</span>
+        <h3 class="sc-step__title">6-DoF Extrinsic Calibration</h3>
+        <p class="sc-step__desc">Rigid spatial calibration mapping 3D point clouds onto RGB image planes across varying mast heights and tilt geometries.</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">STAGE 04</span>
+        <h3 class="sc-step__title">Background Modeling</h3>
+        <p class="sc-step__desc">Exploiting stationary roadside geometry to strip guardrails, overpasses, and foliage before 3D proposal generation.</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">STAGE 05</span>
+        <h3 class="sc-step__title">CNN 3D VRU &amp; Freight Detection</h3>
+        <p class="sc-step__desc">Config-portable 3D detection classifying passenger cars, multi-unit freight trucks, motorcycles, cyclists, and pedestrians.</p>
+      </div>
+      <div class="sc-step">
+        <span class="sc-step__num">STAGE 06</span>
+        <h3 class="sc-step__title">Multi-Frame Vehicle Stitching</h3>
+        <p class="sc-step__desc">Rigid-body registration accumulating sparse distant LiDAR returns across consecutive sweeps into dense per-vehicle 3D models.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD FIGURES & BENCHMARKS -->
+<section id="i95-benchmark" class="sc-section">
+  <div class="sc-container">
+
+    <div class="sc-split sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">NYSDOT I-95 BENCHMARK · INFRALIDAR-EVAL</p>
+        <h2 class="sc-split__title">90.1% Fixed-Sensor Crossing Recovery vs. 72.9% Ego Baseline</h2>
+        <div class="sc-split__body">
+          <p>
+            Off-the-shelf 3D detectors trained on ego-vehicle datasets (KITTI, Waymo, nuScenes) assume a sensor moving at bumper/roof height (~1.8 m). Mounted on an elevated roadside mast overlooking Interstate 95 in the Bronx, those ego-centric models drop to <strong>72.9%</strong> vehicle crossing recovery due to pitch/height domain shift and far-lane sparsity.
+          </p>
+          <ul>
+            <li><strong>Fixed-Geometry Conditioning (90.1%):</strong> Incorporating stationary background priors, ground-plane rectification, and temporal track continuity recovers <strong>+17.2 percentage points</strong> on live highway traffic.</li>
+            <li><strong>61.9-Hour Failure Taxonomy:</strong> Documents sensor thermal drift, rain/spray backscatter, heavy-truck shadow handoffs, and beam-count sensitivity across 743 sessions.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <div class="sc-fig-pair">
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/i95_benchmark_chart.png" alt="NYSDOT I-95 vehicle crossing recovery benchmark comparing 90.1% fixed-sensor pipeline against 72.9% ego-centric detector" class="js-zoom-fig" loading="lazy" />
+            <figcaption>NYSDOT I-95 benchmark: 90.1% crossing recovery with fixed-sensor conditioning vs. 72.9% ego-centric detector.</figcaption>
+          </figure>
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/infralidar_crops.png" alt="Synchronized roadside LiDAR and RGB vehicle crops from the 61.9-hour InfraLiDAR-Eval dataset" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Synchronized 2D–3D roadside instances across lighting, weather, and occlusion regimes in InfraLiDAR-Eval.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-split sc-split--reverse sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">FINE-GRAINED FREIGHT &amp; ZERO-INFRASTRUCTURE SCALING</p>
+        <h2 class="sc-split__title">From Dense 3D Truck Profiles to Citywide Curbside Freight Sensing</h2>
+        <div class="sc-split__body">
+          <p>
+            Multi-sweep point-cloud registration unlocks fine-grained geometric classification of commercial vehicles (box trucks, articulated tractor-trailers, tankers) directly from roadside LiDAR — and pairs with citywide Street View imagery (<em>IEEE OJ-ITS</em> 2026) and VLM-guided traffic curation to map freight demand before permanent sensors are installed.
+          </p>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <figure class="sc-fig">
+          <img src="{{ base_path }}/assets/slides/img/lidar_truck_classes.png" alt="Multi-frame 3D point cloud reconstructions of commercial truck classes from roadside LiDAR" class="js-zoom-fig" loading="lazy" />
+          <figcaption>Multi-sweep 3D vehicle point-cloud reconstructions enabling geometry-based commercial freight classification.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">PUBLICATIONS &amp; AGENCY COLLABORATIONS</p>
+      <h2 class="sc-h2">Published Corridor &amp; Freight Sensing Work</h2>
+    </div>
+    <div class="sc-evidence-grid">
+      <div class="sc-evidence-card">
+        <div class="sc-evidence-card__type">IEEE Open Journal of Intelligent Transportation Systems · 2026</div>
+        <h3 class="sc-evidence-card__title">Citywide Urban Freight &amp; Truck Activity Estimation from Street-Level Imagery</h3>
+        <p class="sc-evidence-card__meta">Complements fixed corridor LiDAR with scalable spatial freight demand mapping across urban road networks.</p>
+        <div class="sc-evidence-card__links">
+          <a href="{{ base_path }}/publications/">View in Publications</a>
+          <a href="{{ base_path }}/slides/#slide-18">Slide 18</a>
+        </div>
+      </div>
+      <div class="sc-evidence-card">
+        <div class="sc-evidence-card__type">MobiSPC · 2025 (Two Papers) &amp; InfraLiDAR-Eval</div>
+        <h3 class="sc-evidence-card__title">Roadside Sensing Perspectives &amp; LiDAR Beam-Count Study for VRU Detection</h3>
+        <p class="sc-evidence-card__meta">Field-deployed synchronization and 3D perception pipeline supporting NYSDOT and NYC DOT collaborations.</p>
+        <div class="sc-evidence-card__links">
+          <a href="{{ base_path }}/publications/">View in Publications</a>
+          <a href="{{ base_path }}/slides/#slide-16">Slides 16–17</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

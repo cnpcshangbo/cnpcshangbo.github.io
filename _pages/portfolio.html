@@ -1,14 +1,396 @@
 ---
-layout: archive
-title: "Portfolio"
+layout: showcase
+title: "Systems & Robotics Portfolio"
 permalink: /portfolio/
-author_profile: true
+excerpt: "Interactive product-style showcase of Bo Shang's deployed field robotics, roadside 3D LiDAR perception pipelines, and geospatial AI platforms."
 ---
 
 {% include base_path %}
 
+<section class="sc-hero">
+  <div class="sc-container sc-hero__grid">
+    <div>
+      <p class="sc-hero__eyebrow">DEPLOYED ROBOTICS · 3D PERCEPTION · GEOSPATIAL AI</p>
+      <h1 class="sc-hero__title">Physical AI Built for <span class="sc-hero__accent">Real Infrastructure</span></h1>
+      <p class="sc-hero__subtitle">
+        From patented flying-and-clamping bridge robots and 3D crack-mapping climbers to 61.9-hour highway LiDAR corridors and agency-facing traffic simulation platforms — explore hardware architectures, live interactive simulators, and real experimental footage.
+      </p>
+      <div class="sc-hero__badges">
+        <span class="sc-hero__badge sc-hero__badge--amber">U.S. Patent 12,296,994 B2</span>
+        <span class="sc-hero__badge sc-hero__badge--amber">ASCE 2025 Charles Pankow Award</span>
+        <span class="sc-hero__badge sc-hero__badge--teal">7 Playable Experimental Videos</span>
+        <span class="sc-hero__badge">NYSDOT · NYC DOT · USDOT INSPIRE · UMD MTI</span>
+      </div>
+      <div class="sc-hero__actions">
+        <a href="#systems-catalog" class="home-btn home-btn--primary"><i class="fas fa-bolt" aria-hidden="true"></i> Browse 7 Systems</a>
+        <a href="{{ base_path }}/slides/" class="home-btn home-btn--ghost"><i class="fas fa-tv" aria-hidden="true"></i> Open 28-Slide Deck</a>
+        <a href="https://cerra.cloud" target="_blank" rel="noopener" class="home-btn home-btn--ghost"><i class="fas fa-globe" aria-hidden="true"></i> Live CERRA Platform ↗</a>
+      </div>
+    </div>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+    <div class="sc-hero__visual">
+      <!-- Animated Multi-Scale System Architecture SVG -->
+      <svg viewBox="0 0 560 340" role="img" aria-label="Animated multi-scale physical AI architecture connecting Micro Field Robotics, Meso Roadside LiDAR, and Macro City Analytics">
+        <defs>
+          <linearGradient id="hubBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#07111c"/>
+            <stop offset="100%" stop-color="#0f2338"/>
+          </linearGradient>
+          <linearGradient id="tealFlow" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#14b8a6"/>
+            <stop offset="100%" stop-color="#2dd4bf"/>
+          </linearGradient>
+        </defs>
+        <rect width="560" height="340" rx="14" fill="url(#hubBg)"/>
 
+        <!-- Subtle horizon telemetry arcs -->
+        <circle cx="280" cy="310" r="240" fill="none" stroke="rgba(45,212,191,0.12)" stroke-width="1"/>
+        <circle cx="280" cy="310" r="165" fill="none" stroke="rgba(45,212,191,0.16)" stroke-width="1" stroke-dasharray="4 6"/>
+
+        <!-- Animated Dataflow Connectors -->
+        <path d="M 118,136 C 185,136 205,232 260,248" fill="none" stroke="url(#tealFlow)" stroke-width="2.4" class="sc-anim-flow"/>
+        <path d="M 280,126 L 280,232" fill="none" stroke="url(#tealFlow)" stroke-width="2.4" class="sc-anim-flow"/>
+        <path d="M 442,136 C 375,136 355,232 300,248" fill="none" stroke="url(#tealFlow)" stroke-width="2.4" class="sc-anim-flow"/>
+
+        <!-- Node 1: Micro Scale -->
+        <g transform="translate(22,30)">
+          <rect width="164" height="108" rx="10" fill="#0d1e31" stroke="#2dd4bf" stroke-width="1.4"/>
+          <text x="14" y="24" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">MICRO · ROBOTICS</text>
+          <text x="14" y="45" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">BIRDS + Climbers</text>
+          <text x="14" y="64" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5">1.3 s Girder Clamping</text>
+          <text x="14" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5">3D Crack Skeletonization</text>
+          <rect x="14" y="88" width="84" height="12" rx="4" fill="rgba(245,158,11,0.2)"/>
+          <text x="20" y="97" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">PATENTED UAS</text>
+        </g>
+
+        <!-- Node 2: Meso Scale -->
+        <g transform="translate(198,20)">
+          <rect width="164" height="108" rx="10" fill="#0d1e31" stroke="#2dd4bf" stroke-width="1.4"/>
+          <text x="14" y="24" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">MESO · V2I LIDAR</text>
+          <text x="14" y="45" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">PACO Safety Audit</text>
+          <text x="14" y="64" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5">0.37 ADAS → 1.00 V2I</text>
+          <text x="14" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5">180 Near-Misses Audited</text>
+          <rect x="14" y="88" width="92" height="12" rx="4" fill="rgba(20,184,166,0.2)"/>
+          <text x="20" y="97" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">CVPRW 2026</text>
+        </g>
+
+        <!-- Node 3: Macro Scale -->
+        <g transform="translate(374,30)">
+          <rect width="164" height="108" rx="10" fill="#0d1e31" stroke="#2dd4bf" stroke-width="1.4"/>
+          <text x="14" y="24" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">MACRO · CORRIDOR</text>
+          <text x="14" y="45" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">InfraLiDAR-Eval</text>
+          <text x="14" y="64" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5">61.9 h Continuous 3D</text>
+          <text x="14" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5">90.1% I-95 Recovery</text>
+          <rect x="14" y="88" width="96" height="12" rx="4" fill="rgba(20,184,166,0.2)"/>
+          <text x="20" y="97" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">NYSDOT DEPLOY</text>
+        </g>
+
+        <!-- Unified Synthesis Core -->
+        <g transform="translate(115,228)">
+          <rect width="330" height="86" rx="12" fill="#102942" stroke="#fbbf24" stroke-width="1.6"/>
+          <text x="165" y="26" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">UNIFIED DECISION LAYER · CERRA &amp; LLM-SUMO</text>
+          <text x="165" y="48" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="14.5" font-weight="800">Auditable Infrastructure Intelligence</text>
+          <text x="165" y="69" text-anchor="middle" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">Observed Telemetry + Calibrated Simulation + Explicit Assumptions</text>
+        </g>
+      </svg>
+      <div class="sc-hero__visual-cap">
+        <span>MULTI-SCALE ARCHITECTURE</span>
+        <span>MICRO → MESO → MACRO → CITY</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sc-kpi-bar">
+  <div class="sc-container sc-kpi-grid">
+    <div class="sc-kpi">
+      <span class="sc-kpi__val sc-kpi__val--amber">US 12,296,994</span>
+      <span class="sc-kpi__label">Granted Robotics Patent</span>
+      <span class="sc-kpi__sub">Hybrid flight &amp; girder-traversing vehicle + ASCE 2025 Pankow Award</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">7 Videos + 3 Sims</span>
+      <span class="sc-kpi__label">Interactive Demos Inline</span>
+      <span class="sc-kpi__sub">Real hardware flight/clamping footage &amp; live telemetry sandboxes</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">61.9 Hours</span>
+      <span class="sc-kpi__label">Field Roadside 3D LiDAR</span>
+      <span class="sc-kpi__sub">743 continuous sessions across NYC &amp; NYSDOT I-95 corridors</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">0.37 → 1.00</span>
+      <span class="sc-kpi__label">PACO Observability Gain</span>
+      <span class="sc-kpi__sub">Closing dynamic truck occlusion shadows via elevated V2I LiDAR</span>
+    </div>
+  </div>
+</div>
+
+<section id="systems-catalog" class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-filter-bar">
+      <div>
+        <p class="sc-eyebrow">PRODUCT &amp; SYSTEM CATALOG</p>
+        <h2 class="sc-h2" style="margin-bottom:0;">Select a Scale or Explore All 7 Systems</h2>
+      </div>
+      <div class="sc-filter-bar__tabs js-portfolio-filters" role="toolbar" aria-label="Filter portfolio systems by domain">
+        <button type="button" class="sc-filter-bar__btn js-filter-btn is-active" data-filter="all" aria-pressed="true">All Systems (7)</button>
+        <button type="button" class="sc-filter-bar__btn js-filter-btn" data-filter="robotics" aria-pressed="false">Field Robotics (3)</button>
+        <button type="button" class="sc-filter-bar__btn js-filter-btn" data-filter="lidar" aria-pressed="false">Roadside 3D LiDAR (2)</button>
+        <button type="button" class="sc-filter-bar__btn js-filter-btn" data-filter="platform" aria-pressed="false">City &amp; AI Platforms (2)</button>
+      </div>
+    </div>
+
+    <div class="sc-system-grid">
+
+      <!-- 1. Flagship Card: BIRDS -->
+      <article class="sc-sys-card sc-sys-card--flagship js-system-card" data-category="robotics">
+        <a href="{{ base_path }}/portfolio/portfolio-2/" class="sc-sys-card__media" aria-label="Explore BIRDS Hybrid Flying and Girder-Clamping Bridge Robot">
+          <img src="{{ base_path }}/assets/slides/img/birds_traversing.jpg" alt="BIRDS hybrid quadrotor and steel girder traversing bridge inspection robot" loading="lazy" />
+          <div class="sc-sys-card__pills">
+            <span class="sc-sys-card__pill sc-sys-card__pill--video"><i class="fas fa-play" aria-hidden="true"></i> 6 Experimental Videos + Sim</span>
+            <span class="sc-sys-card__pill sc-sys-card__pill--award">US Patent 12,296,994 · Pankow Award</span>
+          </div>
+        </a>
+        <div class="sc-sys-card__body">
+          <span class="sc-sys-card__scale">MICRO SCALE · HYBRID AERIAL-CLIMBING ROBOTICS</span>
+          <h3 class="sc-sys-card__title"><a href="{{ base_path }}/portfolio/portfolio-2/">BIRDS: Bridge Inspection Robot Deployment System</a></h3>
+          <p class="sc-sys-card__desc">
+            Multi-rotor flight consumes massive power while hovering in under-bridge wind gusts where GPS fails. BIRDS flies up beneath steel I-girders, locks onto the bottom flange via onboard NVIDIA Jetson RGB-D vision, clamps autonomously in <strong>1.3 seconds</strong>, powers down its rotors, and rolls along the span for continuous multi-camera NDT inspection.
+          </p>
+          <div class="sc-sys-card__metrics">
+            <span class="sc-sys-card__metric"><strong>1.3 s</strong> Autonomous Clamping</span>
+            <span class="sc-sys-card__metric"><strong>0 W</strong> Rotor Power While Rolling</span>
+            <span class="sc-sys-card__metric"><strong>6</strong> Inline Lab &amp; Flight Videos</span>
+          </div>
+          <div class="sc-sys-card__stack">
+            <span>ROS</span><span>NVIDIA Jetson</span><span>RGB-D Vision</span><span>PID / Fractional Control</span><span>iOS Telemetry App</span><span>Embedded Linux</span>
+          </div>
+          <div class="sc-sys-card__footer">
+            <a href="{{ base_path }}/portfolio/portfolio-2/" class="sc-sys-card__cta">Watch 6 Videos &amp; Interactive Sim <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="{{ base_path }}/slides/#slide-8" class="sc-sys-card__sec-link">Slide 8 →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. PACO & CVPRW Safety Auditor -->
+      <article class="sc-sys-card js-system-card" data-category="lidar">
+        <a href="{{ base_path }}/portfolio/paco-safety-auditing/" class="sc-sys-card__media" aria-label="Explore PACO Cooperative Observability and Roadside LiDAR Safety Auditor">
+          <img src="{{ base_path }}/assets/slides/img/cvprw_heatmap.png" alt="Spatial risk heatmap of urban intersection near-miss events from roadside 3D LiDAR" loading="lazy" />
+          <div class="sc-sys-card__pills">
+            <span class="sc-sys-card__pill sc-sys-card__pill--video"><i class="fas fa-sliders" aria-hidden="true"></i> Interactive Occlusion Simulator</span>
+            <span class="sc-sys-card__pill">CVPRW DriveX 2026</span>
+          </div>
+        </a>
+        <div class="sc-sys-card__body">
+          <span class="sc-sys-card__scale">MESO SCALE · COOPERATIVE V2I SAFETY</span>
+          <h3 class="sc-sys-card__title"><a href="{{ base_path }}/portfolio/paco-safety-auditing/">PACO &amp; Proactive Roadside 3D LiDAR Safety Auditor</a></h3>
+          <p class="sc-sys-card__desc">
+            Physics-grounded observability engine and sub-meter PET/TTC near-miss auditor proving why ego-vehicle sensors alone cannot solve urban intersection safety under freight occlusion shadows.
+          </p>
+          <div class="sc-sys-card__metrics">
+            <span class="sc-sys-card__metric"><strong>0.37 → 1.00</strong> PACO Score</span>
+            <span class="sc-sys-card__metric"><strong>n = 180</strong> Audited VRU Conflicts</span>
+          </div>
+          <div class="sc-sys-card__stack">
+            <span>3D Ray-Casting</span><span>Roadside LiDAR</span><span>PET / TTC Surrogates</span><span>V2I Perception</span>
+          </div>
+          <div class="sc-sys-card__footer">
+            <a href="{{ base_path }}/portfolio/paco-safety-auditing/" class="sc-sys-card__cta">Launch PACO Simulator <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="{{ base_path }}/slides/#slide-13" class="sc-sys-card__sec-link">Slides 12–14 →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Highway LiDAR + Camera Sync & InfraLiDAR-Eval -->
+      <article class="sc-sys-card js-system-card" data-category="lidar">
+        <a href="{{ base_path }}/portfolio/portfolio-1/" class="sc-sys-card__media" aria-label="Explore Highway LiDAR + Camera Synchronization and InfraLiDAR-Eval">
+          <img src="{{ base_path }}/assets/slides/img/nysdot_i95_setup.jpg" alt="NYSDOT I-95 Bronx highway roadside LiDAR and camera deployment" loading="lazy" />
+          <div class="sc-sys-card__pills">
+            <span class="sc-sys-card__pill sc-sys-card__pill--video"><i class="fas fa-diagram-project" aria-hidden="true"></i> Pipeline &amp; Benchmark</span>
+            <span class="sc-sys-card__pill">IEEE OJ-ITS 2026</span>
+          </div>
+        </a>
+        <div class="sc-sys-card__body">
+          <span class="sc-sys-card__scale">MACRO SCALE · CONTINUOUS CORRIDOR SENSING</span>
+          <h3 class="sc-sys-card__title"><a href="{{ base_path }}/portfolio/portfolio-1/">Highway LiDAR + Camera Sync &amp; InfraLiDAR-Eval (61.9 h)</a></h3>
+          <p class="sc-sys-card__desc">
+            End-to-end clock-drift correction, LiDAR↔RGB extrinsic calibration, sparse-to-dense 3D vehicle reconstruction, and a 61.9-hour continuous corridor benchmark deployed on I-95 in New York.
+          </p>
+          <div class="sc-sys-card__metrics">
+            <span class="sc-sys-card__metric"><strong>90.1% vs 72.9%</strong> I-95 Recovery</span>
+            <span class="sc-sys-card__metric"><strong>743</strong> Raw Field Sessions</span>
+          </div>
+          <div class="sc-sys-card__stack">
+            <span>PyTorch</span><span>ROS</span><span>OpenCV</span><span>3D Point Clouds</span><span>Sensor Calibration</span>
+          </div>
+          <div class="sc-sys-card__footer">
+            <a href="{{ base_path }}/portfolio/portfolio-1/" class="sc-sys-card__cta">Explore Corridor Pipeline <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="{{ base_path }}/slides/#slide-16" class="sc-sys-card__sec-link">Slides 16–17 →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. CERRA & LLM-SUMO -->
+      <article class="sc-sys-card js-system-card" data-category="platform">
+        <a href="{{ base_path }}/portfolio/cerra-platform/" class="sc-sys-card__media" aria-label="Explore CERRA Geospatial AI Platform and LLM-SUMO Digital Twin">
+          <img src="{{ base_path }}/assets/slides/img/cerra_architecture_fig.png" alt="CERRA geospatial AI architecture and LLM-SUMO traffic simulation workflow" loading="lazy" />
+          <div class="sc-sys-card__pills">
+            <span class="sc-sys-card__pill sc-sys-card__pill--video"><i class="fas fa-bolt" aria-hidden="true"></i> Live at cerra.cloud</span>
+            <span class="sc-sys-card__pill">UMD M-TRAIL · IBM Heron</span>
+          </div>
+        </a>
+        <div class="sc-sys-card__body">
+          <span class="sc-sys-card__scale">CITY SCALE · GEOSPATIAL AI &amp; SIMULATION</span>
+          <h3 class="sc-sys-card__title"><a href="{{ base_path }}/portfolio/cerra-platform/">CERRA Geospatial AI Platform &amp; LLM-SUMO Digital Twin</a></h3>
+          <p class="sc-sys-card__desc">
+            Agency-facing spatiotemporal analytics platform pairing observed corridor telemetry with a protected LLM-SUMO traffic-simulation bridge, explicit assumption audit logs, and quantum-hardware VRP benchmarking.
+          </p>
+          <div class="sc-sys-card__metrics">
+            <span class="sc-sys-card__metric"><strong>4-Part</strong> Auditable Copilot</span>
+            <span class="sc-sys-card__metric"><strong>IBM Heron</strong> VRP Validated</span>
+          </div>
+          <div class="sc-sys-card__stack">
+            <span>SUMO</span><span>LLM Tool Bridge</span><span>Linux Containers</span><span>Geospatial Analytics</span><span>QAOA / VRP</span>
+          </div>
+          <div class="sc-sys-card__footer">
+            <a href="{{ base_path }}/portfolio/cerra-platform/" class="sc-sys-card__cta">Explore CERRA Architecture <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="https://cerra.cloud" target="_blank" rel="noopener" class="sc-sys-card__sec-link">cerra.cloud ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Concrete Defect Inspection -->
+      <article class="sc-sys-card js-system-card" data-category="robotics">
+        <a href="{{ base_path }}/portfolio/concrete-defect-inspection/" class="sc-sys-card__media" aria-label="Explore Robotic Concrete Defect Inspection and 3D Mesh Analytics">
+          <img src="{{ base_path }}/assets/slides/img/tase_crack_pipeline.png" alt="2D crack segmentation to 3D point-cloud registration and metric skeletonization pipeline" loading="lazy" />
+          <div class="sc-sys-card__pills">
+            <span class="sc-sys-card__pill sc-sys-card__pill--award">IEEE T-ASE 2025 · IROS 2025</span>
+            <span class="sc-sys-card__pill">CCNY Robotics Lab</span>
+          </div>
+        </a>
+        <div class="sc-sys-card__body">
+          <span class="sc-sys-card__scale">MICRO SCALE · CLIMBING ROBOT &amp; 3D NDT</span>
+          <h3 class="sc-sys-card__title"><a href="{{ base_path }}/portfolio/concrete-defect-inspection/">Robotic Concrete Defect Inspection &amp; 3D Mesh Analytics</a></h3>
+          <p class="sc-sys-card__desc">
+            Wall-climbing robot + iPad TestFlight operator suite + AWS serverless CNN segmentation + WebODM 3D structure-from-motion mesh registration for millimeter-scale concrete crack localization.
+          </p>
+          <div class="sc-sys-card__metrics">
+            <span class="sc-sys-card__metric"><strong>2D → 3D</strong> Metric Crack Mesh</span>
+            <span class="sc-sys-card__metric"><strong>AWS Lambda</strong> Cloud Pipeline</span>
+          </div>
+          <div class="sc-sys-card__stack">
+            <span>Climbing Robot</span><span>InspectionNet CNN</span><span>WebODM SfM</span><span>AWS Amplify / Lambda</span><span>iOS Swift</span>
+          </div>
+          <div class="sc-sys-card__footer">
+            <a href="{{ base_path }}/portfolio/concrete-defect-inspection/" class="sc-sys-card__cta">Explore 3D Defect Pipeline <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="https://doi.org/10.1109/TASE.2025.3535227" target="_blank" rel="noopener" class="sc-sys-card__sec-link">IEEE T-ASE DOI ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Fractional-Order UAV Visual Servoing -->
+      <article class="sc-sys-card js-system-card" data-category="robotics">
+        <a href="{{ base_path }}/portfolio/uav-visual-servoing/" class="sc-sys-card__media" aria-label="Explore Fractional-Order Autonomous UAV Visual Servoing">
+          <img src="{{ base_path }}/assets/slides/img/uav_servoing_hw.png" alt="Quadrotor UAV visual servoing hardware with Pixhawk and onboard Linux companion computer" loading="lazy" />
+          <div class="sc-sys-card__pills">
+            <span class="sc-sys-card__pill sc-sys-card__pill--video"><i class="fas fa-play" aria-hidden="true"></i> Flight Video + Control Sim</span>
+            <span class="sc-sys-card__pill">Nonlinear Dynamics 2019</span>
+          </div>
+        </a>
+        <div class="sc-sys-card__body">
+          <span class="sc-sys-card__scale">MICRO SCALE · ROBUST FLIGHT CONTROL</span>
+          <h3 class="sc-sys-card__title"><a href="{{ base_path }}/portfolio/uav-visual-servoing/">Fractional-Order Autonomous UAV Visual Servoing</a></h3>
+          <p class="sc-sys-card__desc">
+            Iso-damping fractional-order <code>PD^μ</code> flight controller and live browser-based HSV vision tuner enabling stable GPS-denied quadrotor precision hovering under severe onboard camera latency.
+          </p>
+          <div class="sc-sys-card__metrics">
+            <span class="sc-sys-card__metric"><strong>0.933 s vs 0.546 s</strong> Max Period</span>
+            <span class="sc-sys-card__metric"><strong>+20%</strong> Flight Hover Precision</span>
+          </div>
+          <div class="sc-sys-card__stack">
+            <span>Fractional Calculus</span><span>Pixhawk</span><span>Embedded Linux</span><span>OpenCV</span><span>Web Telemetry GUI</span>
+          </div>
+          <div class="sc-sys-card__footer">
+            <a href="{{ base_path }}/portfolio/uav-visual-servoing/" class="sc-sys-card__cta">Watch Flight Test &amp; Sim <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="{{ base_path }}/slides/#slide-6" class="sc-sys-card__sec-link">Slides 5–6 →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. ScholarMind AI -->
+      <article class="sc-sys-card js-system-card" data-category="platform">
+        <a href="{{ base_path }}/portfolio/scholarmind-ai/" class="sc-sys-card__media" aria-label="Explore ScholarMind AI and Merit Point Academy">
+          <!-- Crisp Custom Product SVG Preview -->
+          <svg viewBox="0 0 560 350" role="img" aria-label="ScholarMind AI bilingual research assistant and 34-node knowledge graph preview">
+            <rect width="560" height="350" fill="#071320"/>
+            <circle cx="430" cy="95" r="130" fill="rgba(20,184,166,0.14)"/>
+            <!-- App Window Mock -->
+            <rect x="28" y="26" width="504" height="298" rx="12" fill="#0d1e31" stroke="rgba(45,212,191,0.35)" stroke-width="1.5"/>
+            <circle cx="48" cy="44" r="4.5" fill="#ef4444"/>
+            <circle cx="63" cy="44" r="4.5" fill="#f59e0b"/>
+            <circle cx="78" cy="44" r="4.5" fill="#14b8a6"/>
+            <text x="280" y="48" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="10">academic.hopeembark.org · Claude + Qwen/Ollama</text>
+            <line x1="28" y1="60" x2="532" y2="60" stroke="rgba(148,163,184,0.18)"/>
+            <!-- Left Copilot Pane -->
+            <rect x="44" y="76" width="212" height="230" rx="8" fill="#091523" stroke="rgba(148,163,184,0.16)"/>
+            <text x="58" y="98" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">BILINGUAL AI COPILOT</text>
+            <rect x="58" y="110" width="184" height="38" rx="6" fill="#122840"/>
+            <text x="68" y="127" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="9.5">EN / 中文 Research Synthesis</text>
+            <text x="68" y="141" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="8.5">Citation-grounded · Guardrailed</text>
+            <rect x="58" y="158" width="184" height="44" rx="6" fill="#102338" stroke="rgba(45,212,191,0.28)"/>
+            <text x="68" y="176" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">34-COURSE CURRICULUM</text>
+            <text x="68" y="192" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="9.5">Recorded lessons + live labs</text>
+            <rect x="58" y="212" width="184" height="78" rx="6" fill="#122840"/>
+            <text x="68" y="230" fill="#2dd4bf" font-family="JetBrains Mono, monospace" font-size="8.5">MODEL ROUTER</text>
+            <text x="68" y="247" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="9.5">• Claude API (Reasoning)</text>
+            <text x="68" y="263" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="9.5">• Self-Hosted Qwen / Ollama</text>
+            <text x="68" y="279" fill="#94a3b8" font-family="Inter, sans-serif" font-size="9">• Multi-subdomain prod deploy</text>
+            <!-- Right Knowledge Graph -->
+            <rect x="270" y="76" width="246" height="230" rx="8" fill="#091523" stroke="rgba(148,163,184,0.16)"/>
+            <text x="286" y="98" fill="#fbbf24" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">KNOWLEDGE GRAPH · 34 NODES</text>
+            <g stroke="rgba(45,212,191,0.5)" stroke-width="1.6">
+              <line x1="330" y1="145" x2="395" y2="128" class="sc-anim-flow"/>
+              <line x1="330" y1="145" x2="380" y2="195" class="sc-anim-flow"/>
+              <line x1="395" y1="128" x2="465" y2="155" class="sc-anim-flow"/>
+              <line x1="380" y1="195" x2="465" y2="155"/>
+              <line x1="380" y1="195" x2="450" y2="238" class="sc-anim-flow"/>
+              <line x1="330" y1="145" x2="318" y2="235"/>
+              <line x1="318" y1="235" x2="380" y2="195"/>
+            </g>
+            <circle cx="330" cy="145" r="14" fill="#14b8a6"/><text x="330" y="149" text-anchor="middle" fill="#07111c" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">DP</text>
+            <circle cx="395" cy="128" r="13" fill="#0f766e" stroke="#2dd4bf"/><text x="395" y="132" text-anchor="middle" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8">BFS</text>
+            <circle cx="465" cy="155" r="15" fill="#f59e0b"/><text x="465" y="159" text-anchor="middle" fill="#07111c" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">DAG</text>
+            <circle cx="380" cy="195" r="14" fill="#14b8a6"/><text x="380" y="199" text-anchor="middle" fill="#07111c" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">TRIE</text>
+            <circle cx="318" cy="235" r="12" fill="#1e3a5f" stroke="#2dd4bf"/><text x="318" y="239" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="7.5">HEAP</text>
+            <circle cx="450" cy="238" r="13" fill="#0f766e" stroke="#2dd4bf"/><text x="450" y="242" text-anchor="middle" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8">UF</text>
+            <text x="286" y="286" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="9">102 Interactive Progression Units</text>
+          </svg>
+          <div class="sc-sys-card__pills">
+            <span class="sc-sys-card__pill sc-sys-card__pill--video"><i class="fas fa-rocket" aria-hidden="true"></i> Live 0-to-1 AI Product</span>
+            <span class="sc-sys-card__pill">Claude + Qwen/Ollama</span>
+          </div>
+        </a>
+        <div class="sc-sys-card__body">
+          <span class="sc-sys-card__scale">FULL-STACK AI PRODUCT · 0-TO-1 DEPLOYMENT</span>
+          <h3 class="sc-sys-card__title"><a href="{{ base_path }}/portfolio/scholarmind-ai/">ScholarMind AI / Merit Point Academy</a></h3>
+          <p class="sc-sys-card__desc">
+            Independently architected and shipped bilingual AI learning &amp; research platform combining Claude + self-hosted Qwen/Ollama agents, a 34-course library, and a 34-node / 102-unit interactive knowledge-graph engine.
+          </p>
+          <div class="sc-sys-card__metrics">
+            <span class="sc-sys-card__metric"><strong>34</strong> Courses &amp; Graph Nodes</span>
+            <span class="sc-sys-card__metric"><strong>102</strong> Progression Units</span>
+          </div>
+          <div class="sc-sys-card__stack">
+            <span>Claude Agents</span><span>Qwen / Ollama</span><span>Knowledge Graphs</span><span>Bilingual UX</span><span>Production Web</span>
+          </div>
+          <div class="sc-sys-card__footer">
+            <a href="{{ base_path }}/portfolio/scholarmind-ai/" class="sc-sys-card__cta">Explore Product Stack <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="https://academic.hopeembark.org/" target="_blank" rel="noopener" class="sc-sys-card__sec-link">Live App ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

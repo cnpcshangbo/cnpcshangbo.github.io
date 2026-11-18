@@ -3,17 +3,32 @@
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        <button aria-label="Toggle navigation menu"><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg">
+            <a href="{{ base_path }}/" class="site-brand">
+              <span class="site-brand__mark" aria-hidden="true">BS</span>
+              <span class="site-brand__text">{{ site.title }}</span>
+            </a>
+          </li>
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
-              {% else %}
+            {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            {% assign is_current = false %}
+            {% if page.url == link.url %}
+              {% assign is_current = true %}
+            {% elsif link.url == '/portfolio/' and page.collection == 'portfolio' %}
+              {% assign is_current = true %}
+            {% elsif link.url == '/research-notes/' and page.categories %}
+              {% assign is_current = true %}
+            {% endif %}
+            <li class="masthead__menu-item{% if is_current %} is-active{% endif %}">
+              <a href="{{ domain }}{{ link.url }}"{% if is_current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+            </li>
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>

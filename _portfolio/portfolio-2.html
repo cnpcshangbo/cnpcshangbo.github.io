@@ -1,35 +1,391 @@
 ---
+layout: showcase
 title: "Bridge Inspection Robot Deployment System (BIRDS)"
-excerpt: "Drone + climbing-robot platform with multi-camera UAS payload, Jetson-based vision, PID/fractional-order clamping control, and an iOS control app. US patent 12,296,994.<br/>**Stack:** ROS · NVIDIA Jetson · Embedded Linux · OpenCV · iOS · Arduino"
+short_title: "BIRDS Hybrid Bridge Robot"
+scale_label: "Micro · Hybrid Aerial-Climbing Robot"
+tagline: "Patented drone + motorized girder-clamping robot with 1.3 s autonomous flange capture, Jetson RGB-D vision, and 6 experimental demos."
+order: 1
+permalink: /portfolio/portfolio-2/
+excerpt: "Drone + climbing-robot platform with multi-camera UAS payload, Jetson-based vision, PID/fractional-order clamping control, and an iOS control app. US patent 12,296,994."
 collection: portfolio
 ---
 
-<h2>What it does</h2>
-<p>An autonomous bridge-inspection platform combining a drone with a robotic-arm clamping mechanism. The drone flies up, detects a girder, clamps, traverses the bridge for inspection, and releases — with humans supervising via an iOS app.</p>
+{% include base_path %}
 
-<h2>Engineering highlights</h2>
-<ul>
-  <li><strong>Multi-camera UAS payload</strong> — visible, infrared, and hyperspectral cameras with synchronized capture, time-tagging, and downstream signal processing.</li>
-  <li><strong>Vision-based girder detection</strong> running on NVIDIA Jetson at the edge.</li>
-  <li><strong>PID and fractional-order controllers</strong> for the clamping mechanism (open/close, force regulation under wind and platform sway).</li>
-  <li><strong>iOS control app</strong> for human-in-the-loop operation and live monitoring.</li>
-  <li>Companion <strong>underwater acoustic imaging robot</strong> for bridge scour evaluation (ROS + Arduino + embedded Linux).</li>
-</ul>
+<section class="sc-hero">
+  <div class="sc-container sc-hero__grid">
+    <div>
+      <p class="sc-hero__eyebrow">MICRO SCALE · U.S. PATENT 12,296,994 B2 · USDOT INSPIRE</p>
+      <h1 class="sc-hero__title">BIRDS: Hybrid Flying &amp; <span class="sc-hero__accent">Girder-Clamping</span> Bridge Robot</h1>
+      <p class="sc-hero__subtitle">
+        Conventional inspection drones drain batteries in minutes while fighting under-bridge wind gusts without GPS. BIRDS flies up to a steel I-girder, locks onto the bottom flange via onboard NVIDIA Jetson RGB-D vision, clamps in <strong>1.3 seconds</strong>, shuts off its rotors, and rolls smoothly along the bridge span.
+      </p>
+      <div class="sc-hero__badges">
+        <span class="sc-hero__badge sc-hero__badge--amber">U.S. Patent 12,296,994 B2 (May 2025)</span>
+        <span class="sc-hero__badge sc-hero__badge--amber">ASCE 2025 Charles Pankow Award</span>
+        <span class="sc-hero__badge sc-hero__badge--teal">6 Experimental Videos Below</span>
+        <span class="sc-hero__badge">ROS · NVIDIA Jetson · iOS App</span>
+      </div>
+      <div class="sc-hero__actions">
+        <a href="#video-theater" class="home-btn home-btn--primary"><i class="fas fa-play" aria-hidden="true"></i> Watch 6 Lab &amp; Flight Demos</a>
+        <a href="#interactive-fsm" class="home-btn home-btn--ghost"><i class="fas fa-sliders" aria-hidden="true"></i> Interactive Mode Simulator</a>
+        <a href="https://drive.google.com/file/d/14ORKmdBqib0uXiNXTZgQBjBfDyvl_V1w/view?usp=drivesdk" target="_blank" rel="noopener" class="home-btn home-btn--ghost"><i class="fas fa-video" aria-hidden="true"></i> 8WCSCM Talk Video ↗</a>
+      </div>
+    </div>
 
-<h2>Outcomes</h2>
-<ul>
-  <li>US Patent <strong>12,296,994</strong> — <em>Unmanned vehicle having flight configuration and surface traverse configuration</em>, granted May 2025.</li>
-  <li>ASCE <strong>2025 Charles Pankow Award for Innovation</strong> — BIRDS was selected for the award, with Genda Chen as principal investigator at Missouri S&amp;T. <a href="https://econnection.mst.edu/2025/03/chens-robotic-bridge-inspection-system-wins-asces-2025-pankow-award/">Missouri S&amp;T announcement</a></li>
-  <li>INSPIRE Final Report (2024) — Chen, Nguyen, Reven, and Shang, <em>Final Report — Bridge Inspection Robot Deployment Systems (BIRDS)</em>, Report INSPIRE-024, September 30, 2024. <a href="https://scholarsmine.mst.edu/project_as-4/1/">Scholars' Mine record</a></li>
-  <li>Field demos of autonomous flight + clamping + bridge traversal.</li>
-</ul>
+    <div class="sc-hero__visual">
+      <img src="{{ base_path }}/assets/slides/img/birds_traversing.jpg" alt="BIRDS hybrid unmanned vehicle clamped onto a steel bridge I-girder in surface-traverse configuration" class="js-zoom-fig" />
+      <div class="sc-hero__visual-cap">
+        <span>BIRDS PROTOTYPE · CLAMPED TRAVERSE MODE</span>
+        <span>CLICK IMAGE TO ENLARGE</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>Presentation materials</h2>
-<ul>
-  <li>8WCSCM 2022 presentation — <em>Development of Bridge Inspection Robot Deployment Systems (BIRDS)</em> (22 slides): outline, concept, prototype, girder-detection algorithm, clamping mechanism, GPS-denied flight with Vicon, and clamping/traversing tests.</li>
-  <li>Recorded 8WCSCM 2022 presentation video: <a href="https://drive.google.com/file/d/14ORKmdBqib0uXiNXTZgQBjBfDyvl_V1w/view?usp=drivesdk">BIRDS 2022 - 8WCSCM.mp4</a></li>
-  <li>Full 8WCSCM 2022 slide deck (with embedded video): <a href="https://docs.google.com/presentation/d/13vwnnAmI4AtD1NoSrOqgQMMVWlJ30XdI/edit?usp=drivesdk&ouid=106999226100379073972&rtpof=true&sd=true">BIRDS 2022 - 8WCSCM.pptx</a></li>
-</ul>
-<p>Note: the short file previously shared as <em>8WCSCM_Presentation_Bo.pptx</em> is not the content deck — it contains only the title slide plus 8WCSCM recording guidelines. Use the 22-slide deck above for the actual presentation content.</p>
+<div class="sc-kpi-bar">
+  <div class="sc-container sc-kpi-grid">
+    <div class="sc-kpi">
+      <span class="sc-kpi__val sc-kpi__val--amber">1.3 sec</span>
+      <span class="sc-kpi__label">Rapid Flange Clamping</span>
+      <span class="sc-kpi__sub">Fast urgent capture (8.5 s controlled release) with encoder limits</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">0 W Flight</span>
+      <span class="sc-kpi__label">Power During Traversal</span>
+      <span class="sc-kpi__sub">Rotors shut down once clamped; motorized wheels traverse the span</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val">GPS-Denied</span>
+      <span class="sc-kpi__label">Jetson RGB-D Guidance</span>
+      <span class="sc-kpi__sub">Real-time girder center, vertical standoff, and heading estimation</span>
+    </div>
+    <div class="sc-kpi">
+      <span class="sc-kpi__val sc-kpi__val--amber">2025 Award</span>
+      <span class="sc-kpi__label">ASCE Pankow Innovation</span>
+      <span class="sc-kpi__sub">Selected for ASCE Charles Pankow Award (PI: Prof. Genda Chen, Missouri S&amp;T)</span>
+    </div>
+  </div>
+</div>
 
-<p><a href="/portfolio/">← Back to portfolio</a> · <a href="/cv/robotics/">Robotics SWE CV</a> · <a href="/cv/ml/">ML CV</a></p>
+<!-- 6-VIDEO EXPERIMENTAL THEATER -->
+<section id="video-theater" class="sc-section sc-section--dark">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">EXPERIMENTAL FOOTAGE · CLICK ANY CARD TO PLAY INLINE</p>
+      <h2 class="sc-h2">Six Subsystem &amp; Full-Cycle Hardware Demonstrations</h2>
+      <p class="sc-lead">
+        Every stage of the patented flight-to-girder transition was validated on physical hardware — from benchtop actuator response and RGB-D flange perception to flight perching and motorized steel I-girder traversal.
+      </p>
+    </div>
+
+    <div class="sc-video-grid sc-video-grid--3">
+
+      <!-- Video 1: WLU0VSCrnQs -->
+      <article class="sc-video-card">
+        <div class="sc-video-card__stage">
+          <img src="{{ base_path }}/assets/slides/img/birds_traversing.jpg" alt="BIRDS motorized traversing along steel I-girder after clamping" class="sc-video-card__poster" loading="lazy" />
+          <button type="button" class="sc-video-card__play js-yt-trigger" data-yt-id="WLU0VSCrnQs" data-yt-title="BIRDS2 Motorized Traversing Along Steel I-Girder">
+            <span class="sc-video-card__play-btn"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="sc-video-card__play-hint">Play Inline · Traversal Demo</span>
+          </button>
+        </div>
+        <div class="sc-video-card__body">
+          <span class="sc-video-card__tag">01 · SURFACE TRAVERSE MODE</span>
+          <h3 class="sc-video-card__title">Motorized Steel I-Girder Traversal After Clamping</h3>
+          <p class="sc-video-card__desc">Propellers powered off; motorized drive wheels carry the multi-sensor payload smoothly along the bottom flange of a steel I-girder.</p>
+          <a href="https://www.youtube.com/watch?v=WLU0VSCrnQs" target="_blank" rel="noopener" class="sc-video-card__ext">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+      <!-- Video 2: iuRZKcz2fZc -->
+      <article class="sc-video-card">
+        <div class="sc-video-card__stage">
+          <img src="{{ base_path }}/assets/portfolio/img/vid_birds_flight_clamp.jpg" alt="BIRDS assisted flight approaching, automated clamping, and traversing test" class="sc-video-card__poster" loading="lazy" />
+          <button type="button" class="sc-video-card__play js-yt-trigger" data-yt-id="iuRZKcz2fZc" data-yt-title="BIRDS2 Flight-to-Girder Approaching and Automated Clamping Test">
+            <span class="sc-video-card__play-btn"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="sc-video-card__play-hint">Play Inline · Flight-to-Clamp</span>
+          </button>
+        </div>
+        <div class="sc-video-card__body">
+          <span class="sc-video-card__tag">02 · FLIGHT-TO-PERCH TRANSITION</span>
+          <h3 class="sc-video-card__title">Flight Approaching &amp; Automated Beam Clamping</h3>
+          <p class="sc-video-card__desc">Indoor flight-arena test demonstrating upward approach, distance-triggered dual-arm clamping onto an overhead beam, and mode transition.</p>
+          <a href="https://www.youtube.com/watch?v=iuRZKcz2fZc" target="_blank" rel="noopener" class="sc-video-card__ext">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+      <!-- Video 3: wXONyFR4gCQ -->
+      <article class="sc-video-card">
+        <div class="sc-video-card__stage">
+          <img src="{{ base_path }}/assets/slides/img/birds_girder_detection.jpg" alt="Onboard RGB-D girder center and vertical distance detection" class="sc-video-card__poster" loading="lazy" />
+          <button type="button" class="sc-video-card__play js-yt-trigger" data-yt-id="wXONyFR4gCQ" data-yt-title="BIRDS Onboard RGB-D Girder Center and Vertical Distance Detection">
+            <span class="sc-video-card__play-btn"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="sc-video-card__play-hint">Play Inline · RGB-D Perception</span>
+          </button>
+        </div>
+        <div class="sc-video-card__body">
+          <span class="sc-video-card__tag">03 · JETSON EDGE PERCEPTION</span>
+          <h3 class="sc-video-card__title">Onboard RGB-D Girder Center &amp; Standoff Detection</h3>
+          <p class="sc-video-card__desc">Real-time segmentation tracking the girder centerline (pink marker), boundary inliers (red), and metric camera-to-flange distance.</p>
+          <a href="https://www.youtube.com/watch?v=wXONyFR4gCQ" target="_blank" rel="noopener" class="sc-video-card__ext">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+      <!-- Video 4: 3UXVOpv9VXg -->
+      <article class="sc-video-card">
+        <div class="sc-video-card__stage">
+          <img src="{{ base_path }}/assets/portfolio/img/vid_birds_arm_trigger.jpg" alt="Autonomous clamping arm closure triggered by RGB-D distance threshold" class="sc-video-card__poster" loading="lazy" />
+          <button type="button" class="sc-video-card__play js-yt-trigger" data-yt-id="3UXVOpv9VXg" data-yt-title="BIRDS Autonomous Clamping Triggered by RGB-D Distance">
+            <span class="sc-video-card__play-btn"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="sc-video-card__play-hint">Play Inline · Auto Trigger</span>
+          </button>
+        </div>
+        <div class="sc-video-card__body">
+          <span class="sc-video-card__tag">04 · CLOSED-LOOP PERCH TRIGGER</span>
+          <h3 class="sc-video-card__title">Distance-Triggered Autonomous Arm Closure</h3>
+          <p class="sc-video-card__desc">ROS perception-to-actuation loop firing immediate clamping closure the instant vertical RGB-D standoff crosses the capture threshold.</p>
+          <a href="https://www.youtube.com/watch?v=3UXVOpv9VXg" target="_blank" rel="noopener" class="sc-video-card__ext">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+      <!-- Video 5: yV0WRNGLosI -->
+      <article class="sc-video-card">
+        <div class="sc-video-card__stage">
+          <img src="{{ base_path }}/assets/portfolio/img/vid_birds_heading.jpg" alt="Non-GPS girder heading angle detection from depth imagery" class="sc-video-card__poster" loading="lazy" />
+          <button type="button" class="sc-video-card__play js-yt-trigger" data-yt-id="yV0WRNGLosI" data-yt-title="BIRDS Non-GPS Girder Heading Detection">
+            <span class="sc-video-card__play-btn"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="sc-video-card__play-hint">Play Inline · Yaw Alignment</span>
+          </button>
+        </div>
+        <div class="sc-video-card__body">
+          <span class="sc-video-card__tag">05 · GPS-DENIED YAW ALIGNMENT</span>
+          <h3 class="sc-video-card__title">Non-GPS Girder Heading Estimation</h3>
+          <p class="sc-video-card__desc">Depth-plane mask extraction estimating yaw orientation of the overhead girder without magnetometers (which steel bridges distort) or GPS.</p>
+          <a href="https://www.youtube.com/watch?v=yV0WRNGLosI" target="_blank" rel="noopener" class="sc-video-card__ext">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+      <!-- Video 6: 8Q9mWSVQQpg -->
+      <article class="sc-video-card">
+        <div class="sc-video-card__stage">
+          <img src="{{ base_path }}/assets/portfolio/img/vid_birds_clamp_bench.jpg" alt="Front and back clamping arm open/close position-limit controller test" class="sc-video-card__poster" loading="lazy" />
+          <button type="button" class="sc-video-card__play js-yt-trigger" data-yt-id="8Q9mWSVQQpg" data-yt-title="BIRDS Clamping Subsystem Position-Limit Control Test">
+            <span class="sc-video-card__play-btn"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="sc-video-card__play-hint">Play Inline · Actuator Bench</span>
+          </button>
+        </div>
+        <div class="sc-video-card__body">
+          <span class="sc-video-card__tag">06 · ACTUATION &amp; FORCE CONTROL</span>
+          <h3 class="sc-video-card__title">Dual Clamping Arm Position-Limit &amp; PID Bench Test</h3>
+          <p class="sc-video-card__desc">Synchronized front/rear clamping arms with encoder feedback, current/position protection, and asymmetric 1.3 s close / 8.5 s release profile.</p>
+          <a href="https://www.youtube.com/watch?v=8Q9mWSVQQpg" target="_blank" rel="noopener" class="sc-video-card__ext">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE 4-STAGE PERCHING STATE MACHINE -->
+<section id="interactive-fsm" class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">INTERACTIVE TELEMETRY SANDBOX</p>
+      <h2 class="sc-h2">Step Through the 4-Phase Hybrid Flight-to-Traverse Cycle</h2>
+      <p class="sc-lead">Click each operating state below to inspect how propulsion, Jetson RGB-D perception, dual linear clamping arms, and drive rollers coordinate across the mission.</p>
+    </div>
+
+    <div class="sc-console" id="birds-fsm">
+      <div class="sc-console__top">
+        <div class="sc-console__tabs" role="tablist" aria-label="BIRDS mission operating states">
+          <button type="button" class="sc-console__tab" data-birds-stage="1" role="tab" aria-selected="false">01 · Approach Flight</button>
+          <button type="button" class="sc-console__tab" data-birds-stage="2" role="tab" aria-selected="false">02 · RGB-D Girder Lock</button>
+          <button type="button" class="sc-console__tab is-active" data-birds-stage="3" role="tab" aria-selected="true">03 · 1.3 s Rapid Clamp</button>
+          <button type="button" class="sc-console__tab" data-birds-stage="4" role="tab" aria-selected="false">04 · Girder Traverse</button>
+        </div>
+      </div>
+
+      <div class="sc-console__body">
+        <div class="sc-console__canvas">
+          <svg viewBox="0 0 480 260" role="img" aria-label="Interactive kinematic diagram of BIRDS perching on an overhead steel I-girder">
+            <rect width="480" height="260" rx="10" fill="#06101b"/>
+            <!-- Steel Bridge Deck & I-Girder Cross Section -->
+            <rect x="30" y="16" width="420" height="14" fill="#334155"/>
+            <text x="44" y="26" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="8.5">BRIDGE DECK SUPERSTRUCTURE (GPS BLOCKED)</text>
+            <!-- I-Girder Top Flange, Web, Bottom Flange -->
+            <rect x="195" y="30" width="90" height="10" fill="#64748b"/>
+            <rect x="233" y="40" width="14" height="54" fill="#475569"/>
+            <rect x="190" y="94" width="100" height="14" rx="2" fill="#94a3b8" stroke="#cbd5e1" stroke-width="1"/>
+            <text x="240" y="104" text-anchor="middle" fill="#0f172a" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700">STEEL I-GIRDER FLANGE</text>
+
+            <!-- Moving Hybrid Vehicle Group -->
+            <g id="birds-svg-vehicle" transform="translate(0,8)">
+              <!-- RGB-D Vision Cone -->
+              <polygon id="birds-svg-beam" points="240,148 188,108 292,108" fill="rgba(45,212,191,0.25)" stroke="#2dd4bf" stroke-width="1" stroke-dasharray="4 3" opacity="0.2"/>
+              <!-- Left Clamping Arm -->
+              <g id="birds-svg-arm-l" transform="rotate(6 185 158)">
+                <line x1="215" y1="158" x2="178" y2="98" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+                <polygon points="172,98 194,88 194,103" fill="#14b8a6"/>
+              </g>
+              <!-- Right Clamping Arm -->
+              <g id="birds-svg-arm-r" transform="rotate(-6 295 158)">
+                <line x1="265" y1="158" x2="302" y2="98" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+                <polygon points="308,98 286,88 286,103" fill="#14b8a6"/>
+              </g>
+              <!-- Main Airframe & Motorized Drive Rollers -->
+              <circle cx="212" cy="114" r="7" fill="#2dd4bf" stroke="#07111c" stroke-width="2"/>
+              <circle cx="268" cy="114" r="7" fill="#2dd4bf" stroke="#07111c" stroke-width="2"/>
+              <rect x="130" y="154" width="220" height="10" rx="4" fill="#cbd5e1"/>
+              <rect x="206" y="144" width="68" height="24" rx="5" fill="#0f766e" stroke="#2dd4bf" stroke-width="1.5"/>
+              <text x="240" y="159" text-anchor="middle" fill="#ffffff" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700">JETSON</text>
+              <!-- Quadrotor Rotors -->
+              <rect x="112" y="146" width="38" height="4" rx="2" fill="#38bdf8"/>
+              <rect x="330" y="146" width="38" height="4" rx="2" fill="#38bdf8"/>
+              <line x1="154" y1="164" x2="146" y2="192" stroke="#64748b" stroke-width="4"/>
+              <line x1="326" y1="164" x2="334" y2="192" stroke="#64748b" stroke-width="4"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="sc-console__readout">
+          <div>
+            <h3 style="color:#fff;font-size:1.1rem;margin:0 0 0.4rem;" data-birds-out="title">Stage 03 · 1.3-Second Autonomous Flange Clamping</h3>
+            <p style="color:#cbd5e1;font-size:0.86rem;line-height:1.55;margin:0 0 0.6rem;" data-birds-out="desc">Crossing the vertical distance threshold triggers rapid dual-arm closure in ~1.3 seconds with encoder position limits and PID/fractional-order force regulation against wind gust sway.</p>
+          </div>
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">Flight Propulsion</span>
+            <span class="sc-console__stat-val" style="font-size:0.98rem;" data-birds-out="rotors">IDLE SPIN-DOWN</span>
+          </div>
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">Jetson RGB-D Perception</span>
+            <span class="sc-console__stat-val" style="font-size:0.98rem;" data-birds-out="vision">VERIFYING GRIP</span>
+          </div>
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">Clamping Actuators</span>
+            <span class="sc-console__stat-val" style="font-size:0.98rem;color:#fbbf24;" data-birds-out="clamps">LOCKED ON FLANGE (1.3 s)</span>
+          </div>
+          <div class="sc-console__stat">
+            <span class="sc-console__stat-lbl">Motorized Drive Rollers</span>
+            <span class="sc-console__stat-val" style="font-size:0.98rem;" data-birds-out="rollers">ENGAGING</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HARDWARE & CONTROL ARCHITECTURE SPLITS -->
+<section class="sc-section">
+  <div class="sc-container">
+
+    <div class="sc-split sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">PATENTED DUAL-SUBSYSTEM ARCHITECTURE</p>
+        <h2 class="sc-split__title">Decoupling Flight Endurance from Inspection Duration</h2>
+        <div class="sc-split__body">
+          <p>
+            Co-invented under <strong>U.S. Patent 12,296,994 B2</strong>, BIRDS integrates two tightly coordinated ROS subsystems with human-in-the-loop supervision via a custom iOS operator app:
+          </p>
+          <ul>
+            <li><strong>Flying &amp; Multi-Camera UAS Payload:</strong> Synchronized visible, thermal infrared, and hyperspectral imaging with onboard time-tagging, Vicon/optical-flow indoor validation, and GPS-denied hover stabilization.</li>
+            <li><strong>Clamping &amp; Traversing Mechanism:</strong> Dual V-arm linear actuators with compliant flange pads and motorized rollers that convert the aircraft into a rail-guided inspection cart on steel I-girders.</li>
+            <li><strong>Companion Scour Robot:</strong> Paired with an underwater acoustic imaging robot (ROS + Arduino + embedded Linux) for submerged bridge foundation scour assessment.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <div class="sc-fig-pair">
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/slides/img/birds_system_arch.png" alt="BIRDS flying and clamping-traversing subsystem hardware architecture" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Full BIRDS hardware and telemetry architecture across flying and clamping-traversing subsystems.</figcaption>
+          </figure>
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/portfolio/img/birds_mech_design.png" alt="Mechanical CAD cross-section of BIRDS dual clamping arms and drive frame" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Mechanical CAD cross-section of dual V-arm clamping actuators and roller carriage.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-split sc-split--reverse sc-reveal">
+      <div class="sc-split__text">
+        <p class="sc-split__kicker">ASYMMETRIC ACTUATION &amp; 3D TRAJECTORY LOGS</p>
+        <h2 class="sc-split__title">1.3-Second Urgent Capture &amp; Verified 3D Perching Stability</h2>
+        <div class="sc-split__body">
+          <p>
+            When hovering centimeters beneath a bridge girder in turbulent crosswinds, slow mechanical grippers risk blade strikes or missed perches. We engineered an asymmetric PID/fractional-order actuator profile:
+          </p>
+          <ul>
+            <li><strong>1.3-Second Rapid Closure:</strong> High-speed inward stroke locks onto the I-girder flange immediately upon RGB-D standoff trigger while regulating grip force.</li>
+            <li><strong>8.5-Second Controlled Release:</strong> Smooth, damped opening stroke ensures predictable weight transfer back to the flight controller prior to departure.</li>
+            <li><strong>3D Motion-Capture Validation:</strong> Logged North-East-Down trajectories verify smooth vertical ascent, bounded lateral drift during clamping contact, and steady post-clamp perch.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sc-split__media">
+        <div class="sc-fig-pair">
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/portfolio/img/birds_clamp_perf.png" alt="Encoder feedback plots showing 1.3 second closing and 8.5 second opening of BIRDS clamping arms" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Encoder position profiles verifying rapid ~1.3 s flange capture vs. smooth ~8.5 s release.</figcaption>
+          </figure>
+          <figure class="sc-fig">
+            <img src="{{ base_path }}/assets/portfolio/img/birds_3d_position_log.png" alt="3D North-East-Down position log during BIRDS approaching, clamping, and traversing test" class="js-zoom-fig" loading="lazy" />
+            <figcaption>Logged 3D drone position (X: North, Y: East, Z: Down) across approach, clamping, and perch.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VERIFIED PATENT, AWARD & REPORTS -->
+<section class="sc-section sc-section--alt">
+  <div class="sc-container">
+    <div class="sc-section__head">
+      <p class="sc-eyebrow">PATENT, NATIONAL AWARD &amp; TECHNICAL DELIVERABLES</p>
+      <h2 class="sc-h2">Verified Intellectual Property &amp; Agency Outcomes</h2>
+    </div>
+
+    <div class="sc-evidence-grid">
+      <div class="sc-evidence-card sc-evidence-card--amber">
+        <div class="sc-evidence-card__type">Granted U.S. Patent · May 2025</div>
+        <h3 class="sc-evidence-card__title">US Patent 12,296,994 B2 — Unmanned Vehicle Having Flight Configuration and Surface Traverse Configuration</h3>
+        <p class="sc-evidence-card__meta">Inventors: Genda Chen, Anthony Reven, <strong>Bo Shang</strong>, Zhaochao Shi, Lijun Li (Missouri University of Science and Technology).</p>
+        <div class="sc-evidence-card__links">
+          <a href="{{ base_path }}/publications/">View Citation</a>
+          <a href="{{ base_path }}/slides/#slide-8">Slide 8 Summary</a>
+        </div>
+      </div>
+
+      <div class="sc-evidence-card sc-evidence-card--amber">
+        <div class="sc-evidence-card__type">National Engineering Innovation Award · 2025</div>
+        <h3 class="sc-evidence-card__title">ASCE 2025 Charles Pankow Award for Innovation</h3>
+        <p class="sc-evidence-card__meta">BIRDS was selected for ASCE's premier structural-engineering innovation award (Principal Investigator: Prof. Genda Chen, Missouri S&amp;T).</p>
+        <div class="sc-evidence-card__links">
+          <a href="https://econnection.mst.edu/2025/03/chens-robotic-bridge-inspection-system-wins-asces-2025-pankow-award/" target="_blank" rel="noopener">Missouri S&amp;T Announcement ↗</a>
+        </div>
+      </div>
+
+      <div class="sc-evidence-card">
+        <div class="sc-evidence-card__type">USDOT UTC Final Report · INSPIRE-024</div>
+        <h3 class="sc-evidence-card__title">Final Report — Bridge Inspection Robot Deployment Systems (BIRDS)</h3>
+        <p class="sc-evidence-card__meta">Genda Chen, Phung Nguyen, Anthony Reven, and <strong>Bo Shang</strong> · Report INSPIRE-024, September 30, 2024.</p>
+        <div class="sc-evidence-card__links">
+          <a href="https://scholarsmine.mst.edu/project_as-4/1/" target="_blank" rel="noopener">Scholars' Mine Record ↗</a>
+        </div>
+      </div>
+
+      <div class="sc-evidence-card">
+        <div class="sc-evidence-card__type">Conference Talk &amp; 22-Slide Deck · 8WCSCM 2022</div>
+        <h3 class="sc-evidence-card__title">Development of Bridge Inspection Robot Deployment Systems (BIRDS)</h3>
+        <p class="sc-evidence-card__meta">Full 22-slide presentation deck and recorded talk covering mechanical/electronic design, Jetson girder detection, Vicon GPS-denied flight, and clamping/traversal tests.</p>
+        <div class="sc-evidence-card__links">
+          <a href="https://drive.google.com/file/d/14ORKmdBqib0uXiNXTZgQBjBfDyvl_V1w/view?usp=drivesdk" target="_blank" rel="noopener">Watch 8WCSCM Talk (.mp4) ↗</a>
+          <a href="https://docs.google.com/presentation/d/13vwnnAmI4AtD1NoSrOqgQMMVWlJ30XdI/edit?usp=drivesdk" target="_blank" rel="noopener">22-Slide Deck (.pptx) ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
