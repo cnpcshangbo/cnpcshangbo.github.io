@@ -1,0 +1,1628 @@
+---
+layout: null
+permalink: /slides/mechatronics/
+title: "Mechatronics Research Statement Presentation — Bo Shang"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelligent Field Mechatronics — Research Statement Presentation | Bo Shang, Ph.D.</title>
+  <meta name="description" content="Mechatronics faculty research statement presentation by Bo Shang, Ph.D.: reconfigurable aerial-climbing robots (BIRDS), fractional-order UAV visual servoing, 3D robotic NDT, and multi-sensor autonomy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #0b1622;
+      --navy-900: #0f1e2e;
+      --navy-800: #17354b;
+      --navy-700: #1e3f5a;
+      --paper: #f8fafc;
+      --surface: #ffffff;
+      --teal: #146b74;
+      --teal-hover: #0f545c;
+      --teal-bright: #2dd4bf;
+      --teal-soft: #e6f4f1;
+      --amber-soft: #fef3c7;
+      --amber-border: #d97706;
+      --amber-ink: #92400e;
+      --ink: #0f1e2e;
+      --body: #334155;
+      --muted: #64748b;
+      --rule: #cbd5e1;
+      --light-text: #e2e8f0;
+      --light-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--navy-950);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Top Control Bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 16px;
+      background: var(--navy-900);
+      border-bottom: 1px solid rgba(203, 213, 225, 0.16);
+      color: var(--light-text);
+      flex-shrink: 0;
+      z-index: 30;
+    }
+
+    .topbar-left, .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      color: var(--light-text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border: 1px solid rgba(203, 213, 225, 0.24);
+      border-radius: 4px;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .back-link:hover {
+      background: var(--navy-800);
+      border-color: var(--teal-bright);
+      color: #ffffff;
+    }
+
+    .section-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 6px;
+    }
+
+    .sec-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--light-muted);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 9px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .sec-btn:hover { color: #ffffff; }
+    .sec-btn.active {
+      color: var(--teal-bright);
+      border-bottom-color: var(--teal-bright);
+      font-weight: 600;
+    }
+
+    .tool-btn, .dl-btn {
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .tool-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--light-text);
+      border: 1px solid rgba(203, 213, 225, 0.2);
+    }
+    .tool-btn:hover, .tool-btn.active {
+      background: var(--navy-800);
+      border-color: var(--teal-bright);
+      color: #ffffff;
+    }
+
+    .dl-btn {
+      background: var(--teal);
+      color: #ffffff;
+      border: 1px solid var(--teal);
+    }
+    .dl-btn:hover {
+      background: var(--teal-hover);
+    }
+    .dl-btn.secondary {
+      background: transparent;
+      border-color: var(--teal-bright);
+      color: var(--teal-bright);
+    }
+    .dl-btn.secondary:hover {
+      background: rgba(45, 212, 191, 0.12);
+    }
+
+    /* Stage Container */
+    .stage-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .deck-viewport {
+      width: min(1280px, 100%, calc((100vh - 132px) * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body.notes-open .deck-viewport {
+      width: min(1280px, 100%, calc((100vh - 252px) * 16 / 9));
+    }
+
+    /* Individual Slides */
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 2.6% 4.2% 2.2%;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-y: auto;
+    }
+    .slide.active {
+      display: flex;
+    }
+
+    .slide.dark {
+      background: var(--navy-900);
+      color: #ffffff;
+      border-left: 10px solid var(--teal-bright);
+      padding-left: calc(4.2% - 2px);
+    }
+
+    /* Slide Header */
+    .s-header {
+      flex-shrink: 0;
+      margin-bottom: 1.4%;
+    }
+    .s-eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .s-eyebrow {
+      font-size: clamp(10px, 0.95vw, 13px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--teal);
+    }
+    .slide.dark .s-eyebrow {
+      color: var(--teal-bright);
+    }
+    .s-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(10px, 0.9vw, 12px);
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .slide.dark .s-counter {
+      color: var(--light-muted);
+    }
+    .s-title {
+      font-size: clamp(18px, 2.05vw, 28px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+    .s-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 110px;
+      height: 3px;
+      background: var(--teal);
+    }
+
+    /* Slide Body Grids */
+    .s-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+      justify-content: center;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1.12fr;
+      gap: 16px;
+      flex: 1;
+      min-height: 0;
+    }
+    .grid-2.equal {
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid-2.narrow-left {
+      grid-template-columns: 0.65fr 1.35fr;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      flex: 1;
+      min-height: 0;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .col-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid var(--teal);
+      padding: 12px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card.soft {
+      background: var(--teal-soft);
+      border-color: #cce7e2;
+    }
+    .card.amber {
+      background: var(--amber-soft);
+      border-color: #fde68a;
+      border-top-color: var(--amber-border);
+    }
+    .card.dark-card {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 3px solid var(--teal-bright);
+      color: var(--light-text);
+    }
+    .card.grow { flex: 1; }
+
+    .card h3 {
+      font-size: clamp(13px, 1.18vw, 16px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .card.amber h3 { color: var(--amber-ink); }
+    .card.dark-card h3 { color: #ffffff; }
+
+    .card p, .card li {
+      font-size: clamp(11.5px, 0.98vw, 13.8px);
+      line-height: 1.42;
+      color: var(--body);
+    }
+    .card.dark-card p, .card.dark-card li {
+      color: var(--light-text);
+    }
+    .card ul, .card ol {
+      padding-left: 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .metric-big {
+      font-size: clamp(16px, 1.55vw, 22px);
+      font-weight: 700;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Figure Containers */
+    .fig-panel {
+      background: var(--surface);
+      border: 1px solid #e2e8f0;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 0;
+      flex: 1;
+    }
+    .fig-panel.dark-fig {
+      background: #141a21;
+      border-color: #2c3540;
+    }
+    .fig-panel img {
+      max-width: 100%;
+      max-height: calc(100% - 24px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      cursor: zoom-in;
+      margin: auto;
+    }
+    .fig-caption {
+      font-size: clamp(10px, 0.84vw, 11.8px);
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .fig-panel.dark-fig .fig-caption {
+      color: var(--light-text);
+    }
+
+    /* Interactive Video Stage (Slide 8) */
+    .video-stage {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b1622;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .video-stage img {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .video-stage:hover img {
+      opacity: 0.86;
+    }
+    .video-play-btn {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: rgba(15, 30, 46, 0.28);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.18s ease;
+    }
+    .video-play-btn:hover {
+      background: rgba(15, 30, 46, 0.44);
+    }
+    .play-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(20, 107, 116, 0.94);
+      border: 2px solid #ffffff;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .video-play-btn:hover .play-circle {
+      transform: scale(1.08);
+      background: var(--teal-hover);
+    }
+    .play-circle svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+      margin-left: 3px;
+    }
+    .play-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #ffffff;
+      background: rgba(11, 22, 34, 0.82);
+      padding: 3px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+    }
+    .video-stage iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* Divider & Title Slide Typography */
+    .hero-title {
+      font-size: clamp(22px, 2.8vw, 40px);
+      font-weight: 700;
+      line-height: 1.16;
+      color: #ffffff;
+      max-width: 92%;
+    }
+    .hero-sub {
+      font-size: clamp(13px, 1.32vw, 18.5px);
+      line-height: 1.42;
+      color: var(--light-text);
+      max-width: 88%;
+      margin-top: 10px;
+    }
+    .hero-rule {
+      width: 120px;
+      height: 3px;
+      background: var(--teal-bright);
+      margin: 16px 0;
+    }
+
+    /* Slide Footer */
+    .s-footer {
+      flex-shrink: 0;
+      border-top: 1px solid var(--rule);
+      padding-top: 6px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(9.5px, 0.78vw, 11px);
+      color: var(--muted);
+    }
+    .s-footer a, .slide a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .s-footer a:hover, .slide a:hover {
+      text-decoration: underline;
+    }
+    .slide.dark a {
+      color: var(--teal-bright);
+    }
+
+    /* Bottom Transport Bar */
+    .bottombar {
+      background: var(--navy-900);
+      border-top: 1px solid rgba(203, 213, 225, 0.16);
+      color: var(--light-text);
+      flex-shrink: 0;
+      z-index: 25;
+    }
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--teal-bright);
+      width: 3.57%;
+      transition: width 0.2s ease;
+    }
+    .transport-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 18px;
+      font-size: 12.5px;
+    }
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(203,213,225,0.22);
+      color: #ffffff;
+      padding: 4px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--navy-800);
+      border-color: var(--teal-bright);
+    }
+    .nav-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .slide-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: var(--light-text);
+      min-width: 72px;
+      text-align: center;
+    }
+    .kbd-hint {
+      color: var(--light-muted);
+      font-size: 11.5px;
+    }
+
+    /* Speaker Notes Drawer */
+    .notes-drawer {
+      display: none;
+      background: #122436;
+      border-top: 1px solid rgba(45, 212, 191, 0.3);
+      padding: 12px 24px;
+      color: var(--light-text);
+      height: 112px;
+      overflow-y: auto;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    body.notes-open .notes-drawer {
+      display: block;
+    }
+    .notes-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--teal-bright);
+      margin-bottom: 4px;
+    }
+
+    /* Overview Grid Modal */
+    .grid-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 22, 34, 0.94);
+      z-index: 60;
+      padding: 28px 36px;
+      overflow-y: auto;
+    }
+    .grid-modal.open { display: block; }
+    .grid-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .overview-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .ov-item {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 4px;
+      padding: 12px 14px;
+      cursor: pointer;
+      color: var(--light-text);
+      text-align: left;
+      transition: border-color 0.15s, transform 0.12s;
+    }
+    .ov-item:hover, .ov-item.current {
+      border-color: var(--teal-bright);
+      transform: translateY(-2px);
+    }
+    .ov-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--teal-bright);
+      margin-bottom: 4px;
+    }
+    .ov-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 15, 24, 0.92);
+      z-index: 80;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 94vw;
+      max-height: 90vh;
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    /* Responsive Mobile Fallback */
+    @media (max-width: 960px) {
+      .section-nav, .kbd-hint { display: none; }
+      body { overflow: auto; }
+      .stage-wrap { padding: 10px; align-items: flex-start; overflow: visible; }
+      .deck-viewport {
+        width: 100%;
+        aspect-ratio: auto;
+        min-height: calc(100vh - 130px);
+      }
+      .slide { padding: 18px; gap: 14px; }
+      .grid-2, .grid-2.equal, .grid-2.narrow-left, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body { background: #ffffff; overflow: visible; height: auto; }
+      .topbar, .bottombar, .notes-drawer, .grid-modal, .lightbox { display: none !important; }
+      .stage-wrap { padding: 0; display: block; }
+      .deck-viewport { width: 100%; box-shadow: none; aspect-ratio: auto; }
+      .slide {
+        display: flex !important;
+        page-break-after: always;
+        min-height: 95vh;
+        border: 1px solid #cbd5e1;
+        margin-bottom: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <a href="/" class="back-link">← Bo Shang CV</a>
+      <a href="/portfolio/" class="back-link">Portfolio</a>
+      <nav class="section-nav" aria-label="Slide sections">
+        <button class="sec-btn active" data-goto="1">Overview</button>
+        <button class="sec-btn" data-goto="5">I · BIRDS Robot</button>
+        <button class="sec-btn" data-goto="13">II · Fractional UAV</button>
+        <button class="sec-btn" data-goto="20">III · 3D NDT &amp; Pods</button>
+        <button class="sec-btn" data-goto="24">5-Yr Lab &amp; Teaching</button>
+      </nav>
+    </div>
+    <div class="topbar-right">
+      <a href="/slides/" class="tool-btn" title="Switch to Resilient Infrastructure &amp; AI Presentation">Infrastructure Deck ↗</a>
+      <button class="tool-btn" id="btn-grid" title="Slide Overview (G)">Grid (G)</button>
+      <button class="tool-btn" id="btn-notes" title="Speaker Notes (N)">Notes (N)</button>
+      <button class="tool-btn" id="btn-fs" title="Fullscreen (F)">Fullscreen</button>
+      <a href="/assets/slides/Bo_Shang_Mechatronics_Research_Slides.pdf" class="dl-btn" download>PDF</a>
+      <a href="/assets/slides/Bo_Shang_Mechatronics_Research_Slides.pptx" class="dl-btn secondary" download>PPTX</a>
+    </div>
+  </header>
+
+  <main class="stage-wrap">
+    <div class="deck-viewport" id="deck">
+      <section class="slide dark active" id="slide-1" data-section="1" data-title="Intelligent Field Mechatronics: Reconfigurable Mechanisms, Fractional-Order Control, and Multi-Sensor Autonomy" data-notes="Welcome and thank you for the opportunity to share my mechatronics research statement. Building on my core robotics, embedded systems, and fractional-order control work — and updated with recent patents, awards, and field deployments through 2026 — my research investigates how tightly integrated mechanisms, embedded sensors, and robust feedback controllers enable autonomous machines to operate reliably on real physical structures.">
+        <div>
+          <div class="s-eyebrow">MECHATRONICS FACULTY RESEARCH STATEMENT PRESENTATION</div>
+          <div class="hero-rule"></div>
+          <h1 class="hero-title">Intelligent Field Mechatronics: Reconfigurable Mechanisms, Fractional-Order Control, and Multi-Sensor Autonomy</h1>
+          <p class="hero-sub">From Hybrid Aerial-Climbing Robots and Delay-Robust Flight Control to 3D Robotic NDT and Synchronized Infrastructure Sensing</p>
+        </div>
+        <div class="grid-4" style="flex:0 0 auto;"><div class="card dark-card"><div class="metric-big" style="color:#2dd4bf;">US 12,296,994 B2</div><p>Granted Hybrid Robot Patent &amp; ASCE 2025 Pankow Award</p></div><div class="card dark-card"><div class="metric-big" style="color:#2dd4bf;">0.933 s vs. 0.546 s</div><p>+71% Vision Sampling-Period Margin via Fractional PD^μ</p></div><div class="card dark-card"><div class="metric-big" style="color:#2dd4bf;">IEEE T-ASE / IROS 25</div><p>Climbing-Robot + Serverless Cloud 3D Defect Analytics</p></div><div class="card dark-card"><div class="metric-big" style="color:#2dd4bf;">5 Lab/Lecture Courses</div><p>Mechatronics, UAS, Circuits &amp; Robotics Control Taught</p></div></div>
+        <div style="border-top:1px solid rgba(255,255,255,0.16);padding-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:clamp(11px,0.95vw,13.5px);color:#cbd5e1;">
+          <div><strong style="color:#fff;">Bo Shang, Ph.D.</strong> · Postdoctoral Associate · Civil &amp; Environmental Engineering &amp; Maryland Transportation Institute · University of Maryland, College Park</div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#2dd4bf;">bshang@umd.edu · cnpcshangbo.github.io</div>
+        </div>
+      </section>
+      <section class="slide" id="slide-2" data-section="1" data-title="Academic Trajectory &amp; Mechatronics Laboratory Teaching Record" data-notes="My background sits squarely at the intersection of mechanical hardware, embedded electronics, feedback control, and computer vision, paired with extensive experience teaching undergraduate mechatronics, electric circuits, UAS labs, and robotics mechanics and control.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">BACKGROUND · MECHATRONICS RESEARCH &amp; HANDS-ON TEACHING</span>
+            <span class="s-counter">02 / 26</span>
+          </div>
+          <h2 class="s-title">Academic Trajectory &amp; Mechatronics Laboratory Teaching Record</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+      <div class="card grow">
+        <h3>Research Appointments & Education</h3>
+        <ul><li><strong>Jul 2026 – Present:</strong> Postdoctoral Associate, University of Maryland, College Park (CEE & Maryland Transportation Institute; Advisor: Prof. Xianfeng Yang).</li><li><strong>Dec 2022 – Jun 2026:</strong> Postdoctoral Researcher, CCNY Robotics Lab & AI/Mobility Lab; Adjunct Assistant Professor, CUNY City College & Vaughn College.</li><li><strong>2020 – 2022:</strong> Postdoctoral Fellow, Missouri University of Science and Technology (INSPIRE UTC · BIRDS Hybrid Bridge Robot).</li><li><strong>Ph.D. (2020):</strong> Pattern Recognition & Intelligent Systems, Northeastern University · <strong>Exchange Ph.D. & Junior Specialist (2015–2017):</strong> UC Merced MESALab (Prof. YangQuan Chen).</li></ul>
+      </div>
+      <div class="card amber grow">
+        <h3>Hands-On Mechatronics, Circuits & Robotics Courses Taught</h3>
+        <ul><li><strong>MCE 355 — Introduction to Robotics, Mechanics & Control</strong> (Vaughn College, Adjunct Assistant Professor).</li><li><strong>ENGR 204 — Electric Circuits</strong> (CUNY City College, Adjunct Assistant Professor).</li><li><strong>ME 190 — Mechatronics Labs</strong> (UC Merced: microcontrollers, sensors, actuators, closed-loop benchtop builds).</li><li><strong>ME 143 — Unmanned Aircraft Systems Labs</strong> & <strong>ME 021 — Engineering Computing Labs</strong> (UC Merced).</li><li><strong>Core Mechatronics Stack:</strong> C/C++, Python, ROS, Embedded Linux (Jetson/Odroid/RPi), TI Tiva C / Arduino / PX4, MATLAB/Simulink, OpenCV, PyTorch.</li></ul>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Updated academic &amp; teaching profile · Full record at cnpcshangbo.github.io/cv/</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-3" data-section="1" data-title="Co-Designing Mechanisms, Embedded Sensing, and Robust Control" data-notes="In unstructured field environments, control cannot ignore vision delay, and perception cannot save an endurance-limited airframe. Every project in my portfolio co-designs the mechanism, the embedded electronics/sensors, and the feedback law together.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">RESEARCH THESIS · WHY FIELD MECHATRONICS IS HARD</span>
+            <span class="s-counter">03 / 26</span>
+          </div>
+          <h2 class="s-title">Co-Designing Mechanisms, Embedded Sensing, and Robust Control</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="card grow">
+        <h3>1. Reconfigurable Mechanisms</h3>
+        <ul><li>Pure multirotors exhaust batteries in minutes while fighting under-bridge wind gusts.</li><li><strong>Mechatronic solution:</strong> Dual-mode aerial flight + rapid <strong>1.3 s mechanical flange clamping</strong> + motorized surface rolling (US Patent 12,296,994 B2), plus wall-climbing NDT robots.</li></ul>
+      </div>
+      <div class="card grow">
+        <h3>2. Embedded Multi-Sensor Fusion</h3>
+        <ul><li>GPS and magnetometers fail beneath steel bridge decks; asynchronous sensors smear 3D geometry.</li><li><strong>Mechatronic solution:</strong> Onboard RGB-D flange/heading perception on Jetson/RPi, quadrature encoder limit loops, and sub-frame LiDAR-camera clock synchronization.</li></ul>
+      </div>
+      <div class="card amber grow">
+        <h3>3. Delay- & Gain-Robust Control</h3>
+        <ul><li>Onboard vision latency, payload shifts, and wind disturbances destabilize integer-order PID loops.</li><li><strong>Mechatronic solution:</strong> Iso-damping <strong>fractional-order PD^μ control</strong> expanding maximum vision sampling period by <strong>+71% (0.546 s → 0.933 s)</strong> with flat crossover phase.</li></ul>
+      </div></div><div class="card soft" style="flex:0 0 auto;padding:9px 14px;"><p><strong>Synthesis:</strong> Core Principle: Treat mechanism compliance, sensor latency, and feedback control as a single coupled co-design problem rather than isolated layers.</p></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Unifying mechatronics thesis across aerial, climbing, and roadside cyber-physical systems</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-4" data-section="1" data-title="Four Connected Mechatronic Systems Across Scales" data-notes="Here is the roadmap for today&#x27;s talk: Thrust 1 covers the patented BIRDS hybrid aerial-traversing mechatronic system; Thrust 2 covers fractional-order visual-servoing flight control; Thrust 3 covers robotic concrete NDT and recent 2025-2026 multi-sensor pods; followed by my 5-year mechatronics faculty research and teaching plan.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">PORTFOLIO OVERVIEW · VAUGHN BASE + 2024–2026 UPDATES</span>
+            <span class="s-counter">04 / 26</span>
+          </div>
+          <h2 class="s-title">Four Connected Mechatronic Systems Across Scales</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-4">
+      <div class="card amber grow">
+        <h3>I. BIRDS Hybrid Robot</h3>
+        <ul><li>Flying + steel I-girder clamping & rolling robot.</li><li>TI Tiva C + 4× DC/encoder arms + Jetson RGB-D + ROS.</li><li><strong>New:</strong> US Patent 12,296,994 B2 (2025) & ASCE Pankow Award.</li></ul>
+      </div>
+      <div class="card grow">
+        <h3>II. Fractional UAV Control</h3>
+        <ul><li>Iso-damping PD^μ visual servoing on PX4 + Odroid.</li><li>Max sampling period: <strong>0.933 s vs. 0.546 s</strong> (+71%).</li><li>Browser HSV tuner GUI & +20% flight hover precision.</li></ul>
+      </div>
+      <div class="card grow">
+        <h3>III. Climbing 3D NDT</h3>
+        <ul><li>Wall-climbing robot + iPad RGB-D/gravity app.</li><li>AWS Lambda CNN + WebODM 3D crack skeletonization.</li><li><strong>New:</strong> Published in <em>IEEE T-ASE</em> 2025 & <em>IROS</em> 2025.</li></ul>
+      </div>
+      <div class="card soft grow">
+        <h3>IV. Roadside 3D Pods</h3>
+        <ul><li>2025–2026 mechatronic sensor-pod extension.</li><li>LiDAR-RGB sync (90.1% vs. 72.9% on NYSDOT I-95; 61.9 h).</li><li>PACO occlusion law (0.37 → 1.00) & UMD CERRA.</li></ul>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Interactive live demos &amp; videos available at cnpcshangbo.github.io/portfolio/</span>
+        </div>
+      </section>
+      <section class="slide dark" id="slide-5" data-section="5" data-title="Bridge Inspection Robot Deployment System (BIRDS)" data-notes="Let&#x27;s dive into Thrust 1: the Bridge Inspection Robot Deployment System (BIRDS), developed at Missouri S&amp;T under USDOT INSPIRE UTC and awarded U.S. Patent 12,296,994 B2 and the 2025 ASCE Charles Pankow Award for Innovation.">
+        <div class="s-eyebrow-row">
+          <span class="s-eyebrow">THRUST I · HYBRID AERIAL-SURFACE MECHATRONICS</span>
+          <span class="s-counter">05 / 26</span>
+        </div>
+        <div style="margin:auto 0;">
+          <h2 class="hero-title">Bridge Inspection Robot Deployment System (BIRDS)</h2>
+          <div class="hero-rule"></div>
+          <p class="hero-sub">Mechanical clamping kinematics, closed-loop MCU motor/encoder electronics, onboard RGB-D flange perception, and GPS-denied flight-to-traverse reconfiguration.</p>
+        </div>
+        <div class="grid-4" style="flex:0 0 auto;"><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">US 12,296,994 B2</div><p>Granted Patent (May 2025)</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">ASCE Pankow 2025</div><p>National Innovation Award</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">1.3 s Close / 8.5 s Open</div><p>Asymmetric Clamping Control</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">6 Hardware Videos</div><p>Bench, Vision, Perch &amp; Traverse</p></div></div>
+      </section>
+      <section class="slide" id="slide-6" data-section="5" data-title="BIRDS: Decoupling Flight Endurance from Bridge Inspection Time" data-notes="Instead of fighting gravity for the entire inspection, BIRDS uses multirotor thrust only for the 30-second approach and departure, converting into a wheeled rail robot once clamped onto the steel I-girder.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST I · MOTIVATION &amp; DUAL-SUBSYSTEM DESIGN</span>
+            <span class="s-counter">06 / 26</span>
+          </div>
+          <h2 class="s-title">BIRDS: Decoupling Flight Endurance from Bridge Inspection Time</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+      <div class="card grow">
+        <h3>Engineering Motivation & System Architecture</h3>
+        <ul><li><strong>617,000+ U.S. bridges</strong> require biennial inspection; snooper trucks block highway lanes, while hovering drones drain batteries in 15–20 min.</li><li><strong>Dual-Mode Hybrid Vehicle:</strong> Flies up beneath a steel I-girder, clamps onto the bottom flange, powers down rotors (<strong>0 W flight power</strong>), and rolls along the span.</li><li><strong>Multi-Camera NDT Payload:</strong> Synchronized visible, thermal IR, and hyperspectral cameras supervised via a custom iOS app.</li><li><strong>Updated Milestones (2024–2025):</strong> Granted <strong>U.S. Patent 12,296,994 B2</strong> (Chen, Reven, Shang, Shi, Li), <strong>ASCE 2025 Charles Pankow Award</strong> (PI: Genda Chen), and Report <strong>INSPIRE-024</strong>.</li></ul>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/img/birds_system_arch.png" alt="Patented BIRDS dual-subsystem architecture integrating the flying UAS and clamping-traversing carriage." loading="lazy">
+        <div class="fig-caption">Patented BIRDS dual-subsystem architecture integrating the flying UAS and clamping-traversing carriage.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Chen, Reven, Shang, Shi, Li — US Patent 12,296,994 B2 (Granted May 2025) · USDOT INSPIRE-024</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-7" data-section="5" data-title="Clamping &amp; Traversing Subsystem: Mechanical CAD &amp; MCU Electronics" data-notes="On the left is the mechanical cross-section showing the opposing V-arms and motorized drive wheels; on the right is the embedded electronics architecture built around a TI Tiva C LaunchPad reading four quadrature encoders to synchronize all four actuators without racking.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST I · ELECTRO-MECHANICAL SUBSYSTEM</span>
+            <span class="s-counter">07 / 26</span>
+          </div>
+          <h2 class="s-title">Clamping &amp; Traversing Subsystem: Mechanical CAD &amp; MCU Electronics</h2>
+        </div>
+        <div class="s-body">
+          
+                <div class="card soft" style="flex:0 0 auto;padding:8px 14px;"><p>Dual V-arm clamping geometry self-centers on I-girder flanges while a TI Tiva C LaunchPad microcontroller closes 4 independent motor + quadrature-encoder loops.</p></div>
+                <div class="grid-2 equal">
+      <div class="fig-panel">
+        <img src="/assets/portfolio/img/birds_mech_design.png" alt="Mechanical CAD: Dual pivoting clamping arms, lead-screw/gear actuation, and compliant flange rollers." loading="lazy">
+        <div class="fig-caption">Mechanical CAD: Dual pivoting clamping arms, lead-screw/gear actuation, and compliant flange rollers.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/birds_elec_design.png" alt="Electronic Architecture: Battery → TI Tiva C LaunchPad → Motor Driver Board → 4 Motors + 4 Quadrature Encoders." loading="lazy">
+        <div class="fig-caption">Electronic Architecture: Battery → TI Tiva C LaunchPad → Motor Driver Board → 4 Motors + 4 Quadrature Encoders.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Closed-loop embedded mechatronics separating real-time MCU motor control from high-level Jetson vision</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-8" data-section="5" data-title="Asymmetric Clamping Control (1.3 s Capture) &amp; Live Bench Test" data-notes="Hovering millimeters under a steel beam is hazardous, so we designed an asymmetric PI + dead-zone/saturation profile: opening takes 8.5 seconds for smooth weight transfer, while closing completes in just 1.3 seconds to capture the flange immediately upon trigger.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST I · ACTUATOR CONTROL &amp; BENCH VALIDATION</span>
+            <span class="s-counter">08 / 26</span>
+          </div>
+          <h2 class="s-title">Asymmetric Clamping Control (1.3 s Capture) &amp; Live Bench Test</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/birds_clamp_sw.png" alt="Firmware flowchart: RC/Auto target → PI loop → dead-zone &amp; saturation." loading="lazy">
+        <div class="fig-caption">Firmware flowchart: RC/Auto target → PI loop → dead-zone &amp; saturation.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/portfolio/img/birds_clamp_perf.png" alt="Encoder response: ~1.3 s urgent closing vs. ~8.5 s smooth opening." loading="lazy">
+        <div class="fig-caption">Encoder response: ~1.3 s urgent closing vs. ~8.5 s smooth opening.</div>
+      </div>
+      <div class="fig-panel dark-fig">
+        <div class="video-stage" data-yt="8Q9mWSVQQpg" data-alt="Experimental bench test of synchronized front/rear clamping arms with position limits.">
+          <img src="/assets/portfolio/img/vid_birds_clamp_bench.jpg" alt="Experimental bench test of synchronized front/rear clamping arms with position limits." loading="lazy">
+          <button type="button" class="video-play-btn" aria-label="Play Bench Video (8Q9mWSVQQpg)">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="play-label">Play Bench Video (8Q9mWSVQQpg)</span>
+          </button>
+        </div>
+        <div class="fig-caption">Experimental bench test of synchronized front/rear clamping arms with position limits. · <a href="https://www.youtube.com/watch?v=8Q9mWSVQQpg" target="_blank" rel="noopener" style="color:#2dd4bf;">YouTube ↗</a></div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Click the video panel on the right to play inline · Rapid 1.3 s closure prevents missed perches in gusts</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-9" data-section="5" data-title="Flying Subsystem: Embedded Vision Hardware, MAVROS &amp; Vicon Hover" data-notes="The flying subsystem pairs a low-level flight controller (IMU/barometer attitude stabilization) with an onboard Linux companion computer running MAVROS and an upward-facing Intel RealSense D435 RGB-D camera.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST I · AUTONOMOUS FLIGHT SUBSYSTEM</span>
+            <span class="s-counter">09 / 26</span>
+          </div>
+          <h2 class="s-title">Flying Subsystem: Embedded Vision Hardware, MAVROS &amp; Vicon Hover</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/birds_fly_hw.png" alt="Hardware: Flight controller + RPi/Jetson + RealSense D435 + Vicon." loading="lazy">
+        <div class="fig-caption">Hardware: Flight controller + RPi/Jetson + RealSense D435 + Vicon.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/birds_fly_sw.png" alt="Software: Parallel Vicon/MAVROS bridge &amp; D435 horizontal/vertical loops." loading="lazy">
+        <div class="fig-caption">Software: Parallel Vicon/MAVROS bridge &amp; D435 horizontal/vertical loops.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/birds_vicon_hover.png" alt="GPS-denied Vicon hovering test verifying tight X/Y/Z hold at 1.5 m." loading="lazy">
+        <div class="fig-caption">GPS-denied Vicon hovering test verifying tight X/Y/Z hold at 1.5 m.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Modular ROS + MAVLink interface enabling seamless transition from indoor Vicon validation to onboard RGB-D autonomy</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-10" data-section="5" data-title="Onboard RGB-D Flange Tracking &amp; Autonomous Distance Trigger" data-notes="These two experiments verify the perception-to-actuation coupling: first tracking the overhead I-girder center and standoff distance in real time, and second firing automatic clamping closure the instant the girder enters capture range.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST I · EDGE PERCEPTION TO ACTUATION (INLINE VIDEOS)</span>
+            <span class="s-counter">10 / 26</span>
+          </div>
+          <h2 class="s-title">Onboard RGB-D Flange Tracking &amp; Autonomous Distance Trigger</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="card grow">
+        <h3>Real-Time Depth Segmentation & Closed-Loop Trigger</h3>
+        <ul><li><strong>Upward RealSense D435 Pipeline:</strong> Segments overhead girder plane, extracting flange centroid (pink), inlier points (red), and metric camera-to-steel standoff (yellow).</li><li><strong>Zero-Human-Latency Trigger:</strong> When vertical distance drops below the capture threshold (e.g., <code>0.26 m</code>), ROS immediately commands the Tiva C clamping controller to fire.</li></ul>
+      </div>
+      <div class="fig-panel dark-fig">
+        <div class="video-stage" data-yt="wXONyFR4gCQ" data-alt="Video 1: Real-time girder center &amp; vertical distance tracking.">
+          <img src="/assets/slides/img/birds_girder_detection.jpg" alt="Video 1: Real-time girder center &amp; vertical distance tracking." loading="lazy">
+          <button type="button" class="video-play-btn" aria-label="Play RGB-D Girder Detection">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="play-label">Play RGB-D Girder Detection</span>
+          </button>
+        </div>
+        <div class="fig-caption">Video 1: Real-time girder center &amp; vertical distance tracking. · <a href="https://www.youtube.com/watch?v=wXONyFR4gCQ" target="_blank" rel="noopener" style="color:#2dd4bf;">YouTube ↗</a></div>
+      </div>
+      <div class="fig-panel dark-fig">
+        <div class="video-stage" data-yt="3UXVOpv9VXg" data-alt="Video 2: Autonomous 1.3 s arm closure triggered by RGB-D distance.">
+          <img src="/assets/portfolio/img/vid_birds_arm_trigger.jpg" alt="Video 2: Autonomous 1.3 s arm closure triggered by RGB-D distance." loading="lazy">
+          <button type="button" class="video-play-btn" aria-label="Play Auto Clamping Trigger">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="play-label">Play Auto Clamping Trigger</span>
+          </button>
+        </div>
+        <div class="fig-caption">Video 2: Autonomous 1.3 s arm closure triggered by RGB-D distance. · <a href="https://www.youtube.com/watch?v=3UXVOpv9VXg" target="_blank" rel="noopener" style="color:#2dd4bf;">YouTube ↗</a></div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Click either video panel to watch the real-time Jetson/ROS perception-to-actuation tests inline</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-11" data-section="5" data-title="Non-GPS Yaw Alignment &amp; Full Flight-to-Girder Clamping Test" data-notes="Because massive steel bridge girders severely distort magnetic compasses, we extract girder heading directly from the depth-plane mask, align yaw, ascend, and execute automated overhead clamping as logged in 3D coordinates.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST I · GPS/COMPASS-DENIED ALIGNMENT &amp; PERCHING</span>
+            <span class="s-counter">11 / 26</span>
+          </div>
+          <h2 class="s-title">Non-GPS Yaw Alignment &amp; Full Flight-to-Girder Clamping Test</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="fig-panel">
+        <img src="/assets/portfolio/img/birds_3d_position_log.png" alt="Logged 3D NED trajectory (X, Y, Z) across approach, clamping &amp; perch." loading="lazy">
+        <div class="fig-caption">Logged 3D NED trajectory (X, Y, Z) across approach, clamping &amp; perch.</div>
+      </div>
+      <div class="fig-panel dark-fig">
+        <div class="video-stage" data-yt="yV0WRNGLosI" data-alt="Video 3: Depth-mask girder yaw alignment without compass/GPS.">
+          <img src="/assets/portfolio/img/vid_birds_heading.jpg" alt="Video 3: Depth-mask girder yaw alignment without compass/GPS." loading="lazy">
+          <button type="button" class="video-play-btn" aria-label="Play Heading Detection">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="play-label">Play Heading Detection</span>
+          </button>
+        </div>
+        <div class="fig-caption">Video 3: Depth-mask girder yaw alignment without compass/GPS. · <a href="https://www.youtube.com/watch?v=yV0WRNGLosI" target="_blank" rel="noopener" style="color:#2dd4bf;">YouTube ↗</a></div>
+      </div>
+      <div class="fig-panel dark-fig">
+        <div class="video-stage" data-yt="iuRZKcz2fZc" data-alt="Video 4: Assisted approaching &amp; automated overhead beam clamping.">
+          <img src="/assets/portfolio/img/vid_birds_flight_clamp.jpg" alt="Video 4: Assisted approaching &amp; automated overhead beam clamping." loading="lazy">
+          <button type="button" class="video-play-btn" aria-label="Play Flight-to-Clamp Test">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="play-label">Play Flight-to-Clamp Test</span>
+          </button>
+        </div>
+        <div class="fig-caption">Video 4: Assisted approaching &amp; automated overhead beam clamping. · <a href="https://www.youtube.com/watch?v=iuRZKcz2fZc" target="_blank" rel="noopener" style="color:#2dd4bf;">YouTube ↗</a></div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Ferromagnetic steel girders distort compasses — depth-plane yaw extraction enables clean alignment prior to clamping</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-12" data-section="5" data-title="Zero-Flight-Power Steel I-Girder Traversal &amp; Scour Robotics" data-notes="Once clamped, BIRDS consumes zero flight power and rolls steadily along the steel I-girder like a mobile gantry, giving multi-spectral cameras motion-blur-free close-up views.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST I · SURFACE TRAVERSE MODE &amp; COMPANION ROBOTICS</span>
+            <span class="s-counter">12 / 26</span>
+          </div>
+          <h2 class="s-title">Zero-Flight-Power Steel I-Girder Traversal &amp; Scour Robotics</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+      <div class="card amber grow">
+        <h3>Clamped Rolling Inspection & Broader Inspection Suite</h3>
+        <ul><li><strong>Surface Traverse Configuration:</strong> Once clamped, quadrotor motors power off completely; motorized drive wheels roll BIRDS along the steel I-girder bottom flange.</li><li><strong>Companion Underwater Scour Robot:</strong> Built ROS + Arduino + embedded Linux acoustic-imaging robot for submerged bridge pier scour evaluation.</li><li><strong>HIL & Digital Twin Extension:</strong> Co-authored hardware-in-the-loop & digital-twin autonomous robotics inspection (<em>IEEE ISAS</em> 2023).</li></ul>
+      </div>
+      <div class="fig-panel dark-fig">
+        <div class="video-stage" data-yt="WLU0VSCrnQs" data-alt="BIRDS2 clamped onto a steel I-girder executing motorized rolling traversal with rotors off.">
+          <img src="/assets/slides/img/birds_traversing.jpg" alt="BIRDS2 clamped onto a steel I-girder executing motorized rolling traversal with rotors off." loading="lazy">
+          <button type="button" class="video-play-btn" aria-label="Play Girder Traversal Video (WLU0VSCrnQs)">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="play-label">Play Girder Traversal Video (WLU0VSCrnQs)</span>
+          </button>
+        </div>
+        <div class="fig-caption">BIRDS2 clamped onto a steel I-girder executing motorized rolling traversal with rotors off. · <a href="https://www.youtube.com/watch?v=WLU0VSCrnQs" target="_blank" rel="noopener" style="color:#2dd4bf;">YouTube ↗</a></div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Full 8WCSCM recorded talk &amp; 22-slide deck archived at cnpcshangbo.github.io/portfolio/portfolio-2/</span>
+        </div>
+      </section>
+      <section class="slide dark" id="slide-13" data-section="13" data-title="Fractional-Order Autonomous UAV Visual Servoing" data-notes="Thrust 2 addresses a fundamental mechatronic bottleneck in vision-guided robots: how do we guarantee closed-loop flight stability when onboard image processing introduces large, variable sampling delays and plant gain shifts?">
+        <div class="s-eyebrow-row">
+          <span class="s-eyebrow">THRUST II · ROBUST CONTROL THEORY MEETS EMBEDDED VISION</span>
+          <span class="s-counter">13 / 26</span>
+        </div>
+        <div style="margin:auto 0;">
+          <h2 class="hero-title">Fractional-Order Autonomous UAV Visual Servoing</h2>
+          <div class="hero-rule"></div>
+          <p class="hero-sub">Iso-damping PD^μ synthesis, analytical maximum sampling-period stability bounds, embedded PX4-Odroid integration, and live browser vision tuning.</p>
+        </div>
+        <div class="grid-4" style="flex:0 0 auto;"><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">0.933 s vs. 0.546 s</div><p>+71% Max Vision Sampling Period</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">d∠G(jω)/dω = 0</div><p>Iso-Damping Gain Invariance</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">+20% Precision</div><p>Outdoor Flight Hover Improvement</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">Nonlinear Dynamics</div><p>Springer Journal (2019) + ICUAS</p></div></div>
+      </section>
+      <section class="slide" id="slide-14" data-section="13" data-title="Quadrotor Visual Servoing Under Wind &amp; Vision Latency" data-notes="In our cascaded formulation, the onboard autopilot handles high-rate attitude/velocity stabilization V(s), while the companion computer closes the outer visual position loop C(s) over serial MAVLink.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST II · PROBLEM FORMULATION &amp; CONTROL STRUCTURE</span>
+            <span class="s-counter">14 / 26</span>
+          </div>
+          <h2 class="s-title">Quadrotor Visual Servoing Under Wind &amp; Vision Latency</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+      <div class="card grow">
+        <h3>Why Classical Integer-Order PID Struggles on Small UAVs</h3>
+        <ul><li><strong>GPS-Denied Drift:</strong> Under bridges, indoors, and inside caves, position hold relies on onboard monocular/RGB-D visual servoing.</li><li><strong>Coupled Disturbances:</strong> Aerodynamic gusts, battery voltage sag (changing actuator gain <code>K</code>), and low-FPS embedded vision delay erode phase margin.</li><li><strong>Cascaded Outer/Inner Loop:</strong> Outer visual position controller <code>C(s)</code> commands the inner autopilot velocity loop <code>V(s) = k / (τs + 1)</code> cascaded with kinematic integrator <code>1/s</code>.</li></ul>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/uav_ctrl_diagram.png" alt="Cascaded visual-servoing feedback loop: C(s) outer vision controller driving speed loop V(s) and 1/s integrator." loading="lazy">
+        <div class="fig-caption">Cascaded visual-servoing feedback loop: C(s) outer vision controller driving speed loop V(s) and 1/s integrator.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Shang, Liu, Zhang, Wu, &amp; Chen — Nonlinear Dynamics (2019) · ICUAS (2016)</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-15" data-section="13" data-title="Extending Integer PID to Iso-Damping Fractional-Order PD^μ" data-notes="Look at the bottom Bode phase plot on the right: whereas the integer-order PID phase plunges steeply around crossover, the fractional-order PD^mu controller creates a flat phase plateau around omega_c.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST II · FREQUENCY-DOMAIN ISO-DAMPING DESIGN</span>
+            <span class="s-counter">15 / 26</span>
+          </div>
+          <h2 class="s-title">Extending Integer PID to Iso-Damping Fractional-Order PD^μ</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+      <div class="card amber grow">
+        <h3>Three Exact Frequency-Domain Specifications at ω_c</h3>
+        <ul><li><strong>Controller Law:</strong> <code>C(s) = K_p + K_d s^μ</code> (continuous fractional differentiation order <code>μ ∈ (0, 2)</code> adds an analytical degree of freedom).</li><li><strong>1. Phase Margin:</strong> <code>Arg[C(jω_c) P(jω_c)] = −π + φ_m</code>.</li><li><strong>2. Iso-Damping (Flat Phase):</strong> <code>| d Arg[C(jω) P(jω)] / dω |_{ω=ω_c} = 0</code>.</li><li><strong>3. Unity Gain Crossover:</strong> <code>|C(jω_c) P(jω_c)|_{dB} = 0</code>.</li><li><strong>Physical Meaning:</strong> Zero phase slope around <code>ω_c</code> preserves phase margin even when plant gain or delay shifts!</li></ul>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/uav_bode_compare.png" alt="Open-loop Bode comparison: FOPD achieves a flat phase plateau across crossover ω_c unlike steep IOPID phase roll-off." loading="lazy">
+        <div class="fig-caption">Open-loop Bode comparison: FOPD achieves a flat phase plateau across crossover ω_c unlike steep IOPID phase roll-off.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Exact analytical solution for (K_p, K_d, μ) eliminates heuristic trial-and-error PID tuning</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-16" data-section="13" data-title="Iso-Damping Invariance Against ±50% Plant-Gain Variations" data-notes="In mechatronic flight systems, thrust gain K drops continuously as battery voltage sags from 12.6V to 10.5V or when swapping camera payloads. These curves show iso-damping working exactly as predicted by Bode theory.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST II · SIMULINK SYNTHESIS &amp; GAIN ROBUSTNESS</span>
+            <span class="s-counter">16 / 26</span>
+          </div>
+          <h2 class="s-title">Iso-Damping Invariance Against ±50% Plant-Gain Variations</h2>
+        </div>
+        <div class="s-body">
+          
+                <div class="card soft" style="flex:0 0 auto;padding:8px 14px;"><p>When actuator/payload gain varies from 50% K to 150% K, IOPID overshoot fluctuates substantially while FOPD maintains nearly identical, virtually zero-overshoot convergence.</p></div>
+                <div class="grid-2 equal">
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/uav_simulink.png" alt="Parallel MATLAB/Simulink benchmark (Fractional Der s^1.0497 vs. tuned IOPID with ITAE instrumentation)." loading="lazy">
+        <div class="fig-caption">Parallel MATLAB/Simulink benchmark (Fractional Der s^1.0497 vs. tuned IOPID with ITAE instrumentation).</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/uav_gain_robustness.png" alt="Step responses under K, 0.5K, and 1.5K: (a) FOPD iso-damped constant overshoot vs. (b) IOPID overshoot variation." loading="lazy">
+        <div class="fig-caption">Step responses under K, 0.5K, and 1.5K: (a) FOPD iso-damped constant overshoot vs. (b) IOPID overshoot variation.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Directly protects small inspection drones against battery voltage drop and variable sensor payload mass</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-17" data-section="13" data-title="Expanding Maximum Vision Sampling Period by +71% (0.933 s)" data-notes="When running heavy vision algorithms on lightweight companion computers, frame rates can dip below 2–3 Hz. Extending the maximum stable sampling period from 0.546 s to 0.933 s prevents catastrophic loss-of-target divergence.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST II · SAMPLED-DATA DELAY STABILITY BOUNDS</span>
+            <span class="s-counter">17 / 26</span>
+          </div>
+          <h2 class="s-title">Expanding Maximum Vision Sampling Period by +71% (0.933 s)</h2>
+        </div>
+        <div class="s-body">
+          
+                <div class="card soft" style="flex:0 0 auto;padding:8px 14px;"><p>Stability boundary analysis proves IOPID diverges past h_max = 0.546 s, whereas FOPD remains stable up to h_max = 0.933 s — dramatic resilience to onboard vision compute load.</p></div>
+                <div class="grid-2 equal">
+      <div class="fig-panel">
+        <img src="/assets/slides/img/fopd_step_response.png" alt="Multi-rate step responses at h = 0.58 s, 0.33 s, 0.29 s, and 0.058 s (FOPD stays stable at 0.58 s where IOPID diverges)." loading="lazy">
+        <div class="fig-caption">Multi-rate step responses at h = 0.58 s, 0.33 s, 0.29 s, and 0.058 s (FOPD stays stable at 0.58 s where IOPID diverges).</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/uav_itae_plot.png" alt="Integral of Time-Weighted Absolute Error (ITAE) vs. sampling period: FOPD error stays an order of magnitude lower." loading="lazy">
+        <div class="fig-caption">Integral of Time-Weighted Absolute Error (ITAE) vs. sampling period: FOPD error stays an order of magnitude lower.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Shang et al., ASME IDETC/CIE (2017) &amp; Nonlinear Dynamics (2019)</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-18" data-section="13" data-title="PX4–Odroid Hardware Architecture &amp; Live Browser HSV Tuner" data-notes="Field robotics often fails on practical details like outdoor lighting changes. Hosting a lightweight HTTP web tuner directly on the Odroid lets an operator click the live camera stream in a browser before takeoff to lock HSV thresholds in seconds.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST II · EMBEDDED MECHATRONICS &amp; HUMAN-MACHINE INTERFACE</span>
+            <span class="s-counter">18 / 26</span>
+          </div>
+          <h2 class="s-title">PX4–Odroid Hardware Architecture &amp; Live Browser HSV Tuner</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="fig-panel">
+        <img src="/assets/slides/img/uav_servoing_hw.png" alt="Quadrotor platform with Pixhawk/PX4, Odroid Linux computer &amp; camera." loading="lazy">
+        <div class="fig-caption">Quadrotor platform with Pixhawk/PX4, Odroid Linux computer &amp; camera.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/mechatronics/uav_hmi_arch.png" alt="System HMI: PX4 ↔ UART ↔ Odroid ↔ RC, Mission Planner &amp; WiFi Web GUI." loading="lazy">
+        <div class="fig-caption">System HMI: PX4 ↔ UART ↔ Odroid ↔ RC, Mission Planner &amp; WiFi Web GUI.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/portfolio/img/uav_hsv_web_gui.jpg" alt="Onboard HTTP GUI (:8081/tune) for real-time outdoor HSV calibration." loading="lazy">
+        <div class="fig-caption">Onboard HTTP GUI (:8081/tune) for real-time outdoor HSV calibration.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Eliminates field recognition failures caused by shifting sunlight/cloud shadows without SSH or code rebuilds</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-19" data-section="13" data-title="20% Tighter Outdoor Hovering Precision &amp; Live Flight Video" data-notes="In outdoor wind conditions, the fractional-order controller reduced pixel-space hovering scatter radius by 20% compared to the best-tuned integer-order PID controller, and enabled our SmartCaveDrone 3D cave-mapping deployments.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST II · OUTDOOR FLIGHT VALIDATION &amp; CAVE MAPPING</span>
+            <span class="s-counter">19 / 26</span>
+          </div>
+          <h2 class="s-title">20% Tighter Outdoor Hovering Precision &amp; Live Flight Video</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+      <div class="fig-panel">
+        <img src="/assets/portfolio/img/uav_flight_scatter.png" alt="Outdoor flight pixel-error scatter: (a) FOPD achieves 20% tighter target hold than (b) IOPID." loading="lazy">
+        <div class="fig-caption">Outdoor flight pixel-error scatter: (a) FOPD achieves 20% tighter target hold than (b) IOPID.</div>
+      </div>
+      <div class="fig-panel dark-fig">
+        <div class="video-stage" data-yt="yNwVlw9zY3k" data-alt="Outdoor guided-mode visual servoing flight test &amp; live ground-station telemetry.">
+          <img src="/assets/portfolio/img/vid_uav_servoing.jpg" alt="Outdoor guided-mode visual servoing flight test &amp; live ground-station telemetry." loading="lazy">
+          <button type="button" class="video-play-btn" aria-label="Play Flight Test Video (yNwVlw9zY3k)">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="play-label">Play Flight Test Video (yNwVlw9zY3k)</span>
+          </button>
+        </div>
+        <div class="fig-caption">Outdoor guided-mode visual servoing flight test &amp; live ground-station telemetry. · <a href="https://www.youtube.com/watch?v=yNwVlw9zY3k" target="_blank" rel="noopener" style="color:#2dd4bf;">YouTube ↗</a></div>
+      </div></div><div class="card soft" style="flex:0 0 auto;padding:8px 14px;"><p>Field Extension — SmartCaveDrone (ICUAS 2017): Applied GPS-denied UAV autonomy to 3D archaeological cave mapping as robotic co-archaeologists.</p></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Click the right panel to play the experimental visual-servoing flight video inline</span>
+        </div>
+      </section>
+      <section class="slide dark" id="slide-20" data-section="20" data-title="Wall-Climbing Defect Analytics &amp; Synchronized 3D LiDAR-Camera Systems" data-notes="In Thrust 3, I present our CCNY wall-climbing concrete defect inspection system — now published in IEEE T-ASE 2025 and selected for IROS 2025 — along with my 2025–2026 multi-sensor LiDAR-camera synchronization and safety-auditing systems.">
+        <div class="s-eyebrow-row">
+          <span class="s-eyebrow">THRUST III · CLIMBING ROBOTICS, 3D NDT &amp; 2025–2026 SENSOR PODS</span>
+          <span class="s-counter">20 / 26</span>
+        </div>
+        <div style="margin:auto 0;">
+          <h2 class="hero-title">Wall-Climbing Defect Analytics &amp; Synchronized 3D LiDAR-Camera Systems</h2>
+          <div class="hero-rule"></div>
+          <p class="hero-sub">Updated from 2024 preprints to IEEE T-ASE 2025 / IROS 2025, CVPRW 2026, IEEE OJ-ITS 2026, and NYSDOT / UMD cyber-physical deployments.</p>
+        </div>
+        <div class="grid-4" style="flex:0 0 auto;"><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">IEEE T-ASE 2025</div><p>Selected for IEEE IROS 2025</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">90.1% vs. 72.9%</div><p>NYSDOT I-95 3D Crossing Recovery</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">0.37 → 1.00 PACO</div><p>Roadside V2I Occlusion Resolution</p></div><div class="card dark-card"><div class="metric-big" style="color:#fbbf24;">61.9 h · n = 180</div><p>Continuous Corridor &amp; Safety Audits</p></div></div>
+      </section>
+      <section class="slide" id="slide-21" data-section="20" data-title="Climbing-Robot Inspection, iPadOS Control &amp; Serverless Cloud Engine" data-notes="To transition robotic inspection from lab demos to civil inspectors, I built both the iPad TestFlight operator workflow capturing RGB, depth, and gravity orientation, and the serverless AWS Lambda inference pipeline.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST III · ROBOT-TO-CLOUD MECHATRONIC WORKFLOW</span>
+            <span class="s-counter">21 / 26</span>
+          </div>
+          <h2 class="s-title">Climbing-Robot Inspection, iPadOS Control &amp; Serverless Cloud Engine</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2">
+      <div class="card grow">
+        <h3>Bridging Wall-Climbing Hardware to Automated Cloud NDT</h3>
+        <ul><li><strong>42% of U.S. bridges</strong> are 50+ years old; concrete piers and seawalls exhibit dense cracking, spalling, and subsurface delamination.</li><li><strong>GWCR Climbing Robot + iPad App:</strong> Developed an iOS/iPadOS TestFlight operator app logging synchronized <strong>RGB + Depth + Gravity vectors</strong> and GIS asset pins.</li><li><strong>Serverless AWS Pipeline:</strong> API Gateway + Amplify S3 + 4 chained AWS Lambda functions automating InspectionNet CNN inference, mask overlay, and dimension extraction.</li><li><strong>Distinct Lineage:</strong> Conducted at CCNY Robotics Lab (Feng, Shang, et al., Prof. Jizhong Xiao) — independent from Missouri S&T BIRDS.</li></ul>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/portfolio/img/concrete_cloud_arch.png" alt="End-to-end architecture: GWCR climbing robot → iPad local/MapView app → AWS API Gateway, S3 &amp; 4× Lambda stages." loading="lazy">
+        <div class="fig-caption">End-to-end architecture: GWCR climbing robot → iPad local/MapView app → AWS API Gateway, S3 &amp; 4× Lambda stages.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Combines robotic surface mobility, mobile human-robot interaction, and zero-ops cloud analytics</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-22" data-section="20" data-title="2D-to-3D Defect Registration &amp; Metric Crack Skeletonization" data-notes="Projecting 2D crack masks onto a 3D structure-from-motion column mesh eliminates double-counting across overlapping video frames, while medial-axis skeletonization yields metric crack length and orientation. Paired with acoustic impact-echo and thermal IR NDT.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST III · 2025 MILESTONE — IEEE T-ASE &amp; IEEE IROS</span>
+            <span class="s-counter">22 / 26</span>
+          </div>
+          <h2 class="s-title">2D-to-3D Defect Registration &amp; Metric Crack Skeletonization</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="fig-panel">
+        <img src="/assets/slides/img/tase_crack_pipeline.png" alt="2D CNN segmentation registered onto 3D WebODM SfM point cloud." loading="lazy">
+        <div class="fig-caption">2D CNN segmentation registered onto 3D WebODM SfM point cloud.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/portfolio/img/concrete_skeleton_grid.png" alt="Raw surface → CNN mask → binary mask → 1-px medial-axis skeleton." loading="lazy">
+        <div class="fig-caption">Raw surface → CNN mask → binary mask → 1-px medial-axis skeleton.</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/img/tase_column_3d.jpg" alt="Full-scale concrete bridge column 3D reconstruction with localized defects." loading="lazy">
+        <div class="fig-caption">Full-scale concrete bridge column 3D reconstruction with localized defects.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Feng, Shang, Hoxha, Hernández, He, Wang, &amp; Xiao — IEEE Trans. Automation Science &amp; Engineering (2025) · Presented at IEEE IROS 2025</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-23" data-section="20" data-title="Synchronized 3D LiDAR-Camera Pods, PACO &amp; Cyber-Physical Twins" data-notes="Over 2025–2026 at CCNY and UMD, I scaled multi-sensor clock synchronization and 3D perception to fixed roadside LiDAR-camera pods on I-95 (61.9 hours, 90.1% vs 72.9% recovery), proved the PACO cooperative observability law (0.37 to 1.00), and deployed the CERRA geospatial platform with a protected LLM-SUMO bridge (LLM-SUMO authored by Jihoon Kim, Linux-ported and operated in CERRA by Bo Shang).">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">THRUST III · 2025–2026 MULTI-SENSOR MECHATRONIC EXTENSION</span>
+            <span class="s-counter">23 / 26</span>
+          </div>
+          <h2 class="s-title">Synchronized 3D LiDAR-Camera Pods, PACO &amp; Cyber-Physical Twins</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="fig-panel">
+        <img src="/assets/slides/img/nysdot_i95_setup.jpg" alt="NYSDOT I-95 LiDAR+RGB pod: 90.1% vs. 72.9% recovery (61.9 h dataset)." loading="lazy">
+        <div class="fig-caption">NYSDOT I-95 LiDAR+RGB pod: 90.1% vs. 72.9% recovery (61.9 h dataset).</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/img/v2i_occlusion_shadow.png" alt="PACO occlusion physics: 0.37 ADAS → 0.61 AV → 1.00 V2I (CVPRW 2026)." loading="lazy">
+        <div class="fig-caption">PACO occlusion physics: 0.37 ADAS → 0.61 AV → 1.00 V2I (CVPRW 2026).</div>
+      </div>
+      <div class="fig-panel">
+        <img src="/assets/slides/img/cerra_architecture_fig.png" alt="UMD CERRA geospatial AI &amp; protected LLM-SUMO simulation bridge." loading="lazy">
+        <div class="fig-caption">UMD CERRA geospatial AI &amp; protected LLM-SUMO simulation bridge.</div>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Extends onboard robotic sensor fusion to continuous 24/7 highway &amp; urban cyber-physical testbeds (2025–2026)</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-24" data-section="24" data-title="Research Statement: Next-Generation Field Mechatronics Lab" data-notes="As a faculty member, my lab will pursue three synergistic pillars: (1) reconfigurable aerial/climbing mechanisms with contact-rich NDT, (2) delay- and gain-certified fractional and physics-informed control for edge AI loops, and (3) open synchronized multi-sensor pods and HIL testbeds.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">FUTURE VISION · 5-YEAR MECHATRONICS LAB AGENDA</span>
+            <span class="s-counter">24 / 26</span>
+          </div>
+          <h2 class="s-title">Research Statement: Next-Generation Field Mechatronics Lab</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-3">
+      <div class="card amber grow">
+        <h3>Pillar 1 · Reconfigurable & Contact-Rich Field Robots</h3>
+        <ul><li>Next-gen aerial-perching, magnetic/vortex climbing, and multi-modal rolling mechanisms.</li><li>Compliant force/impedance end-effectors for contact acoustic, ultrasonic, and eddy-current NDT.</li><li>On-the-fly adaptive / liquid neural policies running on low-power edge NPUs.</li></ul>
+      </div>
+      <div class="card grow">
+        <h3>Pillar 2 · Delay- & Uncertainty-Certified Control</h3>
+        <ul><li>Fractional-order and physics-informed nonlinear control with provable delay & gain margins.</li><li>Safe handoff between foundation-model high-level planners and deterministic real-time MCU/RTOS servo loops.</li><li>Wind-gust & contact-transition disturbance rejection.</li></ul>
+      </div>
+      <div class="card grow">
+        <h3>Pillar 3 · Synchronized Sensor Pods & HIL Twins</h3>
+        <ul><li>Open-hardware sub-millisecond synchronized 3D LiDAR + RGB + thermal + acoustic mechatronic pods.</li><li>Hardware-in-the-loop (HIL) validation benches coupling physical actuators/sensors with calibrated digital twins.</li><li>Turnkey field partnerships with DOTs, utilities & manufacturing.</li></ul>
+      </div></div><div class="card soft" style="flex:0 0 auto;padding:9px 14px;"><p><strong>Synthesis:</strong> Lab Mission: Advance the science of coupled mechanism-sensor-control co-design so autonomous robots operate safely, enduringly, and auditably in harsh real-world environments.</p></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>5-year tenure-track research roadmap building directly on patented hardware &amp; deployed field pipelines</span>
+        </div>
+      </section>
+      <section class="slide" id="slide-25" data-section="24" data-title="Mechatronics Studio Teaching &amp; External Funding Roadmap" data-notes="Having already taught Mechatronics Labs, UAS Labs, Electric Circuits, and Robotics Mechanics &amp; Control across three institutions, I am ready on day one to modernize undergraduate mechatronics studios and build a multi-agency funded lab.">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">EDUCATION &amp; SPONSORSHIP · CURRICULUM &amp; FUNDING STRATEGY</span>
+            <span class="s-counter">25 / 26</span>
+          </div>
+          <h2 class="s-title">Mechatronics Studio Teaching &amp; External Funding Roadmap</h2>
+        </div>
+        <div class="s-body">
+          <div class="grid-2 equal">
+      <div class="card grow">
+        <h3>Mechatronics Curriculum & Student Hardware Studio</h3>
+        <ul><li><strong>Undergraduate Core:</strong> <em>Mechatronics System Design</em>, <em>Sensors, Actuators & Microcontrollers</em>, <em>Electric Circuits & Electro-Mechanics</em>, <em>Feedback Control Systems</em>.</li><li><strong>Senior / Graduate Electives:</strong> <em>Introduction to Robotics, Mechanics & Control</em>, <em>Autonomous Aerial & Climbing Robots</em>, <em>Fractional-Order & Robust Digital Control</em>.</li><li><strong>Take-Home & Benchtop Kits:</strong> Modular MCU + encoder motor + IMU + RGB-D kits taking students from PCB/wiring and C firmware to Simulink system ID and ROS 2.</li><li><strong>Undergraduate Research Pipeline:</strong> Direct integration of capstone teams into bridge/drone/sensor-pod field deployments.</li></ul>
+      </div>
+      <div class="card amber grow">
+        <h3>Targeted External Funding & Cross-Disciplinary Links</h3>
+        <ul><li><strong>NSF Engineering & CISE:</strong> CMMI (<em>Dynamics, Control & Systems Diagnostics</em>; <em>Foundational Research in Robotics — FRR</em>), CNS (<em>Cyber-Physical Systems — CPS</em>), and <strong>NSF CAREER</strong> (Years 2–3).</li><li><strong>Infrastructure & Energy Agencies:</strong> USDOT UTCs, State DOT research boards (building on NYSDOT, NYC DOT & INSPIRE track record), DOE infrastructure resilience.</li><li><strong>Defense & Aerospace:</strong> ONR / ARL / AFOSR (GPS-denied autonomous perching, compact multi-sensor autonomy under compute/comms constraints).</li><li><strong>Departmental Synergies:</strong> Bridges Mechanical, Electrical/Computer, Civil, and Aerospace Engineering.</li></ul>
+      </div></div>
+        </div>
+        <div class="s-footer">
+          <span>Bo Shang, Ph.D. · Mechatronics Research Statement Presentation</span>
+          <span>Proven classroom &amp; lab instructor across UC Merced, CUNY City College, and Vaughn College</span>
+        </div>
+      </section>
+      <section class="slide dark" id="slide-26" data-section="24" data-title="Selected Publications, Granted Patent &amp; Contact" data-notes="Thank you very much! All 7 experimental hardware videos, interactive control and observability simulators, papers, and downloadable PDFs are live at cnpcshangbo.github.io. I welcome your questions!">
+        <div class="s-header">
+          <div class="s-eyebrow-row">
+            <span class="s-eyebrow">SELECTED MECHATRONICS, ROBOTICS &amp; CONTROL OUTPUTS · THANK YOU</span>
+            <span class="s-counter">26 / 26</span>
+          </div>
+          <h2 class="s-title" style="color:#fff;border-bottom-color:rgba(255,255,255,0.2);">Selected Publications, Granted Patent &amp; Contact</h2>
+        </div>
+        <div class="s-body">
+          <div class="card dark-card grow">
+            <h3>Key Patents &amp; Peer-Reviewed Publications (Updated Through 2026)</h3>
+            <ul style="gap:7px;"><li><strong>[US Patent 12,296,994 B2, 2025]</strong> G. Chen, A. Reven, <strong>B. Shang</strong>, Z. Shi, L. Li. <em>Unmanned Vehicle Having Flight Configuration and Surface Traverse Configuration</em> · <strong>ASCE 2025 Charles Pankow Award</strong>.</li><li><strong>[IEEE T-ASE 2025 · IROS 2025]</strong> J. Feng, <strong>B. Shang</strong>, E. Hoxha, C. Hernández, Y. He, W. Wang, J. Xiao. <em>Robotic Inspection and Data Analytics to Localize and Visualize the Structural Defects of Concrete Infrastructure</em>, vol. 22, pp. 22324–22336.</li><li><strong>[CVPRW DriveX 2026 & IEEE OJ-ITS 2026]</strong> Proactive Roadside 3D LiDAR Urban Safety Auditing (n = 180) & Citywide Freight Activity Sensing.</li><li><strong>[IEEE ISAS 2023]</strong> J. Li, <strong>B. Shang</strong>, I. Jayawardana, G. Chen. <em>Hardware-in-the-Loop and Digital Twin Enabled Autonomous Robotics-Assisted Environment Inspection</em>.</li><li><strong>[Nonlinear Dynamics 2019]</strong> <strong>B. Shang</strong>, J. Liu, Y. Zhang, C. Wu, Y.Q. Chen. <em>Fractional Order Flight Control of Quadrotor UAS on Vision-Based Precision Hovering with Larger Sampling Period</em>.</li><li><strong>[ICUAS 2016 & 2017 · ASME IDETC 2017]</strong> Fractional-Order Visual Servoing, Maximum Sampling-Period Analysis, & <em>SmartCaveDrone</em> 3D Cave Mapping.</li></ul>
+          </div>
+          <div class="card dark-card" style="border-top-color:#fbbf24;flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+            <div><strong style="color:#fbbf24;">Thank You &amp; Questions!</strong> · Bo Shang, Ph.D.  ·  bshang@umd.edu  ·  https://cnpcshangbo.github.io/  ·  Interactive Demos: /portfolio/</div>
+            <div style="display:flex;gap:10px;font-size:12.5px;">
+              <a href="/portfolio/">Interactive Portfolio →</a>
+              <a href="/cv/research/">Research Resume →</a>
+              <a href="/slides/">Infrastructure AI Deck →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <aside class="notes-drawer" id="notes-drawer" aria-live="polite">
+    <div class="notes-label">Speaker Notes</div>
+    <div id="notes-text"></div>
+  </aside>
+
+  <footer class="bottombar">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="transport-row">
+      <div class="nav-controls">
+        <button class="nav-btn" id="btn-prev" aria-label="Previous slide">← Prev</button>
+        <span class="slide-indicator" id="slide-indicator">01 / 26</span>
+        <button class="nav-btn" id="btn-next" aria-label="Next slide">Next →</button>
+      </div>
+      <div class="kbd-hint">Keys: ← / → / Space · G (Overview) · N (Speaker Notes) · F (Fullscreen) · Click any figure to zoom or video to play</div>
+    </div>
+  </footer>
+
+  <div class="grid-modal" id="grid-modal" role="dialog" aria-modal="true" aria-label="Slide overview">
+    <div class="grid-modal-header">
+      <strong>Mechatronics Research Statement Presentation — All 26 Slides</strong>
+      <button class="tool-btn" id="btn-close-grid">Close (Esc)</button>
+    </div>
+    <div class="overview-cards" id="overview-cards"></div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Enlarged slide figure">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const total = slides.length;
+      const indicator = document.getElementById('slide-indicator');
+      const progressFill = document.getElementById('progress-fill');
+      const notesText = document.getElementById('notes-text');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnNotes = document.getElementById('btn-notes');
+      const btnGrid = document.getElementById('btn-grid');
+      const btnCloseGrid = document.getElementById('btn-close-grid');
+      const btnFs = document.getElementById('btn-fs');
+      const gridModal = document.getElementById('grid-modal');
+      const ovContainer = document.getElementById('overview-cards');
+      const secBtns = Array.from(document.querySelectorAll('.sec-btn'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+
+      let current = 0;
+
+      // Build overview grid
+      slides.forEach((sl, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'ov-item';
+        const num = String(idx + 1).padStart(2, '0');
+        const title = sl.getAttribute('data-title') || ('Slide ' + num);
+        btn.innerHTML = '<div class="ov-num">Slide ' + num + ' / ' + total + '</div><div class="ov-title">' + title + '</div>';
+        btn.addEventListener('click', () => {
+          goTo(idx);
+          gridModal.classList.remove('open');
+        });
+        ovContainer.appendChild(btn);
+      });
+      const ovItems = Array.from(ovContainer.querySelectorAll('.ov-item'));
+
+      function resetInactiveVideos(nextIdx) {
+        slides.forEach((sl, i) => {
+          if (i === nextIdx) return;
+          sl.querySelectorAll('.video-stage').forEach(vs => {
+            if (vs.querySelector('iframe')) {
+              vs.innerHTML = vs.getAttribute('data-orig-html');
+            }
+          });
+        });
+      }
+
+      document.querySelectorAll('.video-stage').forEach(vs => {
+        vs.setAttribute('data-orig-html', vs.innerHTML);
+        vs.addEventListener('click', () => {
+          if (vs.querySelector('iframe')) return;
+          const ytId = vs.getAttribute('data-yt');
+          const title = vs.getAttribute('data-alt') || 'BIRDS experimental video';
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(ytId) + '?autoplay=1&rel=0';
+          iframe.title = title;
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+          iframe.allowFullscreen = true;
+          vs.innerHTML = '';
+          vs.appendChild(iframe);
+        });
+      });
+
+      function goTo(idx, updateHash = true) {
+        const targetIdx = Math.max(0, Math.min(total - 1, idx));
+        if (targetIdx !== current) {
+          resetInactiveVideos(targetIdx);
+        }
+        current = targetIdx;
+        slides.forEach((sl, i) => sl.classList.toggle('active', i === current));
+        ovItems.forEach((it, i) => it.classList.toggle('current', i === current));
+        const numStr = String(current + 1).padStart(2, '0');
+        indicator.textContent = numStr + ' / ' + total;
+        progressFill.style.width = (((current + 1) / total) * 100).toFixed(2) + '%';
+        notesText.textContent = slides[current].getAttribute('data-notes') || '';
+        btnPrev.disabled = current === 0;
+        btnNext.disabled = current === total - 1;
+
+        const secId = slides[current].getAttribute('data-section');
+        secBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-goto') === secId));
+
+        if (updateHash) {
+          history.replaceState(null, '', '#slide-' + (current + 1));
+        }
+      }
+
+      function toggleNotes() {
+        document.body.classList.toggle('notes-open');
+        btnNotes.classList.toggle('active', document.body.classList.contains('notes-open'));
+      }
+
+      function toggleGrid() {
+        gridModal.classList.toggle('open');
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+
+      btnPrev.addEventListener('click', () => goTo(current - 1));
+      btnNext.addEventListener('click', () => goTo(current + 1));
+      btnNotes.addEventListener('click', toggleNotes);
+      btnGrid.addEventListener('click', toggleGrid);
+      btnCloseGrid.addEventListener('click', () => gridModal.classList.remove('open'));
+      btnFs.addEventListener('click', toggleFullscreen);
+
+      secBtns.forEach(b => {
+        b.addEventListener('click', () => {
+          const target = parseInt(b.getAttribute('data-goto'), 10) - 1;
+          goTo(target);
+        });
+      });
+
+      // Lightbox on non-video images only
+      document.querySelectorAll('.fig-panel > img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('open');
+        });
+      });
+      lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+      document.addEventListener('keydown', e => {
+        if (e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+        if (e.key === 'Escape') {
+          gridModal.classList.remove('open');
+          lightbox.classList.remove('open');
+          return;
+        }
+        if (gridModal.classList.contains('open') || lightbox.classList.contains('open')) return;
+
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+          e.preventDefault();
+          goTo(current + 1);
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          goTo(current - 1);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          goTo(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          goTo(total - 1);
+        } else if (e.key === 'n' || e.key === 'N') {
+          toggleNotes();
+        } else if (e.key === 'g' || e.key === 'G') {
+          toggleGrid();
+        } else if (e.key === 'f' || e.key === 'F') {
+          toggleFullscreen();
+        }
+      });
+
+      // Touch swipe navigation
+      let touchStartX = null;
+      document.getElementById('deck').addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      document.getElementById('deck').addEventListener('touchend', e => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(dx) > 50) {
+          goTo(dx < 0 ? current + 1 : current - 1);
+        }
+        touchStartX = null;
+      }, { passive: true });
+
+      window.addEventListener('hashchange', () => {
+        const hm = window.location.hash.match(/^#slide-(\d+)$/);
+        if (hm) goTo(parseInt(hm[1], 10) - 1, false);
+      });
+
+      // Initial hash support
+      const m = window.location.hash.match(/^#slide-(\d+)$/);
+      const startIdx = m ? parseInt(m[1], 10) - 1 : 0;
+      goTo(startIdx, false);
+    })();
+  </script>
+</body>
+</html>

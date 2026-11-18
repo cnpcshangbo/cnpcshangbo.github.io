@@ -17,7 +17,8 @@ redirect_from:
   </p>
   <div class="home-hero__actions">
     <a href="/portfolio/" class="home-btn home-btn--primary"><i class="fas fa-cubes" aria-hidden="true"></i> Explore Systems Portfolio</a>
-    <a href="/slides/" class="home-btn home-btn--ghost"><i class="fas fa-tv" aria-hidden="true"></i> 28-Slide Interactive Deck</a>
+    <a href="/slides/mechatronics/" class="home-btn home-btn--ghost"><i class="fas fa-microchip" aria-hidden="true"></i> Mechatronics Slides</a>
+    <a href="/slides/" class="home-btn home-btn--ghost"><i class="fas fa-tv" aria-hidden="true"></i> Infrastructure AI Slides</a>
     <a href="/cv/research/" class="home-btn home-btn--ghost"><i class="fas fa-file-lines" aria-hidden="true"></i> Research Resume</a>
   </div>
   <div class="home-hero__metrics">
@@ -96,8 +97,17 @@ The three scales feed one model: fixed sensors contribute macro-level intelligen
     </div>
   </div>
   <div class="home-doc-card">
-    <p class="home-doc-card__title">Research Presentation Slides</p>
-    <p class="home-doc-card__desc">28-slide seminar deck with inline experimental videos, architecture figures, and 5-year vision.</p>
+    <p class="home-doc-card__title">Mechatronics Research Statement Slides</p>
+    <p class="home-doc-card__desc">26-slide faculty research statement deck: BIRDS electro-mechanics, fractional-order UAV control, 3D robotic NDT &amp; 5-year lab plan.</p>
+    <div class="home-doc-card__links">
+      <a href="/slides/mechatronics/">Interactive Web</a>
+      <a href="/assets/slides/Bo_Shang_Mechatronics_Research_Slides.pdf">PDF</a>
+      <a href="/assets/slides/Bo_Shang_Mechatronics_Research_Slides.pptx">PPTX</a>
+    </div>
+  </div>
+  <div class="home-doc-card">
+    <p class="home-doc-card__title">Infrastructure &amp; Physical AI Slides</p>
+    <p class="home-doc-card__desc">28-slide multi-scale seminar deck with inline experimental videos, PACO observability, InfraLiDAR-Eval &amp; CERRA.</p>
     <div class="home-doc-card__links">
       <a href="/slides/">Interactive Web</a>
       <a href="/assets/slides/Bo_Shang_Research_Slides.pdf">PDF</a>
