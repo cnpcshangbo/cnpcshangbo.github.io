@@ -150,6 +150,14 @@ include:
   - files
 exclude:
   - cv-tex
+  - docs
+  - markdown_generator
+  - talkmap
+  - talkmap.ipynb
+  - talkmap.py
+  - README.md
+  - CONTRIBUTING.md
+  - .github
   - tools
   - AGENTS.md
   - .conda

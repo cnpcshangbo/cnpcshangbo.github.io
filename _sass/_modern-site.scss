@@ -2874,3 +2874,51 @@ a {
     padding: 0;
   }
 }
+
+/* --------------------------------------------------------------------------
+   7. Sitemap page
+   -------------------------------------------------------------------------- */
+.site-map {
+  display: grid;
+  gap: 2.25rem;
+  margin-top: 1.5rem;
+}
+.site-map__group h2 {
+  font-family: $ms-font-display;
+  font-size: 1.15rem;
+  margin: 0 0 .75rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid $ms-border;
+}
+.site-map__list,
+.site-map__sub {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-map__list > li {
+  display: block;
+  padding: .6rem 0;
+  border-bottom: 1px dashed $ms-border;
+}
+.site-map__list > li:last-child { border-bottom: 0; }
+.site-map__list a {
+  font-weight: 600;
+  color: $ms-ink;
+  text-decoration: none;
+}
+.site-map__list a:hover { color: $ms-teal-700; text-decoration: underline; }
+.site-map__list > li > span {
+  display: block;
+  margin-top: .15rem;
+  max-width: 46rem;
+  font-size: .88rem;
+  color: $ms-ink-muted;
+}
+.site-map__list--mono a { font-family: $ms-font-mono; font-size: .9rem; }
+.site-map__sub {
+  margin: .4rem 0 0 .25rem;
+  padding-left: .75rem;
+  border-left: 2px solid $ms-teal-tint;
+}
+.site-map__sub a { font-weight: 500; font-size: .9rem; color: $ms-teal-700; }

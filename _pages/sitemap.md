@@ -1,37 +1,74 @@
 ---
-layout: archive
+layout: single
 title: "Sitemap"
 permalink: /sitemap/
+excerpt: "Every public page on Bo Shang's site, grouped by what it is."
 author_profile: true
 ---
 
 {% include base_path %}
 
-A list of all the posts and pages found on the site. For you robots out there is an [XML version]({{ base_path }}/sitemap.xml) available for digesting as well.
+Every public page on this site, grouped by what it is. Machine-readable versions are listed at the end.
 
-<h2>Pages</h2>
-{% for post in site.pages %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="site-map" markdown="0">
 
-<h2>Posts</h2>
-{% for post in site.posts %}
-  {% include archive-single.html %}
-{% endfor %}
+  <section class="site-map__group" aria-labelledby="sm-main">
+    <h2 id="sm-main">Main pages</h2>
+    <ul class="site-map__list">
+      <li><a href="{{ base_path }}/">About</a><span>Story, research across scales, teaching and selected publications</span></li>
+      <li><a href="{{ base_path }}/portfolio/">Systems &amp; Robotics Portfolio</a><span>Interactive showcases of deployed field systems</span></li>
+      <li><a href="{{ base_path }}/publications/">Publications</a><span>Journal and conference papers with DOI links</span></li>
+      <li><a href="{{ base_path }}/research-notes/">Research Notes</a><span>Long-form technical retrospectives</span></li>
+    </ul>
+  </section>
 
-{% capture written_label %}'None'{% endcapture %}
+  <section class="site-map__group" aria-labelledby="sm-docs">
+    <h2 id="sm-docs">Resume &amp; CV</h2>
+    <ul class="site-map__list">
+      <li><a href="{{ base_path }}/resumes/">Resume &amp; CV overview</a><span>All documents in one place</span></li>
+      <li><a href="{{ base_path }}/cv/">Academic CV</a><span>Appointments, publications, patents, teaching and service</span></li>
+      <li><a href="{{ base_path }}/cv/research/">Research Scientist Resume</a><span>Research contributions, deployed systems and technical stack</span></li>
+    </ul>
+  </section>
 
-{% for collection in site.collections %}
-{% unless collection.output == false or collection.label == "posts" %}
-  {% capture label %}{{ collection.label }}{% endcapture %}
-  {% if label != written_label %}
-  <h2>{{ label }}</h2>
-  {% capture written_label %}{{ label }}{% endcapture %}
-  {% endif %}
-{% endunless %}
-{% for post in collection.docs %}
-  {% unless collection.output == false or collection.label == "posts" %}
-  {% include archive-single.html %}
-  {% endunless %}
-{% endfor %}
-{% endfor %}
+  <section class="site-map__group" aria-labelledby="sm-systems">
+    <h2 id="sm-systems">Systems portfolio</h2>
+    <ul class="site-map__list">
+      {% assign systems = site.portfolio | sort: "order" %}
+      {% for item in systems %}
+      <li><a href="{{ base_path }}{{ item.url }}">{{ item.title }}</a>{% if item.excerpt %}<span>{{ item.excerpt | strip_html | strip_newlines }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="site-map__group" aria-labelledby="sm-slides">
+    <h2 id="sm-slides">Presentations</h2>
+    <ul class="site-map__list">
+      <li><a href="{{ base_path }}/slides/">Infrastructure &amp; Physical AI</a><span>Multi-scale research seminar deck with inline videos</span></li>
+      <li><a href="{{ base_path }}/slides/mechatronics/">Mechatronics Research Statement</a><span>Faculty research statement deck</span></li>
+    </ul>
+  </section>
+
+  <section class="site-map__group" aria-labelledby="sm-notes">
+    <h2 id="sm-notes">Research notes</h2>
+    <ul class="site-map__list">
+      {% for post in site.posts %}
+      <li><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a><span>{{ post.date | date: "%B %-d, %Y" }}</span>{% if post.url contains "minecraft" %}
+        <ul class="site-map__sub">
+          <li><a href="{{ base_path }}/research-notes/minecraft-traceability/">Evidence and traceability for this study</a></li>
+        </ul>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="site-map__group" aria-labelledby="sm-machine">
+    <h2 id="sm-machine">For search engines and AI assistants</h2>
+    <ul class="site-map__list site-map__list--mono">
+      <li><a href="{{ base_path }}/llms.txt">/llms.txt</a><span>Short index of key pages</span></li>
+      <li><a href="{{ base_path }}/llms-full.txt">/llms-full.txt</a><span>Full profile as plain Markdown</span></li>
+      <li><a href="{{ base_path }}/sitemap.xml">/sitemap.xml</a><span>XML sitemap</span></li>
+      <li><a href="{{ base_path }}/feed.xml">/feed.xml</a><span>Research notes feed</span></li>
+    </ul>
+  </section>
+
+</div>
