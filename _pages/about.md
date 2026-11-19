@@ -13,7 +13,10 @@ redirect_from:
   <h1>Bo Shang</h1>
   <p class="home-hero__role">Robotics &amp; AI Researcher · Postdoctoral Associate, University of Maryland</p>
   <p class="home-hero__lead">
-    My research asks how the infrastructure around us — bridges, intersections, highways, and cities — can perceive itself. Combining <strong>embodied field robots</strong> with <strong>fixed 3D sensing and auditable AI simulation</strong>, I build physical-AI systems deployed with public transportation agencies.
+    I am the first in my family to go to college. Nobody at home could explain how a lab or an academic career worked, so I learned by building: PLC control systems as an automation student in China, then, in New York, robots that inspect bridges and roadside sensors that watch busy intersections. I have taught robotics, circuits and drone labs at Vaughn College, City College of New York and UC Merced, where many of my students were also the first in their families to study engineering.
+  </p>
+  <p class="home-hero__lead">
+    Today my research asks how the infrastructure around us — bridges, intersections, highways, and cities — can perceive itself. Combining <strong>embodied field robots</strong> with <strong>fixed 3D sensing and auditable AI simulation</strong>, I build physical-AI systems deployed with public transportation agencies.
   </p>
   <div class="home-hero__actions">
     <a href="/portfolio/" class="home-btn home-btn--primary"><i class="fas fa-cubes" aria-hidden="true"></i> Explore Systems Portfolio</a>
