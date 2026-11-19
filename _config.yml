@@ -136,6 +136,12 @@ social:
   links: # An array of links to social media profiles
 
 
+# "Ask about Bo" AI chat bar (_includes/ai-assistant.html, tools/ai-assistant-worker)
+# endpoint: the deployed Cloudflare Worker URL. The bar shows only when enabled.
+ai_assistant:
+  enabled                : false
+  endpoint               : ""
+
 # Analytics
 analytics:
   provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"

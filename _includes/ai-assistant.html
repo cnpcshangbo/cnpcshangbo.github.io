@@ -1,0 +1,47 @@
+{% if site.ai_assistant.enabled %}
+<link rel="stylesheet" href="{{ base_path }}/assets/css/ai-assistant.css">
+<div class="bo-ai" id="bo-ai" data-endpoint="{{ site.ai_assistant.endpoint }}">
+  <div class="bo-ai__shell">
+    <div class="bo-ai__panel" role="region" aria-label="Ask an AI assistant about Bo Shang">
+      <div class="bo-ai__head">
+        <p class="bo-ai__title">Ask about Bo</p>
+        <span class="bo-ai__badge">AI assistant</span>
+        <span class="bo-ai__spacer"></span>
+        <button type="button" class="bo-ai__iconbtn" data-bo-ai-min aria-label="Minimize assistant" title="Minimize">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <button type="button" class="bo-ai__iconbtn" data-bo-ai-close aria-label="Collapse conversation" title="Collapse">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="bo-ai__log" aria-live="polite">
+        <div class="bo-ai__welcome">
+          <p class="bo-ai__intro">Ask about Bo's research, teaching, publications or CV. Answers come only from what is published on this site.</p>
+          <div class="bo-ai__chips">
+            <button type="button" class="bo-ai__chip">What does Bo research?</button>
+            <button type="button" class="bo-ai__chip">What courses has Bo taught?</button>
+            <button type="button" class="bo-ai__chip">What is the BIRDS robot?</button>
+            <button type="button" class="bo-ai__chip">How can I contact Bo?</button>
+          </div>
+        </div>
+      </div>
+      <p class="bo-ai__note">Answers are AI-generated from Bo's public CV and may contain mistakes. Please check the <a href="{{ base_path }}/cv/">CV</a> for the authoritative record.</p>
+    </div>
+    <form class="bo-ai__form" autocomplete="off">
+      <span class="bo-ai__spark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9z" fill="currentColor"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z" fill="currentColor" opacity=".6"/></svg>
+      </span>
+      <label for="bo-ai-input" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Ask a question about Bo Shang</label>
+      <textarea id="bo-ai-input" class="bo-ai__input" rows="1" maxlength="800" placeholder="Ask about Bo's research, teaching or CV…"></textarea>
+      <button type="submit" class="bo-ai__send" aria-label="Send question" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+  </div>
+  <button type="button" class="bo-ai__fab" aria-label="Open the AI assistant">
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9z" fill="currentColor"/></svg>
+    Ask about Bo
+  </button>
+</div>
+<script src="{{ base_path }}/assets/js/ai-assistant.js" defer></script>
+{% endif %}
