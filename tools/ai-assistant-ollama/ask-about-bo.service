@@ -1,14 +1,16 @@
 [Unit]
 Description=Ask about Bo relay (Ollama) for cnpcshangbo.github.io
 After=network-online.target
+Wants=network-online.target
 
 [Service]
-WorkingDirectory=%h/ask-about-bo/tools/ai-assistant-ollama
-ExecStart=/usr/bin/node %h/ask-about-bo/tools/ai-assistant-ollama/server.mjs
+User=leichengadmin
+WorkingDirectory=/home/leichengadmin/ask-about-bo/tools/ai-assistant-ollama
+ExecStart=/usr/bin/node server.mjs
 Environment=PORT=8787
 Environment=MODEL=gemma4:26b-a4b-it-q8_0
-Restart=on-failure
+Restart=always
 RestartSec=5
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

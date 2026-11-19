@@ -9,8 +9,12 @@ Only the relay is published (one path on the existing 8443 Funnel); Ollama stays
     setsid nohup ~/ask-about-bo/run-relay.sh >/dev/null 2>&1 < /dev/null &
     tailscale funnel --bg --https=8443 --set-path=/ask-about-bo http://127.0.0.1:8787
 
-Start after reboot: `crontab -e`, add `@reboot $HOME/ask-about-bo/run-relay.sh >/dev/null 2>&1`.
-(The systemd user unit `ask-about-bo.service` is an alternative where `systemctl --user` works; it does not in the VNC session.)
+Start after reboot (system unit, needs sudo once):
+
+    sudo cp ~/ask-about-bo/tools/ai-assistant-ollama/ask-about-bo.service /etc/systemd/system/
+    sudo systemctl daemon-reload && sudo systemctl enable --now ask-about-bo
+
+Then use `sudo systemctl stop|restart ask-about-bo` instead of the loop script.
 
 ## Stop
     tailscale funnel --https=8443 --set-path=/ask-about-bo off
