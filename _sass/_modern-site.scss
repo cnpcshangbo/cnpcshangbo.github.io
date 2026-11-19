@@ -435,7 +435,7 @@ a {
     font-weight: 600;
     letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: $ms-teal-400;
+    color: $ms-teal-400 !important;
     margin: 0 0 0.55rem !important;
   }
 
