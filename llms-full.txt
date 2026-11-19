@@ -1,0 +1,98 @@
+---
+layout: none
+permalink: /llms-full.txt
+title: "Bo Shang: full profile as plain Markdown (llms-full.txt)"
+author_profile: false
+---
+# Bo Shang
+
+> {{ site.description }}
+
+- Website: {{ site.url }}/
+- Email: {{ site.author.email }}
+- Current position: Postdoctoral Associate, University of Maryland, College Park (Civil and Environmental Engineering / Maryland Transportation Institute), since July 2026, working with Professor Xianfeng Yang
+- Google Scholar: {{ site.author.googlescholar }}
+- ORCID: {{ site.author.orcid }}
+- ResearchGate: {{ site.author.researchgate }}
+- GitHub: https://github.com/{{ site.author.github }}
+- LinkedIn: https://www.linkedin.com/in/{{ site.author.linkedin }}
+- YouTube: https://www.youtube.com/{{ site.author.youtube }}
+
+This file mirrors content published on {{ site.url }}/ in plain Markdown for AI agents and assistants. The index of key pages is at {{ site.url }}/llms.txt. The authoritative record is the Academic CV: {{ site.url }}/cv/
+
+## About (in Bo's words)
+
+I am the first in my family to go to college. Nobody at home could explain how a lab or an academic career worked, so I learned by building: PLC control systems as an automation student in China, then, in New York, robots that inspect bridges and roadside sensors that watch busy intersections. I have taught robotics, circuits and drone labs at Vaughn College, City College of New York and UC Merced, where many of my students were also the first in their families to study engineering.
+
+Today my research asks how the infrastructure around us — bridges, intersections, highways, and cities — can perceive itself. Combining embodied field robots with fixed 3D sensing and auditable AI simulation, I build physical-AI systems deployed with public transportation agencies.
+
+## Research highlights
+
+- US patent 12,296,994 and the ASCE 2025 Pankow Award for the BIRDS bridge robot.
+- PACO intersection observability: 0.37 for an onboard 120° ADAS, 0.61 for a 360° AV, and 1.00 for elevated roadside LiDAR.
+- InfraLiDAR-Eval: a 61.9-hour continuous I-95 highway LiDAR benchmark (90.1% vs. 72.9% crossing recovery).
+- CERRA (https://cerra.cloud): a live geospatial AI and LLM-SUMO platform at UMD.
+
+## Research: intelligent infrastructure across scales
+
+### Micro · Structural robotics: embodied bridge and concrete robots
+
+The patented BIRDS flying and girder-clamping robot works where GPS fails, and 3D crack localization maps concrete damage (IEEE T-ASE 2025). Details: {{ site.url }}/portfolio/portfolio-2/
+
+### Meso · Urban intersections: PACO and roadside safety auditing
+
+A 120° ADAS sees 0.37 of a busy intersection, a 360° AV 0.61, and elevated roadside LiDAR 1.00: occlusion makes infrastructure sensing necessary. Details: {{ site.url }}/portfolio/paco-safety-auditing/
+
+### Macro and city · Corridors: InfraLiDAR-Eval and CERRA
+
+61.9 hours of continuous I-95 LiDAR (90.1% vs. 72.9% crossing recovery), scaled up to city-level geospatial AI and LLM-SUMO traffic simulation. Details: {{ site.url }}/portfolio/portfolio-1/
+
+## Now
+
+Since July 2026 I have been a Postdoctoral Associate in Civil and Environmental Engineering and the Maryland Transportation Institute at the University of Maryland, College Park, working with Professor Xianfeng Yang on two sponsored transportation projects: hardware and software integration, field testing, data collection and deliverables. I also build and run CERRA (https://cerra.cloud), a platform that turns infrastructure data into insight, including LLM-driven traffic simulation.
+
+## Education
+
+- Ph.D., Pattern Recognition and Intelligent Systems, Northeastern University, China (2013 - 2020)
+- Exchange doctoral research, University of California, Merced, USA (2015 - 2017)
+- M.Eng., Pattern Recognition and Intelligent Systems, Northeastern University, China (2011 - 2013)
+- B.Eng., Automation, Northeastern University, China (2007 - 2011)
+
+## Teaching
+
+- Vaughn College: MCE 355 Robotics, Mechanics & Control
+- City College of New York: ENGR 20400 Electrical Circuits
+- UC Merced: ME 190 UAV laboratory
+
+## Systems portfolio
+
+{% assign systems = site.portfolio | sort: "order" -%}
+{% for item in systems -%}
+- [{{ item.title }}]({{ site.url }}{{ item.url }}) ({{ item.scale_label }}): {{ item.excerpt | strip_html | strip_newlines | strip }}
+{% endfor %}
+All showcases: {{ site.url }}/portfolio/
+
+## Selected publications
+
+{% assign sel = site.data.publications.items | where: "home", true -%}
+{% for pub in sel -%}
+{%- assign link = pub.links.doi | default: pub.links.url | default: pub.links.arxiv | default: pub.links.ssrn | default: pub.links.patent | default: site.data.publications.scholar_url -%}
+- {{ pub.authors }}. "{{ pub.title }}." {{ pub.venue }}, {{ pub.year }}. {{ link }}
+{% endfor %}
+Full bibliography: {{ site.url }}/publications/
+
+## Documents
+
+- Research Scientist Resume: {{ site.url }}/cv/research/ (PDF: {{ site.url }}/assets/cv-research-scientist.pdf)
+- Academic CV: {{ site.url }}/cv/ (PDF: {{ site.url }}/assets/cv.pdf)
+- Mechatronics Research Statement Slides (26 slides): {{ site.url }}/slides/mechatronics/ (PDF: {{ site.url }}/assets/slides/Bo_Shang_Mechatronics_Research_Slides.pdf)
+- Infrastructure & Physical AI Slides (28 slides): {{ site.url }}/slides/ (PDF: {{ site.url }}/assets/slides/Bo_Shang_Research_Slides.pdf)
+
+## Research notes
+
+- [AI Agent Security After 29 Attempts]({{ site.url }}/posts/2026/09/ai-agent-security-postmortem/): a source-first postmortem on replay noise, public-leaderboard overfitting, counterbalanced experiments, and the private-guardrail reset.
+- [When Should a Language Model Hand Over the Controls?]({{ site.url }}/posts/2026/09/minecraft-local-agent-control/): an embodied-control case study comparing screenshot-mediated LLM control with a deterministic local skill worker across 39 logged runs.
+
+## Contact
+
+Email {{ site.author.email }}.

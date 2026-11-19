@@ -1,0 +1,54 @@
+# Bo Shang
+
+> Bo Shang is a robotics and AI researcher and a Postdoctoral Associate at the University of Maryland (Civil and Environmental Engineering / Maryland Transportation Institute). His work combines embodied field robots with fixed 3D sensing and auditable AI simulation for transportation and civil infrastructure: bridge-inspection robots, roadside LiDAR-camera perception, and geospatial AI.
+
+This is his personal academic website. Contact: bshang@umd.edu. For one self-contained plain-Markdown profile, read [llms-full.txt](https://cnpcshangbo.github.io/llms-full.txt).
+
+## Profile
+
+- [Home](https://cnpcshangbo.github.io/): Personal introduction, research across scales, current position, teaching, and selected publications
+- [Full profile as Markdown](https://cnpcshangbo.github.io/llms-full.txt): The homepage content, education, systems, and selected publications in one plain-text file
+
+## CV and resume
+
+- [Academic CV](https://cnpcshangbo.github.io/cv/): Complete record of appointments, education, publications, patents, teaching, and service
+- [Academic CV (PDF)](https://cnpcshangbo.github.io/assets/cv.pdf): Printable version of the academic CV
+- [Research Scientist Resume](https://cnpcshangbo.github.io/cv/research/): Selected research contributions, deployed field systems, publications, and robotics/ML stack
+- [Research Scientist Resume (PDF)](https://cnpcshangbo.github.io/assets/cv-research-scientist.pdf): Printable version of the research resume
+- [Resume & CV overview](https://cnpcshangbo.github.io/resumes/): Guide to the resume, CV, and both slide decks
+
+## Research
+
+- [Publications](https://cnpcshangbo.github.io/publications/): Full bibliography with DOI, PDF, and Google Scholar links
+- [Systems portfolio](https://cnpcshangbo.github.io/portfolio/): Seven interactive showcases of built and deployed systems
+- [BIRDS bridge inspection robot](https://cnpcshangbo.github.io/portfolio/portfolio-2/): Patented hybrid flying and girder-clamping robot (US patent 12,296,994)
+- [PACO & roadside LiDAR safety auditing](https://cnpcshangbo.github.io/portfolio/paco-safety-auditing/): Intersection observability metric and near-miss auditing with roadside 3D LiDAR
+- [Highway LiDAR + camera & InfraLiDAR-Eval](https://cnpcshangbo.github.io/portfolio/portfolio-1/): 61.9-hour I-95 roadside LiDAR benchmark
+- [Concrete defect inspection](https://cnpcshangbo.github.io/portfolio/concrete-defect-inspection/): Robotic inspection and 3D localization of concrete defects (IEEE T-ASE 2025)
+- [CERRA geospatial AI platform](https://cnpcshangbo.github.io/portfolio/cerra-platform/): Geospatial AI and LLM-SUMO traffic simulation platform at UMD
+- [Fractional-order UAV visual servoing](https://cnpcshangbo.github.io/portfolio/uav-visual-servoing/): Flight control for GPS-denied quadrotor visual servoing
+- [ScholarMind AI](https://cnpcshangbo.github.io/portfolio/scholarmind-ai/): Bilingual AI education and research platform
+
+## Slides
+
+- [Infrastructure & Physical AI slides](https://cnpcshangbo.github.io/slides/): 28-slide multi-scale research seminar deck
+- [Mechatronics research statement slides](https://cnpcshangbo.github.io/slides/mechatronics/): 26-slide faculty research statement deck
+- [Infrastructure & Physical AI slides (PDF)](https://cnpcshangbo.github.io/assets/slides/Bo_Shang_Research_Slides.pdf): PDF export
+- [Mechatronics slides (PDF)](https://cnpcshangbo.github.io/assets/slides/Bo_Shang_Mechatronics_Research_Slides.pdf): PDF export
+
+## Contact
+
+- [Email](mailto:bshang@umd.edu): bshang@umd.edu
+- [Google Scholar](https://scholar.google.com/citations?user=TVIPpDMAAAAJ&hl=en): Citation profile
+- [ORCID](https://orcid.org/0000-0002-5568-1566): 0000-0002-5568-1566
+- [GitHub](https://github.com/cnpcshangbo): cnpcshangbo
+- [LinkedIn](https://www.linkedin.com/in/bo-shang): bo-shang
+
+## Optional
+
+- [Research notes](https://cnpcshangbo.github.io/research-notes/): Long-form technical retrospectives
+- [AI Agent Security After 29 Attempts](https://cnpcshangbo.github.io/posts/2026/09/ai-agent-security-postmortem/): Postmortem on an AI agent security evaluation
+- [When Should a Language Model Hand Over the Controls?](https://cnpcshangbo.github.io/posts/2026/09/minecraft-local-agent-control/): Embodied-control case study across 39 logged runs
+- [ResearchGate](https://www.researchgate.net/profile/Bo-Shang): Research profile
+- [YouTube](https://www.youtube.com/@cnpcshangbo): Experiment and demo videos
+- [Sitemap](https://cnpcshangbo.github.io/sitemap.xml): Every page on the site

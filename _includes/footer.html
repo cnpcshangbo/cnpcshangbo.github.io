@@ -1,28 +1,53 @@
 {% include base_path %}
 
-{% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-    {% if site.author.github %}
-      <li><a href="http://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-    {% endif %}
-    {% if site.author.bitbucket %}
-      <li><a href="http://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
-    {% endif %}
-    {% if site.atom_feed.hide != true %}
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-    {% endif %}
-  </ul>
+<div class="site-footer">
+  <div class="site-footer__about">
+    <a class="site-footer__brand" href="{{ base_path }}/">
+      <span class="site-footer__mark" aria-hidden="true">BS</span>
+      <span>{{ site.title }}</span>
+    </a>
+    <p class="site-footer__bio">{{ site.author.bio | escape_once }}</p>
+    {% if site.author.email %}<a class="site-footer__mail" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>{% endif %}
+  </div>
+
+  <nav aria-label="Footer navigation">
+    <p class="site-footer__title">Site</p>
+    <ul class="site-footer__list">
+      {% for link in site.data.navigation.main %}
+        <li><a href="{% unless link.url contains 'http' %}{{ base_path }}{% endunless %}{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div>
+    <p class="site-footer__title">Profiles</p>
+    <ul class="site-footer__list">
+      {% if site.author.googlescholar %}<li><a href="{{ site.author.googlescholar }}" rel="me noopener"><i class="ai ai-google-scholar" aria-hidden="true"></i>Google Scholar</a></li>{% endif %}
+      {% if site.author.orcid %}<li><a href="{{ site.author.orcid }}" rel="me noopener"><i class="ai ai-orcid" aria-hidden="true"></i>ORCID</a></li>{% endif %}
+      {% if site.author.researchgate %}<li><a href="{{ site.author.researchgate }}" rel="me noopener"><i class="ai ai-researchgate" aria-hidden="true"></i>ResearchGate</a></li>{% endif %}
+      {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}" rel="me noopener"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a></li>{% endif %}
+      {% if site.author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" rel="me noopener"><i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>{% endif %}
+      {% if site.author.youtube %}<li><a href="https://www.youtube.com/{{ site.author.youtube }}" rel="me noopener"><i class="fab fa-youtube" aria-hidden="true"></i>YouTube</a></li>{% endif %}
+    </ul>
+  </div>
+
+  <div>
+    <p class="site-footer__title">Machine-readable</p>
+    <ul class="site-footer__list">
+      <li><a href="{{ base_path }}/llms.txt">llms.txt</a></li>
+      <li><a href="{{ base_path }}/llms-full.txt">llms-full.txt</a></li>
+      <li><a href="{{ base_path }}/sitemap/">Sitemap</a></li>
+      {% if site.atom_feed.hide != true %}
+      <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}">{{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
+      {% endif %}
+    </ul>
+  </div>
 </div>
-{% endif %}
 
 <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
 </div>
 
 <!-- Buy Me a Coffee Button -->
-<div style="margin-top: 1em; text-align: center;">
+<div class="site-footer__coffee">
   <a href="https://www.buymeacoffee.com/cnpcshangbo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=cnpcshangbo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" /></a>
 </div>

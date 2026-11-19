@@ -21,11 +21,83 @@
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="msapplication-TileImage" content="{{ base_path }}/images/mstile-144x144.png?v=M44lzPylqQ">
 <meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml?v=M44lzPylqQ">
-<meta name="theme-color" content="#07111c">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
+<link rel="alternate" type="text/plain" title="llms.txt: index of key pages for AI agents" href="{{ base_path }}/llms.txt">
+<link rel="alternate" type="text/markdown" title="llms-full.txt: full profile as plain Markdown" href="{{ base_path }}/llms-full.txt">
+{% if page.url == "/" %}
+<!-- schema.org profile for search engines and AI agents (facts mirror the CV) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "{{ site.url }}/#profilepage",
+  "url": "{{ site.url }}/",
+  "name": "{{ site.title }}",
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "{{ site.author.name }}",
+    "givenName": "Bo",
+    "familyName": "Shang",
+    "honorificSuffix": "Ph.D.",
+    "jobTitle": "Postdoctoral Associate",
+    "description": {{ site.description | jsonify }},
+    "url": "{{ site.url }}/",
+    "image": "{{ site.url }}/images/{{ site.author.avatar }}",
+    "email": "mailto:{{ site.author.email }}",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Maryland",
+      "url": "https://www.umd.edu/"
+    },
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Maryland",
+      "department": [
+        { "@type": "Organization", "name": "Department of Civil and Environmental Engineering" },
+        { "@type": "Organization", "name": "Maryland Transportation Institute" }
+      ]
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Northeastern University, China" }
+    ],
+    "knowsAbout": [
+      "Physical AI",
+      "Field robotics",
+      "Embodied robotics",
+      "LiDAR-camera perception",
+      "Roadside LiDAR",
+      "Intelligent transportation systems",
+      "Vulnerable-road-user sensing and transportation safety",
+      "Robotic infrastructure inspection",
+      "Unmanned aerial vehicles",
+      "Visual servoing",
+      "GPS-denied navigation",
+      "Geospatial AI"
+    ],
+    "sameAs": [
+      {{ site.author.googlescholar | jsonify }},
+      {{ site.author.orcid | jsonify }},
+      {{ site.author.researchgate | jsonify }},
+      "https://github.com/{{ site.author.github }}",
+      "https://www.linkedin.com/in/{{ site.author.linkedin }}",
+      "https://www.youtube.com/{{ site.author.youtube }}"
+    ],
+    "subjectOf": [
+      { "@type": "WebPage", "name": "Academic CV", "url": "{{ site.url }}/cv/" },
+      { "@type": "WebPage", "name": "Research Scientist Resume", "url": "{{ site.url }}/cv/research/" },
+      { "@type": "WebPage", "name": "Systems portfolio", "url": "{{ site.url }}/portfolio/" },
+      { "@type": "WebPage", "name": "Publications", "url": "{{ site.url }}/publications/" }
+    ]
+  }
+}
+</script>
+{% endif %}
 
 
 <!-- Support for MatJax -->
