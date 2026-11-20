@@ -17,8 +17,7 @@
   left: 50%;
   bottom: max(16px, env(safe-area-inset-bottom));
   transform: translateX(-50%);
-  /* keep clear of the Buy me a coffee button in the bottom-right corner */
-  width: min(760px, calc(100% - 208px));
+  width: min(760px, calc(100% - 32px));
   z-index: 1000;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--bo-ai-body);
@@ -202,7 +201,7 @@ body.has-bo-ai { padding-bottom: 96px; }
 }
 .bo-ai.is-min {
   left: auto;
-  right: calc(max(16px, env(safe-area-inset-right)) + 84px);
+  right: max(16px, env(safe-area-inset-right));
   transform: none;
   width: auto;
 }
@@ -212,9 +211,6 @@ body.has-bo-ai.bo-ai-min { padding-bottom: 0; }
 
 @media (max-width: 600px) {
   .bo-ai { width: calc(100% - 24px); bottom: max(12px, env(safe-area-inset-bottom)); font-size: 15px; }
-  /* sit above the Buy me a coffee button on phones */
-  .bo-ai:not(.is-min) { bottom: calc(max(12px, env(safe-area-inset-bottom)) + 76px); }
-  body.has-bo-ai:not(.bo-ai-min) { padding-bottom: 170px; }
   .bo-ai__shell { border-radius: 22px; }
   .bo-ai__log { max-height: 55vh; }
 }
