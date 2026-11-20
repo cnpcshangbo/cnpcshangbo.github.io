@@ -117,11 +117,18 @@
     if (!endpoint && typeof window.BoAiMock === 'function') {
       return Promise.resolve(window.BoAiMock(messages));
     }
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 60000) : null;
+    var unreachable = 'The assistant can\'t be reached right now. Please try again later, or see the CV.';
     return fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: messages })
+      body: JSON.stringify({ messages: messages }),
+      signal: ctrl ? ctrl.signal : undefined
+    }).catch(function () {
+      throw new Error(unreachable);
     }).then(function (res) {
+      if (timer) clearTimeout(timer);
       return res.json().catch(function () { return {}; }).then(function (data) {
         if (!res.ok || typeof data.reply !== 'string') {
           throw new Error(data.error || 'The assistant is unavailable right now. Please try again later.');
