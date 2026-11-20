@@ -140,7 +140,7 @@ social:
 # endpoint: the deployed Cloudflare Worker URL. The bar shows only when enabled.
 ai_assistant:
   enabled                : true
-  endpoint               : "https://enceldren047489.tailb06708.ts.net/ask-about-bo"
+  endpoint               : "https://ask.boshang.online/ask-about-bo"
 
 # Analytics
 analytics:
