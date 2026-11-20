@@ -1,0 +1,13 @@
+[Unit]
+Description=Cloudflare tunnel ask.boshang.online -> Ask about Bo relay
+After=network-online.target ask-about-bo.service
+Wants=network-online.target
+
+[Service]
+User=leichengadmin
+ExecStart=/home/leichengadmin/.local/bin/cloudflared tunnel --no-autoupdate --config /home/leichengadmin/ask-about-bo/cf-askbo.yml run
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
