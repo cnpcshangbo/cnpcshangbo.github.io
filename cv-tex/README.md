@@ -18,7 +18,7 @@ python tools/build_research_resume.py
 python tools/build_research_resume.py --check
 ```
 
-This writes `_pages/cv-research.md` and `assets/cv-research-scientist.pdf`.
+This writes `_pages/cv-research.html` and `assets/cv-research-scientist.pdf`.
 The first page contains the profile, selected research experience, and education;
 the second starts with selected research, followed by publications and expertise.
 The builder rejects overflow beyond two pages instead of reducing the font.
@@ -49,7 +49,7 @@ python tools/build_academic_cv.py --check
 python tools/check_contact_info.py
 ```
 
-The builder writes `_pages/cv.md` and `assets/cv.pdf`. Both have the same
+The builder writes `_pages/cv.html` and `assets/cv.pdf`. Both have the same
 review date, content, and bibliography. Edit the data rather than either
 output; commit inputs and generated outputs together. Update `cv.yml`'s
 `updated` field when reviewing substantive CV changes.

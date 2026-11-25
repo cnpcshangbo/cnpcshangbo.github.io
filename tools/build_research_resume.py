@@ -27,7 +27,7 @@ import build_academic_cv as academic
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WEB_PATH = Path("_pages/cv-research.md")
+WEB_PATH = Path("_pages/cv-research.html")
 PDF_PATH = Path("assets/cv-research-scientist.pdf")
 LEGACY_PDFS = tuple(Path(f"assets/cv-{role}.pdf") for role in ("fde", "robotics", "ml", "applied-ai", "solutions-engineer"))
 REBUILD = "python tools/build_research_resume.py"
@@ -153,17 +153,17 @@ def render_web(resume, fingerprint):
              '<p>' + " &middot; ".join(academic.link_html(item["label"], item["url"]) for item in resume["contacts"]) + '</p>',
              f'<p>{escape(resume["summary"])}</p>', ""]
     for field, heading in (("experience", "Selected Research Experience"), ("education", "Education"), ("research", "Selected Research")):
-        parts.extend([f"## {heading}", ""])
+        parts.extend([f"<h2>{heading}</h2>", ""])
         for item in resume[field]:
             parts.append(f'<p><strong>{escape(item["title"])}</strong> &middot; {escape(item["date"])}'
                          + (f'<br>{escape(item["subtitle"])}' if item["subtitle"] else "") + '</p>')
             if item["bullets"]:
                 parts.extend(["<ul>"] + [f"  <li>{escape(bullet)}</li>" for bullet in item["bullets"]] + ["</ul>"])
             parts.append("")
-    parts.extend(["## Selected Publications", ""])
+    parts.extend(["<h2>Selected Publications</h2>", ""])
     for item in resume["publications"]:
         parts.extend([f"<p>{publication_html(item)}</p>", ""])
-    parts.extend(["## Technical Expertise", ""])
+    parts.extend(["<h2>Technical Expertise</h2>", ""])
     for item in resume["skills"]:
         parts.extend([f'<p><strong>{escape(item["title"])}</strong>: {escape(item["text"])}</p>', ""])
     parts.append('<p>For the complete publication and appointment record, see the <a href="{{ base_path }}/cv/">Academic CV</a>.</p>')

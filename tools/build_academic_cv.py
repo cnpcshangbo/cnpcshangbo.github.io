@@ -32,7 +32,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WEB_PATH = Path("_pages/cv.md")
+WEB_PATH = Path("_pages/cv.html")
 PDF_PATH = Path("assets/cv.pdf")
 REBUILD = "python tools/build_academic_cv.py"
 ENTRY_FIELDS = ("title", "subtitle", "date", "location", "text", "bullets", "links")
@@ -253,11 +253,11 @@ def render_web(cv, fingerprint):
     if cv["summary"]:
         parts.extend([f'<p>{escape(cv["summary"])}</p>', ""])
     for section in cv["sections"]:
-        parts.extend([f'## {section["title"]}', ""])
+        parts.extend([f'<h2>{section["title"]}</h2>', ""])
         if "groups" in section:
             for group in section["groups"]:
                 if len(section["groups"]) > 1:
-                    parts.extend([f'### {group["title"]}', ""])
+                    parts.extend([f'<h3>{group["title"]}</h3>', ""])
                 for number, item in enumerate(group["items"], 1):
                     parts.extend([f'<p>{publication_html(item, group["prefix"], number)}</p>', ""])
         else:

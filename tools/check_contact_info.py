@@ -20,12 +20,12 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = {
-    "/": "_pages/about.md",
-    "/cv/": "_pages/cv.md",
-    "/cv/research/": "_pages/cv-research.md",
-    "/resumes/": "_pages/resumes.md",
-    "/cv/robotics/": "_pages/cv-robotics.md",
-    "/cv/ml/": "_pages/cv-ml.md",
+    "/": "_pages/about.html",
+    "/cv/": "_pages/cv.html",
+    "/cv/research/": "_pages/cv-research.html",
+    "/resumes/": "_pages/resumes.html",
+    "/cv/robotics/": "_pages/cv-robotics.html",
+    "/cv/ml/": "_pages/cv-ml.html",
 }
 EMAIL = re.compile(r"[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 SOURCE_PDF = re.compile(r"(?:https?://[^\s\"'<>\)]+)?/[^\s\"'<>\)]*cv[^/\s\"'<>\)]*\.pdf(?:[?#][^\s\"'<>\)]*)?", re.I)

@@ -18,8 +18,8 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSET_REL = Path("assets/research/minecraft-local-agent")
-ARTICLE = "_posts/2026-09-13-minecraft-local-agent-control.md"
-EXTRA_FILES = [ARTICLE, "_pages/minecraft-traceability.md", "AGENTS.md",
+ARTICLE = "_posts/2026-09-13-minecraft-local-agent-control.html"
+EXTRA_FILES = [ARTICLE, "_pages/minecraft-traceability.html", "AGENTS.md",
                "tools/verify_research_artifacts.py"]
 MANIFEST_REL = ASSET_REL / "traceability/SHA256SUMS.txt"
 

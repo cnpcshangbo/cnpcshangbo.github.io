@@ -1,0 +1,147 @@
+---
+title: 'AI Agent Security After 29 Attempts: Replay Noise, Leaderboard Overfitting, and the Private-Guardrail Reset'
+date: 2026-09-02
+permalink: /posts/2026/09/ai-agent-security-postmortem/
+excerpt: "A source-first retrospective on 28 scored submissions, one system error, a public score that never improved after day one, and a hidden guardrail that reset most of the field."
+tags:
+  - AI agent security
+  - adversarial evaluation
+  - Kaggle
+  - reproducible experiments
+toc: true
+toc_sticky: true
+comments: true
+comments_discussion_url: "https://github.com/cnpcshangbo/cnpcshangbo.github.io/discussions/8"
+---
+<p>The most useful result from this competition was not my best leaderboard number. It was learning how quickly a security benchmark can become three different problems:</p>
+<ol><li>the security problem described in the task;</li>
+<li>the behavior actually rewarded by the public evaluator; and</li>
+<li>the behavior that survives a hidden guardrail.</li>
+</ol>
+<p>I entered Kaggle’s <strong>AI Agent Security — Multi-Step Tool Attacks</strong> competition expecting to search for diverse, compositional attacks against tool-using language models. My team produced 29 competition entries: 28 completed scores and one Kaggle system error. The best public result, <code class="language-plaintext highlighter-rouge">86.850</code>, came from the fifth version on August 22. Every later scored submission failed to improve it. When the private leaderboard was revealed, all of my completed entries scored zero.</p>
+<p>That is not a winning solution story. It is a more useful story about objective reading, replay systems, noisy experiments, operational discipline, and public-leaderboard overfitting.</p>
+<h2 id="the-benchmark-i-thought-i-was-solving">The benchmark I thought I was solving</h2>
+<p>The official benchmark asked each submission to provide an <code class="language-plaintext highlighter-rouge">attack.py</code> program that generated attack candidates against two tool-using model families. Findings were then replayed and evaluated through a guardrail and a predicate-based scorer. The task described four attack categories, including data exfiltration, unauthorized transfer, destructive behavior, and confused-deputy behavior.</p>
+<p>The public score rewarded severity and cell diversity. In simplified form, a newly credited high-severity event was worth far more than small prompt-quality differences:</p>
+<p><code class="language-plaintext highlighter-rouge">raw score = sum(severity weights) + 2 × unique cells</code></p>
+<p>The competition also used different public and private guardrails. That detail eventually mattered more than almost everything I tuned.</p>
+<p>Official references:</p>
+<ul><li><a href="https://www.kaggle.com/competitions/ai-agent-security-multi-step-tool-attacks/overview/abstract">Competition overview and evaluation</a></li>
+<li><a href="https://www.kaggle.com/competitions/ai-agent-security-multi-step-tool-attacks/leaderboard">Final leaderboard</a></li>
+</ul>
+<h2 id="the-result-in-one-table">The result in one table</h2>
+<p>My last captured public snapshot placed the team at <strong>1,283 of 4,219</strong> with a score of <strong>86.850</strong>. After the competition closed, the final leaderboard API contained 4,252 teams. Only 1,397 teams had a positive private score; 2,855 teams, or <strong>67.14%</strong>, had a private score of zero.</p>
+<table><thead><tr><th>Measurement</th><th style="text-align: right">Result</th></tr>
+</thead><tbody><tr><td>Competition entries</td><td style="text-align: right">29</td></tr>
+<tr><td>Completed scored entries</td><td style="text-align: right">28</td></tr>
+<tr><td>Kaggle system errors</td><td style="text-align: right">1</td></tr>
+<tr><td>Best public score</td><td style="text-align: right">86.850</td></tr>
+<tr><td>Best version</td><td style="text-align: right">v5, submitted Aug. 22</td></tr>
+<tr><td>Completed entries beating v5</td><td style="text-align: right">0</td></tr>
+<tr><td>My private score</td><td style="text-align: right">0.000</td></tr>
+<tr><td>Teams with private score 0</td><td style="text-align: right">2,855 / 4,252</td></tr>
+</tbody></table>
+<p>The zero was therefore common, but it was still decisive. My public strategy had learned a scoring surface that did not survive the hidden policy.</p>
+<h2 id="phase-1-build-the-measurement-system-before-searching">Phase 1: build the measurement system before searching</h2>
+<p>The first durable contribution was not an attack. It was a validation pipeline.</p>
+<p>For a candidate to become submission-ready, I required:</p>
+<ul><li>fresh adjacent control and candidate runs;</li>
+<li>GPT-OSS and Gemma replays at both 60- and 120-second budgets;</li>
+<li>unit and invariant tests;</li>
+<li>a private, internet-disabled Kaggle notebook run;</li>
+<li>the same <code class="language-plaintext highlighter-rouge">attack.py</code> hash locally, inside the notebook, and in cloud output; and</li>
+<li>an explicit confirmation immediately before consuming a submission.</li>
+</ul>
+<p>I also kept the submission scheduler separate from the experiment pipeline. Waiting for quota or a score was not a reason to stop preparing the next candidate.</p>
+<p>This process felt conservative during a fast competition. It later prevented several attractive but false local improvements from reaching the leaderboard.</p>
+<h2 id="phase-2-an-early-public-optimum">Phase 2: an early public optimum</h2>
+<p>Version 5 used a live-fill strategy: generate replayable candidates, keep candidates that appeared to fire, adapt to observed latency, and use distinct destinations to preserve scoring-cell diversity. It scored <strong>86.850</strong>.</p>
+<p>At that point I treated v5 as a baseline, not a final architecture. The next versions tested ideas that sounded stronger:</p>
+<ul><li>denser multi-step chains;</li>
+<li>model-aware routing;</li>
+<li>replay-throughput calibration;</li>
+<li>candidate-cap-aware packing;</li>
+<li>static calibrated pools; and</li>
+<li>smaller changes to ordering, punctuation, response restrictions, tool names, and success parsing.</li>
+</ul>
+<p>The public leaderboard was blunt:</p>
+<table><thead><tr><th>Version / experiment</th><th>Single changed idea</th><th style="text-align: right">Public score</th><th style="text-align: right">Delta from v5</th></tr>
+</thead><tbody><tr><td>v5</td><td>Live-fill baseline</td><td style="text-align: right"><strong>86.850</strong></td><td style="text-align: right">—</td></tr>
+<tr><td>v6</td><td>Adaptive chain packing</td><td style="text-align: right">76.005</td><td style="text-align: right">-10.845</td></tr>
+<tr><td>v7</td><td>Replay-throughput calibration</td><td style="text-align: right">70.220</td><td style="text-align: right">-16.630</td></tr>
+<tr><td>v8</td><td>Model-aware throughput</td><td style="text-align: right">68.080</td><td style="text-align: right">-18.770</td></tr>
+<tr><td>v9</td><td>Trace-routed singletons</td><td style="text-align: right">85.365</td><td style="text-align: right">-1.485</td></tr>
+<tr><td>E14</td><td>Calibrated static pool</td><td style="text-align: right">41.130</td><td style="text-align: right">-45.720</td></tr>
+<tr><td>E43</td><td><code class="language-plaintext highlighter-rouge">.io</code> destination family</td><td style="text-align: right">84.600</td><td style="text-align: right">-2.250</td></tr>
+<tr><td>E46</td><td>Remove terminal period</td><td style="text-align: right">85.680</td><td style="text-align: right">-1.170</td></tr>
+<tr><td>E52</td><td>Stable half-rotation</td><td style="text-align: right">60.210</td><td style="text-align: right">-26.640</td></tr>
+<tr><td>E58</td><td>Adjacent order swap</td><td style="text-align: right">82.170</td><td style="text-align: right">-4.680</td></tr>
+<tr><td>E64</td><td>Comma argument separator</td><td style="text-align: right">84.825</td><td style="text-align: right">-2.025</td></tr>
+<tr><td>E66</td><td>Success-string normalization</td><td style="text-align: right">85.725</td><td style="text-align: right">-1.125</td></tr>
+<tr><td>E76</td><td>Answer-token change</td><td style="text-align: right">83.880</td><td style="text-align: right">-2.970</td></tr>
+<tr><td>E74</td><td>Remove one response restriction</td><td style="text-align: right">82.620</td><td style="text-align: right">-4.230</td></tr>
+</tbody></table>
+<p>The striking result is that almost every plausible improvement made the hosted score worse. Even changes that helped fresh local pairs did not transfer reliably.</p>
+<h2 id="phase-3-discovering-that-the-experiment-order-was-an-attack-surface-too">Phase 3: discovering that the experiment order was an attack surface too</h2>
+<p>Late in the competition, E101 appeared to beat its control locally:</p>
+<ul><li>candidate first: <code class="language-plaintext highlighter-rouge">40 findings / 720 raw</code>;</li>
+<li>control second: <code class="language-plaintext highlighter-rouge">39 findings / 702 raw</code>.</li>
+</ul>
+<p>An 18-point raw gain looked clean enough to investigate. But the same <code class="language-plaintext highlighter-rouge">40/720</code> versus <code class="language-plaintext highlighter-rouge">39/702</code> pattern appeared when I ran control against itself. Reversing the candidate/control order moved the advantage to whichever run executed first.</p>
+<p>The candidate had not improved the algorithm. It had measured warm state, timing, or resource order.</p>
+<p>From then on, a convincing comparison required both orders: <code class="language-plaintext highlighter-rouge">A → B</code> and <code class="language-plaintext highlighter-rouge">B → A</code>.</p>
+<p>When bytes or generated notebooks might have drifted, I also restored the control byte-for-byte before replaying it. This was slower than ordinary A/B testing, but it changed the question from “did the candidate get a larger number?” to “does the candidate retain the advantage when order is neutralized?”</p>
+<p>That distinction is essential for agent benchmarks with stateful model loading, variable tool latency, replay time walls, and shared hardware.</p>
+<h2 id="phase-4-testing-changes-that-were-locally-correct-but-causally-inactive">Phase 4: testing changes that were locally correct but causally inactive</h2>
+<p>Not all rejected candidates were noisy. Some were simply irrelevant in the evaluated environment.</p>
+<p>E102 sorted SDK-root discovery before choosing an installed SDK. The code was cleaner and more deterministic, but a private, no-network diagnostic found exactly one matching SDK root. Sorted and unsorted discovery were therefore identical in the actual environment.</p>
+<p>E103 preserved an explicit <code class="language-plaintext highlighter-rouge">time_budget_s=0</code> rather than replacing it with a default. E104 narrowed a broad compatibility fallback from <code class="language-plaintext highlighter-rouge">except Exception</code> to <code class="language-plaintext highlighter-rouge">except ImportError</code>. Both passed their local invariant tests and compilation checks.</p>
+<p>Neither was promoted merely because it was good engineering. A valid code change is not automatically a scoring change, and a scoring change is not automatically a private-guardrail improvement.</p>
+<p>The clock expired before E103 and E104 completed every replay and cloud gate. I did not submit them. Preserving that distinction—implemented, tested, replay-qualified, cloud-qualified, submitted, scored—was one of the most valuable operational lessons from the project.</p>
+<h2 id="what-public-write-ups-clarified">What public write-ups clarified</h2>
+<p>After the competition, several source-oriented analyses argued that the <em>publicly reachable scored surface</em> was much narrower than the narrative suggested.</p>
+<p>Xander’s <a href="https://www.kaggle.com/writeups/canqiang/the-scored-attack-surface-collapses-to-a-single-pr">“The Scored Attack Surface Collapses to a Single Predicate”</a> separates guardrail reachability from predicate scoring and shows why public optimization could collapse into repeated exfiltration throughput. The note also reports substantial score variation across repeated same-configuration runs, supporting the idea that small public-score differences were not automatically causal.</p>
+<p>The write-up <a href="https://www.kaggle.com/writeups/radiantallomancer/reading-the-objective-from-source-a-throughput-bo">“Reading the Objective from Source”</a> reaches a related conclusion by tracing the scorer and guardrail implementation. Pilkwang Kim’s <a href="https://pilkwangkim.github.io/posts/AI-Agent-Security-Part-2-The-Linear-Score-Law-and-the-Replay-Ceiling/">replay-ceiling analysis</a> is particularly useful because it preserves corrections to earlier hypotheses rather than presenting a frictionless success narrative.</p>
+<p>These are participant analyses, not official statements about the hidden evaluator. But they explain the shape of my public results: once v5 found a robust public exfiltration-throughput configuration, many “smarter” multi-step or formatting changes only added latency and variance.</p>
+<h2 id="the-private-leaderboard-changed-the-interpretation">The private leaderboard changed the interpretation</h2>
+<p>If the story ended at the public leaderboard, I would conclude that v5 found a stable local optimum and later experiments mostly explored dominated details.</p>
+<p>The private leaderboard makes that conclusion incomplete.</p>
+<p>Every completed submission scored zero privately. The hidden guardrail did not merely reorder my candidates; it erased the entire family. Across the full field, roughly two-thirds of teams also received zero. Several high public positions collapsed, while some lower public positions moved sharply upward.</p>
+<p>The correct interpretation is not “the private leaderboard was random.” It is that public score was a weak proxy for hidden-policy robustness. Once that became true, selecting only the strongest public exploit was equivalent to selecting on a distribution with a missing feature: whether the attack class survived a different policy.</p>
+<p>In a future benchmark, I would reserve candidate diversity across <strong>guardrail assumptions</strong>, not just prompt variants. For example:</p>
+<ul><li>destination-only inspection versus payload inspection;</li>
+<li>single-call filtering versus cross-step intent tracking;</li>
+<li>syntactic blocklists versus semantic capability policy;</li>
+<li>direct tool misuse versus confused-deputy behavior; and</li>
+<li>one model family versus cross-model transfer.</li>
+</ul>
+<p>The final portfolio should contain candidates that fail for different reasons. Twenty variants of the same public exploit are not twenty independent chances.</p>
+<h2 id="what-i-would-do-differently">What I would do differently</h2>
+<h3 id="1-read-reachability-before-optimizing-prompts">1. Read reachability before optimizing prompts</h3>
+<p>I would build a matrix with one row per predicate and columns for guardrail visibility, predicate visibility, required event state, replay behavior, and expected score. Any branch that is unreachable or economically dominated would be closed before large prompt searches.</p>
+<h3 id="2-treat-evaluator-variance-as-a-first-class-measurement">2. Treat evaluator variance as a first-class measurement</h3>
+<p>I would pre-register minimum effect sizes and require counterbalanced repeats. A one-point public movement would not justify a causal claim unless it exceeded same-configuration variance.</p>
+<h3 id="3-separate-four-kinds-of-success">3. Separate four kinds of success</h3>
+<p>A candidate can be:</p>
+<ol><li>logically correct;</li>
+<li>locally faster;</li>
+<li>publicly higher-scoring; or</li>
+<li>robust to an unseen guardrail.</li>
+</ol>
+<p>These are different claims requiring different evidence.</p>
+<h3 id="4-optimize-a-portfolio-not-a-single-score">4. Optimize a portfolio, not a single score</h3>
+<p>Before the private reveal, I optimized expected public score. A better late-stage objective would combine public score, attack-family diversity, model transfer, and guardrail-assumption diversity.</p>
+<h3 id="5-preserve-negative-results">5. Preserve negative results</h3>
+<p>The most informative experiments were not the highest-scoring ones. E14 showed that a static pool could catastrophically underperform. E52 showed that ordering changes were not harmless. E101 exposed run-order confounding. E102 showed how an apparently rigorous change could be inactive in the real environment.</p>
+<p>Without those records, the final story would incorrectly attribute every score difference to prompt quality.</p>
+<h2 id="lessons-for-benchmark-designers">Lessons for benchmark designers</h2>
+<p>This competition also provides a useful security-evaluation case study.</p>
+<p>First, the guardrail, event trace, predicate scorer, and reward should be analyzed as one joined system. If the guardrail blocks an action the scorer expects, a nominal attack category may be unreachable. If the scorer rewards repeated events independently, an intended multi-step benchmark may become a throughput contest.</p>
+<p>Second, public and private policies should differ enough to test transfer but not so much that public model selection becomes nearly uninformative. Per-model and per-predicate diagnostics would help participants distinguish robustness failures from infrastructure variance without revealing the private policy.</p>
+<p>Third, replay systems need explicit variance reporting. Deterministic code does not imply deterministic evaluation when model generation, scheduling, tool latency, and time walls interact.</p>
+<p>Finally, a benchmark should reward causal diversity, not merely repeated instances of the most profitable public event. Otherwise the leaderboard measures how efficiently participants exploit the evaluator’s narrowest seam.</p>
+<h2 id="closing-perspective">Closing perspective</h2>
+<p>The public leaderboard told me that v5 was the best version. The private leaderboard told me that all 28 scored versions belonged to the same brittle family.</p>
+<p>Both observations are true.</p>
+<p>The lasting result is a better experimental method: read the objective from source, map reachability, preserve byte-identical controls, counterbalance run order, distinguish implementation correctness from scoring impact, and maintain diversity across failure mechanisms.</p>
+<p>That method is more reusable than the attack that scored 86.850—and considerably more valuable for evaluating real tool-using agents.</p>

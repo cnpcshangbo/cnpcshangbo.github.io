@@ -1,0 +1,21 @@
+---
+layout: single
+title: "Minecraft study: evidence and traceability"
+permalink: /research-notes/minecraft-traceability/
+author_profile: true
+---
+<p>This record accompanies <a href="/posts/2026/09/minecraft-local-agent-control/">the Minecraft local-agent case study</a>. It was assembled retrospectively on September 13, 2026 from the surviving artifacts. It distinguishes recorded observations, source-code settings, derived calculations, illustrative scenarios, and statements available only in the conversation.</p>
+<h2 id="inspect-the-evidence">Inspect the evidence</h2>
+<ul><li><a href="/assets/research/minecraft-local-agent/traceability/claims.json">Claim-to-evidence ledger</a>: evidence references and limitations for the main conclusions.</li>
+<li><a href="/assets/research/minecraft-local-agent/traceability/README.md">Evidence guide and extraction rules</a>: reviewed extracts, original source hashes, and instructions for reproducing them from privately retained inputs.</li>
+<li><a href="/assets/research/minecraft-local-agent/traceability/raw-source-audit.json">Raw-source availability audit</a>: what could still be matched to the publication’s source hashes.</li>
+<li><a href="/assets/research/minecraft-local-agent/traceability/SHA256SUMS.txt">SHA-256 manifest</a>: byte-level identities of the public article, evidence, figures, source bundle, and traceability records.</li>
+<li><a href="https://github.com/cnpcshangbo/cnpcshangbo.github.io/blob/master/tools/verify_research_artifacts.py">Verification script</a>: checks hashes and references and recomputes selected numerical relationships. GitHub Actions runs it before building the site.</li>
+</ul>
+<h2 id="what-remains-unverified">What remains unverified</h2>
+<p>The published figures, metrics, and source bundle are preserved. The local audit matched 13 of the 14 previously recorded raw-source hashes. One later idle-status file had been overwritten; its old hash remains recorded, and its original contents are unavailable. This gap does not replace or erase the separate frozen wood-collection outcome.</p>
+<p>The record does not establish a measured speedup over direct language-model control. The earlier cobblestone result is conversation-reported, the diagnostic game-clock rate is not a worker action rate, and the published worker includes changes made after the pilot. No complete action log or continuous gameplay recording was saved. The ledger carries these boundaries alongside the evidence.</p>
+<p>Checksums can detect a file changing relative to a reviewed manifest. Reference and arithmetic checks can detect broken links and inconsistent calculations. They cannot prove that a log is authentic, recover missing events, or guarantee a scientific conclusion. Use Git history to identify the exact manifest revision being checked.</p>
+<h2 id="ara-tooling-and-future-records">ARA tooling and future records</h2>
+<p>The seven core skills from <a href="https://github.com/ARA-Labs/Agent-Native-Research-Artifact">Agent-Native Research Artifact</a> were installed for Codex from commit <code class="language-plaintext highlighter-rouge">e52a925e9d03b4ada3008653e72f99b04116fca2</code>. The <a href="/assets/research/minecraft-local-agent/traceability/ara-tooling.json">tooling record</a> identifies that revision and the verified upstream file hashes.</p>
+<p>This supplement applies claim/evidence bindings and explicit provenance boundaries. It is not a complete ARA conversion, an ARA validation seal, or a reconstruction of unsaved execution history. Future experiments should preserve immutable run records as they happen, with code/config revisions, timestamps, raw outputs, failures, and links from claims to supporting evidence.</p>

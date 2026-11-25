@@ -51,7 +51,7 @@ update. Do not mark a platform complete until the saved destination is checked.
   they describe the same appointment; keep unrelated historical dates intact.
 - [ ] Follow the [CV build procedure](../cv-tex/README.md): sync contact data,
   rebuild all role PDFs, and regenerate the academic web CV and PDF. Never edit
-  generated `_pages/cv.md` or `assets/cv.pdf` by hand.
+  generated `_pages/cv.html` or `assets/cv.pdf` by hand.
 - [ ] Run `python tools/build_academic_cv.py --check` and
   `python tools/check_contact_info.py`; inspect actual PDF dates and rendered
   pages. Contact validation alone does not validate appointment dates.
