@@ -90,7 +90,9 @@ Sample lecture for the Vaughn College campus visit, about 30 minutes, on a self-
 
 “Leveraging Robotics, Computer Vision, and Cloud Computing for Infrastructure Inspection and Maintenance.” Given to students and faculty together; the same presentation also served as the teaching demonstration — there was no separate teaching-demo deck.
 
-*March 2024 · Deck held in the shared presentation-materials folder; available on request*
+[Slides (Google Slides)](https://docs.google.com/presentation/d/1yV1cF8GHuWEPX-J7fksqGp1lvlvZjXYgPP3EsE6b_Uk/edit?usp=drivesdk)
+
+*March 2024*
 
 ---
 
