@@ -81,7 +81,6 @@ toc: false
 <script>
 (function(){
   function init(){
-  // PEP year detail
   document.querySelectorAll('.cc-pep-row').forEach(function(row){
     row.addEventListener('click', function(){
       var d=row.dataset;
@@ -95,7 +94,6 @@ toc: false
       document.querySelectorAll('.cc-pep-row').forEach(function(r){ r.style.opacity = (r===row) ? '1' : '.55'; });
     });
   });
-  // Gross flow / net toggle
   document.querySelectorAll('[data-cc-view]').forEach(function(btn){
     btn.addEventListener('click', function(){
       var chart=btn.closest('.cc-chart');
@@ -104,7 +102,6 @@ toc: false
       chart.querySelectorAll('.cc-gross-net').forEach(function(el){ el.hidden = (btn.dataset.ccView!=='net'); });
     });
   });
-  // CI toggle
   document.querySelectorAll('[data-cc-ci]').forEach(function(btn){
     btn.addEventListener('click', function(){
       var chart=btn.closest('.cc-chart');
@@ -113,7 +110,6 @@ toc: false
       btn.textContent = chart.classList.contains('show-ci') ? btn.dataset.on : btn.dataset.off;
     });
   });
-  // Identity widget
   document.querySelectorAll('[data-cc-choice]').forEach(function(btn){
     btn.addEventListener('click', function(){
       var chart=btn.closest('.cc-chart');
