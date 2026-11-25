@@ -6,8 +6,8 @@ main:
   - title: "Portfolio"
     url: /portfolio/
 
-  - title: "Slides"
-    url: /slides/
+  - title: "Presentations"
+    url: /presentations/
 
   - title: "Publications"
     url: /publications/
