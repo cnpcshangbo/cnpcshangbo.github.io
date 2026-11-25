@@ -18,6 +18,25 @@ toc: false
 .lang-switch button{padding:.35rem .9rem;border:1px solid #888;border-radius:999px;background:transparent;cursor:pointer;font-size:.9rem}
 .lang-switch button.active{background:#222;color:#fff;border-color:#222}
 .lang-note{font-size:.9rem;opacity:.85}
+
+.cc-chart{margin:1.2rem 0}
+.cc-chart h4{margin:.2rem 0 .6rem;font-size:1rem}
+.cc-row{display:flex;align-items:center;gap:.5rem;margin:.35rem 0}
+.cc-lab{width:6.5rem;flex:none;text-align:right;font-size:.85rem}
+.cc-track{flex:1;position:relative;height:1.35rem;background:#eee;border-radius:4px;overflow:hidden}
+.cc-fill{position:absolute;top:0;bottom:0;border-radius:4px}
+.cc-val{width:4.6rem;flex:none;font-size:.85rem;font-variant-numeric:tabular-nums}
+.cc-note{font-size:.82rem;opacity:.8;margin-top:.4rem}
+.cc-btn{padding:.25rem .8rem;border:1px solid #888;border-radius:999px;background:transparent;cursor:pointer;font-size:.85rem;margin-right:.4rem}
+.cc-btn.active{background:#222;color:#fff;border-color:#222}
+.cc-detail{border:1px solid #bbb;border-radius:8px;padding:.7rem 1rem;background:#fafafa;margin-top:.6rem;font-size:.92rem}
+.cc-pep-row{cursor:pointer}
+.cc-pep-row:hover .cc-track{outline:2px solid #222}
+.cc-mid{position:absolute;top:0;bottom:0;left:50%;width:1px;background:#999}
+.cc-ci{display:none;position:absolute;top:-2px;bottom:-2px;border-left:2px solid #222;border-right:2px solid #222}
+.cc-ci::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px solid #222}
+.show-ci .cc-ci{display:block}
+.cc-outcome{border:1px solid #bbb;border-radius:8px;padding:.7rem 1rem;background:#fafafa;margin-top:.6rem;font-size:.92rem}
 </style>
 
 <div class="lang-switch" role="group" aria-label="Language / 语言">
@@ -55,6 +74,61 @@ toc: false
 })();
 </script>
 
+<script>
+(function(){
+  // PEP year detail
+  document.querySelectorAll('.cc-pep-row').forEach(function(row){
+    row.addEventListener('click', function(){
+      var d=row.dataset;
+      document.querySelectorAll('.cc-pep-detail').forEach(function(box){
+        if(box.dataset.lang==='zh'){
+          box.innerHTML='<b>'+d.year+'</b>：国内净迁移 '+d.dom+' 人，国际净迁移 +'+d.int+' 人，自然增长 +'+d.nat+' 人，总变化 '+d.total+' 人。三个分量加总与总变化不完全相等，PEP 估计中另有残差。';
+        } else {
+          box.innerHTML='<b>'+d.year+'</b>: net domestic '+d.dom+', net international +'+d.int+', natural increase +'+d.nat+', total change '+d.total+'. The three components do not sum exactly to the total; the PEP estimates include a residual.';
+        }
+      });
+      document.querySelectorAll('.cc-pep-row').forEach(function(r){ r.style.opacity = (r===row) ? '1' : '.55'; });
+    });
+  });
+  // Gross flow / net toggle
+  document.querySelectorAll('[data-cc-view]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var chart=btn.closest('.cc-chart');
+      chart.querySelectorAll('[data-cc-view]').forEach(function(b){ b.classList.toggle('active', b===btn); });
+      chart.querySelectorAll('.cc-gross-flow').forEach(function(el){ el.hidden = (btn.dataset.ccView!=='flow'); });
+      chart.querySelectorAll('.cc-gross-net').forEach(function(el){ el.hidden = (btn.dataset.ccView!=='net'); });
+    });
+  });
+  // CI toggle
+  document.querySelectorAll('[data-cc-ci]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var chart=btn.closest('.cc-chart');
+      chart.classList.toggle('show-ci');
+      btn.classList.toggle('active');
+      btn.textContent = chart.classList.contains('show-ci') ? btn.dataset.on : btn.dataset.off;
+    });
+  });
+  // Identity widget
+  document.querySelectorAll('[data-cc-choice]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var chart=btn.closest('.cc-chart');
+      chart.querySelectorAll('[data-cc-choice]').forEach(function(b){ b.classList.toggle('active', b===btn); });
+      chart.querySelectorAll('.cc-outcome').forEach(function(box){
+        if(box.dataset.lang==='zh'){
+          box.innerHTML = btn.dataset.ccChoice==='keep'
+            ? '<b>保留这顿饭：</b>花掉 50 美元，身份保住了——“我还是一个正常人”。钱少了，但生活没有坍缩成单纯的生存。'
+            : '<b>砍掉这顿饭：</b>省下 50 美元，但感觉上不是省钱，而是承认“我在这里撑不下去了”。省下的钱是真实的，付出的代价也是真实的——只是不在账单上。';
+        } else {
+          box.innerHTML = btn.dataset.ccChoice==='keep'
+            ? '<b>Keep the meal:</b> $50 spent, identity kept — “I am still a normal person.” The money is gone, but life has not collapsed into survival.'
+            : '<b>Cut the meal:</b> $50 saved, but it feels less like saving and more like conceding “I can’t make it here.” The saving is real, and so is the cost — it just isn’t on the bill.';
+        }
+      });
+    });
+  });
+})();
+</script>
+
 <div class="lang-en" lang="en" markdown="1">
 
 ## 1. The question
@@ -82,7 +156,17 @@ Its only fully worked example, HPS-01, uses the U.S. Household Pulse Survey 2024
 | Transport need only | 17.97% (14.41–21.53) |
 | Both hardships | 43.73% (39.55–47.91) |
 
-Two hardships together are worse than either alone. That is an association in a cross-section, not proof that hardship causes anxiety, and not proof of entrapment — the guide says so itself.
+Two hardships together are worse than either alone.
+
+<div class="cc-chart" markdown="1">
+<h4>Interactive: anxiety by hardship</h4>
+<button type="button" class="cc-btn" data-cc-ci data-on="Hide 95% intervals" data-off="Show 95% intervals">Show 95% intervals</button>
+<div class="cc-row"><span class="cc-lab">Neither</span><div class="cc-track"><div class="cc-fill" style="left:0;width:19.9%;background:#5dade2" title="9.97% (9.31–10.63)"></div><div class="cc-ci" style="left:18.6%;width:2.6%"></div></div><span class="cc-val">9.97%</span></div>
+<div class="cc-row"><span class="cc-lab">Financial only</span><div class="cc-track"><div class="cc-fill" style="left:0;width:56.9%;background:#e67e22" title="28.43% (26.93–29.92)"></div><div class="cc-ci" style="left:53.9%;width:6.0%"></div></div><span class="cc-val">28.43%</span></div>
+<div class="cc-row"><span class="cc-lab">Transport only</span><div class="cc-track"><div class="cc-fill" style="left:0;width:35.9%;background:#58d68d" title="17.97% (14.41–21.53)"></div><div class="cc-ci" style="left:28.8%;width:14.2%"></div></div><span class="cc-val">17.97%</span></div>
+<div class="cc-row"><span class="cc-lab">Both</span><div class="cc-track"><div class="cc-fill" style="left:0;width:87.5%;background:#c0392b" title="43.73% (39.55–47.91)"></div><div class="cc-ci" style="left:79.1%;width:16.7%"></div></div><span class="cc-val">43.73%</span></div>
+<p class="cc-note">Share with anxiety symptoms (GAD-2 ≥ 3), HPS 2024 Phase 4.2 Cycle 09, n = 45,857. Hover a bar for its 95% interval; use the button to show all intervals. Association, not causation.</p>
+</div> That is an association in a cross-section, not proof that hardship causes anxiety, and not proof of entrapment — the guide says so itself.
 
 Its New York topics (ACS-01 to ACS-05) ask whether rent burden (≥30% of income, and ≥50% as a severe threshold) and long commutes (≥60 minutes one way) cluster in the same census tracts, using the 2019–2023 ACS 5-year data for the five counties. Its heat topics (NYC-01 to NYC-04) ask whether lower-income neighbourhoods are hotter. Its displacement topics carry the warning that matters most for this note: "A low displacement rate does not establish safety or entrapment. Studying people who are trapped requires direct measures of their desire and ability to move." Movement counts are not unique people, and movers do not represent those forced to remain.
 
@@ -101,6 +185,26 @@ Two measurement systems must not be confused. The American Community Survey (ACS
 
 That is almost identical to 2015 (about 297,000 left, net domestic loss about 137,000). The pandemic was the exception: in 2021 departures rose about 50% to about 450,000, the net domestic loss reached about 266,000, and the share of prior-year residents leaving rose from 3.5% (2015 and 2024) to 5.2%. By 2024 departures were back to their 2015 level.
 
+<div class="cc-chart" markdown="1">
+<h4>Interactive: the two-way flow</h4>
+<button type="button" class="cc-btn active" data-cc-view="flow">Departures vs arrivals</button>
+<button type="button" class="cc-btn" data-cc-view="net">Net domestic loss</button>
+<div class="cc-gross-flow">
+<div class="cc-row"><span class="cc-lab">2015 · left</span><div class="cc-track"><div class="cc-fill" style="left:0;width:59.4%;background:#c0392b" title="about 297,000 left"></div></div><span class="cc-val">~297,000</span></div>
+<div class="cc-row"><span class="cc-lab">2015 · arrived</span><div class="cc-track"><div class="cc-fill" style="left:0;width:32.0%;background:#2471a3" title="about 160,000 arrived (derived)"></div></div><span class="cc-val">~160,000*</span></div>
+<div class="cc-row"><span class="cc-lab">2021 · left</span><div class="cc-track"><div class="cc-fill" style="left:0;width:90.0%;background:#c0392b" title="about 450,000 left"></div></div><span class="cc-val">~450,000</span></div>
+<div class="cc-row"><span class="cc-lab">2021 · arrived</span><div class="cc-track"><div class="cc-fill" style="left:0;width:36.8%;background:#2471a3" title="about 184,000 arrived (derived)"></div></div><span class="cc-val">~184,000*</span></div>
+<div class="cc-row"><span class="cc-lab">2024 · left</span><div class="cc-track"><div class="cc-fill" style="left:0;width:59.2%;background:#c0392b" title="about 296,000 left"></div></div><span class="cc-val">~296,000</span></div>
+<div class="cc-row"><span class="cc-lab">2024 · arrived</span><div class="cc-track"><div class="cc-fill" style="left:0;width:36.6%;background:#2471a3" title="about 183,000 arrived"></div></div><span class="cc-val">~183,000</span></div>
+</div>
+<div class="cc-gross-net" hidden>
+<div class="cc-row"><span class="cc-lab">2015</span><div class="cc-track"><div class="cc-fill" style="left:0;width:27.4%;background:#c0392b" title="net domestic loss about 137,000"></div></div><span class="cc-val">−137,000</span></div>
+<div class="cc-row"><span class="cc-lab">2021</span><div class="cc-track"><div class="cc-fill" style="left:0;width:53.2%;background:#c0392b" title="net domestic loss about 266,000"></div></div><span class="cc-val">−266,000</span></div>
+<div class="cc-row"><span class="cc-lab">2024</span><div class="cc-track"><div class="cc-fill" style="left:0;width:22.6%;background:#c0392b" title="net domestic loss about 113,000 (±~25,000)"></div></div><span class="cc-val">−113,000</span></div>
+</div>
+<p class="cc-note">ACS, calendar year. *Arrivals for 2015 and 2021 are derived (departures minus net loss), not directly reported. The net view shows how small the pandemic spike looks against the ordinary two-way flow — and how large it was in 2021.</p>
+</div>
+
 ### Net flows, PEP (July to July, Vintage 2025)
 
 | Period | Net domestic | Net international | Natural increase | Total change |
@@ -111,7 +215,15 @@ That is almost identical to 2015 (about 297,000 left, net domestic loss about 13
 | 2023–24 | −93,867 | +219,578 | +36,906 | +162,991 |
 | 2024–25 | −113,718 | +65,824 | +36,101 | −12,196 |
 
-In 2024–25 the city was roughly flat: population 8,585,000 in July 2025, essentially unchanged from July 2024 (whose estimate was revised up from 8,478,000 to 8,597,000, mainly because international inflows were re-estimated). International migration fell from its surge, domestic outflow widened slightly again, and births over deaths (+36,101) did the rest of the offsetting.
+In 2024–25 the city was roughly flat:
+
+<div class="cc-chart" markdown="1">
+<h4>Interactive: what moved the population each year</h4>
+<p class="cc-note" style="margin-top:0">Click a year to see its breakdown. Red (left) = net domestic migration; blue (right) = net international; green = natural increase. Total change is on the right.</p>
+<div class="cc-row cc-pep-row" data-cc-year data-year="2020–21" data-dom="−329,532" data-int="19,997" data-nat="29,791" data-total="−303,230" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2020–21</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:47.1%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:2.9%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 2.9%);width:4.3%;background:#229954"></div></div><span class="cc-val">−303,230</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2021–22" data-dom="−212,791" data-int="83,564" data-nat="33,718" data-total="−85,293" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2021–22</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:30.4%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:11.9%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 11.9%);width:4.8%;background:#229954"></div></div><span class="cc-val">−85,293</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2022–23" data-dom="−120,939" data-int="155,131" data-nat="35,647" data-total="+71,169" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2022–23</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:17.3%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:22.2%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 22.2%);width:5.1%;background:#229954"></div></div><span class="cc-val">+71,169</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2023–24" data-dom="−93,867" data-int="219,578" data-nat="36,906" data-total="+162,991" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2023–24</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:13.4%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:31.4%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 31.4%);width:5.3%;background:#229954"></div></div><span class="cc-val">+162,991</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2024–25" data-dom="−113,718" data-int="65,824" data-nat="36,101" data-total="−12,196" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2024–25</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:16.2%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:9.4%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 9.4%);width:5.2%;background:#229954"></div></div><span class="cc-val">−12,196</span></div>
+<div class="cc-detail cc-pep-detail" data-lang="en">Click a year above — the 2023–24 surge was international migration (+219,578) doing the work, not a reversal of domestic outflow.</div>
+<p class="cc-note">PEP, July to July, Vintage 2025. Scale: 350,000 people = half the bar. The three components do not sum exactly to the total; the PEP estimates include a residual.</p>
+</div> population 8,585,000 in July 2025, essentially unchanged from July 2024 (whose estimate was revised up from 8,478,000 to 8,597,000, mainly because international inflows were re-estimated). International migration fell from its surge, domestic outflow widened slightly again, and births over deaths (+36,101) did the rest of the offsetting.
 
 ### Who comes, who leaves
 
@@ -125,7 +237,15 @@ The Census does not ask why people move. Reasons come from surveys, and they mea
 
 In the Citizens Budget Commission's June 2025 resident survey, among New Yorkers considering moving out, the top reasons were affordability (76%), safety (73%), and living space (60%). Only 34% rated the city's quality of life excellent or good, down from 51% in 2017, and 55% planned to remain in the city over the next five years. An Empire Center poll of New York State (not the city alone) ranked taxes first (30.4%) and cost of living second (26.1%), followed by politics and government (15.9%), housing affordability (6.7%), crime and safety (6.2%), and retirement and family (5.6%) — while noting that in New York City itself, cost of living ranked first.
 
-Read together with Section 3, the picture is consistent: the push is not a single dramatic decision to go to Florida. It is rent, space, children, and remote work pushing households first to the suburbs — and the identity and cost of staying in the middle.
+Read together with Section 3, the picture is consistent:
+
+<div class="cc-chart" markdown="1">
+<h4>Interactive: why people consider leaving</h4>
+<div class="cc-row"><span class="cc-lab">Affordability</span><div class="cc-track"><div class="cc-fill" style="left:0;width:76%;background:#c0392b" title="76% of those considering moving out"></div></div><span class="cc-val">76%</span></div>
+<div class="cc-row"><span class="cc-lab">Safety</span><div class="cc-track"><div class="cc-fill" style="left:0;width:73%;background:#e67e22" title="73%"></div></div><span class="cc-val">73%</span></div>
+<div class="cc-row"><span class="cc-lab">Living space</span><div class="cc-track"><div class="cc-fill" style="left:0;width:60%;background:#2471a3" title="60%"></div></div><span class="cc-val">60%</span></div>
+<p class="cc-note">Citizens Budget Commission, June 2025 resident survey — share of New Yorkers <em>considering</em> moving out who named each reason. Hover a bar for the exact share. These are reasons for considering a move, not a census of why movers moved.</p>
+</div> the push is not a single dramatic decision to go to Florida. It is rent, space, children, and remote work pushing households first to the suburbs — and the identity and cost of staying in the middle.
 
 ## 5. A hypothesis: much of the spending buys identity, not luxury
 
@@ -143,6 +263,14 @@ Why does debt not stop it? Three mechanisms, each testable: credit defers the pa
 It helps to separate two kinds of identity spending. *Maintaining* identity is defensive: keeping the life one already has. *Upgrading* identity is offensive: becoming a manager, passing an interview in English, learning a system like eCW, negotiating a salary — a more dignified identity that costs time and effort rather than money. The first is fast and cheap per instance; the second is slow and expensive per step, but it is the one that changes the constraint.
 
 What would falsify this? If, when income recovers, the same spending falls away immediately and without resistance, it was probably coping or habit, not identity. If, when a household is offered the same dignity more cheaply — a free community meal that feels generous rather than charitable, a lower-cost version of the same outing — it switches happily, the mechanism is price, not identity. If it refuses the cheaper substitute even when the experience is equivalent, identity is doing real work. Those are the tests a follow-up study should run, rather than assuming the answer from one observation.
+
+<div class="cc-chart" markdown="1">
+<h4>Try it: one $50 meal</h4>
+<p class="cc-note" style="margin-top:0">An illustration of the mechanism, not data. A household under strain is deciding about one $50 meal out.</p>
+<button type="button" class="cc-btn" data-cc-choice="keep">Keep the meal</button>
+<button type="button" class="cc-btn" data-cc-choice="cut">Cut the meal</button>
+<div class="cc-outcome" data-lang="en">Choose one — the point is that both options cost something, and only one of the costs shows up on a bill.</div>
+</div>
 
 ## 6. What this does — and does not — imply about making money from it
 
@@ -205,7 +333,17 @@ The next step, if this becomes a longer study, is to run those three tests on th
 | 只有交通需求未满足 | 17.97%（14.41–21.53） |
 | 两种困难都有 | 43.73%（39.55–47.91） |
 
-两种困难叠加比任何一种单独出现都更糟。但这是截面数据里的关联，不是“困难导致焦虑”的证明，也不是“被困住”的证明——指南自己就是这么说的。
+两种困难叠加比任何一种单独出现都更糟。
+
+<div class="cc-chart" markdown="1">
+<h4>互动图：按困难类型看焦虑比例</h4>
+<button type="button" class="cc-btn" data-cc-ci data-on="隐藏 95% 区间" data-off="显示 95% 区间">显示 95% 区间</button>
+<div class="cc-row"><span class="cc-lab">都没有</span><div class="cc-track"><div class="cc-fill" style="left:0;width:19.9%;background:#5dade2" title="9.97%（9.31–10.63）"></div><div class="cc-ci" style="left:18.6%;width:2.6%"></div></div><span class="cc-val">9.97%</span></div>
+<div class="cc-row"><span class="cc-lab">只有经济困难</span><div class="cc-track"><div class="cc-fill" style="left:0;width:56.9%;background:#e67e22" title="28.43%（26.93–29.92）"></div><div class="cc-ci" style="left:53.9%;width:6.0%"></div></div><span class="cc-val">28.43%</span></div>
+<div class="cc-row"><span class="cc-lab">只有交通困难</span><div class="cc-track"><div class="cc-fill" style="left:0;width:35.9%;background:#58d68d" title="17.97%（14.41–21.53）"></div><div class="cc-ci" style="left:28.8%;width:14.2%"></div></div><span class="cc-val">17.97%</span></div>
+<div class="cc-row"><span class="cc-lab">两种都有</span><div class="cc-track"><div class="cc-fill" style="left:0;width:87.5%;background:#c0392b" title="43.73%（39.55–47.91）"></div><div class="cc-ci" style="left:79.1%;width:16.7%"></div></div><span class="cc-val">43.73%</span></div>
+<p class="cc-note">有焦虑症状的比例（GAD-2 ≥ 3），HPS 2024 年第 4.2 期第 09 周期，n = 45,857。把鼠标悬停在条形上可以看到 95% 区间，点按钮可以显示全部区间。这是关联，不是因果。</p>
+</div>但这是截面数据里的关联，不是“困难导致焦虑”的证明，也不是“被困住”的证明——指南自己就是这么说的。
 
 它关于纽约的主题（ACS-01 至 ACS-05）问的是：租金负担（占收入 ≥30%，≥50% 为严重负担）与长通勤（单程 ≥60 分钟）是否集中在同一个人口普查区，使用 2019–2023 年 ACS 五年数据，覆盖五个县。关于高温的主题（NYC-01 至 NYC-04）问的是：低收入社区是否更热。关于流离失所的主题里，有一句对这篇笔记最重要的警告：“低流离率并不能证明安全或被困。研究被困住的人，需要直接测量他们想走的意愿和能走的能力。”流动人数不是不重复计算的人数，搬走的人也不能代表那些被迫留下的人。
 
@@ -224,6 +362,26 @@ The next step, if this becomes a longer study, is to run those three tests on th
 
 这与 2015 年几乎相同（约 297,000 人离开，国内净流失约 137,000 人）。疫情是例外：2021 年离开的人数上升约 50%，达到约 450,000 人，国内净流失达到约 266,000 人，离开的前一年居民比例从 3.5%（2015 年和 2024 年）上升到 5.2%。到 2024 年，离开人数已回到 2015 年的水平。
 
+<div class="cc-chart" markdown="1">
+<h4>互动图：双向流动</h4>
+<button type="button" class="cc-btn active" data-cc-view="flow">离开 vs 迁入</button>
+<button type="button" class="cc-btn" data-cc-view="net">国内净流失</button>
+<div class="cc-gross-flow">
+<div class="cc-row"><span class="cc-lab">2015 · 离开</span><div class="cc-track"><div class="cc-fill" style="left:0;width:59.4%;background:#c0392b" title="约 297,000 人离开"></div></div><span class="cc-val">约 297,000</span></div>
+<div class="cc-row"><span class="cc-lab">2015 · 迁入</span><div class="cc-track"><div class="cc-fill" style="left:0;width:32.0%;background:#2471a3" title="约 160,000 人迁入（推算）"></div></div><span class="cc-val">约 160,000*</span></div>
+<div class="cc-row"><span class="cc-lab">2021 · 离开</span><div class="cc-track"><div class="cc-fill" style="left:0;width:90.0%;background:#c0392b" title="约 450,000 人离开"></div></div><span class="cc-val">约 450,000</span></div>
+<div class="cc-row"><span class="cc-lab">2021 · 迁入</span><div class="cc-track"><div class="cc-fill" style="left:0;width:36.8%;background:#2471a3" title="约 184,000 人迁入（推算）"></div></div><span class="cc-val">约 184,000*</span></div>
+<div class="cc-row"><span class="cc-lab">2024 · 离开</span><div class="cc-track"><div class="cc-fill" style="left:0;width:59.2%;background:#c0392b" title="约 296,000 人离开"></div></div><span class="cc-val">约 296,000</span></div>
+<div class="cc-row"><span class="cc-lab">2024 · 迁入</span><div class="cc-track"><div class="cc-fill" style="left:0;width:36.6%;background:#2471a3" title="约 183,000 人迁入"></div></div><span class="cc-val">约 183,000</span></div>
+</div>
+<div class="cc-gross-net" hidden>
+<div class="cc-row"><span class="cc-lab">2015</span><div class="cc-track"><div class="cc-fill" style="left:0;width:27.4%;background:#c0392b" title="国内净流失约 137,000 人"></div></div><span class="cc-val">−137,000</span></div>
+<div class="cc-row"><span class="cc-lab">2021</span><div class="cc-track"><div class="cc-fill" style="left:0;width:53.2%;background:#c0392b" title="国内净流失约 266,000 人"></div></div><span class="cc-val">−266,000</span></div>
+<div class="cc-row"><span class="cc-lab">2024</span><div class="cc-track"><div class="cc-fill" style="left:0;width:22.6%;background:#c0392b" title="国内净流失约 113,000 人（误差约 ±25,000）"></div></div><span class="cc-val">−113,000</span></div>
+</div>
+<p class="cc-note">ACS，按日历年。*2015 年和 2021 年的迁入人数是推算值（离开人数减净流失），不是直接报告的数字。切换到净流失视图可以看到：疫情高峰放在日常双向流动里看并不算大——但 2021 年那一年确实很大。</p>
+</div>
+
 ### 净流量，PEP（7 月到 7 月，Vintage 2025）
 
 | 时期 | 国内净迁移 | 国际净迁移 | 自然增长 | 总变化 |
@@ -234,7 +392,15 @@ The next step, if this becomes a longer study, is to run those three tests on th
 | 2023–24 年 | −93,867 | +219,578 | +36,906 | +162,991 |
 | 2024–25 年 | −113,718 | +65,824 | +36,101 | −12,196 |
 
-2024–25 年，城市人口基本持平：2025 年 7 月人口为 8,585,000 人，与 2024 年 7 月基本相同（2024 年 7 月的估计值从 8,478,000 上修到 8,597,000，主要是因为国际流入被重新估计）。国际移民从高峰回落，国内流出略有扩大，出生减死亡（+36,101）抵消了其余部分。
+2024–25 年，城市人口基本持平：
+
+<div class="cc-chart" markdown="1">
+<h4>互动图：每年人口变化由什么驱动</h4>
+<p class="cc-note" style="margin-top:0">点击某一行查看分项。红色（左）= 国内净迁移；蓝色（右）= 国际净迁移；绿色 = 自然增长。右侧数字是总变化。</p>
+<div class="cc-row cc-pep-row" data-cc-year data-year="2020–21 年" data-dom="−329,532" data-int="19,997" data-nat="29,791" data-total="−303,230" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2020–21 年</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:47.1%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:2.9%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 2.9%);width:4.3%;background:#229954"></div></div><span class="cc-val">−303,230</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2021–22 年" data-dom="−212,791" data-int="83,564" data-nat="33,718" data-total="−85,293" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2021–22 年</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:30.4%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:11.9%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 11.9%);width:4.8%;background:#229954"></div></div><span class="cc-val">−85,293</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2022–23 年" data-dom="−120,939" data-int="155,131" data-nat="35,647" data-total="+71,169" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2022–23 年</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:17.3%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:22.2%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 22.2%);width:5.1%;background:#229954"></div></div><span class="cc-val">+71,169</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2023–24 年" data-dom="−93,867" data-int="219,578" data-nat="36,906" data-total="+162,991" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2023–24 年</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:13.4%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:31.4%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 31.4%);width:5.3%;background:#229954"></div></div><span class="cc-val">+162,991</span></div><div class="cc-row cc-pep-row" data-cc-year data-year="2024–25 年" data-dom="−113,718" data-int="65,824" data-nat="36,101" data-total="−12,196" title="Click for the breakdown / 点击查看分项"><span class="cc-lab">2024–25 年</span><div class="cc-track"><span class="cc-mid"></span><div class="cc-fill" style="right:50%;width:16.2%;background:#c0392b"></div><div class="cc-fill" style="left:50%;width:9.4%;background:#2471a3"></div><div class="cc-fill" style="left:calc(50% + 9.4%);width:5.2%;background:#229954"></div></div><span class="cc-val">−12,196</span></div>
+<div class="cc-detail cc-pep-detail" data-lang="zh">点击上面某一行——2023–24 年的增长靠的是国际移民（+219,578 人），而不是国内流出逆转。</div>
+<p class="cc-note">PEP，7 月到 7 月，Vintage 2025。比例尺：350,000 人 = 半条。三个分量加总与总变化不完全相等，PEP 估计中另有残差。</p>
+</div>2025 年 7 月人口为 8,585,000 人，与 2024 年 7 月基本相同（2024 年 7 月的估计值从 8,478,000 上修到 8,597,000，主要是因为国际流入被重新估计）。国际移民从高峰回落，国内流出略有扩大，出生减死亡（+36,101）抵消了其余部分。
 
 ### 谁进来，谁离开
 
@@ -248,7 +414,15 @@ The next step, if this becomes a longer study, is to run those three tests on th
 
 在 Citizens Budget Commission 2025 年 6 月的居民调查中，在考虑搬出纽约市的人里，最主要的原因是负担不起（76%）、安全（73%）和居住空间（60%）。只有 34% 的人认为城市生活质量优秀或良好，低于 2017 年的 51%；55% 的人计划未来五年留在城里。Empire Center 关于纽约州（不是单指纽约市）的民调中，税收排第一（30.4%），生活成本第二（26.1%），其次是政治与政府（15.9%）、住房可负担性（6.7%）、犯罪与安全（6.2%）、退休与家庭（5.6%）——同时指出，在纽约市本身，生活成本排第一。
 
-把第 3 节和第 4 节放在一起看，图景是一致的：推动力不是某一天突然决定去佛州，而是房租、空间、孩子和远程工作，先把家庭推向郊区——而身份与留下的成本，处在中间。
+把第 3 节和第 4 节放在一起看，图景是一致的：
+
+<div class="cc-chart" markdown="1">
+<h4>互动图：人们为什么考虑离开</h4>
+<div class="cc-row"><span class="cc-lab">负担不起</span><div class="cc-track"><div class="cc-fill" style="left:0;width:76%;background:#c0392b" title="在考虑搬出的人里占 76%"></div></div><span class="cc-val">76%</span></div>
+<div class="cc-row"><span class="cc-lab">安全</span><div class="cc-track"><div class="cc-fill" style="left:0;width:73%;background:#e67e22" title="73%"></div></div><span class="cc-val">73%</span></div>
+<div class="cc-row"><span class="cc-lab">居住空间</span><div class="cc-track"><div class="cc-fill" style="left:0;width:60%;background:#2471a3" title="60%"></div></div><span class="cc-val">60%</span></div>
+<p class="cc-note">Citizens Budget Commission，2025 年 6 月居民调查——在<em>考虑</em>搬出纽约市的人里，提到各原因的比例。把鼠标悬停在条形上可以看到精确数字。这些是“考虑离开”的原因，不是搬迁者为什么搬走的人口普查。</p>
+</div>推动力不是某一天突然决定去佛州，而是房租、空间、孩子和远程工作，先把家庭推向郊区——而身份与留下的成本，处在中间。
 
 ## 5. 一个假说：很多消费买的是身份，不是奢侈
 
@@ -266,6 +440,14 @@ The next step, if this becomes a longer study, is to run those three tests on th
 区分两种身份消费会有帮助。*维持*身份是防御性的：保住已经拥有的生活。*提升*身份是进攻性的：成为一名经理、用英语通过面试、学会 eCW 这样的系统、谈成更高的薪水——一种更有尊严的身份，花的不是钱，而是时间和努力。前者每次都快而便宜；后者每一步都慢而昂贵，但只有它能改变约束本身。
 
 什么可以证伪这个假说？如果收入恢复后，同样的消费立刻、毫无阻力地消失，那它很可能只是应对或习惯，而不是身份。如果给一个家庭提供同样有尊严、但更便宜的替代品——一顿让人感觉慷慨而不是施舍的社区餐、一次成本更低的同样出游——它愉快地接受了，那起作用的就是价格，而不是身份。如果它在体验相当的情况下仍然拒绝更便宜的替代品，身份就确实在起作用。这些是后续研究应该做的检验，而不是从一次观察就假定答案。
+
+<div class="cc-chart" markdown="1">
+<h4>试一下：一顿 50 美元的饭</h4>
+<p class="cc-note" style="margin-top:0">这是对机制的示意，不是数据。一个经济紧张的家庭正在决定，要不要花 50 美元出去吃一顿饭。</p>
+<button type="button" class="cc-btn" data-cc-choice="keep">保留这顿饭</button>
+<button type="button" class="cc-btn" data-cc-choice="cut">砍掉这顿饭</button>
+<div class="cc-outcome" data-lang="zh">选一个——关键在于，两个选项都有代价，而且只有一个代价会出现在账单上。</div>
+</div>
 
 ## 6. 这对“靠它赚钱”意味着什么——以及不意味着什么
 
