@@ -82,9 +82,11 @@ Video lessons from *The AI Toolbox* (Merit Point Academy / ScholarMind AI), Fall
 
 ### Vaughn College — Sample lecture (upcoming)
 
-Sample lecture for the Vaughn College campus visit, about 30 minutes, on a self-chosen mechatronics topic for students and faculty. Topic in preparation: PID control of robot joints.
+Sample lecture for the Vaughn College campus visit, about 30 minutes, on a self-chosen mechatronics topic for students and faculty. Topic: Micromouse — a maze-solving robot: flood-fill maze solving in the mms simulator, reinforcement learning and imitation learning, and a live comparison of LLM maze solving.
 
-*Tuesday, December 1, 2026, 10:00 AM–1:00 PM · Vaughn College, on campus · Slides in preparation*
+[Interactive lecture](https://muse.ai/s/micromouse-sample-lecture-qxj6ve0xuhk4xm/LxzeJFOtrY4tfyn6VxOM2xoamYiQc_BpIx7c2tZdLCo)
+
+*Tuesday, December 1, 2026, 10:00 AM–1:00 PM · Vaughn College, on campus*
 
 ### Vaughn College — Research presentation, March 2024
 
