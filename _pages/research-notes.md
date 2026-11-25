@@ -22,3 +22,11 @@ A Minecraft case study comparing screenshot-mediated control with an Astra-desig
 A source-first postmortem on 28 scored Kaggle submissions, one system error, replay-order confounding, public-leaderboard overfitting, and the private-guardrail reset.
 
 *Published September 2, 2026 · 11 minute read*
+
+## Urban life and everyday choices
+
+### [Constrained Choices in a Big City: Why People Stay, Why They Leave, and What They Are Really Paying For](/posts/2026/11/constrained-choices-identity-nyc-migration/)
+
+A bilingual (English/Chinese) research note on constrained choices, New York City migration, and identity spending, with public data and a testable hypothesis.
+
+*Published November 25, 2026 · Bilingual research note, English by default*
