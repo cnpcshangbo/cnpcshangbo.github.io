@@ -249,20 +249,22 @@ Read together with Section 3, the picture is consistent:
 
 ## 5. A hypothesis: much of the spending buys identity, not luxury
 
-The pattern to explain is familiar: a household under financial strain keeps spending on eating out and shopping, and treats those things as non-negotiable, even while debt grows. The hypothesis is that the spending is maintaining an identity — "I am still a normal person" — and that cutting it would feel like admitting defeat, not like saving money.
+The pattern to explain is familiar: a household under financial strain keeps spending on eating out and shopping, and treats those things as non-negotiable, even while debt grows. The hypothesis is that the spending is maintaining an identity — "I am still a normal person" — and that cutting it would feel like admitting defeat, not like saving money. The framework is identity economics: identity — a person's sense of self and the social categories they belong to — enters the utility function, so behaviour that looks wasteful on money alone can be rational once identity is counted ([Akerlof & Kranton, 2000](https://doi.org/10.1162/003355300554881); [Oyserman, 2009](https://doi.org/10.1016/j.jcps.2009.05.008)).
 
 Four layers, in increasing order of vulnerability:
 
-1. **I am still me.** A meal out or a purchase is a small, repeatable proof that life has not collapsed into survival.
-2. **I can still decide something.** When income, housing, and work feel decided by others, a discretionary purchase is one of the few choices left that is entirely one's own.
-3. **I need an outlet.** Under sustained strain, spending is also coping: a break, a reward, a way to keep going.
-4. **I do not want to be seen as poor, failed, or dependent.** Spending is partly performed for others — family, friends, children — as evidence that the household is still holding up.
+1. **I am still me.** A meal out or a purchase is a small, repeatable proof that life has not collapsed into survival. Belk's argument is that possessions — and by extension, the experiences and objects consumption buys — are part of the self, so losing them diminishes the sense of self ([Belk, 1988](https://doi.org/10.1086/209154)). The closest direct test: people whose self-esteem was threatened, and low-income people with bruised self-esteem, spent a larger share of income on status goods to repair self-worth, and an alternate way to restore self-worth removed the desire ([Sivanathan & Pettit, 2010](https://doi.org/10.1016/j.jesp.2010.01.006)).
+2. **I can still decide something.** When income, housing, and work feel decided by others, a discretionary purchase is one of the few choices left that is entirely one's own. Experiments on powerlessness find the same pattern: feeling powerless raised willingness to pay, but only for status-related goods, not ordinary ones ([Rucker & Galinsky, 2008](https://doi.org/10.1086/588569)). And the active ingredient may be the choosing itself: making shopping choices — even hypothetical ones — reduced residual sadness by restoring a sense of personal control ([Rick, Pereira & Burson, 2014](https://doi.org/10.1016/j.jcps.2013.12.004)).
+3. **I need an outlet.** Under sustained strain, spending is also coping: a break, a reward, a way to keep going. In field and diary studies, bad mood led people to buy themselves small treats as a deliberate mood-repair strategy, with lasting mood gains and no subsequent regret ([Atalay & Meloy, 2011](https://doi.org/10.1002/mar.20404)). Scarcity itself narrows the bandwidth for planning and self-control ([Mani et al., 2013](https://doi.org/10.1126/science.1238041); [Mullainathan & Shafir, 2013](https://www.hks.harvard.edu/centers/cid/publications/books/scarcity-why-having-too-little-means-so-much)), which makes a quick, reliable outlet more attractive than a slow, effortful one.
+4. **I do not want to be seen as poor, failed, or dependent.** Spending is partly performed for others — family, friends, children — as evidence that the household is still holding up. This is the oldest part of the argument: Veblen's conspicuous consumption, where failing to consume in due quantity and quality "becomes a mark of inferiority and demerit" ([Veblen, 1899](https://www.gutenberg.org/ebooks/833)). Empirically, visible goods take a larger share of spending where status is at stake: Black and Hispanic households in the US spent about 25% more on visible goods than comparable White households after accounting for permanent income ([Charles, Hurst & Roussanov, 2009](https://doi.org/10.1162/qjec.2009.124.2.425)), and how visible an expenditure is predicts up to a third of the variation in income elasticities across goods ([Heffetz, 2011](https://doi.org/10.1162/REST_a_00116)). In interviews with 30 low-income UK families, ensuring children had the "right" brands was a strategy to avoid stigma and protect social identity ([Hamilton, 2012](https://doi.org/10.1177/0038038511416146)). A recent field experiment in Abidjan finds the same logic from the other side: people invest in appearance and distort consumption to appear of higher rank, because being seen as very low rank means being sidelined from opportunities ([Dupas, Fafchamps & Hernandez-Nunez, 2024](https://doi.org/10.3386/w32491), NBER working paper).
 
-Why does debt not stop it? Three mechanisms, each testable: credit defers the pain of paying, so the cost is abstract and future while the meal is concrete and today; the amounts are mentally filed under "living" rather than "luxury", so each instance feels small; and loss is asymmetric — saving $50 is just saving, while cancelling a meal feels like conceding "I can't make it here."
+Why does debt not stop it? Three mechanisms, each testable. First, credit defers the pain of paying, so the cost is abstract and future while the meal is concrete and today: willingness to pay rose by up to about 100% when people were told to pay by card rather than cash ([Prelec & Simester, 2001](https://doi.org/10.1023/A:1008196717017)), and the theory is that payment carries its own immediate "pain", which credit decouples from consumption ([Prelec & Loewenstein, 1998](https://doi.org/10.1287/mksc.17.1.4)). The link to identity is direct: under self-threat, people were willing to pay almost 30% more for status jeans and were over 60% more likely to intend to pay by credit ([Pettit & Sivanathan, 2011](https://doi.org/10.1177/1948550610385138)). Second, the amounts are mentally filed under "living" rather than "luxury", so each instance feels small: mental accounting assigns spending to non-fungible accounts and judges each instance in narrow isolation rather than summing them ([Thaler (1999)](<https://doi.org/10.1002/(SICI)1099-0771(199909)12:3%3C183::AID-BDM318%3E3.0.CO;2-F>)). Third, loss is asymmetric — saving $50 is just saving, while cancelling a meal feels like conceding "I can't make it here": losses loom larger than equivalent gains ([Kahneman & Tversky, 1979](https://doi.org/10.2307/1914185)), and giving up a valued good hurts more than receiving it pleases ([Tversky & Kahneman, 1991](https://doi.org/10.2307/2937956)).
 
-It helps to separate two kinds of identity spending. *Maintaining* identity is defensive: keeping the life one already has. *Upgrading* identity is offensive: becoming a manager, passing an interview in English, learning a system like eCW, negotiating a salary — a more dignified identity that costs time and effort rather than money. The first is fast and cheap per instance; the second is slow and expensive per step, but it is the one that changes the constraint.
+It helps to separate two kinds of identity spending. *Maintaining* identity is defensive: keeping the life one already has. *Upgrading* identity is offensive: becoming a manager, passing an interview in English, learning a system like eCW, negotiating a salary — a more dignified identity that costs time and effort rather than money. The first is fast and cheap per instance; the second is slow and expensive per step, but it is the one that changes the constraint. The closest formal model is the compensatory consumer behaviour model, whose five strategies include *direct resolution* — fixing the discrepancy itself, e.g. acquiring the skill — and *symbolic self-completion* and *fluid compensation* — using a product or experience to signal or substitute for the missing self ([Mandel et al., 2017](https://doi.org/10.1016/j.jcps.2016.05.003)). The defensive/offensive labels are this note's own framing of that model, not the authors' terms. That poor households spend on more than subsistence is itself well documented: in household surveys across 13 countries, the extremely poor routinely spent a median 10% of their budget on festivals, weddings and funerals rather than extra food ([Banerjee & Duflo, 2007](https://doi.org/10.1257/jep.21.1.141)).
 
 What would falsify this? If, when income recovers, the same spending falls away immediately and without resistance, it was probably coping or habit, not identity. If, when a household is offered the same dignity more cheaply — a free community meal that feels generous rather than charitable, a lower-cost version of the same outing — it switches happily, the mechanism is price, not identity. If it refuses the cheaper substitute even when the experience is equivalent, identity is doing real work. Those are the tests a follow-up study should run, rather than assuming the answer from one observation.
+
+**What the literature does — and does not — show.** No published study tests the four-layer hypothesis as a whole, or eating out specifically, in a single design; the support above is component-wise, and applying it to a meal out is an interpretation, not a direct finding. Belk's extended self is about possessions, not meals. The "$50 saved versus meal cancelled" comparison is an application of loss aversion, not an experiment in Kahneman and Tversky. And the defensive/offensive distinction is this note's framing of Mandel et al.'s model, not their terminology. What the literature does establish is the mechanism's parts: identity enters economic decisions, threatened selves buy status, powerlessness is repaired by choosing, scarcity narrows bandwidth, visible spending signals rank, and credit decouples payment from pleasure.
 
 <div class="cc-chart" markdown="1">
 <h4>Try it: one $50 meal</h4>
@@ -300,6 +302,38 @@ The next step, if this becomes a longer study, is to run those three tests on th
 - NYC Comptroller, "NYC's Post-Pandemic Rebound", December 2025 Spotlight — <https://comptroller.nyc.gov/wp-content/uploads/2025/12/Dec-2025-Spotlight-NYC-Overview.pdf>
 - Citizens Budget Commission, *Straight From New Yorkers 2025*, June 2025 — <https://cbcny.org/sites/default/files/media/files/CBCREPORT_Resident-Survey-2025_06042025.pdf>
 - Empire Center, "Leaving New York" opinion poll, 2026 (New York State, not New York City alone)
+
+### References for Section 5 — identity, status, and spending under strain
+
+- Akerlof, G. A., & Kranton, R. E. (2000). Economics and identity. *Quarterly Journal of Economics*, *115*(3), 715–753. <https://doi.org/10.1162/003355300554881>
+- Akerlof, G. A., & Kranton, R. E. (2010). *Identity Economics: How Our Identities Shape Our Work, Wages, and Well-Being*. Princeton University Press. ISBN 978-0-691-14648-5. <https://ideas.repec.org/a/eee/joepsy/v31y2010i6p1061-1063.html>
+- Atalay, A. S., & Meloy, M. G. (2011). Retail therapy: A strategic effort to improve mood. *Psychology & Marketing*, *28*(6), 638–659. <https://doi.org/10.1002/mar.20404>
+- Banerjee, A. V., & Duflo, E. (2007). The economic lives of the poor. *Journal of Economic Perspectives*, *21*(1), 141–168. <https://doi.org/10.1257/jep.21.1.141>
+- Banerjee, A. V., & Duflo, E. (2011). *Poor Economics*. PublicAffairs. ISBN 978-1-58648-798-0.
+- Belk, R. W. (1988). Possessions and the extended self. *Journal of Consumer Research*, *15*(2), 139–168. <https://doi.org/10.1086/209154>
+- Case, A., Garrib, A., Menendez, A., & Olgiati, A. (2008). Paying the piper: The high cost of funerals in South Africa. NBER Working Paper No. 14456. <https://papers.ssrn.com/abstract=1294131> (working paper, not peer-reviewed)
+- Charles, K. K., Hurst, E., & Roussanov, N. (2009). Conspicuous consumption and race. *Quarterly Journal of Economics*, *124*(2), 425–467. <https://doi.org/10.1162/qjec.2009.124.2.425>
+- Dupas, P., Fafchamps, M., & Hernandez-Nunez, L. (2024; rev. Dec 2025). Keeping up appearances: An experimental investigation of socioeconomic status signaling to avoid discrimination. NBER Working Paper No. 32491. <https://doi.org/10.3386/w32491> (working paper, not peer-reviewed)
+- Hamilton, K. (2012). Low-income families and coping through brands: Inclusion or stigma? *Sociology*, *46*(1), 74–90. <https://doi.org/10.1177/0038038511416146>
+- Heffetz, O. (2011). A test of conspicuous consumption: Visibility and income elasticities. *Review of Economics and Statistics*, *93*(4), 1101–1117. <https://doi.org/10.1162/REST_a_00116>
+- Kahneman, D., & Tversky, A. (1979). Prospect theory: An analysis of decision under risk. *Econometrica*, *47*(2), 263–291. <https://doi.org/10.2307/1914185>
+- Landis, B., & Gladstone, J. J. (2017). Personality, income, and compensatory consumption: Low-income extraverts spend more on status. *Psychological Science*, *28*(10), 1518–1520. <https://doi.org/10.1177/0956797617714811>
+- Mandel, N., Rucker, D. D., Levav, J., & Galinsky, A. D. (2017). The compensatory consumer behavior model: How self-discrepancies drive consumer behavior. *Journal of Consumer Psychology*, *27*(1), 133–146. <https://doi.org/10.1016/j.jcps.2016.05.003>
+- Mani, A., Mullainathan, S., Shafir, E., & Zhao, J. (2013). Poverty impedes cognitive function. *Science*, *341*(6149), 976–980. <https://doi.org/10.1126/science.1238041>
+- Moav, O., & Neeman, Z. (2012). Saving rates and poverty: The role of conspicuous consumption and human capital. *Economic Journal*, *122*(563), 933–956. <https://doi.org/10.1111/j.1468-0297.2012.02516.x>
+- Mullainathan, S., & Shafir, E. (2013). *Scarcity: Why Having Too Little Means So Much*. Times Books. ISBN 978-0-8050-9264-6. <https://www.hks.harvard.edu/centers/cid/publications/books/scarcity-why-having-too-little-means-so-much>
+- Oyserman, D. (2009). Identity-based motivation: Implications for action-readiness, procedural-readiness, and consumer behavior. *Journal of Consumer Psychology*, *19*(3), 250–260. <https://doi.org/10.1016/j.jcps.2009.05.008>
+- Pettit, N. C., & Sivanathan, N. (2011). The plastic trap: Self-threat drives credit usage and status consumption. *Social Psychological and Personality Science*, *2*(2), 146–153. <https://doi.org/10.1177/1948550610385138>
+- Prelec, D., & Loewenstein, G. (1998). The red and the black: Mental accounting of savings and debt. *Marketing Science*, *17*(1), 4–28. <https://doi.org/10.1287/mksc.17.1.4>
+- Prelec, D., & Simester, D. (2001). Always leave home without it: A further investigation of the credit-card effect on willingness to pay. *Marketing Letters*, *12*(1), 5–12. <https://doi.org/10.1023/A:1008196717017>
+- Rick, S. I., Pereira, B., & Burson, K. A. (2014). The benefits of retail therapy: Making purchase decisions reduces residual sadness. *Journal of Consumer Psychology*, *24*(3), 373–380. <https://doi.org/10.1016/j.jcps.2013.12.004>
+- Rucker, D. D., & Galinsky, A. D. (2008). Desire to acquire: Powerlessness and compensatory consumption. *Journal of Consumer Research*, *35*(2), 257–267. <https://doi.org/10.1086/588569>
+- Rucker, D. D., & Galinsky, A. D. (2009). Conspicuous consumption versus utilitarian ideals: How different levels of power shape consumer behavior. *Journal of Experimental Social Psychology*, *45*(3), 549–555. <https://doi.org/10.1016/j.jesp.2009.01.005>
+- Sivanathan, N., & Pettit, N. C. (2010). Protecting the self through consumption: Status goods as affirmational commodities. *Journal of Experimental Social Psychology*, *46*(3), 564–570. <https://doi.org/10.1016/j.jesp.2010.01.006>
+- Thaler, R. H. (1999). Mental accounting matters. *Journal of Behavioral Decision Making*, *12*(3), 183–206. <https://doi.org/10.1002/(SICI)1099-0771(199909)12:3%3C183::AID-BDM318%3E3.0.CO;2-F>
+- Tversky, A., & Kahneman, D. (1991). Loss aversion in riskless choice: A reference-dependent model. *Quarterly Journal of Economics*, *106*(4), 1039–1061. <https://doi.org/10.2307/2937956>
+- Veblen, T. (1899). *The Theory of the Leisure Class*. Macmillan. Full text: <https://www.gutenberg.org/ebooks/833>
+
 
 *Published 25 November 2026. Figures are as cited from the sources above; PEP estimates are revised with each vintage, so check the latest release before reusing the totals.*
 
@@ -426,20 +460,22 @@ The next step, if this becomes a longer study, is to run those three tests on th
 
 ## 5. 一个假说：很多消费买的是身份，不是奢侈
 
-需要解释的模式很常见：一个经济紧张的家庭继续在外出吃饭和购物上花钱，并且把这些事看作没得商量，哪怕债务在增长。假说是：这笔消费在维持一种身份——“我还是一个正常人”——而砍掉它，感觉上不是省钱，而是承认失败。
+需要解释的模式很常见：一个经济紧张的家庭继续在外出吃饭和购物上花钱，并且把这些事看作没得商量，哪怕债务在增长。假说是：这笔消费在维持一种身份——“我还是一个正常人”——而砍掉它，感觉上不是省钱，而是承认失败。理论框架来自身份经济学：身份——一个人对自己的认知和所属的社会类别——进入了效用函数，所以只看钱会觉得浪费的行为，一旦计入身份就可能是合理的（[Akerlof & Kranton, 2000](https://doi.org/10.1162/003355300554881)；[Oyserman, 2009](https://doi.org/10.1016/j.jcps.2009.05.008)）。
 
 按脆弱程度递进，有四个层面：
 
-1. **我还是我。**一次外出吃饭或一次购买，是一个小而可重复的证明：生活还没有坍缩成单纯的生存。
-2. **我还能决定点什么。**当收入、住房和工作都像是别人决定的，一笔自主的消费是少数完全属于自己的选择。
-3. **我需要一个出口。**在持续的压力下，消费也是一种应对：休息、奖励、继续撑下去的方式。
-4. **我不想被看作穷人、失败者或依赖者。**消费部分是做给别人看的——家人、朋友、孩子——证明这个家庭还撑得住。
+1. **我还是我。**一次外出吃饭或一次购买，是一个小而可重复的证明：生活还没有坍缩成单纯的生存。Belk 的论点是，物品——进而消费所购买的体验和东西——是自我的一部分，失去它们会削弱自我感（[Belk, 1988](https://doi.org/10.1086/209154)）。最直接的检验是：自尊受到威胁的人，以及自尊受损的低收入者，会把更大比例的收入花在地位商品上以修复自我价值，而给他们另一条恢复自尊的路，这种欲望就消失了（[Sivanathan & Pettit, 2010](https://doi.org/10.1016/j.jesp.2010.01.006)）。
+2. **我还能决定点什么。**当收入、住房和工作都像是别人决定的，一笔自主的消费是少数完全属于自己的选择。关于无力感的实验发现了同样的模式：感到无力会提高支付意愿，但只针对与地位有关的商品，普通商品则不会（[Rucker & Galinsky, 2008](https://doi.org/10.1086/588569)）。而且起作用的可能正是“选择”本身：做出购物的选择——哪怕只是假设性的——能通过恢复对环境的掌控感来缓解残留的悲伤（[Rick, Pereira & Burson, 2014](https://doi.org/10.1016/j.jcps.2013.12.004)）。
+3. **我需要一个出口。**在持续的压力下，消费也是一种应对：休息、奖励、继续撑下去的方式。在商场实地研究和日记研究中，心情不好会让人给自己买小奖励，这是一种有意的情绪修复策略，效果持久，事后也没有后悔或内疚（[Atalay & Meloy, 2011](https://doi.org/10.1002/mar.20404)）。稀缺本身会收窄用于规划和自控的认知带宽（[Mani et al., 2013](https://doi.org/10.1126/science.1238041)；[Mullainathan & Shafir, 2013](https://www.hks.harvard.edu/centers/cid/publications/books/scarcity-why-having-too-little-means-so-much)），这让快速、可靠的出口比缓慢、费力的出口更有吸引力。
+4. **我不想被看作穷人、失败者或依赖者。**消费部分是做给别人看的——家人、朋友、孩子——证明这个家庭还撑得住。这是这套论证里最古老的部分：Veblen 的炫耀性消费——未能按应有的数量和质量消费，“就成了低人一等和有过失的标志”（[Veblen, 1899](https://www.gutenberg.org/ebooks/833)）。实证上，在地位受到威胁的地方，可见商品占支出的比重更大：美国黑人和西班牙裔家庭在可见商品上的支出比条件相当的白人家庭高约 25%（已计入永久收入）（[Charles, Hurst & Roussanov, 2009](https://doi.org/10.1162/qjec.2009.124.2.425)），而一项支出对别人有多可见，可以解释不同商品收入弹性差异的至多三分之一（[Heffetz, 2011](https://doi.org/10.1162/REST_a_00116)）。在对 30 个英国低收入家庭的访谈中，确保孩子拥有“对的”品牌是一种避免污名、保护社会身份的策略（[Hamilton, 2012](https://doi.org/10.1177/0038038511416146)）。阿比让最近的一项实地实验从反面证实了同样的逻辑：人们会投资外表、扭曲消费以显得地位更高，因为被看作地位很低意味着在机会面前被边缘化（[Dupas, Fafchamps & Hernandez-Nunez, 2024](https://doi.org/10.3386/w32491)，NBER 工作论文）。
 
-为什么债务拦不住它？三个机制，每一个都可以检验：信用卡把付款的痛苦推迟了，成本是抽象的、未来的，而一顿饭是具体的、今天的；这些钱在心里被归入“生活”而不是“奢侈”，所以每一笔看起来都很小；损失是不对称的——省下 50 美元只是省钱，而取消一顿饭却像是在承认“我在这里撑不下去了”。
+为什么债务拦不住它？三个机制，每一个都可以检验。第一，信用卡把付款的痛苦推迟了，成本是抽象的、未来的，而一顿饭是具体的、今天的：当被告知用信用卡而不是现金支付时，支付意愿上升了至多约 100%（[Prelec & Simester, 2001](https://doi.org/10.1023/A:1008196717017)），理论解释是付款本身带来即时的“痛苦”，而信用卡把这种痛苦与消费解耦了（[Prelec & Loewenstein, 1998](https://doi.org/10.1287/mksc.17.1.4)）。与身份的联系是直接的：在自我受到威胁时，人们愿意为地位牛仔裤多付近 30%，而且更可能打算用信用卡支付的比例高出 60% 以上（[Pettit & Sivanathan, 2011](https://doi.org/10.1177/1948550610385138)）。第二，这些钱在心里被归入“生活”而不是“奢侈”，所以每一笔看起来都很小：心理账户把支出分到互不通用的账户里，并且以狭窄的视角逐笔评判，而不是加总起来看（[Thaler (1999)](<https://doi.org/10.1002/(SICI)1099-0771(199909)12:3%3C183::AID-BDM318%3E3.0.CO;2-F>)）。第三，损失是不对称的——省下 50 美元只是省钱，而取消一顿饭却像是在承认“我在这里撑不下去了”：损失比同等收益的分量更重（[Kahneman & Tversky, 1979](https://doi.org/10.2307/1914185)），放弃一件有价值的东西带来的痛苦，大于得到它带来的愉悦（[Tversky & Kahneman, 1991](https://doi.org/10.2307/2937956)）。
 
-区分两种身份消费会有帮助。*维持*身份是防御性的：保住已经拥有的生活。*提升*身份是进攻性的：成为一名经理、用英语通过面试、学会 eCW 这样的系统、谈成更高的薪水——一种更有尊严的身份，花的不是钱，而是时间和努力。前者每次都快而便宜；后者每一步都慢而昂贵，但只有它能改变约束本身。
+区分两种身份消费会有帮助。*维持*身份是防御性的：保住已经拥有的生活。*提升*身份是进攻性的：成为一名经理、用英语通过面试、学会 eCW 这样的系统、谈成更高的薪水——一种更有尊严的身份，花的不是钱，而是时间和努力。前者每次都快而便宜；后者每一步都慢而昂贵，但只有它能改变约束本身。最接近的正式模型是补偿性消费行为模型，其五种策略包括*直接解决*——直接修复差距本身，例如获得技能——以及*象征性自我完成*和*流动补偿*——用某个产品或体验来标示或替代缺失的自我（[Mandel et al., 2017](https://doi.org/10.1016/j.jcps.2016.05.003)）。“防御 / 进攻”这对标签是这篇笔记借用该模型做的表述，不是原作者的用语。贫困家庭在基本生存之外的花钱本身已有充分记录：在 13 个国家的家庭调查中，极端贫困家庭通常会把中位数 10% 的预算花在节日、婚礼和葬礼上，而不是多买食物（[Banerjee & Duflo, 2007](https://doi.org/10.1257/jep.21.1.141)）。
 
 什么可以证伪这个假说？如果收入恢复后，同样的消费立刻、毫无阻力地消失，那它很可能只是应对或习惯，而不是身份。如果给一个家庭提供同样有尊严、但更便宜的替代品——一顿让人感觉慷慨而不是施舍的社区餐、一次成本更低的同样出游——它愉快地接受了，那起作用的就是价格，而不是身份。如果它在体验相当的情况下仍然拒绝更便宜的替代品，身份就确实在起作用。这些是后续研究应该做的检验，而不是从一次观察就假定答案。
+
+**文献能证明什么、不能证明什么。**目前没有已发表的研究在单一设计中检验整个四层假说，也没有针对外出吃饭的研究；上面的支撑是按组成部分给出的，把它用到一顿饭上是一种解读，而不是直接发现。Belk 的扩展自我说的是物品，不是饭。 “省 50 美元 vs 取消一顿饭”的对比是对损失厌恶的应用，不是 Kahneman 和 Tversky 的实验。“防御 / 进攻”的区分是这篇笔记对 Mandel 等人模型的表述，不是他们的术语。文献确实确立的是机制的各个部分：身份进入经济决策，受到威胁的自我会购买地位，无力感通过选择得到修复，稀缺收窄带宽，可见消费传递地位，信用卡把付款与愉悦解耦。
 
 <div class="cc-chart" markdown="1">
 <h4>试一下：一顿 50 美元的饭</h4>
@@ -477,6 +513,38 @@ The next step, if this becomes a longer study, is to run those three tests on th
 - 纽约市主计长，"NYC's Post-Pandemic Rebound"，2025 年 12 月 Spotlight——<https://comptroller.nyc.gov/wp-content/uploads/2025/12/Dec-2025-Spotlight-NYC-Overview.pdf>
 - Citizens Budget Commission，《Straight From New Yorkers 2025》，2025 年 6 月——<https://cbcny.org/sites/default/files/media/files/CBCREPORT_Resident-Survey-2025_06042025.pdf>
 - Empire Center，"Leaving New York" 民调，2026 年（纽约州，不是单指纽约市）
+
+### 第 5 节参考文献——身份、地位与压力下的消费
+
+- Akerlof, G. A., & Kranton, R. E. (2000). Economics and identity. *Quarterly Journal of Economics*, *115*(3), 715–753. <https://doi.org/10.1162/003355300554881>
+- Akerlof, G. A., & Kranton, R. E. (2010). *Identity Economics: How Our Identities Shape Our Work, Wages, and Well-Being*. Princeton University Press. ISBN 978-0-691-14648-5. <https://ideas.repec.org/a/eee/joepsy/v31y2010i6p1061-1063.html>
+- Atalay, A. S., & Meloy, M. G. (2011). Retail therapy: A strategic effort to improve mood. *Psychology & Marketing*, *28*(6), 638–659. <https://doi.org/10.1002/mar.20404>
+- Banerjee, A. V., & Duflo, E. (2007). The economic lives of the poor. *Journal of Economic Perspectives*, *21*(1), 141–168. <https://doi.org/10.1257/jep.21.1.141>
+- Banerjee, A. V., & Duflo, E. (2011). *Poor Economics*. PublicAffairs. ISBN 978-1-58648-798-0.
+- Belk, R. W. (1988). Possessions and the extended self. *Journal of Consumer Research*, *15*(2), 139–168. <https://doi.org/10.1086/209154>
+- Case, A., Garrib, A., Menendez, A., & Olgiati, A. (2008). Paying the piper: The high cost of funerals in South Africa. NBER Working Paper No. 14456. <https://papers.ssrn.com/abstract=1294131>（工作论文，未经同行评审）
+- Charles, K. K., Hurst, E., & Roussanov, N. (2009). Conspicuous consumption and race. *Quarterly Journal of Economics*, *124*(2), 425–467. <https://doi.org/10.1162/qjec.2009.124.2.425>
+- Dupas, P., Fafchamps, M., & Hernandez-Nunez, L. (2024; rev. Dec 2025). Keeping up appearances: An experimental investigation of socioeconomic status signaling to avoid discrimination. NBER Working Paper No. 32491. <https://doi.org/10.3386/w32491>（工作论文，未经同行评审）
+- Hamilton, K. (2012). Low-income families and coping through brands: Inclusion or stigma? *Sociology*, *46*(1), 74–90. <https://doi.org/10.1177/0038038511416146>
+- Heffetz, O. (2011). A test of conspicuous consumption: Visibility and income elasticities. *Review of Economics and Statistics*, *93*(4), 1101–1117. <https://doi.org/10.1162/REST_a_00116>
+- Kahneman, D., & Tversky, A. (1979). Prospect theory: An analysis of decision under risk. *Econometrica*, *47*(2), 263–291. <https://doi.org/10.2307/1914185>
+- Landis, B., & Gladstone, J. J. (2017). Personality, income, and compensatory consumption: Low-income extraverts spend more on status. *Psychological Science*, *28*(10), 1518–1520. <https://doi.org/10.1177/0956797617714811>
+- Mandel, N., Rucker, D. D., Levav, J., & Galinsky, A. D. (2017). The compensatory consumer behavior model: How self-discrepancies drive consumer behavior. *Journal of Consumer Psychology*, *27*(1), 133–146. <https://doi.org/10.1016/j.jcps.2016.05.003>
+- Mani, A., Mullainathan, S., Shafir, E., & Zhao, J. (2013). Poverty impedes cognitive function. *Science*, *341*(6149), 976–980. <https://doi.org/10.1126/science.1238041>
+- Moav, O., & Neeman, Z. (2012). Saving rates and poverty: The role of conspicuous consumption and human capital. *Economic Journal*, *122*(563), 933–956. <https://doi.org/10.1111/j.1468-0297.2012.02516.x>
+- Mullainathan, S., & Shafir, E. (2013). *Scarcity: Why Having Too Little Means So Much*. Times Books. ISBN 978-0-8050-9264-6. <https://www.hks.harvard.edu/centers/cid/publications/books/scarcity-why-having-too-little-means-so-much>
+- Oyserman, D. (2009). Identity-based motivation: Implications for action-readiness, procedural-readiness, and consumer behavior. *Journal of Consumer Psychology*, *19*(3), 250–260. <https://doi.org/10.1016/j.jcps.2009.05.008>
+- Pettit, N. C., & Sivanathan, N. (2011). The plastic trap: Self-threat drives credit usage and status consumption. *Social Psychological and Personality Science*, *2*(2), 146–153. <https://doi.org/10.1177/1948550610385138>
+- Prelec, D., & Loewenstein, G. (1998). The red and the black: Mental accounting of savings and debt. *Marketing Science*, *17*(1), 4–28. <https://doi.org/10.1287/mksc.17.1.4>
+- Prelec, D., & Simester, D. (2001). Always leave home without it: A further investigation of the credit-card effect on willingness to pay. *Marketing Letters*, *12*(1), 5–12. <https://doi.org/10.1023/A:1008196717017>
+- Rick, S. I., Pereira, B., & Burson, K. A. (2014). The benefits of retail therapy: Making purchase decisions reduces residual sadness. *Journal of Consumer Psychology*, *24*(3), 373–380. <https://doi.org/10.1016/j.jcps.2013.12.004>
+- Rucker, D. D., & Galinsky, A. D. (2008). Desire to acquire: Powerlessness and compensatory consumption. *Journal of Consumer Research*, *35*(2), 257–267. <https://doi.org/10.1086/588569>
+- Rucker, D. D., & Galinsky, A. D. (2009). Conspicuous consumption versus utilitarian ideals: How different levels of power shape consumer behavior. *Journal of Experimental Social Psychology*, *45*(3), 549–555. <https://doi.org/10.1016/j.jesp.2009.01.005>
+- Sivanathan, N., & Pettit, N. C. (2010). Protecting the self through consumption: Status goods as affirmational commodities. *Journal of Experimental Social Psychology*, *46*(3), 564–570. <https://doi.org/10.1016/j.jesp.2010.01.006>
+- Thaler, R. H. (1999). Mental accounting matters. *Journal of Behavioral Decision Making*, *12*(3), 183–206. <https://doi.org/10.1002/(SICI)1099-0771(199909)12:3%3C183::AID-BDM318%3E3.0.CO;2-F>
+- Tversky, A., & Kahneman, D. (1991). Loss aversion in riskless choice: A reference-dependent model. *Quarterly Journal of Economics*, *106*(4), 1039–1061. <https://doi.org/10.2307/2937956>
+- Veblen, T. (1899). *The Theory of the Leisure Class*. Macmillan. 全文：<https://www.gutenberg.org/ebooks/833>
+
 
 *2026 年 11 月 25 日发布。数字均引自上述来源；PEP 估计值随每次 vintage 修订，复用总数前请核对最新发布。*
 
