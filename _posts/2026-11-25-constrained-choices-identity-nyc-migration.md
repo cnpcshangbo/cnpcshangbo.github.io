@@ -70,12 +70,17 @@ toc: false
   document.querySelectorAll('[data-lang-btn]').forEach(function(b){
     b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang-btn')); });
   });
-  setLang(initial());
+  if (document.readyState==='loading') {
+    document.addEventListener('DOMContentLoaded', function(){ setLang(initial()); });
+  } else {
+    setLang(initial());
+  }
 })();
 </script>
 
 <script>
 (function(){
+  function init(){
   // PEP year detail
   document.querySelectorAll('.cc-pep-row').forEach(function(row){
     row.addEventListener('click', function(){
@@ -126,6 +131,12 @@ toc: false
       });
     });
   });
+  }
+  if (document.readyState==='loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
 
